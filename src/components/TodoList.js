@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import Todo from './Todo'
 
 class TodoList extends React.Component {
-	constructor(props){
-		super(props);
-	}
-
 	render(){
 		let {todos, onTodoClick} = this.props;
 		return (
@@ -21,20 +17,7 @@ class TodoList extends React.Component {
 			</ul>
 		)
 	}
-
 }
-
-// const TodoList = ({ todos, onTodoClick }) => (
-// 	<ul>
-// 		{todos.map(todo =>
-// 			<Todo
-// 				key={todo.id}
-// 				{...todo}
-// 				onClick={() => onTodoClick(todo.id)}
-// 			/>
-// 		)}
-// 	</ul>
-// )
 
 TodoList.propTypes = {
 	todos: PropTypes.arrayOf(PropTypes.shape({
