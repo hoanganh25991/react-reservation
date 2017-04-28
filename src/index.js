@@ -11,11 +11,11 @@ import createHistory            from 'history/createBrowserHistory'
 const  history                  = createHistory()
 const  routerMiddlewareInstance = routerMiddleware(history)
 // Thunk for action as function
-import thunk                    from 'redux-thunk';
+import thunkMiddleware          from 'redux-thunk';
 // Log into DevTool (DevTool of Chrome)
-import createLogger             from 'redux-logger';
+import loggerMiddleware         from 'redux-logger';
 // Middlewares
-const  middlewares = [routerMiddlewareInstance, thunk, createLogger];
+const  middlewares = [routerMiddlewareInstance, thunkMiddleware, loggerMiddleware];
 // Reducers
 import todoApp from './reducers'
 // Build redux with middleware
