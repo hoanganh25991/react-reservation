@@ -33,14 +33,42 @@ const  store = createStore(
 /**
  * Render app
  */
-import App from './components/App'
+//import {App, Login, Logout, Reservations} from './components'
+import App          from './components/App'
+import Login        from './components/Login'
+import Logout       from './components/Logout'
+import Reservations from './components/Reservations'
 import {ConnectedRouter} from 'react-router-redux'
+
+// Add router
+import {
+	BrowserRouter as Router,
+	Route,
+	Link
+} from 'react-router-dom'
+
 
 ReactDOM.render(
 	<Provider store={store}>
 		{ /* ConnectedRouter will use the store from Provider automatically */}
 		<ConnectedRouter history={history}>
-			<App />
+			<Router>
+				<div>
+					<ul>
+						<li><Link to="/">Home</Link></li>
+						<li><Link to="/login">Login</Link></li>
+						<li><Link to="/logout">Logout</Link></li>
+						<li><Link to="/reservations">Reservations</Link></li>
+					</ul>
+
+					<hr/>
+
+					<Route exact path="/"       component={App} />
+					<Route path="/login"        component={Login} />
+					<Route path="/logout"       component={Logout} />
+					<Route path="/reservations" component={Reservations} />
+				</div>
+			</Router>
 		</ConnectedRouter>
 	</Provider>,
 	document.getElementById('root')
