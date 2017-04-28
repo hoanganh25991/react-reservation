@@ -37,6 +37,7 @@ const  store = createStore(
 import App          from './components/App'
 import Login        from './components/Login'
 import Logout       from './components/Logout'
+import About        from './components/About'
 import Reservations from './components/Reservations'
 import {ConnectedRouter} from 'react-router-redux'
 
@@ -58,6 +59,7 @@ ReactDOM.render(
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/login">Login</Link></li>
 						<li><Link to="/logout">Logout</Link></li>
+						<li><Link to="/about">About</Link></li>
 						<li><Link to="/reservations">Reservations</Link></li>
 					</ul>
 
@@ -66,6 +68,7 @@ ReactDOM.render(
 					<Route exact path="/"       component={App} />
 					<Route path="/login"        component={Login} />
 					<Route path="/logout"       component={Logout} />
+					<Route path="/about"        component={About} />
 					<Route path="/reservations" component={Reservations} />
 				</div>
 			</Router>
