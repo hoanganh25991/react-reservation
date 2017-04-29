@@ -20,3 +20,7 @@ export const toggleTodo = (id) => {
 		id
 	}
 }
+
+export const sendLoginReq = ({username, password}) => {
+	console.log('send success');
+}
