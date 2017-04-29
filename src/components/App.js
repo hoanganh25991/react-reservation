@@ -2,14 +2,25 @@ import React from 'react'
 import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
-import './App.css'
+import Layout from './Layout'
 
-const App = () => (
-	<div className="Vi">
-		<AddTodo />
-		<VisibleTodoList />
-		<Footer />
-	</div>
-)
+class App extends React.Component {
+	render(){
+
+		let position = {
+			Top: () => (<h1>App here</h1>),
+			Left: AddTodo,
+			Right: VisibleTodoList,
+			Bottom: Footer
+		}
+
+		return (
+			<div>
+				<Layout {...position} />
+			</div>
+
+		)
+	}
+}
 
 export default App
