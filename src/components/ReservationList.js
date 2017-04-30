@@ -8,7 +8,7 @@ class ReservationList extends React.Component {
 		
 		fetchReservations(url)
 			.then(reservations => {
-				console.log(reservations);
+				//console.log(reservations);
 				// Update state reservations
 				updateReservations(reservations);
 			});
@@ -22,11 +22,11 @@ class ReservationList extends React.Component {
 				<h1>Reservations</h1>
 				<ul>{reservations.map(reservation =>
 					<li key={reservation.id}>
-						<p>{reservation.confirm_id}</p>
-						<p>{reservation.reservation_timestamp}</p>
-						<p>{reservation.saluation} {reservation.first_name} {reservation.last_name}</p>
-						<p>{reservation.phone_country_code} {reservation.phone}</p>
-						<p>{reservation.email}</p>
+						<span>{reservation.confirm_id}</span>
+						<span>{reservation.reservation_timestamp}</span>
+						<span>{reservation.saluation} {reservation.first_name} {reservation.last_name}</span>
+						<span>{reservation.phone_country_code} {reservation.phone}</span>
+						<span>{reservation.email}</span>
 					</li>
 				)}</ul>
 			</div>
