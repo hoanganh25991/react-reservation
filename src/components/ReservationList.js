@@ -4,7 +4,9 @@ class ReservationList extends React.Component {
 	componentDidMount(){
 		let  {fetchReservations} = this.props;
 		
-		fetchReservations()
+		let url = 'reservations';
+		
+		fetchReservations(url)
 			.then(reservations => {
 				console.log(reservations);
 			});
