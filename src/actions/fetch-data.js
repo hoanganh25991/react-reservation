@@ -72,23 +72,24 @@ export const fetchData = (ajax_options) => {
 	return (dispatch) => {
 		dispatch(beforeReq(ajax_options));
 
-		return hoiFetch(ajax_options)
-					.then(res => {
-						dispatch(receiveRes(res));
+		return (
+			hoiFetch(ajax_options)
+				.then(res => {
+					dispatch(receiveRes(res));
 
-						let {type} = ajax_options;
+					let {type} = ajax_options;
 
-						switch(type) {
-							case POST_FORM:
-							{
-								return res.text();
-							}
-							case POST_JSON:
-							{
-								return res.json();
-							}
+					switch(type) {
+						case POST_FORM:
+						{
+							return res.text();
 						}
-					})
-					.then(data => Promise.resolve(data));
+						case POST_JSON:
+						{
+							return res.json();
+						}
+					}
+				})
+		)
 	}
 }
