@@ -1,8 +1,13 @@
 import React from 'react'
 
 class ReservationList extends React.Component {
-	componentDidMounted(){
-
+	componentDidMount(){
+		let  {fetchReservations} = this.props;
+		
+		fetchReservations()
+			.then(reservations => {
+				console.log(reservations);
+			});
 	}
 
 	render(){

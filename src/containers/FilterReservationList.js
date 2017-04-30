@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
 import ReservationList from '../components/ReservationList'
+import {fetchReservations} from '../actions'
+
 
 const getVisibleTodos = (reservations, filter_options) => {
 	switch (filter_options) {
@@ -20,7 +22,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onTodoClick: () => {console.log(dispatch)}
+		fetchReservations: () => {return dispatch(fetchReservations)}
 	}
 }
 

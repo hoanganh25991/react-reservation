@@ -1,15 +1,7 @@
-export const UPDATE_RESERVATION = 'UPDATE_RESERVATION' 
+import {POST_FORM, POST_JSON, fetchData} from './fetch-data'
 
 
-
-let nextTodoId = 0
-export const addTodo = (text) => {
-	return {
-		type: 'ADD_TODO',
-		id: nextTodoId++,
-		text
-	}
-}
+export const UPDATE_RESERVATION = 'UPDATE_RESERVATION'
 
 export const setVisibilityFilter = (filter) => {
 	return {
@@ -27,4 +19,13 @@ export const toggleTodo = (id) => {
 
 export const sendLoginReq = ({username, password}) => {
 	console.log('send success');
+}
+
+export const fetchReservations = (dispatch) => {
+	let ajax_options = {
+		url: 'http://reservation.dev/api/admin/reservations',
+		type: POST_JSON
+	};
+
+	return dispatch(fetchData(ajax_options));
 }
