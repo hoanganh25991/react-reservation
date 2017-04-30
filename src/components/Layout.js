@@ -1,4 +1,5 @@
-import React from 'react'
+import React     from 'react'
+import PropTypes from 'prop-types'
 import './App.css'
 
 class Layout extends React.Component {
@@ -25,5 +26,11 @@ class Layout extends React.Component {
 	}
 }
 
-//hello trigger for me
+Layout.propTypes = {
+	Top:    PropTypes.func.isRequired,
+	Left:   PropTypes.func.isRequired,
+	Right:  PropTypes.func.isRequired,
+	Bottom: PropTypes.func.isRequired,
+}
+
 export default Layout

@@ -1,13 +1,9 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
 import reservations from './reservations'
 
-const todoApp = combineReducers({
-	todos,
+const adminPage = combineReducers({
 	reservations,
-	visibilityFilter
 })
 
-export default todoApp
+export default adminPage
 
