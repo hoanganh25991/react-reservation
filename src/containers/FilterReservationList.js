@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import ReservationList from '../components/ReservationList'
 import {POST_JSON, fetchData} from '../actions'
+import {updateReservations} from '../actions'
 
 const getVisibleTodos = (reservations, filter_options) => {
 	switch (filter_options) {
@@ -30,7 +31,8 @@ const fetchReservations = (url) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchReservations: (url) => dispatch(fetchReservations(url))
+		fetchReservations: (url) => dispatch(fetchReservations(url)),
+		updateReservations: (reservations) => dispatch(updateReservations(reservations))
 	}
 }
 

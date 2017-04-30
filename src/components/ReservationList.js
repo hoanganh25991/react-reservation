@@ -2,13 +2,15 @@ import React from 'react'
 
 class ReservationList extends React.Component {
 	componentDidMount(){
-		let  {fetchReservations} = this.props;
+		let  {fetchReservations, updateReservations} = this.props;
 		
 		let url = 'reservations';
 		
 		fetchReservations(url)
 			.then(reservations => {
 				console.log(reservations);
+				// Update state reservations
+				updateReservations(reservations);
 			});
 	}
 

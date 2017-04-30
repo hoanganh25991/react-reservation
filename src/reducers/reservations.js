@@ -1,6 +1,4 @@
-import {
-	UPDATE_RESERVATION
-} from '../actions'
+import { UPDATE_RESERVATION, UPDATE_RESERVATIONS } from '../actions'
 
 const reservations = (state = [], action) => {
 	switch(action.type) {
@@ -15,6 +13,11 @@ const reservations = (state = [], action) => {
 
 				return Object.assign({}, r, reservation);
 			});
+		}
+		case UPDATE_RESERVATIONS:
+		{
+			let new_state = [...action.reservations];
+			return new_state;
 		}
 		default:
 			return state
