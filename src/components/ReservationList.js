@@ -11,6 +11,13 @@ class ReservationList extends React.Component {
 				//console.log(reservations);
 				// Update state reservations
 				updateReservations(reservations);
+			})
+			.catch(response => {
+				//console.log(response);
+				// Should call login
+				// reponse should tell what happen
+				// If not, just ask staff, re-login
+				// Then re-fetch data
 			});
 	}
 

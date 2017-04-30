@@ -72,7 +72,14 @@ const hoiFetch = (ajax_options) => {
 	}
 
 	return fetch(full_url, {
-		method: 'POST', body, credentials: 'same-origin'
+		method: 'POST',
+		body,
+		// credentials: 'same-origin',
+		headers: {
+			'Access-Control-Allow-Origin' : '*'
+		},
+		credentials: 'include',
+		// mode: 'cors',
 	});
 }
 

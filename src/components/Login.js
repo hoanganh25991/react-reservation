@@ -1,3 +1,4 @@
+import { connect } from 'react-redux'
 import React from 'react'
 import {sendLoginReq} from '../actions'
 
@@ -6,12 +7,12 @@ class Login extends React.Component {
 	constructor(props){
 		super(props);
 
-		this.state = {username: '', password: ''};
+		this.state = {user_name: '', password: ''};
 	}
 
 	storeUsername = (e) => {
-		let username = e.target.value;
-		this.setState({username});
+		let user_name = e.target.value;
+		this.setState({user_name});
 	}
 
 	storePassword = (e) => {
@@ -22,16 +23,25 @@ class Login extends React.Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		//console.log(this.state);
-		let {username, password} = this.state;
+		let {user_name, password} = this.state;
 		
-		sendLoginReq({username, password});
+		// sendLoginReq({user_name, password})
+		// 	.then((data) => {
+		// 		console.log(data);
+		// 	});
+
+		let {dispatch} =  this.props;
+		dispatch(sendLoginReq({user_name, password}))
+			.then((res) => console.log(res));
+
+		//console.log(dispatch(sendLoginReq({user_name, password})));
 	}
 
 	render(){
 		return (
 			<div>
 				<form onSubmit={this.onSubmit} >
-					<input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.storeUsername}/>
+					<input type="text" name="username" placeholder="username" value={this.state.user_name} onChange={this.storeUsername}/>
 					<input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.storePassword}/>
 					<button>Login</button>
 				</form>
@@ -39,5 +49,7 @@ class Login extends React.Component {
 		)
 	}
 }
+
+Login = connect()(Login);
 
 export default Login
