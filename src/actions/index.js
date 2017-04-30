@@ -1,3 +1,7 @@
+export const UPDATE_RESERVATION = 'UPDATE_RESERVATION' 
+
+
+
 let nextTodoId = 0
 export const addTodo = (text) => {
 	return {

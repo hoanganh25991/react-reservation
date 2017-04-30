@@ -33,12 +33,12 @@ const  store = createStore(
 /**
  * Render app
  */
-//import {App, Login, Logout, Reservations} from './components'
+//import {App, Login, Logout, ReservationList} from './components'
 import App          from './components/App'
 import Login        from './components/Login'
 import Logout       from './components/Logout'
 import About        from './components/About'
-import Reservations from './components/Reservations'
+import Reservations from './components/ReservationList'
 import {ConnectedRouter} from 'react-router-redux'
 
 // Add router

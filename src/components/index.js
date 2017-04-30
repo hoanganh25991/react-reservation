@@ -1,7 +1,7 @@
 import App          from './Login'
 import Login        from './Login'
 import Logout       from './Logout'
-import Reservations from './Reservations'
+import Reservations from './ReservationList'
 
 const components = {
 	App,
