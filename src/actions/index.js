@@ -18,6 +18,17 @@ export const sendLoginReq = ({user_name, password}) => {
 	return fetchData(ajax_options);
 };
 
+export const sendLogoutReq = () => {
+	//console.log('send success');
+	let ajax_options = {
+		url: 'logout',
+		type: POST_FORM,
+		data: {}
+	};
+
+	return fetchData(ajax_options);
+};
+
 /*
  |--------------------------------------------------------------------------
  | Fetch data
