@@ -5,12 +5,12 @@ const reservations = (state, action) => {
 		case UPDATE_RESERVATION:
 		{
 			// Watch on reservations branch
-			let {reservations} = state;
+			let {reservations: currReservations} = state;
 
 			// New reservation info from action
 			let {reservation} = action;
 
-			let _reservations = reservations.map(r => {
+			let reservations = currReservations.map(r => {
 				if(r.id !== reservation.id) {
 					return r;
 				}
@@ -20,16 +20,16 @@ const reservations = (state, action) => {
 			});
 
 			// Return state with reservations updated
-			return Object.assign({}, state, {reservations: _reservations})
+			return Object.assign({}, state, {reservations: reservations})
 		}
 		case UPDATE_RESERVATIONS:
 		{
 			// Watch on reservations branch
-			let {reservations} = state;
+			//let {reservations} = state;
 			// New reservations info from action
-			let _reservations = [...action.reservations];
+			let reservations = [...action.reservations];
 			// Return state with reservations updated
-			return Object.assign({}, state, {reservations: _reservations})
+			return Object.assign({}, state, {reservations: reservations})
 		}
 		default:
 			return state
