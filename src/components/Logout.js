@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import {sendLogoutReq} from '../actions'
-
 
 class Logout extends React.Component {
-	componentDidMount() {
-		let {dispatch} = this.props;
+	componentWillMount(){
+		let {logout} = this.props;
 
-		dispatch(sendLogoutReq())
-			.then(res => console.log(res));
+		logout()
+			.then(res => {
+				console.log(res)
+			})
 	}
 
 	render() {
@@ -20,7 +20,5 @@ class Logout extends React.Component {
 		)
 	}
 }
-
-Logout = connect()(Logout);
 
 export default Logout

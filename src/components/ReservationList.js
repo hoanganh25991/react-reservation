@@ -14,9 +14,9 @@ class ReservationList extends React.Component {
 			})
 			.catch(response => {
 				//console.log(response);
-				// Should call login
+				// Should call logout
 				// reponse should tell what happen
-				// If not, just ask staff, re-login
+				// If not, just ask staff, re-logout
 				// Then re-fetch data
 			});
 	}

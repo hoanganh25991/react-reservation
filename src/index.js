@@ -29,10 +29,10 @@ const store = createStore(adminPage, composeWithDevTools(applyMiddleware(...midd
 /**
  * Render app
  */
-//import {App, Login, Logout, ReservationList} from './components'
+//import {App, Login, Logout, Login} from './components'
 import App               from './components/App'
-import Login             from './components/Login'
-import Logout            from './components/Logout'
+import Login             from './containers/Login'
+import Logout            from './containers/Logout'
 import ReservationList   from './containers/ReservationList'
 import {ConnectedRouter} from 'react-router-redux'
 

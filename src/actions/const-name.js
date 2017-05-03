@@ -15,4 +15,9 @@ export const END_POINT = 'http://reservation.dev/api/admin';
 export const UPDATE_RESERVATION  = 'UPDATE_RESERVATION';
 export const UPDATE_RESERVATIONS = 'UPDATE_RESERVATIONS';
 
+/**
+ * Handle User
+ */
+export const UPDATE_USER = 'UPDATE_USER';
+
 

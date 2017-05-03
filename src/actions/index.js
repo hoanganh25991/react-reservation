@@ -78,3 +78,19 @@ export const updateReservations = (reservations) => {
 		reservations
 	}
 }
+
+/*
+ |--------------------------------------------------------------------------
+ | User
+ |--------------------------------------------------------------------------
+ | User support login
+ |
+ */
+import {UPDATE_USER} from './const-name'
+
+export const updateUser = (user) => {
+	return {
+		type: UPDATE_USER,
+		user
+	}
+}

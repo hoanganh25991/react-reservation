@@ -29,7 +29,7 @@ const reservations = (state, action) => {
 			// New reservations info from action
 			let reservations = [...action.reservations];
 			// Return state with reservations updated
-			return Object.assign({}, state, {reservations: reservations})
+			return Object.assign({}, state, {reservations})
 		}
 		default:
 			return state
