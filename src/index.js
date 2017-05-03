@@ -30,11 +30,11 @@ const store = createStore(adminPage, composeWithDevTools(applyMiddleware(...midd
  * Render app
  */
 //import {App, Login, Logout, ReservationList} from './components'
-import App                   from './components/App'
-import Login                 from './components/Login'
-import Logout                from './components/Logout'
-import FilterReservationList from './containers/FilterReservationList'
-import {ConnectedRouter}     from 'react-router-redux'
+import App               from './components/App'
+import Login             from './components/Login'
+import Logout            from './components/Logout'
+import ReservationList   from './containers/ReservationList'
+import {ConnectedRouter} from 'react-router-redux'
 
 // Add router
 import {
@@ -58,7 +58,7 @@ ReactDOM.render(<Provider store={store}>
 				<Route exact path="/"       component={App}/>
 				<Route path="/login"        component={Login}/>
 				<Route path="/logout"       component={Logout}/>
-				<Route path="/reservations" component={FilterReservationList}/>
+				<Route path="/reservations" component={ReservationList}/>
 			</div>
 		</Router>
 	</ConnectedRouter>

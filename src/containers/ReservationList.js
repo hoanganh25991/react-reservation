@@ -1,24 +1,25 @@
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import ReservationList from '../components/ReservationList'
-import {POST_JSON, fetchData} from '../actions'
 import {updateReservations} from '../actions'
 
-const getVisibleTodos = (reservations, filter_options) => {
-	switch (filter_options) {
-		default:
-			return reservations;
-	}
+
+const filterReservations = (reservations, filters) => {
+	return reservations;
 }
+
 
 const mapStateToProps = (state) => {
 	// Base on current state of reservations, fitler_options
 	// Compute filtered_reservations
-	let {reservations, filter_options} = state;
+	let {reservations, filters} = state;
 
 	return {
-		reservations: getVisibleTodos(reservations, filter_options)
+		reservations: filterReservations(reservations, filters)
 	}
 }
+
+import {fetchData} from '../actions/fetch-data'
+import {POST_JSON} from '../actions/const-name'
 
 const fetchReservations = (url) => {
 	let ajax_options = {
@@ -36,10 +37,5 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-const FilterReservationList = connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(ReservationList)
-
-export default FilterReservationList
+export default connect(mapStateToProps, mapDispatchToProps)(ReservationList)
 /////

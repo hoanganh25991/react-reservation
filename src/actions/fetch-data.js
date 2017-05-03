@@ -8,7 +8,7 @@
  |
  */
 // Hook before send request
-const BEFORE_SEND_REQ = 'BEFORE_SEND_REQ';
+import {BEFORE_SEND_REQ} from './const-name'
 const beforeReq = (ajax_options) => {
 	return {
 		type: BEFORE_SEND_REQ, ajax_options
@@ -16,8 +16,8 @@ const beforeReq = (ajax_options) => {
 }
 
 // Support post type
-export const POST_FORM = 'POST_FORM';
-export const POST_JSON = 'POST_JSON';
+import {POST_FORM} from './const-name'
+import {POST_JSON} from './const-name'
 const checkType = (type) => {
 	if(![POST_FORM, POST_JSON].includes(type)) {
 		throw new Error(`hoiFetch not support fetch type: ${type}`);
@@ -27,7 +27,7 @@ const checkType = (type) => {
 }
 
 // Hook receive response
-const RECEIVE_RES = 'RECEIVE_RES';
+import {RECEIVE_RES} from './const-name'
 const receiveRes = (reponse) => {
 	return {
 		type: RECEIVE_RES, reponse
@@ -36,7 +36,7 @@ const receiveRes = (reponse) => {
 
 // Wrap whatwg_fetch
 // Bcs we always use 'POST', 'credentials' and 'auto format body' before send
-const END_POINT = 'http://reservation.dev/api/admin';
+import {END_POINT} from './const-name'
 const hoiFetch = (ajax_options) => {
 	let {url, data, type} = ajax_options;
 	// Build full url from END_POINT
