@@ -12,49 +12,43 @@
  * }
  * 
  */
+import {LOGIN_SUCCESS} from './const-name'
+export const actionLoginSuccess = () => {
+	return {
+		type: LOGIN_SUCCESS
+	}
+}
 
-//import fetch data function
-//which help to fetch rather than right raw function
-//fetch data wrap servarl dispatch inside
-//just call it, use it to fetch
-//don't care what inside
-import {POST_FORM} from './const-name'
-import {fetchData} from './fetch-data'
+import {POST_FORM} from '../actions/const-name'
+import {fetchData} from '../actions/fetch-data'
+export const sendLoginReq = () => {
+	return (dispatch, getState) => {
+		let {user} = getState();
 
-/**
- * Dispatch in this wat is DISPATCH AS FUNCTION
- * If function not receive a (dispatch, getState) from middleware thunk
- * NO PROBLME, just go ahead, and do what you want,
- * like you are execute normal function 
- * @param user_name
- * @param password
- */
-export const sendLoginReq = ({user_name, password}) => {
-	//console.log('send success');
-	let ajax_options = {
-		url: 'login',
-		type: POST_FORM,
-		data: {user_name, password}
-	};
+		let ajax_options = {
+			url: 'login',
+			data: user,
+			type: POST_FORM
+		}
 
-	// Dispatch as function
-	// Don't need to care what happens to fetchData
-	// It will do sevaral things like show loading dialog
-	// Or hide when need, when data received, do some funny things
-	// XXX
-	return fetchData(ajax_options);
-};
+		dispatch(fetchData(ajax_options))
+			.then(res => {
+				console.log(res);
+				if(res.msg === 'ok'){
+					console.log('login success')
+					//login success
+					dispatch(actionLoginSuccess())
+				}
+			})
+			.catch(res => {
+				// Fetch FAIL ONLY no internet connection
+				console.log(res);
+			});
+	}
+}
 
-export const sendLogoutReq = () => {
-	//console.log('send success');
-	let ajax_options = {
-		url: 'logout',
-		type: POST_FORM,
-		data: {}
-	};
 
-	return fetchData(ajax_options);
-};
+
 
 /*
  |--------------------------------------------------------------------------
@@ -65,14 +59,14 @@ export const sendLogoutReq = () => {
  */
 import {UPDATE_RESERVATION, UPDATE_RESERVATIONS} from './const-name'
 
-export const updateReservation = (reservation) => {
+export const actionUpdateReservation = (reservation) => {
 	return {
 		type: UPDATE_RESERVATION,
 		reservation
 	}
 }
 
-export const updateReservations = (reservations) => {
+export const actionUpdateReservations = (reservations) => {
 	return {
 		type: UPDATE_RESERVATIONS,
 		reservations
@@ -88,7 +82,7 @@ export const updateReservations = (reservations) => {
  */
 import {UPDATE_USER} from './const-name'
 
-export const updateUser = (user) => {
+export const actionUpdateUser = (user) => {
 	return {
 		type: UPDATE_USER,
 		user

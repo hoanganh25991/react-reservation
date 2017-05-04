@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import ReservationList from '../components/ReservationList'
-import {updateReservations} from '../actions'
+import {actionUpdateReservations} from '../actions'
 
 
 const filterReservations = (reservations, filters) => {
@@ -33,7 +33,7 @@ const fetchReservations = (url) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		fetchReservations: (url) => dispatch(fetchReservations(url)),
-		updateReservations: (reservations) => dispatch(updateReservations(reservations))
+		updateReservations: (reservations) => dispatch(actionUpdateReservations(reservations))
 	}
 }
 

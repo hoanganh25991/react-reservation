@@ -1,19 +1,60 @@
 import React from 'react'
 
 class Login extends React.Component {
-	render(){
+	constructor(props) {
+		super(props);
+
 		let {user} = this.props;
-		let {updateUser, login} = this.props;
+
+		this.state = user;
+	}
+
+	onUserNameChange(value){
+		this.setState({user_name: value})
+
+		let {updateUser} = this.props;
+
+		let user = {
+			user_name: this.state.user_name,
+			password: this.state.password
+		}
+
+		updateUser(user);
+	}
+
+	onPasswordChange(value){
+		this.setState({password: value});
+
+		let {updateUser} = this.props;
+
+		let user = {
+			user_name: this.state.user_name,
+			password: this.state.password
+		}
+
+		updateUser(user);
+	}
+
+	render(){
+		// ONLY USE PRIVATE STATE BSC OF INPUT
+		// UNBOUNCE IT BY STATE
+		//let {user} = this.props;
+
+		let {login} = this.props;
 
 		return (
 			<form onSubmit={(e) => {
 				e.preventDefault()
-				login(user)
+				login()
 			}} >
 				<input type="text" name="username" placeholder="username"
-				       value={user.user_name} onChange={(e) => updateUser({user_name: e.target.value})}/>
+				       value={this.state.user_name} onChange={(e) => {
+					        this.onUserNameChange(e.target.value)
+				       }}/>
 				<input type="password" name="password" placeholder="password"
-				       value={user.password}  onChange={(e) => updateUser({password:  e.target.value})}/>
+				       value={this.state.password}  onChange={(e) => {
+				            this.onPasswordChange(e.target.value)
+				       }}/>
 				<button>Login</button>
 			</form>
 		)

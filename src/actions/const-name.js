@@ -18,6 +18,9 @@ export const UPDATE_RESERVATIONS = 'UPDATE_RESERVATIONS';
 /**
  * Handle User
  */
-export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_USER    = 'UPDATE_USER';
+export const LOGIN_SUCCESS  = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL     = 'LOGIN_FAIL';
+/////
 
 

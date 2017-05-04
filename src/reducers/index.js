@@ -19,7 +19,7 @@ const adminPage = (state = initState, action) => {
 		case c.UPDATE_USER:
 		{
 			// Current user state
-			let {user: currUser} = action;
+			let {user: currUser} = state;
 			// Update it with what inside action
 			let user = Object.assign({}, currUser, action.user);
 			// Update state
@@ -36,5 +36,5 @@ const adminPage = (state = initState, action) => {
 }
 ////////
 export default adminPage
-//////
+/////////
 
