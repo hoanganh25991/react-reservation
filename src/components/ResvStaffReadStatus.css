@@ -1,0 +1,17 @@
+.circle-read {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    background: #00FFCC;
+    margin: auto;
+    padding: 0 10px;
+}
+
+.circle-unread {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    background: #7E7F83;
+    margin: auto;
+    padding: 0 10px;
+}

@@ -34,7 +34,13 @@ import App               from './components/App'
 import Login             from './containers/Login'
 import Logout            from './containers/Logout'
 import ReservationList   from './containers/ReservationList'
+
+// Testing component
+import ReservationLayout from './components/ReservationLayout'
+
 import {ConnectedRouter} from 'react-router-redux'
+
+import './components/index.css'
 
 // Add router
 import {
@@ -51,6 +57,7 @@ ReactDOM.render(<Provider store={store}>
 					<li><Link to="/login">Login</Link></li>
 					<li><Link to="/logout">Logout</Link></li>
 					<li><Link to="/reservations">Reservations</Link></li>
+					<li><Link to="/test">Test Page</Link></li>
 				</ul>
 
 				<hr/>
@@ -59,6 +66,7 @@ ReactDOM.render(<Provider store={store}>
 				<Route path="/login"        component={Login}/>
 				<Route path="/logout"       component={Logout}/>
 				<Route path="/reservations" component={ReservationList}/>
+				<Route path="/test"         component={ReservationLayout}/>
 			</div>
 		</Router>
 	</ConnectedRouter>

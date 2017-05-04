@@ -1,0 +1,72 @@
+/**
+Global
+*/
+* {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 5px 10px;
+
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+}
+/**
+About flex
+*/
+.flex {
+    display: flex;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex1 {
+    display: flex;
+    flex: 1;
+}
+
+/**
+Color
+*/
+
+.text-whit {
+    color: white;
+}
+
+.text-blue {
+    color: #728BFF;
+}
+
+.text-gray {
+    color: #6F7175;
+}
+
+.text-yell {
+    color: #4C4E3A;
+}
+
+.self-center {
+    margin: auto;
+}
+
+.padHorz {
+    padding: 0 10px;
+}
+
+.padVert {
+    padding: 10px 0;
+}
