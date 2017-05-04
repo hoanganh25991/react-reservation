@@ -1,7 +1,7 @@
 import React from 'react'
 
 import StaffReadStatus from './ResvStaffReadStatus'
-import CustomerRemarks from './ResvCustomerRemarks'
+import Remarks from './ResvRemarks'
 
 import './ReservationLayout.css'
 
@@ -37,7 +37,7 @@ class ReservationLayout extends React.Component {
 					</div>
 				</div>
 				<div style={{flex: 1.75}}>
-					<CustomerRemarks />
+					<Remarks />
 				</div>
 				<div style={{flex: 1}}>
 					<div className="flex-column full">

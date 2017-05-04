@@ -36,7 +36,8 @@ import Logout            from './containers/Logout'
 import ReservationList   from './containers/ReservationList'
 
 // Testing component
-import ReservationLayout from './components/ReservationLayout'
+// import ReservationLayout from './components/ReservationLayout'
+import ReservationPopupLayout from './components/ReservationPopupLayout'
 
 import {ConnectedRouter} from 'react-router-redux'
 
@@ -46,7 +47,7 @@ import './components/index.css'
 import {
 	BrowserRouter as Router, Route, Link
 } from 'react-router-dom'
-
+//
 
 ReactDOM.render(<Provider store={store}>
 	<ConnectedRouter history={history}>
@@ -66,8 +67,9 @@ ReactDOM.render(<Provider store={store}>
 				<Route path="/login"        component={Login}/>
 				<Route path="/logout"       component={Logout}/>
 				<Route path="/reservations" component={ReservationList}/>
-				<Route path="/test"         component={ReservationLayout}/>
+				<Route path="/test"         component={ReservationPopupLayout}/>
 			</div>
 		</Router>
 	</ConnectedRouter>
 </Provider>, document.getElementById('root'));
+//////////////

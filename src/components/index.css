@@ -4,12 +4,17 @@ Global
 * {
     border: 1px solid black;
     box-sizing: border-box;
+    font-family: SansSerif Tahoma;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p {
     margin: 0;
     padding: 5px 10px;
 
+}
+
+.h3 {
+    font-size: 1.33em;
 }
 
 .full {
@@ -39,6 +44,11 @@ About flex
     flex: 1;
 }
 
+.flex-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 /**
 Color
 */
@@ -57,6 +67,29 @@ Color
 
 .text-yell {
     color: #4C4E3A;
+}
+
+.text-gree {
+    color: #5AE103;
+}
+
+.default {
+    text-align: center;
+    background: #4E5053;
+}
+
+.danger {
+    text-align: center;
+    background: #5C2E25;
+}
+
+.primary {
+    text-align: center;
+    background: #1C6065;
+}
+
+.btn-large {
+    height: 65px;
 }
 
 .self-center {
