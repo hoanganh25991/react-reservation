@@ -5,13 +5,15 @@ class ClickSound extends React.Component {
 		let click_tack = document.getElementById('audio');
 
 		document.addEventListener('click', () => {
-			click_tack.play();
+			if(click_tack){
+				click_tack.play();
+			}
 		})
 	}
 	
 	render(){
 		return (
-			<audio id='audio' src='click-tack.mp3'></audio>
+			<audio id='audio' src='/click-tack.mp3'></audio>
 		)
 	}
 }
