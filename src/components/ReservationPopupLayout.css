@@ -39,3 +39,8 @@
     width: 2em;
     height: 2em;
 }
+
+.popup {
+    padding: 10vw 10vh;
+    background: rgba(23, 23, 23, 0.8);
+}

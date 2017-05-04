@@ -11,7 +11,7 @@ class ReservationPopupLayout extends React.Component {
 
 		return (
 			<div className="full">
-				<div className="self-center">
+				<div className="self-center popup">
 					{
 						/**
 						 * Header
@@ -195,16 +195,14 @@ class ReservationPopupLayout extends React.Component {
 									</div>
 									<div className="flex-column">
 										<div className="flex-row btn-large danger">
-												<AlignText className="flex1">
-													<h3 className="text-whit padHorz">VOID</h3>
-												</AlignText>
+											<AlignText>
+												<h3 className="text-whit padHorz">VOID</h3>
+											</AlignText>
 										</div>
 										<div className="flex-row btn-large primary">
-											<div className="flex-column">
-												<AlignText>
-													<h3 className="text-whit padHorz">CHARGE</h3>
-												</AlignText>
-											</div>
+											<AlignText>
+												<h3 className="text-whit padHorz">CHARGE</h3>
+											</AlignText>
 										</div>
 									</div>
 								</div>
