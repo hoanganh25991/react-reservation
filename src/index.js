@@ -35,6 +35,9 @@ import Login             from './containers/Login'
 import Logout            from './containers/Logout'
 import ReservationList   from './containers/ReservationList'
 
+//Funny
+import ClickSound from './components/ClickSound'
+
 // Testing component
 import ReservationLayout from './components/ReservationLayout'
 import ReservationPopupLayout from './components/ReservationPopupLayout'
@@ -53,6 +56,7 @@ ReactDOM.render(<Provider store={store}>
 	<ConnectedRouter history={history}>
 		<Router>
 			<div>
+				<ClickSound />
 				<ul>
 					<li><Link to="/">Home</Link></li>
 					<li><Link to="/login">Login</Link></li>
