@@ -101,7 +101,8 @@ export const fetchData = (ajax_options) => {
 					switch(type) {
 						case POST_FORM:
 						{
-							return res.text();
+							//return res.text();
+							return res.json();
 						}
 						case POST_JSON:
 						{

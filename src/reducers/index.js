@@ -1,8 +1,6 @@
-//import {combineReducers} from 'redux'
-import reservations from './reservations'
-
-
 import * as c from '../actions/const-name'
+import reservations from './reservations'
+import user from './user'
 
 // const adminPage = combineReducers({
 // 	reservations,
@@ -17,13 +15,12 @@ const initState = {
 const adminPage = (state = initState, action) => {
 	switch(action.type) {
 		case c.UPDATE_USER:
+		case c.LOGIN_SUCCESS:
+		case c.LOGIN_FAIL:
+		case c.LOGOUT_SUCCESS:
+		case c.LOGOUT_FAIL:
 		{
-			// Current user state
-			let {user: currUser} = state;
-			// Update it with what inside action
-			let user = Object.assign({}, currUser, action.user);
-			// Update state
-			return Object.assign({}, state, {user});
+			return user(state, action);
 		}
 		case c.UPDATE_RESERVATIONS:
 		case c.UPDATE_RESERVATION:

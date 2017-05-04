@@ -12,42 +12,75 @@
  * }
  * 
  */
-import {LOGIN_SUCCESS} from './const-name'
-export const actionLoginSuccess = () => {
-	return {
-		type: LOGIN_SUCCESS
-	}
-}
+import * as c from './const-name'
 
-import {POST_FORM} from '../actions/const-name'
 import {fetchData} from '../actions/fetch-data'
-export const sendLoginReq = () => {
+
+export const actionSendLoginReq = () => {
 	return (dispatch, getState) => {
+		// Access user from current state
 		let {user} = getState();
 
 		let ajax_options = {
 			url: 'login',
 			data: user,
-			type: POST_FORM
+			type: c.POST_FORM
 		}
 
+		dispatch({type: c.LOGGING_IN})
+		
 		dispatch(fetchData(ajax_options))
 			.then(res => {
 				console.log(res);
 				if(res.msg === 'ok'){
 					console.log('login success')
 					//login success
-					dispatch(actionLoginSuccess())
+					dispatch({type: c.LOGIN_SUCCESS})
+
+					return;
 				}
+
+				dispatch({type: c.LOGIN_FAIL})
 			})
 			.catch(res => {
 				// Fetch FAIL ONLY no internet connection
 				console.log(res);
+				dispatch({type: c.LOGIN_FAIL})
 			});
 	}
 }
 
+export const actionSendLogoutReq = () => {
+	return (dispatch) => {
+		// build ajax option
+		let ajax_options = {
+			url: 'logout',
+			data: {},
+			type: c.POST_FORM
+		}
 
+		dispatch({type: c.LOGGING_OUT})
+
+		dispatch(fetchData(ajax_options))
+			.then(res => {
+				console.log(res);
+				if(res.msg === 'ok'){
+					console.log('logout success')
+					//login success
+					dispatch({type: c.LOGOUT_SUCCESS})
+
+					return;
+				}
+
+				dispatch({type: c.LOGOUT_FAIL})
+			})
+			.catch(res => {
+				// Fetch FAIL ONLY no internet connection
+				console.log(res);
+				dispatch({type: c.LOGOUT_FAIL})
+			});
+	}
+}
 
 
 /*
@@ -57,18 +90,16 @@ export const sendLoginReq = () => {
  | Re-export what from fetch data
  |
  */
-import {UPDATE_RESERVATION, UPDATE_RESERVATIONS} from './const-name'
-
 export const actionUpdateReservation = (reservation) => {
 	return {
-		type: UPDATE_RESERVATION,
+		type: c.UPDATE_RESERVATION,
 		reservation
 	}
 }
 
 export const actionUpdateReservations = (reservations) => {
 	return {
-		type: UPDATE_RESERVATIONS,
+		type: c.UPDATE_RESERVATIONS,
 		reservations
 	}
 }
@@ -80,11 +111,9 @@ export const actionUpdateReservations = (reservations) => {
  | User support login
  |
  */
-import {UPDATE_USER} from './const-name'
-
 export const actionUpdateUser = (user) => {
 	return {
-		type: UPDATE_USER,
+		type: c.UPDATE_USER,
 		user
 	}
 }
