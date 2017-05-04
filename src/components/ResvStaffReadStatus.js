@@ -1,7 +1,5 @@
 import React from 'react'
 
-import './ResvStaffReadStatus.css'
-
 class ResvStaffReadStatus extends React.Component {
 	render() {
 		let {read} = this.props;

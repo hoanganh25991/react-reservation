@@ -41,7 +41,7 @@ import ReservationPopupLayout from './components/ReservationPopupLayout'
 
 import {ConnectedRouter} from 'react-router-redux'
 
-import './components/index.css'
+import './css/index'
 
 // Add router
 import {
@@ -73,4 +73,4 @@ ReactDOM.render(<Provider store={store}>
 		</Router>
 	</ConnectedRouter>
 </Provider>, document.getElementById('root'));
-//////////////
+////////////////////

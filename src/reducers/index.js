@@ -32,8 +32,5 @@ const adminPage = (state = initState, action) => {
 			return state;
 	}
 }
-////////
-export default adminPage
-/////////
-////////////////
 
+export default adminPage

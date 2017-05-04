@@ -1,5 +1,4 @@
-.confirm-id {
-    background: #171A1E;
+.pop-confirm-id {
     font-weight: bold;
     font-size: 2em;
     color: white;
@@ -7,6 +6,7 @@
 }
 
 .status {
+    background: #181A1E;
     font-weight: bold;
     font-size: 1.5em;
     text-align: center;

@@ -1,8 +1,6 @@
 import React from 'react'
 
-import './ReservationPopupLayout.css'
-
-import AlignText  from './helpers/AlignText'
+import AlignCenter  from './helpers/AlignCenter'
 
 import Remarks from './ResvRemarks'
 
@@ -19,28 +17,25 @@ class ReservationPopupLayout extends React.Component {
 						 */
 					}
 					<div className="flex-row header">
-						<div className="flex-column">
-							<AlignText className="confirm-id padHorz">
-								PG3XND2
-							</AlignText>
+						<div>
+							<AlignCenter className="pop-confirm-id padHorz">
+								<div>PG3XND2</div>
+							</AlignCenter>
 						</div>
-						<div className="flex-column">
-							<AlignText className="status text-gree">
-								CONFIRMED !^
-							</AlignText>
+						<div>
+							<AlignCenter className="status text-gree">
+								<div>CONFIRMED !^</div>
+							</AlignCenter>
 						</div>
-						<div className="flex-column flex1">
-							<div className="flex-row-reverse">
-								<div>
-									<div><h1 className="text-whit">05:06:35:59</h1></div>
-									<div><h3 className="text-gray">days hours minutes seconds</h3></div>
-								</div>
-								<div className="flex-column">
-									<AlignText className="text-whit">
-										O
-									</AlignText>
-								</div>
-							</div>
+						<div className="flex1"></div>
+						<div>
+							<AlignCenter className="text-whit">
+								O
+							</AlignCenter>
+						</div>
+						<div>
+							<h1 className="text-whit">05:06:35:59</h1>
+							<h3 className="text-gray">days hours minutes seconds</h3>
 						</div>
 					</div>
 					{
@@ -58,7 +53,7 @@ class ReservationPopupLayout extends React.Component {
 								 * For right side
 								 */
 							}
-							<div style={{flex: 1.2}} className="flex-column">
+							<div className="flex-column flex1">
 								<h4 className="text-gray">CUSTOMER</h4>
 								{
 									/**
@@ -137,7 +132,7 @@ class ReservationPopupLayout extends React.Component {
 								 * For left side
 								 */
 							}
-							<div style={{flex: 1}} className="flex-column">
+							<div className="flex-column" style={{flex: 0.8}}>
 								{
 									/**
 									 * Customer remarks
@@ -154,56 +149,50 @@ class ReservationPopupLayout extends React.Component {
 							</div>
 						</div>
 						<div className="flex-row">
-							<div style={{flex: 1.2}} className="flex-column">
-								<div className="flex-row">
-									<div className="flex1">
-										<div className="flex-column">
-											<h4>DATE & TIME</h4>
-											<div className="flex-row">
-												<div>
-													<h3 className="text-whit">31 Apr 2014</h3>
-													<h3 className="text-whit">20:30</h3>
-												</div>
-												<div className="flex1">
-													<AlignText>
-														<div className="calendar highlight"></div>
-													</AlignText>
-												</div>
+							<div className="flex-row flex1">
+								<div className="flex1">
+									<div className="flex-column">
+										<h4>DATE & TIME</h4>
+										<div className="flex-row">
+											<div>
+												<h3 className="text-whit">31 Apr 2014</h3>
+												<h3 className="text-whit">20:30</h3>
 											</div>
-										</div>
-									</div>
-									<div className="flex1">
-										<div className="flex-column">
-											<h4 className="text-gray">REMINDER SMS</h4>
-											<div className="flex-row">
-												<div className="checkbox highlight"></div>
-												<p></p>
-												<h4 className="text-whit">Enabled</h4>
+											<div className="flex1">
+												<AlignCenter>
+													<div className="calendar highlight"></div>
+												</AlignCenter>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div className="flex-column flex1">
-								<div className="flex-row">
-									<div className="flex1">
-										<div className="flex-column">
-											<h3 className="text-gray">PAYMENT AUTHORIZATION</h3>
-											<h3 className="text-blue">$128 Authorized</h3>
-											<h3 className="text-blue">76HYUJ89KJU</h3>
+								<div className="flex1">
+									<div className="flex-column">
+										<h4 className="text-gray">REMINDER SMS</h4>
+										<div className="flex-row">
+											<div className="checkbox highlight"></div>
+											<p></p>
+											<h4 className="text-whit">Enabled</h4>
 										</div>
 									</div>
-									<div className="flex-column">
-										<div className="flex-row btn-large danger">
-											<AlignText>
-												<h3 className="text-whit padHorz">VOID</h3>
-											</AlignText>
-										</div>
-										<div className="flex-row btn-large primary">
-											<AlignText>
-												<h3 className="text-whit padHorz">CHARGE</h3>
-											</AlignText>
-										</div>
+								</div>
+							</div>
+							<div className="flex-row" style={{flex: 0.8}}>
+								<div className="flex-column flex1">
+									<h3 className="text-gray">PAYMENT AUTHORIZATION</h3>
+									<h3 className="text-blue">$128 Authorized</h3>
+									<h3 className="text-blue">76HYUJ89KJU</h3>
+								</div>
+								<div className="flex-column">
+									<div className="flex-row btn-large danger">
+										<AlignCenter>
+											<h3 className="text-whit padHorz">VOID</h3>
+										</AlignCenter>
+									</div>
+									<div className="flex-row btn-large primary">
+										<AlignCenter>
+											<h3 className="text-whit padHorz">CHARGE</h3>
+										</AlignCenter>
 									</div>
 								</div>
 							</div>
@@ -216,30 +205,21 @@ class ReservationPopupLayout extends React.Component {
 						}
 					</div>
 					<div className="flex-row footer">
-						<div className="flex-column">
-							<AlignText>
-								<div className="btn-large default">
-									<AlignText>
-										<h3 className="text-whit">SEND REMINDER</h3>
-									</AlignText>
-								</div>
-							</AlignText>
+						<div className="btn-large default">
+							<AlignCenter>
+								<h3 className="text-whit">SEND REMINDER</h3>
+							</AlignCenter>
 						</div>
-						<div className="flex1 flex-column">
-							<AlignText>
-								<div className="flex-row-reverse">
-									<div className="btn-large primary">
-										<AlignText>
-											<h3 className="text-whit padHorz">UPDATE</h3>
-										</AlignText>
-									</div>
-									<div className="btn-large danger">
-										<AlignText>
-											<h3 className="text-whit padHorz">CANCEL</h3>
-										</AlignText>
-									</div>
-								</div>
-							</AlignText>
+						<div className="flex1"></div>
+						<div className="btn-large primary">
+							<AlignCenter>
+								<h3 className="text-whit padHorz">UPDATE</h3>
+							</AlignCenter>
+						</div>
+						<div className="btn-large danger">
+							<AlignCenter>
+								<h3 className="text-whit padHorz">CANCEL</h3>
+							</AlignCenter>
 						</div>
 					</div>
 				</div>

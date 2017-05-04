@@ -3,8 +3,6 @@ import React from 'react'
 import StaffReadStatus from './ResvStaffReadStatus'
 import Remarks from './ResvRemarks'
 
-import './ReservationLayout.css'
-
 class ReservationLayout extends React.Component {
 	render(){
 
