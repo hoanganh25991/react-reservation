@@ -24,6 +24,7 @@ const adminPage = (state = initState, action) => {
 		}
 		case c.UPDATE_RESERVATIONS:
 		case c.UPDATE_RESERVATION:
+		case c.FETCH_RESERVATIONS_FAIL:
 		{
 			return reservations(state, action);
 		}

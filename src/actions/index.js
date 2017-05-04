@@ -104,6 +104,34 @@ export const actionUpdateReservations = (reservations) => {
 	}
 }
 
+export const actionFetchReservations = (url) => {
+	return (dispatch) => {
+		let ajax_options = {
+			url,
+			type: c.POST_JSON
+		};
+
+		dispatch(fetchData(ajax_options))
+			.then(res => {
+				console.log(res)
+				// dirty check
+				if(res){
+					let reservations = res;
+
+					dispatch(actionUpdateReservations(reservations))
+				}
+			})
+			.catch(res => {
+				console.log(res)
+				
+				dispatch({type: c.FETCH_RESERVATIONS_FAIL})
+			})
+	}
+}
+
+
+
+
 /*
  |--------------------------------------------------------------------------
  | User

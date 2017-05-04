@@ -2,23 +2,11 @@ import React from 'react'
 
 class ReservationList extends React.Component {
 	componentDidMount(){
-		let  {fetchReservations, updateReservations} = this.props;
+		let  {fetchReservations} = this.props;
 		
 		let url = 'reservations';
 		
 		fetchReservations(url)
-			.then(reservations => {
-				//console.log(reservations);
-				// Update state reservations
-				updateReservations(reservations);
-			})
-			.catch(response => {
-				//console.log(response);
-				// Should call logout
-				// reponse should tell what happen
-				// If not, just ask staff, re-logout
-				// Then re-fetch data
-			});
 	}
 
 	render(){

@@ -8,18 +8,17 @@
  |
  */
 // Hook before send request
-import {BEFORE_SEND_REQ} from './const-name'
-const beforeReq = (ajax_options) => {
+import * as c from './const-name'
+
+const actionReforeReq = (ajax_options) => {
 	return {
-		type: BEFORE_SEND_REQ, ajax_options
+		type: c.BEFORE_SEND_REQ, ajax_options
 	};
 }
 
 // Support post type
-import {POST_FORM} from './const-name'
-import {POST_JSON} from './const-name'
 const checkType = (type) => {
-	if(![POST_FORM, POST_JSON].includes(type)) {
+	if(![c.POST_FORM, c.POST_JSON].includes(type)) {
 		throw new Error(`hoiFetch not support fetch type: ${type}`);
 	}
 
@@ -27,20 +26,18 @@ const checkType = (type) => {
 }
 
 // Hook receive response
-import {RECEIVE_RES} from './const-name'
-const receiveRes = (reponse) => {
+const actionReceiveRes = (reponse) => {
 	return {
-		type: RECEIVE_RES, reponse
+		type: c.RECEIVE_RES, reponse
 	}
 }
 
 // Wrap whatwg_fetch
 // Bcs we always use 'POST', 'credentials' and 'auto format body' before send
-import {END_POINT} from './const-name'
 const hoiFetch = (ajax_options) => {
 	let {url, data, type} = ajax_options;
 	// Build full url from END_POINT
-	let full_url = END_POINT + '/' + url;
+	let full_url = c.END_POINT + '/' + url;
 
 	// Should break app here
 	// If hoiFetch options is useless
@@ -49,7 +46,7 @@ const hoiFetch = (ajax_options) => {
 	let body;
 
 	switch(type) {
-		case POST_FORM:
+		case c.POST_FORM:
 		{
 			let formData = new FormData();
 			Object.keys(data).forEach(key => {
@@ -59,7 +56,7 @@ const hoiFetch = (ajax_options) => {
 			body = formData;
 			break;
 		}
-		case POST_JSON:
+		case c.POST_JSON:
 		{
 			body = JSON.stringify(data);
 			break;
@@ -87,24 +84,24 @@ export const fetchData = (ajax_options) => {
 	return (dispatch) => {
 		// Tell state that when have a hook here
 		// For ajax call before send request
-		dispatch(beforeReq(ajax_options));
+		dispatch(actionReforeReq(ajax_options));
 
 		return (
 			hoiFetch(ajax_options)
 				.then(res => {
 					// Tell state that when have a hook here
 					// For ajax call when receive response
-					dispatch(receiveRes(res));
+					dispatch(actionReceiveRes(res));
 
 					let {type} = ajax_options;
 
 					switch(type) {
-						case POST_FORM:
+						case c.POST_FORM:
 						{
 							//return res.text();
 							return res.json();
 						}
-						case POST_JSON:
+						case c.POST_JSON:
 						{
 							return res.json();
 						}
@@ -115,6 +112,13 @@ export const fetchData = (ajax_options) => {
 							return Promise.resolve(res);
 						}
 					}
+				})
+				.catch(res => {
+					console.log(res);
+					
+					dispatch({type: c.FETCH_FAIL})
+					
+					return Promise.reject(res);
 				})
 		)
 	}

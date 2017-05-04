@@ -7,6 +7,7 @@ export const POST_FORM = 'POST_FORM';
 export const POST_JSON = 'POST_JSON';
 export const RECEIVE_RES = 'RECEIVE_RES';
 export const END_POINT = 'http://reservation.dev/api/admin';
+export const FETCH_FAIL = 'FETCH_FAIL';
 
 /**
  * Handle reservations
@@ -14,6 +15,7 @@ export const END_POINT = 'http://reservation.dev/api/admin';
  */
 export const UPDATE_RESERVATION  = 'UPDATE_RESERVATION';
 export const UPDATE_RESERVATIONS = 'UPDATE_RESERVATIONS';
+export const FETCH_RESERVATIONS_FAIL = 'FETCH_RESERVATIONS_FAIL'
 
 /**
  * Handle User

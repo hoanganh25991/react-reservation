@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import ReservationList from '../components/ReservationList'
-import {actionUpdateReservations} from '../actions'
+import {actionFetchReservations, actionUpdateReservations} from '../actions'
 
 
 const filterReservations = (reservations, filters) => {
@@ -18,21 +18,11 @@ const mapStateToProps = (state) => {
 	}
 }
 
-import {fetchData} from '../actions/fetch-data'
-import {POST_JSON} from '../actions/const-name'
 
-const fetchReservations = (url) => {
-	let ajax_options = {
-		url,
-		type: POST_JSON
-	};
-
-	return fetchData(ajax_options);
-}
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchReservations: (url) => dispatch(fetchReservations(url)),
+		fetchReservations: (url) => dispatch(actionFetchReservations(url)),
 		updateReservations: (reservations) => dispatch(actionUpdateReservations(reservations))
 	}
 }
