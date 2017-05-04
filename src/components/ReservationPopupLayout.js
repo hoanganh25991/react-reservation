@@ -10,8 +10,8 @@ class ReservationPopupLayout extends React.Component {
 	render() {
 
 		return (
-			<div className="full">
-				<div className="self-center popup">
+			<div className="popup">
+				<div className="self-center">
 					{
 						/**
 						 * Header
