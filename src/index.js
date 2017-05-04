@@ -36,7 +36,7 @@ import Logout            from './containers/Logout'
 import ReservationList   from './containers/ReservationList'
 
 // Testing component
-// import ReservationLayout from './components/ReservationLayout'
+import ReservationLayout from './components/ReservationLayout'
 import ReservationPopupLayout from './components/ReservationPopupLayout'
 
 import {ConnectedRouter} from 'react-router-redux'
@@ -68,6 +68,7 @@ ReactDOM.render(<Provider store={store}>
 				<Route path="/logout"       component={Logout}/>
 				<Route path="/reservations" component={ReservationList}/>
 				<Route path="/test"         component={ReservationPopupLayout}/>
+				<Route path="/components/ReservationLayout" component={ReservationLayout}/>
 			</div>
 		</Router>
 	</ConnectedRouter>
