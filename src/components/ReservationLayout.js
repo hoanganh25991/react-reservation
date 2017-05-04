@@ -3,6 +3,8 @@ import React from 'react'
 import StaffReadStatus from './ResvStaffReadStatus'
 import Remarks from './ResvRemarks'
 
+import AlignCenter from './helpers/AlignCenter'
+
 class ReservationLayout extends React.Component {
 	render(){
 
@@ -10,12 +12,16 @@ class ReservationLayout extends React.Component {
 			<div className="flex-row odd-row">
 				<StaffReadStatus />
 				<div className="flex-column flex1">
-					<div className="confirm-id flex1">5GC72EO</div>
-					<h3  className="text-whit flex1">O 14+3</h3>
+					<div className="confirm-id">
+						<AlignCenter>5GC72EO</AlignCenter>
+					</div>
+					<h3  className="text-whit">O 14+3</h3>
 				</div>
 				<div className="flex-column flex1">
-					<div className="timestamp flex1">24 Apr 2017 * 15:30</div>
-					<h3  className="text-whit flex1">T Level 2 - A1</h3>
+					<div className="timestamp">
+						<AlignCenter>24 Apr 2017 * 15:30</AlignCenter>
+					</div>
+					<h3  className="text-whit">T Level 2 - A1</h3>
 				</div>
 				<div className="flex-column flex1">
 					<h3 className="text-blue">Mr. Torin Nguyen</h3>
@@ -36,6 +42,5 @@ class ReservationLayout extends React.Component {
 		)
 	}
 }
-
 
 export default ReservationLayout
