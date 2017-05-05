@@ -88,6 +88,10 @@ Color
     background: #1C6065;
 }
 
+.bg-blue {
+    background: #22272D;
+}
+
 .bg-dark-blue {
     background: #171A1E;
 }

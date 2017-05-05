@@ -42,6 +42,7 @@ import ClickSound from './components/ClickSound'
 import ReservationLayout from './components/ReservationLayout'
 import ReservationPopupLayout from './components/ReservationPopupLayout'
 import FilterPanel from './components/FilterPanel'
+import NavigatorPanel from './components/NavigatorPanel'
 
 import {ConnectedRouter} from 'react-router-redux'
 
@@ -51,8 +52,6 @@ import './css/index'
 import {
 	BrowserRouter as Router, Route, Link
 } from 'react-router-dom'
-//
-
 ReactDOM.render(<Provider store={store}>
 	<ConnectedRouter history={history}>
 		<Router>
@@ -64,6 +63,14 @@ ReactDOM.render(<Provider store={store}>
 					<li><Link to="/logout">Logout</Link></li>
 					<li><Link to="/reservations">Reservations</Link></li>
 					<li><Link to="/test">Test Page</Link></li>
+					<li><Link to="/components">Components</Link>
+						<ul>
+							<li><Link to="/components/ReservationLayout">ReservationLayout</Link></li>
+							<li><Link to="/components/ReservationPopupLayout">ReservationPopupLayout</Link></li>
+							<li><Link to="/components/FilterPanel">FilterPanel</Link></li>
+							<li><Link to="/components/NavigatorPanel">NavigatorPanel</Link></li>
+						</ul>
+					</li>
 				</ul>
 
 				<hr/>
@@ -74,9 +81,13 @@ ReactDOM.render(<Provider store={store}>
 				<Route path="/reservations" component={ReservationList}/>
 				<Route path="/test"         component={ReservationPopupLayout}/>
 				<Route path="/components/ReservationLayout" component={ReservationLayout}/>
+				<Route path="/components/ReservationPopupLayout" component={ReservationPopupLayout}/>
 				<Route path="/components/FilterPanel" component={FilterPanel}/>
+				<Route path="/components/NavigatorPanel" component={NavigatorPanel}/>
 			</div>
 		</Router>
 	</ConnectedRouter>
 </Provider>, document.getElementById('root'));
+
+//
 ////////////////////
