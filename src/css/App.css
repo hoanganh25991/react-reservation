@@ -88,6 +88,14 @@ Color
     background: #1C6065;
 }
 
+.bg-dark-blue {
+    background: #171A1E;
+}
+
+.bg-yell {
+    background: #515316;
+}
+
 .btn-large {
     height: 55px;
 }

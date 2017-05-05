@@ -41,6 +41,7 @@ import ClickSound from './components/ClickSound'
 // Testing component
 import ReservationLayout from './components/ReservationLayout'
 import ReservationPopupLayout from './components/ReservationPopupLayout'
+import FilterPanel from './components/FilterPanel'
 
 import {ConnectedRouter} from 'react-router-redux'
 
@@ -73,6 +74,7 @@ ReactDOM.render(<Provider store={store}>
 				<Route path="/reservations" component={ReservationList}/>
 				<Route path="/test"         component={ReservationPopupLayout}/>
 				<Route path="/components/ReservationLayout" component={ReservationLayout}/>
+				<Route path="/components/FilterPanel" component={FilterPanel}/>
 			</div>
 		</Router>
 	</ConnectedRouter>
