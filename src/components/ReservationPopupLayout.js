@@ -126,13 +126,41 @@ class ReservationPopupLayout extends React.Component {
 								</div>
 								<br/>
 								<br/>
+								<div className="flex-row">
+									<div className="flex1">
+										<div className="flex-column">
+											<h4 className="text-gray">DATE & TIME</h4>
+											<div className="flex-row">
+												<div>
+													<h3 className="text-whit">31 Apr 2014</h3>
+													<h3 className="text-whit">20:30</h3>
+												</div>
+												<div className="flex1">
+													<AlignCenter>
+														<div className="calendar highlight"></div>
+													</AlignCenter>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div className="flex1">
+										<div className="flex-column">
+											<h4 className="text-gray">REMINDER SMS</h4>
+											<div className="flex-row">
+												<div className="checkbox highlight"></div>
+												<p></p>
+												<h4 className="text-whit">Enabled</h4>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 							{
 								/**
 								 * For left side
 								 */
 							}
-							<div className="flex-column" style={{flex: 0.8}}>
+							<div className="flex-column flex1">
 								{
 									/**
 									 * Customer remarks
@@ -145,54 +173,23 @@ class ReservationPopupLayout extends React.Component {
 								<h4 className="text-gray">STAFF REMARKS</h4>
 								<Remarks />
 								<br/>
-								<br/>
-							</div>
-						</div>
-						<div className="flex-row">
-							<div className="flex-row flex1">
-								<div className="flex1">
+								<div className="flex-row">
+									<div className="flex-column flex1">
+										<h3 className="text-gray">PAYMENT AUTHORIZATION</h3>
+										<h3 className="text-blue">$128 Authorized</h3>
+										<h3 className="text-blue">76HYUJ89KJU</h3>
+									</div>
 									<div className="flex-column">
-										<h4>DATE & TIME</h4>
-										<div className="flex-row">
-											<div>
-												<h3 className="text-whit">31 Apr 2014</h3>
-												<h3 className="text-whit">20:30</h3>
-											</div>
-											<div className="flex1">
-												<AlignCenter>
-													<div className="calendar highlight"></div>
-												</AlignCenter>
-											</div>
+										<div className="flex-row btn-large danger">
+											<AlignCenter>
+												<h3 className="text-whit padHorz">VOID</h3>
+											</AlignCenter>
 										</div>
-									</div>
-								</div>
-								<div className="flex1">
-									<div className="flex-column">
-										<h4 className="text-gray">REMINDER SMS</h4>
-										<div className="flex-row">
-											<div className="checkbox highlight"></div>
-											<p></p>
-											<h4 className="text-whit">Enabled</h4>
+										<div className="flex-row btn-large primary">
+											<AlignCenter>
+												<h3 className="text-whit padHorz">CHARGE</h3>
+											</AlignCenter>
 										</div>
-									</div>
-								</div>
-							</div>
-							<div className="flex-row" style={{flex: 0.8}}>
-								<div className="flex-column flex1">
-									<h3 className="text-gray">PAYMENT AUTHORIZATION</h3>
-									<h3 className="text-blue">$128 Authorized</h3>
-									<h3 className="text-blue">76HYUJ89KJU</h3>
-								</div>
-								<div className="flex-column">
-									<div className="flex-row btn-large danger">
-										<AlignCenter>
-											<h3 className="text-whit padHorz">VOID</h3>
-										</AlignCenter>
-									</div>
-									<div className="flex-row btn-large primary">
-										<AlignCenter>
-											<h3 className="text-whit padHorz">CHARGE</h3>
-										</AlignCenter>
 									</div>
 								</div>
 							</div>
