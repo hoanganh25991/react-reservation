@@ -1,4 +1,8 @@
 .odd-row {
+    background: #262B32;
+}
+
+.even-row {
     background: #2D333B;
 }
 
@@ -22,4 +26,18 @@
     color: white;
     text-align: center;
     height: 50px;
+    min-width: 210px;
+}
+
+.reservation-header-row {
+    font-size: 1.5em;
+    color: white;
+    height: 65px;
+    padding-top: 30px;
+    background: #262B32;
+    font-style: italic;
+}
+
+.reservation-row {
+    display: none;
 }

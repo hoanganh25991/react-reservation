@@ -2,7 +2,7 @@
 Global
 */
 * {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     box-sizing: border-box;
     font-family: SansSerif Tahoma;
 }
@@ -114,6 +114,10 @@ Color
 
 .padVert {
     padding: 10px 0;
+}
+
+.pad30 {
+    padding: 0 30px;
 }
 
 .text-center {

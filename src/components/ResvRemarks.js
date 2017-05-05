@@ -6,8 +6,6 @@ class ResvRemark extends React.Component {
 
 		let {className} = this.props;
 
-		className = `full ${className}`;
-
 		return(
 			<div className={className}>
 				<h3 className="text-gray">To find what the font size of the H1 element</h3>

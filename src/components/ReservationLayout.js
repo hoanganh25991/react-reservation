@@ -8,30 +8,46 @@ import AlignCenter from './helpers/AlignCenter'
 class ReservationLayout extends React.Component {
 	render(){
 
+		let {reservation, order} = this.props;
+
+		let headerClass = order == 1 ? 'reservation-header-row' : 'reservation-row';
+
+		let rowClass    = order % 2  ? 'odd-row' : 'even-row';
+
+		let rootClass   = `flex-row pad30 ${rowClass}`
+
 		return (
-			<div className="flex-row odd-row">
+			<div className={rootClass}>
 				<StaffReadStatus />
-				<div className="flex-column flex1">
-					<div className="confirm-id">
-						<AlignCenter>5GC72EO</AlignCenter>
+				<div className="flex-column">
+					<div className={headerClass}></div>
+					<div className="flex-row">
+						<div className="flex-column flex1">
+							<div className="confirm-id">
+								<AlignCenter>5GC72EO</AlignCenter>
+							</div>
+							<h3  className="text-whit">O 14+3</h3>
+						</div>
+						<div className="flex-column flex1">
+							<div className="timestamp">
+								<AlignCenter>24 Apr 2017 * 15:30</AlignCenter>
+							</div>
+							<h3  className="text-whit">T Level 2 - A1</h3>
+						</div>
 					</div>
-					<h3  className="text-whit">O 14+3</h3>
 				</div>
 				<div className="flex-column flex1">
-					<div className="timestamp">
-						<AlignCenter>24 Apr 2017 * 15:30</AlignCenter>
-					</div>
-					<h3  className="text-whit">T Level 2 - A1</h3>
-				</div>
-				<div className="flex-column flex1">
+					<div className={headerClass}>Customer</div>
 					<h3 className="text-blue">Mr. Torin Nguyen</h3>
 					<h3 className="text-whit">C (+65) 903865657</h3>
 					<h3 className="text-whit">M torinnguyen@gmail.co</h3>
 				</div>
-				<div className="flex1">
+				<div className="flex-column flex1">
+					<div className={headerClass}>Remarks/Staff Note</div>
 					<Remarks />
 				</div>
 				<div className="flex-column flex1">
+					<div className={headerClass}>Status</div>
 					<h2 className="text-blue">RESERVED</h2>
 					<h2 className="text-blue">$134 PAID</h2>
 				</div>

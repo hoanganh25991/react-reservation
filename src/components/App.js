@@ -1,6 +1,12 @@
 import React from 'react'
 import Layout from './Layout'
 
+import NavaigatorPanel from './NavigatorPanel'
+import FilterPanel from './FilterPanel'
+import ReservationList from '../containers/ReservationList'
+
+
+
 class Bottom extends React.Component {
 	render(){
 		return null;
@@ -10,16 +16,11 @@ class Bottom extends React.Component {
 class App extends React.Component {
 	render(){
 
-		let position = {
-			Top:    () => (<h1>App here</h1>),
-			Left:   () => {return null},
-			Right:  () => {return null},
-			Bottom: Bottom,
-		}
-
 		return (
 			<div>
-				<Layout {...position} />
+				<NavaigatorPanel />
+				<FilterPanel />
+				<ReservationList />
 			</div>
 
 		)

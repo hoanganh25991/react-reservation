@@ -4,10 +4,12 @@ import Layout from './ReservationLayout'
 
 class Reservation extends React.Component {
 	render(){
-		let {reservation} = this.props;
+		let {reservation, order} = this.props;
 		
 		return (
-			<Layout />
+			<Layout {...{reservation, order}} />
 		)
 	}
 }
+
+export default Reservation

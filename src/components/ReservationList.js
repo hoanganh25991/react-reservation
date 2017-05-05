@@ -1,11 +1,13 @@
 import React from 'react'
 
+import Reservation from './Reservation'
+
 class ReservationList extends React.Component {
 	componentDidMount(){
 		let  {fetchReservations} = this.props;
-		
+
 		let url = 'reservations';
-		
+
 		fetchReservations(url)
 	}
 
@@ -14,16 +16,10 @@ class ReservationList extends React.Component {
 
 		return (
 			<div>
-				<h1>Reservations</h1>
-				<ul>{reservations.map(reservation =>
-					<li key={reservation.id}>
-						<span>{reservation.confirm_id}</span>
-						<span>{reservation.reservation_timestamp}</span>
-						<span>{reservation.saluation} {reservation.first_name} {reservation.last_name}</span>
-						<span>{reservation.phone_country_code} {reservation.phone}</span>
-						<span>{reservation.email}</span>
-					</li>
-				)}</ul>
+				<div className="flex-row"></div>
+				{reservations.map((reservation, index) =>
+					<Reservation key={reservation.id} order={index + 1} reservation={reservation}/>
+				)}
 			</div>
 		)
 	}

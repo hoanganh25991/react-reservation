@@ -3,7 +3,7 @@ import React from 'react'
 class FilterPanel extends React.Component {
 	render(){
 		return(
-			<div className="flex-row bg-dark-blue">
+			<div className="flex-row bg-dark-blue pad30">
 				<div>
 					<h3 className="text-whit pad-large filter-selected">TODAY</h3>
 				</div>
