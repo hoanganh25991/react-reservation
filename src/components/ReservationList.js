@@ -25,4 +25,26 @@ class ReservationList extends React.Component {
 	}
 }
 
-export default ReservationList
+/**
+ * Bind actions
+ */
+import {connect} from 'react-redux'
+
+import {actionFetchReservations, actionUpdateReservations} from '../actions'
+
+
+const filterReservations = (reservations, filters) => {
+	return reservations;
+}
+
+
+const mapStateToProps  = ({reservations, filters}) => ({reservations: filterReservations(reservations, filters)})
+
+const mapActionToProps = (dispatch) => {
+	return {
+		fetchReservations:  (url)          => dispatch(actionFetchReservations(url)),
+		updateReservations: (reservations) => dispatch(actionUpdateReservations(reservations))
+	}
+}
+
+export default connect(mapStateToProps, mapActionToProps)(ReservationList)

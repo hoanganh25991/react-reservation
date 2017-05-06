@@ -1,20 +1,10 @@
 import React from 'react'
 
 class Login extends React.Component {
-	constructor(props){
-		super(props)
-
-		console.log('trigger constructor')
-	}
-
 	render(){
-		// ONLY USE PRIVATE STATE BSC OF INPUT
-		// UNBOUNCE IT BY STATE
-		//let {user} = this.props;
-		console.log('trigger render')
-
+		// Get state
 		let {user} = this.props;
-
+		// Get action
 		let {login, updateUser} = this.props;
 
 		return (
@@ -22,14 +12,41 @@ class Login extends React.Component {
 				e.preventDefault()
 				login()
 			}} >
-				<input type="text" name="username" placeholder="username"
-				       value={user.user_name} onChange={(e) => { updateUser({user_name: e.target.value}) }}/>
-				<input type="password" name="password" placeholder="password"
-				       value={user.password}  onChange={(e) => { updateUser({password:  e.target.value}) }}/>
+				<input type="text"
+				       placeholder="username"
+				       value={user.user_name}
+				       onChange={(e) => updateUser({user_name: e.target.value})}/>
+				<input type="password"
+				       placeholder="password"
+				       value={user.password} 
+				       onChange={(e) => updateUser({password:  e.target.value})}/>
 				<button>Login</button>
 			</form>
 		)
 	}
 }
 
-export default Login
+
+/**
+ * Bind actions to view
+ */
+import {connect} from 'react-redux'
+
+import {actionUpdateUser, actionSendLoginReq} from '../actions'
+
+/**
+ * Define which is stateToProps
+ * Define which is disptachToProps
+ * @param user
+ */
+
+const mapStateToProps  = ({user}) => ({user})
+
+const mapActionToProps = (dispatch) => {
+	return {
+		updateUser: (user) => dispatch(actionUpdateUser(user)),
+		login:      ()     => dispatch(actionSendLoginReq()),
+	}
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Login)

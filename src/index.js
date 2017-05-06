@@ -31,10 +31,8 @@ const store = createStore(adminPage, composeWithDevTools(applyMiddleware(...midd
  */
 //import {App, Login, Logout, Login} from './components'
 import App               from './components/App'
-import Login             from './containers/Login'
-import Logout            from './containers/Logout'
-import ReservationList   from './containers/ReservationList'
-
+import Login             from './components/Login'
+import Logout            from './components/Logout'
 //Funny
 import ClickSound from './components/ClickSound'
 
