@@ -18,10 +18,10 @@ class ReservationLayout extends React.Component {
 
 		return (
 			<div className={rootClass}>
-				<StaffReadStatus />
 				<div className="flex-column">
 					<div className={headerClass}></div>
 					<div className="flex-row">
+						<StaffReadStatus />
 						<div className="flex-column flex1">
 							<div className="confirm-id">
 								<AlignCenter>5GC72EO</AlignCenter>
@@ -37,17 +37,23 @@ class ReservationLayout extends React.Component {
 					</div>
 				</div>
 				<div className="flex-column flex1">
-					<div className={headerClass}>Customer</div>
+					<div className={headerClass}>
+						<h3>Customer</h3>
+					</div>
 					<h3 className="text-blue">Mr. Torin Nguyen</h3>
 					<h3 className="text-whit">C (+65) 903865657</h3>
 					<h3 className="text-whit">M torinnguyen@gmail.co</h3>
 				</div>
 				<div className="flex-column flex1">
-					<div className={headerClass}>Remarks/Staff Note</div>
+					<div className={headerClass}>
+						<h3>Remarks/Staff Note</h3>
+					</div>
 					<Remarks />
 				</div>
 				<div className="flex-column flex1">
-					<div className={headerClass}>Status</div>
+					<div className={headerClass}>
+						<h3>Status</h3>
+					</div>
 					<h2 className="text-blue">RESERVED</h2>
 					<h2 className="text-blue">$134 PAID</h2>
 				</div>
