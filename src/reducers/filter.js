@@ -104,18 +104,6 @@ export default (state, action) => {
 			// Update state
 			return Object.assign({}, state, {filters});
 		}
-		case c.LOGGING_IN:
-		case c.LOGIN_SUCCESS:
-		case c.LOGIN_FAIL:
-		case c.LOGGING_OUT:
-		case c.LOGOUT_SUCCESS:
-		case c.LOGOUT_FAIL:
-		{
-			// Update user status base on action type
-			let user = {status: action.type}
-
-			return Object.assign({}, state, {user})
-		}
 		default:
 			return state;
 	}

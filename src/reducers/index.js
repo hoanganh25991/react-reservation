@@ -1,6 +1,7 @@
 import * as c from '../actions/const-name'
 import reservations from './reservations'
 import user from './user'
+import filter from './filter'
 
 // const adminPage = combineReducers({
 // 	reservations,
