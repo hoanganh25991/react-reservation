@@ -30,4 +30,16 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAIL    = 'LOGOUT_FAIL';
 /////
 
+export const ADD_FILTER_DAY = 'ADD_FILTER_DAY';
+export const ADD_FILTER_STATUS = 'ADD_FILTER_STATUS';
+
+export const FILTER_DAY = 'FILTER_DAY';
+export const FILTER_STATUS = 'FILTER_STATUS';
+
+export const TODAY        = 'TODAY';
+export const TOMORROW     = 'TOMORROW';
+export const NEXT_3_DAYS  = 'NEXT_3_DAYS';
+export const NEXT_7_DAYS  = 'NEXT_7_DAYS';
+export const NEXT_30_DAYS = 'NEXT_30_DAYS';
+
 

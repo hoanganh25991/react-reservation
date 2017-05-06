@@ -32,6 +32,16 @@ import {connect} from 'react-redux'
 
 import {actionFetchReservations, actionUpdateReservations} from '../actions'
 
+import * as c from '../actions/const-name'
+
+
+class Filter {
+	constructor({name, type}){
+		
+	}
+}
+
+
 
 const filterReservations = (reservations, filters) => {
 	return reservations;

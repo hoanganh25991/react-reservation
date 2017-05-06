@@ -145,3 +145,23 @@ export const actionUpdateUser = (user) => {
 		user
 	}
 }
+
+/*
+ |--------------------------------------------------------------------------
+ | Filter
+ |--------------------------------------------------------------------------
+ | User support login
+ |
+ */
+
+export const actionAddFilterByDay = (day_str) => {
+	return {
+		type: c.ADD_FILTER_DAY,
+		day_str
+	}
+}
+
+
+
+
+ 
