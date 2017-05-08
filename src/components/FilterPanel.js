@@ -19,16 +19,24 @@ class FilterPanel extends React.Component {
 						>TODAY</h3>
 					</div>
 					<div>
-						<h3 className="text-whit pad-large">TOMORROW</h3>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.TOMORROW)}
+						>TOMORROW</h3>
 					</div>
 					<div>
-						<h3 className="text-whit pad-large">NEXT 3 DAYS</h3>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_3_DAYS)}
+						>NEXT 3 DAYS</h3>
 					</div>
 					<div>
-						<h3 className="text-whit pad-large">NEXT 7 DAYS</h3>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_7_DAYS)}
+						>NEXT 7 DAYS</h3>
 					</div>
 					<div>
-						<h3 className="text-whit pad-large">NEXT 30 DAYS</h3>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+						>NEXT 30 DAYS</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
@@ -45,7 +53,7 @@ class FilterPanel extends React.Component {
 						<div className="flex-row">
 							<div className="flex1"></div>
 							<div>
-								<input type="date" onChange={(e) => {actionToggleFilterByDay(e.target.value)}}/>
+								<input type="date" onChange={(e) => {actionToggleFilterByDay(e.target.value)}} />
 							</div>
 						</div>
 					) : null

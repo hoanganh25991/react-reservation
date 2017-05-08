@@ -82,7 +82,7 @@ export default (state, action) => {
 				}
 				case c.TOMORROW:
 				{
-					startDay = startDay.clone.add(1, 'days');
+					startDay = startDay.clone().add(1, 'days');
 					endDay   = startDay.clone().add(1, 'days');
 					break;
 				}
