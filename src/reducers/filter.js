@@ -3,7 +3,7 @@ import * as c from '../actions/const-name'
 import moment from 'moment'
 
 
-const requiredKeys = ['name', 'type', 'priority'];
+const requiredKeys = [/* 'name', */'type', 'priority'];
 
 const createFilter = (filter, {name, type, priority}) => {
 
@@ -13,7 +13,7 @@ const createFilter = (filter, {name, type, priority}) => {
 		throw new Error('Please submit enough keys to create filter');
 	}
 
-	filter.name = name;
+	//filter.name = name;
 	filter.type = type;
 	filter.priority = priority;
 
@@ -23,27 +23,30 @@ const createFilter = (filter, {name, type, priority}) => {
 }
 
 const addFilter = (newFilter, currentFilters) => {
+
 	let filters = currentFilters.reduce((carry, filter) => {
-		let differentType = filter.type !== newFilter.type;
+		let sameType      = filter.type == newFilter.type;
 		let lowerPriority = filter.priority <= newFilter.type;
 
 		// If same type but no priority higher than the new one
 		// Ok, use the new one
-		if(!differentType && lowerPriority){
-			return carry.push(newFilter)
+		if(sameType && lowerPriority){
+			// Ok, this filter not important than the newFilter
+			// Don't push it in
+			return carry;
 		}
 
 		return carry.push(filter);
 	}, []);
-	
 
-	return filters;
+
+	return [...filters, newFilter];
 }
 
 
 export default (state, action) => {
 	switch(action.type) {
-		case c.ADD_FILTER_DAY:
+		case c.TOGGLE_FILTER_DAY:
 		{
 			let {day} = action;
 
@@ -81,10 +84,10 @@ export default (state, action) => {
 					/**
 					 * 1 pick a custom day
 					 */
-					let day = moment(day, 'YYYY-MM-DD');
+					let momentDay = moment(day, 'YYYY-MM-DD');
 					
-					if(day.isValid()) {
-						startDay = day;
+					if(momentDay.isValid()) {
+						startDay = momentDay;
 						endDay   = startDay.clone().add(1, 'days');
 						break;
 					}
@@ -97,7 +100,7 @@ export default (state, action) => {
 
 			let iFilter = createFilter(filter, {name: 'Filter by day', type: c.FILTER_DAY, priority: 10});
 			
-			let {fitlers: currentFilters} = state;
+			let {filters: currentFilters} = state;
 			
 			let filters = addFilter(iFilter, currentFilters);
 

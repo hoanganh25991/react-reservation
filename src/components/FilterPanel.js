@@ -5,7 +5,7 @@ class FilterPanel extends React.Component {
 		// Get state
 		let {isVisibleInputPickADate} = this.props;
 		// Get actions
-		let {toggleInputPickADate} = this.props;
+		let {toggleInputPickADate, actionToggleFilterByDay} = this.props;
 
 
 		return(
@@ -41,7 +41,7 @@ class FilterPanel extends React.Component {
 						<div className="flex-row">
 							<div className="flex1"></div>
 							<div>
-								<input type="date" />
+								<input type="date" onChange={(e) => {actionToggleFilterByDay(e.target.value)}}/>
 							</div>
 						</div>
 					) : null
@@ -59,13 +59,14 @@ class FilterPanel extends React.Component {
  */
 import {connect} from 'react-redux'
 
-import {actionToggleInputPickADate} from '../actions'
+import {actionToggleInputPickADate, actionToggleFilterByDay} from '../actions'
 
 const mapStateToProps  = ({toggleInputPickADate}) => ({isVisibleInputPickADate: toggleInputPickADate})
 
 const mapActionToProps = (dispatch) => {
 	return {
-		toggleInputPickADate:  () => dispatch(actionToggleInputPickADate()),
+		toggleInputPickADate:   ()    => dispatch(actionToggleInputPickADate()),
+		actionToggleFilterByDay:(day) => dispatch(actionToggleFilterByDay(day))
 	}
 }
 

@@ -1,8 +1,10 @@
-import {UPDATE_RESERVATION, UPDATE_RESERVATIONS} from '../actions/const-name'
+import * as c from '../actions/const-name'
+
+import moment from 'moment'
 
 const reservations = (state, action) => {
 	switch(action.type) {
-		case UPDATE_RESERVATION:
+		case c.UPDATE_RESERVATION:
 		{
 			// Watch on reservations branch
 			let {reservations: currReservations} = state;
@@ -22,7 +24,7 @@ const reservations = (state, action) => {
 			// Return state with reservations updated
 			return Object.assign({}, state, {reservations: reservations})
 		}
-		case UPDATE_RESERVATIONS:
+		case c.UPDATE_RESERVATIONS:
 		{
 			// Watch on reservations branch
 			//let {reservations} = state;
@@ -30,6 +32,17 @@ const reservations = (state, action) => {
 			let reservations = [...action.reservations];
 			// Return state with reservations updated
 			return Object.assign({}, state, {reservations})
+		}
+		case c.ASSIGN_DATE_ON_RESERVATIONS:{
+			let {reservations: currentReservations} = state;
+
+			let reservations = currentReservations.map(reservation => {
+				let date = moment(reservation.reservation_timestamp, 'YYYY-MM-DD HH:mm:ss');
+
+				return Object.assign({}, reservation, {date});
+			})
+
+			return Object.assign({}, state, {reservations});
 		}
 		default:
 			return state

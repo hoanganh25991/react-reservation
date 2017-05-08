@@ -104,6 +104,12 @@ export const actionUpdateReservations = (reservations) => {
 	}
 }
 
+export const actionAssignDateOnReservations = () => {
+	return {
+		type: c.ASSIGN_DATE_ON_RESERVATIONS
+	}
+}
+
 export const actionFetchReservations = (url) => {
 	return (dispatch) => {
 		let ajax_options = {
@@ -119,6 +125,8 @@ export const actionFetchReservations = (url) => {
 					let reservations = res;
 
 					dispatch(actionUpdateReservations(reservations))
+					
+					dispatch(actionAssignDateOnReservations())
 				}
 			})
 			.catch(res => {
@@ -154,10 +162,10 @@ export const actionUpdateUser = (user) => {
  |
  */
 
-export const actionAddFilterByDay = (day_str) => {
+export const actionToggleFilterByDay = (day) => {
 	return {
-		type: c.ADD_FILTER_DAY,
-		day_str
+		type: c.TOGGLE_FILTER_DAY,
+		day
 	}
 }
 

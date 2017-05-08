@@ -27,11 +27,12 @@ const adminPage = (state = initState, action) => {
 		case c.UPDATE_RESERVATIONS:
 		case c.UPDATE_RESERVATION:
 		case c.FETCH_RESERVATIONS_FAIL:
+		case c.ASSIGN_DATE_ON_RESERVATIONS:
 		{
 			return reservations(state, action);
 		}
 		case c.ADD_FILTER_STATUS:
-		case c.ADD_FILTER_DAY:{
+		case c.TOGGLE_FILTER_DAY:{
 			return filter(state, action);
 		}
 		case c.TOGGLE_INPUT_PICK_A_DATE: {
