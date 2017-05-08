@@ -161,7 +161,12 @@ export const actionAddFilterByDay = (day_str) => {
 	}
 }
 
-
+// Toggle pick a date
+export const actionToggleInputPickADate = () => {
+	return {
+		type: c.TOGGLE_INPUT_PICK_A_DATE
+	}
+}
 
 
  

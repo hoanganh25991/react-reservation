@@ -10,7 +10,8 @@ import filter from './filter'
 const initState = {
 	reservations: [],
 	filters: [],
-	user: {}
+	user: {},
+	toggleInputPickADate: false,
 }
 
 const adminPage = (state = initState, action) => {
@@ -32,6 +33,13 @@ const adminPage = (state = initState, action) => {
 		case c.ADD_FILTER_STATUS:
 		case c.ADD_FILTER_DAY:{
 			return filter(state, action);
+		}
+		case c.TOGGLE_INPUT_PICK_A_DATE: {
+			let {toggleInputPickADate: currentPickADay} = state;
+			// toggle it
+			let toggleInputPickADate = !currentPickADay;
+			// save it
+			return Object.assign({}, state, {toggleInputPickADate});
 		}
 		default:
 			return state;

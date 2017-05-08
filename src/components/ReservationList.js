@@ -32,7 +32,7 @@ import {connect} from 'react-redux'
 
 import {actionFetchReservations, actionUpdateReservations} from '../actions'
 
-const mapStateToProps  = ({reservations, filters}) => ({reservations: filters.reduce((carry, filter) => (carry.filter(reservation => filter(reservation))), reservations)})
+const mapStateToProps  = ({reservations, filters}) => ({reservations: filters.reduce((carry, filter) => (carry.filter(filter)), reservations)})
 
 const mapActionToProps = (dispatch) => {
 	return {

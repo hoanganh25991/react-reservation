@@ -42,4 +42,6 @@ export const NEXT_3_DAYS  = 'NEXT_3_DAYS';
 export const NEXT_7_DAYS  = 'NEXT_7_DAYS';
 export const NEXT_30_DAYS = 'NEXT_30_DAYS';
 
+export const TOGGLE_INPUT_PICK_A_DATE  = 'TOGGLE_INPUT_PICK_A_DATE';
+
 

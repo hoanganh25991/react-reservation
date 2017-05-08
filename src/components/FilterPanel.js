@@ -2,6 +2,10 @@ import React from 'react'
 
 class FilterPanel extends React.Component {
 	render(){
+		// Get actions
+		let {toggleInputPickADate} = this.props;
+
+
 		return(
 			<div className="flex-row bg-dark-blue pad30">
 				<div>
@@ -20,7 +24,9 @@ class FilterPanel extends React.Component {
 					<h3 className="text-whit pad-large">NEXT 30 DAYS</h3>
 				</div>
 				<div>
-					<h3 className="text-whit pad-large">PICK A DATE</h3>
+					<h3 className="text-whit pad-large"
+						onClick={() => toggleInputPickADate()}
+					>PICK A DATE</h3>
 				</div>
 				<div className="flex1"></div>
 				<div>
@@ -31,4 +37,22 @@ class FilterPanel extends React.Component {
 	}
 }
 
-export default FilterPanel
+/**
+ * Bind actions
+ */
+/**
+ * Bind actions
+ */
+import {connect} from 'react-redux'
+
+import {actionToggleInputPickADate} from '../actions'
+
+const mapStateToProps  = ({reservations, filters}) => ({reservations: filters.reduce((carry, filter) => (carry.filter(filter)), reservations)})
+
+const mapActionToProps = (dispatch) => {
+	return {
+		toggleInputPickADate:  () => dispatch(actionToggleInputPickADate()),
+	}
+}
+
+export default connect(mapStateToProps, mapActionToProps)(FilterPanel)
