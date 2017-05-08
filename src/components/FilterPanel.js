@@ -1,5 +1,7 @@
 import React from 'react'
 
+import * as c from '../actions/const-name'
+
 class FilterPanel extends React.Component {
 	render(){
 		// Get state
@@ -12,7 +14,9 @@ class FilterPanel extends React.Component {
 			<div>
 				<div className="flex-row bg-dark-blue pad30">
 					<div>
-						<h3 className="text-whit pad-large filter-selected">TODAY</h3>
+						<h3 className="text-whit pad-large filter-selected"
+							onClick={() => actionToggleFilterByDay(c.TODAY)}
+						>TODAY</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large">TOMORROW</h3>

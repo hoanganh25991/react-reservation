@@ -3,21 +3,21 @@ import * as c from '../actions/const-name'
 import moment from 'moment'
 
 
-const requiredKeys = [/* 'name', */'type', 'priority'];
+const requiredKeys = ['day', 'type', 'priority'];
 
-const createFilter = (filter, {name, type, priority}) => {
+const createFilterDay = (filter, {day, type, priority}) => {
 
 	let requiredKeysSubmited = requiredKeys.filter(key => typeof [key] === 'undefined').length === 0;
 
 	if(!requiredKeysSubmited){
-		throw new Error('Please submit enough keys to create filter');
+		throw new Error('Please submit enough keys to create filter day');
 	}
 
-	//filter.name = name;
+	filter.day  = day;
 	filter.type = type;
 	filter.priority = priority;
 
-	filter.toJson = () => (JSON.stringify({name, type, priority}));
+	filter.toString = () => (JSON.stringify({name, type, priority}));
 
 	return filter;
 }
@@ -43,12 +43,34 @@ const addFilter = (newFilter, currentFilters) => {
 	return [...filters, newFilter];
 }
 
-
 export default (state, action) => {
 	switch(action.type) {
 		case c.TOGGLE_FILTER_DAY:
 		{
 			let {day} = action;
+
+			// how to check to toggle
+			let {filters: currentFilters} = state;
+
+			let sameFilterByDay = currentFilters.filter(filter => {
+				return filter.day === day;
+			});
+
+			if(sameFilterByDay.length > 1){
+				throw new Error('Why have more than 1 filter by day');
+			}
+
+			/**
+			 * Case should toggle filter
+			 * Remove it from current filter list
+			 */
+			if(sameFilterByDay.length >= 1){
+				let needRemovedFilter = sameFilterByDay[0];
+
+				let filters = currentFilters.filter(filter => filter.day !== needRemovedFilter.day);
+
+				return Object.assign({}, state, {filters});
+			}
 
 			let startDay = moment({hours: 0, minutes: 0, seconds: 0});
 			let endDay;
@@ -98,9 +120,7 @@ export default (state, action) => {
 
 			let filter  = (reservation) => (reservation.date.isBetween(startDay, endDay, null, '[)'));
 
-			let iFilter = createFilter(filter, {name: 'Filter by day', type: c.FILTER_DAY, priority: 10});
-			
-			let {filters: currentFilters} = state;
+			let iFilter = createFilterDay(filter, {day, type: c.FILTER_DAY, priority: 10});
 			
 			let filters = addFilter(iFilter, currentFilters);
 
