@@ -43,9 +43,15 @@ class FilterPanel extends React.Component {
 						    onClick={() => toggleInputPickADate()}
 						>PICK A DATE</h3>
 					</div>
+					<div>
+						<h3 className="text-whit pad-large default"
+						    onClick={() => toggleInputPickADate()}
+						>XCLEAR</h3>
+					</div>
 					<div className="flex1"></div>
 					<div>
-						<h3 className="text-whit pad-large bg-yell">FILTER</h3>
+						<h3 className="text-whit pad-large bg-yell"
+						>FILTER BY DAY</h3>
 					</div>
 				</div>
 				{
@@ -58,6 +64,53 @@ class FilterPanel extends React.Component {
 						</div>
 					) : null
 				}
+				<div className="flex-row bg-dark-blue pad30">
+					<div>
+						<h3 className="text-whit pad-large filter-selected"
+						    onClick={() => actionToggleFilterByDay(c.TODAY)}
+						>ARRIVED</h3>
+					</div>
+					<div>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.TOMORROW)}
+						>CONFIRMED</h3>
+					</div>
+					<div>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_3_DAYS)}
+						>REMINDER SENT</h3>
+					</div>
+					<div>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_7_DAYS)}
+						>RESERVED</h3>
+					</div>
+					<div>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+						>USER CANCELLED</h3>
+					</div>
+					<div>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+						>STAFF CANCELLED</h3>
+					</div>
+					<div>
+						<h3 className="text-whit pad-large"
+						    onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+						>NO SHOW</h3>
+					</div>
+					<div>
+						<h3 className="text-whit pad-large default"
+						    onClick={() => toggleInputPickADate()}
+						>XCLEAR</h3>
+					</div>
+					<div className="flex1"></div>
+					<div>
+						<h3 className="text-whit pad-large bg-yell"
+						>FILTER BY STATUS</h3>
+					</div>
+				</div>
 			</div>
 		)
 	}
