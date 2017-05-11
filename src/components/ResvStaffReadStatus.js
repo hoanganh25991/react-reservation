@@ -2,12 +2,10 @@ import React from 'react'
 
 class ResvStaffReadStatus extends React.Component {
 	render() {
-		let {read} = this.props;
+		let {readStatus} = this.props;
 
 		let readStatusClass = 'self-center padHorz';
-		readStatusClass     += read ? ' circle-read' : ' circle-unread';
-		//test
-		readStatusClass = 'self-center padHorz circle-read';
+		readStatusClass     += readStatus ? ' circle-read' : ' circle-unread';
 
 		return (
 			<div className="flex-column">

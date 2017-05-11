@@ -37,6 +37,7 @@ const reservations = (state, action) => {
 			let {reservations: currentReservations} = state;
 
 			let reservations = currentReservations.map(reservation => {
+				/** @namespace reservation.reservation_timestamp */
 				let date = moment(reservation.reservation_timestamp, 'YYYY-MM-DD HH:mm:ss');
 
 				return Object.assign({}, reservation, {date});
