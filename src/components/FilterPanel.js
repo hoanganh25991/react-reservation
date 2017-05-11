@@ -7,7 +7,7 @@ class FilterPanel extends React.Component {
 		// Get state
 		let {isVisibleInputPickADate} = this.props;
 		// Get actions
-		let {toggleInputPickADate, actionToggleFilterByDay} = this.props;
+		let {actionToggleInputPickADate, actionToggleFilterByDay, actionToggleFilterByStatus} = this.props;
 
 
 		return(
@@ -40,12 +40,12 @@ class FilterPanel extends React.Component {
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
-						    onClick={() => toggleInputPickADate()}
+						    onClick={() => actionToggleInputPickADate()}
 						>PICK A DATE</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large default"
-						    onClick={() => toggleInputPickADate()}
+						    onClick={() => console.log('xclear')}
 						>XCLEAR</h3>
 					</div>
 					<div className="flex1"></div>
@@ -67,42 +67,42 @@ class FilterPanel extends React.Component {
 				<div className="flex-row bg-dark-blue pad30">
 					<div>
 						<h3 className="text-whit pad-large filter-selected"
-						    onClick={() => actionToggleFilterByDay(c.TODAY)}
+						    onClick={() => actionToggleFilterByStatus(c.ARRIVED)}
 						>ARRIVED</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
-						    onClick={() => actionToggleFilterByDay(c.TOMORROW)}
+						    onClick={() => actionToggleFilterByStatus(c.CONFIRMED)}
 						>CONFIRMED</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
-						    onClick={() => actionToggleFilterByDay(c.NEXT_3_DAYS)}
+						    onClick={() => actionToggleFilterByStatus(c.REMINDER_SENT)}
 						>REMINDER SENT</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
-						    onClick={() => actionToggleFilterByDay(c.NEXT_7_DAYS)}
+						    onClick={() => actionToggleFilterByStatus(c.RESERVED)}
 						>RESERVED</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
-						    onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+						    onClick={() => actionToggleFilterByStatus(c.USER_CANCELLED)}
 						>USER CANCELLED</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
-						    onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+						    onClick={() => actionToggleFilterByStatus(c.STAFF_CANCELLED)}
 						>STAFF CANCELLED</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large"
-						    onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+						    onClick={() => actionToggleFilterByStatus(c.NO_SHOW)}
 						>NO SHOW</h3>
 					</div>
 					<div>
 						<h3 className="text-whit pad-large default"
-						    onClick={() => toggleInputPickADate()}
+						    onClick={() => console.log('xclear')}
 						>XCLEAR</h3>
 					</div>
 					<div className="flex1"></div>
@@ -124,14 +124,16 @@ class FilterPanel extends React.Component {
  */
 import {connect} from 'react-redux'
 
-import {actionToggleInputPickADate, actionToggleFilterByDay} from '../actions'
+import {actionToggleInputPickADate, actionToggleFilterByDay, actionToggleFilterByStatus} from '../actions'
 
 const mapStateToProps  = ({toggleInputPickADate}) => ({isVisibleInputPickADate: toggleInputPickADate})
 
 const mapActionToProps = (dispatch) => {
 	return {
-		toggleInputPickADate:   ()    => dispatch(actionToggleInputPickADate()),
-		actionToggleFilterByDay:(day) => dispatch(actionToggleFilterByDay(day))
+		actionToggleInputPickADate: ()       => dispatch(actionToggleInputPickADate()),
+		actionToggleFilterByDay:    (day)    => dispatch(actionToggleFilterByDay(day)),
+		actionToggleFilterByStatus: (status) => dispatch(actionToggleFilterByStatus(status)),
+
 	}
 }
 

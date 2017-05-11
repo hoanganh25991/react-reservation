@@ -176,7 +176,12 @@ export const actionToggleInputPickADate = () => {
 	}
 }
 
-
+export const actionToggleFilterByStatus = (day) => {
+	return {
+		type: c.TOGGLE_FILTER_STATUS,
+		day
+	}
+}
 
 
  

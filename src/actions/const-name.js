@@ -33,7 +33,7 @@ export const LOGOUT_FAIL    = 'LOGOUT_FAIL';
 /////
 
 export const TOGGLE_FILTER_DAY = 'TOGGLE_FILTER_DAY';
-export const ADD_FILTER_STATUS = 'ADD_FILTER_STATUS';
+export const TOGGLE_FILTER_STATUS = 'TOGGLE_FILTER_STATUS';
 
 export const FILTER_DAY = 'FILTER_DAY';
 export const FILTER_STATUS = 'FILTER_STATUS';
@@ -45,5 +45,14 @@ export const NEXT_7_DAYS  = 'NEXT_7_DAYS';
 export const NEXT_30_DAYS = 'NEXT_30_DAYS';
 
 export const TOGGLE_INPUT_PICK_A_DATE  = 'TOGGLE_INPUT_PICK_A_DATE';
+
+// For filter status
+export const ARRIVED        = 'ARRIVED';
+export const CONFIRMED      = 'CONFIRMED';
+export const REMINDER_SENT  = 'REMINDER_SENT';
+export const RESERVED       = 'RESERVED';
+export const USER_CANCELLED = 'USER_CANCELLED';
+export const STAFF_CANCELLED = 'STAFF_CANCELLED';
+export const NO_SHOW        = 'NO_SHOW';
 
 
