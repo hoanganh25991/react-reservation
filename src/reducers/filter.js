@@ -127,6 +127,35 @@ export default (state, action) => {
 			// Update state
 			return Object.assign({}, state, {filters});
 		}
+		case c.TOGGLE_FILTER_STATUS:{
+			let {status} = action;
+
+			// check to toggle
+			let {filters: currentFilters} = state;
+
+			let filterByStatus = currentFilters.filter(filter => {
+				return filter.type === c.FILTER_STATUS;
+			});
+
+			if(filterByStatus.length > 1){
+				throw new Error('Why have more than 1 filter by status');
+			}
+
+
+			let currentStatuses = [];
+			// Already exist one
+			// Load current status from him
+			if(filterByStatus.length === 1){
+				let currentFilterStatus = filterByStatus[0];
+
+				currentStatuses = currentFilterStatus.statuses;
+			}
+
+
+			let {statuses: currentStatuses} = filterByStatus[0];
+
+
+		}
 		default:
 			return state;
 	}

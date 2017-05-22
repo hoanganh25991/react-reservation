@@ -31,7 +31,7 @@ const adminPage = (state = initState, action) => {
 		{
 			return reservations(state, action);
 		}
-		case c.ADD_FILTER_STATUS:
+		case c.TOGGLE_FILTER_STATUS:
 		case c.TOGGLE_FILTER_DAY:{
 			return filter(state, action);
 		}
