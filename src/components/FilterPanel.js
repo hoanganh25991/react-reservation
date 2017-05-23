@@ -2,6 +2,18 @@ import React from 'react'
 
 import * as c from '../actions/const-name'
 
+import '../css/crazy.css'
+
+import Radium from 'radium'
+
+let styles = {
+	base: {
+		':hover': {
+	    	backgroundColor: 'red'
+	    },
+	}
+}
+
 class FilterPanel extends React.Component {
 	render(){
 		// Get state
@@ -11,7 +23,7 @@ class FilterPanel extends React.Component {
 
 
 		return(
-			<div>
+			<div className="crazy" style={[styles.base]}>
 				<div className="flex-row bg-dark-blue pad30">
 					<div>
 						<h3 className="text-whit pad-large filter-selected"
@@ -137,4 +149,4 @@ const mapActionToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, mapActionToProps)(FilterPanel)
+export default connect(mapStateToProps, mapActionToProps)(Radium(FilterPanel))
