@@ -1,21 +1,20 @@
-import React from 'react'
+import React from "react";
 
-import '../css/color.css'
+import "../css/color.css";
 
 class HelloWorld extends React.Component {
-	render(){
-		let reservation = {confirm_id: 'GHYTGU'};
+  render() {
+    let reservation = { confirm_id: "GHYTGU" };
 
-		return (
-			<div>
-				<div className="item">
-					<h1>test</h1>
-					<p>{reservation.confirm_id}</p>
-				</div>
-			</div>
-
-		)
-	}
+    return (
+      <div>
+        <div className="item">
+          <h1>test</h1>
+          <p>{reservation.confirm_id}</p>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default HelloWorld
+export default HelloWorld;

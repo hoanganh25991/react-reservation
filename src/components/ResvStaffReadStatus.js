@@ -1,18 +1,18 @@
-import React from 'react'
+import React from "react";
 
 class ResvStaffReadStatus extends React.Component {
-	render() {
-		let {readStatus} = this.props;
+  render() {
+    let { readStatus } = this.props;
 
-		let readStatusClass = 'self-center padHorz';
-		readStatusClass     += readStatus ? ' circle-read' : ' circle-unread';
+    let readStatusClass = "self-center padHorz";
+    readStatusClass += readStatus ? " circle-read" : " circle-unread";
 
-		return (
-			<div className="flex-column">
-				<div className={readStatusClass}></div>
-			</div>
-		)
-	}
+    return (
+      <div className="flex-column">
+        <div className={readStatusClass} />
+      </div>
+    );
+  }
 }
 
-export default ResvStaffReadStatus
+export default ResvStaffReadStatus;

@@ -1,10 +1,10 @@
-import {colors} from '../../styles'
+import { colors } from "../../styles";
 const styles = {
-	base: {
-		':hover': {
-			backgroundColor: colors.WHITE
-		},
-	}
-}
+  base: {
+    ":hover": {
+      backgroundColor: colors.WHITE
+    }
+  }
+};
 
-export default styles
+export default styles;

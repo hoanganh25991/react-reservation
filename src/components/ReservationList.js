@@ -1,44 +1,54 @@
-import React from 'react'
+import React from "react";
 
-import Reservation from './Reservation'
+import Reservation from "./Reservation";
 
 class ReservationList extends React.Component {
-	componentDidMount(){
-		let  {fetchReservations} = this.props;
+  componentDidMount() {
+    let { fetchReservations } = this.props;
 
-		let url = 'reservations';
+    let url = "reservations";
 
-		fetchReservations(url)
-	}
+    fetchReservations(url);
+  }
 
-	render(){
-		let {reservations} = this.props;
+  render() {
+    let { reservations } = this.props;
 
-		return (
-			<div>
-				<div className="flex-row"></div>
-				{reservations.map((reservation, index) =>
-					<Reservation key={reservation.id} order={index + 1} reservation={reservation}/>
-				)}
-			</div>
-		)
-	}
+    return (
+      <div>
+        <div className="flex-row" />
+        {reservations.map((reservation, index) => (
+          <Reservation
+            key={reservation.id}
+            order={index + 1}
+            reservation={reservation}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 /**
  * Bind actions
  */
-import {connect} from 'react-redux'
+import { connect } from "react-redux";
 
-import {actionFetchReservations, actionUpdateReservations} from '../actions'
+import { actionFetchReservations, actionUpdateReservations } from "../actions";
 
-const mapStateToProps  = ({reservations, filters}) => ({reservations: filters.reduce((carry, filter) => (carry.filter(filter)), reservations)})
+const mapStateToProps = ({ reservations, filters }) => ({
+  reservations: filters.reduce(
+    (carry, filter) => carry.filter(filter),
+    reservations
+  )
+});
 
-const mapActionToProps = (dispatch) => {
-	return {
-		fetchReservations:  (url)          => dispatch(actionFetchReservations(url)),
-		updateReservations: (reservations) => dispatch(actionUpdateReservations(reservations))
-	}
-}
+const mapActionToProps = dispatch => {
+  return {
+    fetchReservations: url => dispatch(actionFetchReservations(url)),
+    updateReservations: reservations =>
+      dispatch(actionUpdateReservations(reservations))
+  };
+};
 
-export default connect(mapStateToProps, mapActionToProps)(ReservationList)
+export default connect(mapStateToProps, mapActionToProps)(ReservationList);
