@@ -1,7 +1,4 @@
-import Radium from 'radium'
-
 import {colors} from '../../styles'
-
 const styles = {
 	base: {
 		':hover': {

@@ -1,15 +1,7 @@
-/**
- * Bind actions to view
- */
 import {connect} from 'react-redux'
-
 import {actionUpdateUser, actionSendLoginReq} from '../actions'
+import Login from '../components/Login'
 
-/**
- * Define which is stateToProps
- * Define which is disptachToProps
- * @param user
- */
 
 const mapStateToProps  = ({user}) => ({user})
 
@@ -20,6 +12,5 @@ const mapActionToProps = (dispatch) => {
 	}
 }
 
-import Login from '../components/Login'
 
 export default connect(mapStateToProps, mapActionToProps)(Login)
