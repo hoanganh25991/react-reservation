@@ -44,7 +44,7 @@ import NavigatorPanel from './components/NavigatorPanel'
 
 import {ConnectedRouter} from 'react-router-redux'
 
-import HelloWorld from './components/HelloWorld'
+import ViReservation from './components/ViReservation'
 
 import './css/index'
 
@@ -63,7 +63,7 @@ ReactDOM.render(<Provider store={store}>
 					<li><Link to="/logout">Logout</Link></li>
 					<li><Link to="/reservations">Reservations</Link></li>
 					<li><Link to="/test">Test Page</Link></li>
-					<li><Link to="/hello">Hello Page</Link></li>
+					<li><Link to="/viReservation">Vi Page</Link></li>
 					<li><Link to="/components">Components</Link>
 						<ul>
 							<li><Link to="/components/ReservationLayout">ReservationLayout</Link></li>
@@ -81,7 +81,7 @@ ReactDOM.render(<Provider store={store}>
 				<Route path="/logout"       component={Logout}/>
 				<Route path="/reservations" component={App}/>
 				<Route path="/test"         component={ReservationPopupLayout}/>
-				<Route path="/hello"        component={HelloWorld}/>
+				<Route path="/viReservation"        component={ViReservation}/>
 				<Route path="/components/ReservationLayout" component={ReservationLayout}/>
 				<Route path="/components/ReservationPopupLayout" component={ReservationPopupLayout}/>
 				<Route path="/components/FilterPanel" component={FilterPanel}/>

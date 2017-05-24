@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../css/hello-world.css'
+import '../css/color.css'
 
 class HelloWorld extends React.Component {
 	render(){
