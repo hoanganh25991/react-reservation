@@ -18,7 +18,7 @@ const user = (state, action) => {
     case c.LOGOUT_FAIL: {
       let { user: currUser } = state
       // Update user status base on action type
-      let user = Object.assign(currUser, { status: action.type })
+      let user = Object.assign({}, currUser, { status: action.type })
       return Object.assign({}, state, { user })
     }
     default:
