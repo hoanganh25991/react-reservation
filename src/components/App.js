@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import NavaigatorPanel from "./NavigatorPanel";
-import FilterPanel from "./FilterPanel";
-import ReservationList from "../components/ReservationList";
+import NavaigatorPanel from "./NavigatorPanel"
+import FilterPanel from "./FilterPanel"
+import HoiReservationList from "../containers/HoiReservationList"
 
 class App extends React.Component {
   render() {
@@ -10,10 +10,10 @@ class App extends React.Component {
       <div>
         <NavaigatorPanel />
         <FilterPanel />
-        <ReservationList />
+        <HoiReservationList />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

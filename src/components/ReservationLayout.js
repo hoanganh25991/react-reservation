@@ -1,19 +1,19 @@
-import React from "react";
+import React from "react"
 
-import StaffReadStatus from "./ResvStaffReadStatus";
+import StaffReadStatus from "./ResvStaffReadStatus"
 //import Remarks from './ResvRemarks'
 
-import AlignCenter from "./helpers/AlignCenter";
+import AlignCenter from "./helpers/AlignCenter"
 
 class ReservationLayout extends React.Component {
   render() {
-    let { reservation, order } = this.props;
+    let { reservation, order } = this.props
 
-    let headerClass = order == 1 ? "reservation-header-row" : "reservation-row";
+    let headerClass = order === 1 ? "reservation-header-row" : "reservation-row"
 
-    let oddEvenClass = order % 2 ? "odd-row" : "even-row";
+    let oddEvenClass = order % 2 ? "odd-row" : "even-row"
 
-    let rowClass = `flex-row pad30 ${oddEvenClass}`;
+    let rowClass = `flex-row pad30 ${oddEvenClass}`
 
     return (
       <div className={rowClass}>
@@ -32,9 +32,9 @@ class ReservationLayout extends React.Component {
                 <AlignCenter>
                   {(() => {
                     if (reservation.date) {
-                      return reservation.date.format("DD MMM YYYY * HH:mm");
+                      return reservation.date.format("DD MMM YYYY * HH:mm")
                     } else {
-                      return reservation.reservation_timestamp;
+                      return reservation.reservation_timestamp
                     }
                   })()}
                 </AlignCenter>
@@ -75,7 +75,7 @@ class ReservationLayout extends React.Component {
           </div>
           <h2 className="text-blue">{reservation.status}</h2>
           {(() => {
-            if (reservation.payment_status == 100) {
+            if (reservation.payment_status === 100) {
               return (
                 <h3 className="text-whit">
                   {reservation.payment_currency}
@@ -84,7 +84,7 @@ class ReservationLayout extends React.Component {
                   {" "}
                   PAID
                 </h3>
-              );
+              )
             }
           })()}
         </div>
@@ -92,8 +92,8 @@ class ReservationLayout extends React.Component {
           <div className="text-gray self-center padHorz">&gt;</div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ReservationLayout;
+export default ReservationLayout

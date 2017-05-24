@@ -13,6 +13,13 @@
  */
 import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
+/*
+ |--------------------------------------------------------------------------
+ | Login request
+ |--------------------------------------------------------------------------
+ |
+ |
+ */
 // Explicit call out thunk before excecute
 const actionThunkSendLoginReq = () => ({ type: c.THUNK_SEND_LOGIN_REQ })
 // Hook logging user in
@@ -51,7 +58,13 @@ export const actionSendLoginReq = () => {
       })
   }
 }
-
+/*
+ |--------------------------------------------------------------------------
+ | Lgout request
+ |--------------------------------------------------------------------------
+ |
+ |
+ */
 // Explicit call out thunk send log out req
 const actionThunkSendLogoutReq = () => ({ type: c.THUNK_SEND_LOGOUT_REQ })
 // Hook logging out
@@ -89,30 +102,38 @@ export const actionSendLogoutReq = () => {
       })
   }
 }
-
+/*
+ |--------------------------------------------------------------------------
+ | Fetch reservations
+ |--------------------------------------------------------------------------
+ |
+ |
+ */
+// Receive reservations, ask to update
 export const actionUpdateReservations = reservations => ({
   type: c.UPDATE_RESERVATIONS,
   reservations
 })
-
+// Parse timestamp into moment data obj
 export const actionAssignDateOnReservations = () => ({
   type: c.ASSIGN_DATE_ON_RESERVATIONS
 })
-
 // Explicit tell call a thunk
 const actionThunkFetchReservations = () => ({
   type: c.THUNK_FETCH_RESERVATIONS
 })
 // Hook fetch reservations fail
 const actionFetchReservationsFail = () => ({ type: c.FETCH_RESERVATIONS_FAIL })
-export const actionFetchReservations = url => {
+// Fetch reservations
+export const actionFetchReservations = ({ data }) => {
   return dispatch => {
     dispatch(actionThunkFetchReservations())
-    // Build options
-    let ajax_options = {
-      url,
+
+    let ajax_options = Object.assign({
+      url: c.END_POINT_RESERVATIONS,
+      data,
       type: c.POST_JSON
-    }
+    })
 
     dispatch(fetchData(ajax_options))
       .then(reservations => {
@@ -132,7 +153,49 @@ export const actionFetchReservations = url => {
       })
   }
 }
-
+/*
+ |--------------------------------------------------------------------------
+ | Fetch reservations by day
+ |--------------------------------------------------------------------------
+ |
+ |
+ */
+const actionThunkFetchReservationsByDay = () => ({
+  type: c.THUNK_FETCH_RESERVATIONS_BY_DAY
+})
+// Fetch reservations by day
+/**
+ * data in shape of
+ * {
+ *  day: <'TODAY' or 'TOMORROW' or...>
+ * }
+ */
+export const actionFetchReservationsByDay = ({ data }) => {
+  return dispatch => {
+    dispatch(actionThunkFetchReservationsByDay())
+    dispatch(actionFetchReservations({ data }))
+  }
+}
+/*
+ |--------------------------------------------------------------------------
+ | Fetch reservations default onload as fetch by today
+ |--------------------------------------------------------------------------
+ |
+ |
+ */
+// Explicit tell calling a thunk
+const actionThunkFetchReservationsOnLoad = () => ({
+  type: c.THUNK_FETCH_RESERVATIONS_ON_LOAD
+})
+// Fetch reservations by day
+export const actionFetchReservationsOnLoad = () => {
+  return dispatch => {
+    dispatch(actionThunkFetchReservationsOnLoad())
+    // Fetch by today
+    let data = { day: c.TODAY }
+    dispatch(actionFetchReservationsByDay({ data }))
+  }
+}
 /*
  |--------------------------------------------------------------------------
  | User
@@ -141,7 +204,6 @@ export const actionFetchReservations = url => {
  |
  */
 export const actionUpdateUser = user => ({ type: c.UPDATE_USER, user })
-
 /*
  |--------------------------------------------------------------------------
  | Filter
@@ -149,7 +211,6 @@ export const actionUpdateUser = user => ({ type: c.UPDATE_USER, user })
  | User support login
  |
  */
-
 export const actionToggleFilterByDay = day => ({
   type: c.FETCH_RESERVATIONS_BY_DAY,
   day

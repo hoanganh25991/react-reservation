@@ -10,14 +10,13 @@ export const THUNK_FETCH_DATA = "THUNK_FETCH_DATA"
 export const THUNK_SEND_LOGIN_REQ = "THUNK_SEND_LOGIN_REQ"
 export const THUNK_SEND_LOGOUT_REQ = "THUNK_SEND_LOGOUT_REQ"
 export const THUNK_FETCH_RESERVATIONS = "THUNK_FETCH_RESERVATIONS"
+export const THUNK_FETCH_RESERVATIONS_BY_DAY = "THUNK_FETCH_RESERVATIONS_BY_DAY"
 // Decide end_point to fetch data
 const END_POINT_FALLBACK = "https://alfred.hoipos.com/reservation/dev/api/admin"
 // Decide endpoint base on .env file
 import { END_POINT as end_point } from "./.env"
 export const END_POINT = end_point ? end_point : END_POINT_FALLBACK
-
 export const FETCH_FAIL = "FETCH_FAIL"
-
 /**
  * Handle reservations
  * @type {string}
@@ -25,9 +24,7 @@ export const FETCH_FAIL = "FETCH_FAIL"
 export const UPDATE_RESERVATION = "UPDATE_RESERVATION"
 export const UPDATE_RESERVATIONS = "UPDATE_RESERVATIONS"
 export const FETCH_RESERVATIONS_FAIL = "FETCH_RESERVATIONS_FAIL"
-
 export const ASSIGN_DATE_ON_RESERVATIONS = "ASSIGN_DATE_ON_RESERVATIONS"
-
 /**
  * Handle User
  */
@@ -63,3 +60,11 @@ export const RESERVED = "RESERVED"
 export const USER_CANCELLED = "USER_CANCELLED"
 export const STAFF_CANCELLED = "STAFF_CANCELLED"
 export const NO_SHOW = "NO_SHOW"
+
+// Fetch reservation
+export const END_POINT_RESERVATIONS = "reservations"
+export const END_POINT__LOGIN = "login"
+export const END_POINT__LOGOUT = "logout"
+
+export const THUNK_FETCH_RESERVATIONS_ON_LOAD =
+  "THUNK_FETCH_RESERVATIONS_ON_LOAD"
