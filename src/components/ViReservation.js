@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 // import Time from 'react-time';
-import "../css/color.css";
-import "../css/flexboxgrid.css";
-const moment = require("moment");
+import "../css/color.css"
+import "../css/flexboxgrid.css"
+const moment = require("moment")
 class ViReservation extends React.Component {
   render() {
-    let now = moment();
+    let now = moment()
     let reservations = [
       {
         outlet_name: "HoiPOS Cafe (West)",
@@ -139,11 +139,11 @@ class ViReservation extends React.Component {
         table_layout_name: "",
         table_name: ""
       }
-    ];
-    let { reservation, order } = reservations;
-    console.log("reservation, order", reservation, order);
+    ]
+    let { reservation, order } = reservations
+    console.log("reservation, order", reservation, order)
 
-    let oddEvenClass = order % 2 ? "odd-row" : "even-row";
+    let oddEvenClass = order % 2 ? "odd-row" : "even-row"
 
     return (
       <div className="page-reservation">
@@ -199,16 +199,10 @@ class ViReservation extends React.Component {
         /* assume we have Reservation Component already */
         /* reservations is our data fetch from server */
         /* bring data of each reservation into Reservation Component */
-        {reservations.map(
-          (
-            reservation,
-            index
-          ) => /* we need key in any list loop, for react to track on */
-          <Reservation reservation={reservation} order={index} key={index} />
-        )}
+
       </div>
-    );
+    )
   }
 }
 
-export default ViReservation;
+export default ViReservation
