@@ -151,7 +151,7 @@ export const actionUpdateUser = user => ({ type: c.UPDATE_USER, user })
  */
 
 export const actionToggleFilterByDay = day => ({
-  type: c.TOGGLE_FILTER_DAY,
+  type: c.FETCH_RESERVATIONS_BY_DAY,
   day
 })
 // Toggle pick a date
