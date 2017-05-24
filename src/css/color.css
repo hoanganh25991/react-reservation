@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
+* {
+  margin: 0;
+  padding: 0;
+  font-family: roboto; }
+
+.t-right {
+  text-align: right; }
+
+.t-left {
+  text-align: left; }
+
+.t-center {
+  text-align: center; }
+
+body {
+  color: #ffffff;
+  background-color: #262b32; }
+  body h1, body h2, body h3, body h4, body p {
+    margin: 0;
+    padding: 0;
+    font-weight: 100; }
+  body .back10 {
+    background-color: rgba(0, 0, 0, 0.1); }
+  body .back20 {
+    background-color: rgba(0, 0, 0, 0.2); }
+  body .back40 {
+    background-color: rgba(0, 0, 0, 0.4); }
+  body .white20 {
+    background-color: #ffffff, 0.2; }
+  body .header h3 {
+    font-size: 20px;
+    padding: 0 10px 5px 0; }
+  body .header .name {
+    padding: 15px 0 0 20px; }
+  body .header h1 {
+    font-size: 35px;
+    border-left: 1px solid;
+    padding: 0 5px;
+    margin-top: 5px; }
+  body .header p {
+    font-size: 13px;
+    padding: 5px 10px 3px 0; }
+  body .header svg {
+    margin-top: 3px;
+    padding: 0 5px; }
+  body .time-bar {
+    font-size: 20px;
+    font-weight: 100;
+    padding: 20px 0;
+    text-transform: uppercase;
+    border-top: 2px solid rgba(255, 255, 255, 0.1); }
+    body .time-bar .col-xs.t-center {
+      max-width: 150px; }
+    body .time-bar .col-xs.t-center:nth-child(1) {
+      max-width: 100px; }
+    body .time-bar .col-xs.t-center:nth-child(2) {
+      max-width: 130px; }
+    body .time-bar .col-xs.t-right a {
+      padding: 5px 20px;
+      background: rgba(255, 255, 0, 0.25);
+      border: 1px solid #ffff00;
+      margin-right: 15px;
+      cursor: pointer; }

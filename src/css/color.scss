@@ -6,4 +6,93 @@ $tBlue: #7088fd;
 $greenDot: #00ffcc;
 $tGreen: #00ff0c;
 $greenL: #00ffff;
+$bgBlack: #262b32;
+$yelow25: rgba($yelow, 0.25);
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: roboto;
+}
+
+.t-right {
+    text-align: right;
+}
+.t-left {
+    text-align: left;
+}
+.t-center {
+    text-align: center;
+}
+body {
+    color: $white;
+    background-color: $bgBlack;
+    h1, h2, h3, h4, p {
+        margin: 0;
+        padding: 0;
+        font-weight: 100;
+    }
+    .back10 {
+        background-color: rgba($black, 0.1);
+    }
+    .back20 {
+        background-color: rgba($black, 0.2);
+    }
+    .back40 {
+        background-color: rgba($black, 0.4);
+    }
+    .white20 {
+        background-color: ($white, 0.2)
+    }
+    .header {
+        h3 {
+            font-size: 20px;
+            padding: 0 10px 5px 0;
+        }
+        .name {
+            padding: 15px 0 0 20px;
+        }
+        h1 {
+            font-size: 35px;
+            border-left: 1px solid;
+            padding: 0 5px;
+            margin-top: 5px;
+        }
+        p {
+            font-size: 13px;
+            padding: 5px 10px 3px 0;
+        }
+        svg {
+            margin-top: 3px;
+            padding: 0 5px;
+        }
+    }
+    .time-bar {
+        font-size: 20px;
+        font-weight: 100;
+        padding: 20px 0;
+        text-transform: uppercase;
+        border-top: 2px solid rgba($white, 0.1);
+        .col-xs.t-center {
+            max-width: 150px;
+        }
+        .col-xs.t-center:nth-child(1) {
+            max-width: 100px;
+        }
+        .col-xs.t-center:nth-child(2) {
+            max-width: 130px;
+        }
+        .col-xs.t-right {
+            a {
+                padding: 5px 20px;
+                background: $yelow25;
+                border: 1px solid $yelow;
+                margin-right: 15px;
+                cursor: pointer;
+            }
+        }
+    }
+}
 

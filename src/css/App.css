@@ -3,8 +3,8 @@ Global
 */
 * {
     /*border: 1px solid black;*/
-    box-sizing: border-box;
-    font-family: monospace;
+    /*box-sizing: border-box;
+    font-family: monospace;*/
 }
 
 h1, h2, h3, h4, p {

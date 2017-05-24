@@ -1,9 +1,11 @@
 import React from 'react'
-
-import '../css/hello-world.css'
-
+// import Time from 'react-time';
+import '../css/color.css'
+import '../css/flexboxgrid.css'
+const moment = require('moment');
 class ViReservation extends React.Component {
 	render(){
+        let now = moment();
 		let reservation = [
             {
             outlet_name: 'HoiPOS Cafe (West)',
@@ -105,25 +107,33 @@ class ViReservation extends React.Component {
        
 		return (
 			<div className="page-reservation">
-                <div style={{background: 'red', display: 'flex', flexDirection: 'row'}}>
-                    <div>ADFGH</div>
-                    <div>ADFGH</div>
-                    <div>ADFGH</div>
-                    <div style={{display: 'flex', flex: 1}}></div>
-                    <div>Stay at last</div>
-                </div>
-				<div className="header">
-                    <div className="header-name">
-                        <div>
-                            <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/>
-                                <path d="M0 0h24v24H0z" fill="none"/>
-                            </svg>
-                        </div>
-                        <div>{reservation[0].outlet_name}</div>
+				<div className="row header">
+                    <div className="back40">
+                        <svg fill="#ffffff" height="45" viewBox="0 0 24 24" width="45" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/>
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                        </svg>
                     </div>
-                    <div className="header-time">
-                        
+                    <div className="col-xs name back10">
+                        <h3>{reservation[0].outlet_name}</h3>
+                    </div>
+                    <div className="col-xs t-right back10">
+                        <p>{now.format('dddd')}</p>
+                        <h3>{now.format('D MMMM YYYY')}</h3>
+                    </div>
+                    <div className="back10">
+                        <h1>{now.format('HH:mm')}</h1>
+                    </div>
+                </div>
+                <div className="time-bar row back40">
+                    <div className="col-xs t-center">Today</div>
+                    <div className="col-xs t-center">Tomorrow</div>
+                    <div className="col-xs t-center">Next 3 days</div>
+                    <div className="col-xs t-center">Next 7 days</div>
+                    <div className="col-xs t-center">Next 30 days</div>
+                    <div className="col-xs t-center">Pick a date</div>
+                    <div className="col-xs t-right">
+                        <a>Filtered</a>
                     </div>
                 </div>
 			</div>
