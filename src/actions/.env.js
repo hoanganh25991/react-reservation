@@ -1,0 +1,1 @@
+export const END_POINT = 'http://reservation.dev/api/admin'
