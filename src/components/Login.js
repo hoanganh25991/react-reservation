@@ -1,6 +1,56 @@
 import React from 'react'
 
+import * as c from '../actions/const-name'
+
 class Login extends React.Component {
+	/**
+	 * Suport auto login when user
+	 * Submit url with username, password params
+	 * @returns {XML}
+	 */
+	componentDidMount(){
+		let {match} = this.props;
+
+		//console.log('match here', match)
+
+		let {user_name, password} = match.params;
+
+		if(user_name && password){
+			let {updateUser, login} = this.props;
+
+			// Update user info first
+			updateUser({user_name, password});
+
+			// Then log him in
+			login();
+
+
+			const {location} = this.props;
+			// if (location.state && location.state.nextPathname) {
+			// 	browserHistory.push(location.state.nextPathname)
+			// } else {
+			// 	browserHistory.push('/')
+			// }
+			console.log(location)
+
+			console.log(this.props);
+		}
+	}
+
+	componentDidUpdate(){
+		let {user} = this.props;
+
+		let {status} = user
+
+		if(status === c.LOGIN_SUCCESS){
+			let {history} = this.props
+
+			history.push('/reservations')
+		}
+
+	}
+
+
 	render(){
 		// Get state
 		let {user} = this.props;

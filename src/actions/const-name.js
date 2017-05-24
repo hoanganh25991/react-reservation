@@ -6,8 +6,14 @@ export const BEFORE_SEND_REQ = 'BEFORE_SEND_REQ';
 export const POST_FORM = 'POST_FORM';
 export const POST_JSON = 'POST_JSON';
 export const RECEIVE_RES = 'RECEIVE_RES';
-export const END_POINT = 'http://reservation.dev/api/admin';
-export const FETCH_FAIL = 'FETCH_FAIL';
+
+// Decide end_point to fetch data
+const END_POINT_FALLBACK = 'https://alfred.hoipos.com/reservation/dev/api/admin'
+// Decide endpoint base on .env file
+import {END_POINT as end_point} from './.env'
+export const END_POINT = end_point ? end_point : END_POINT_FALLBACK
+
+export const FETCH_FAIL = 'FETCH_FAIL'
 
 /**
  * Handle reservations

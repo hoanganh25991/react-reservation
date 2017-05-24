@@ -1,18 +1,7 @@
 import React from 'react'
-
-import * as c from '../actions/const-name'
-
-import '../css/crazy.css'
-
 import Radium from 'radium'
-
-let styles = {
-	base: {
-		':hover': {
-	    	backgroundColor: 'red'
-	    },
-	}
-}
+import styles from './style'
+import * as c from '../../actions/const-name'
 
 class FilterPanel extends React.Component {
 	render(){
@@ -27,7 +16,7 @@ class FilterPanel extends React.Component {
 				<div className="flex-row bg-dark-blue pad30">
 					<div>
 						<h3 className="text-whit pad-large filter-selected"
-							onClick={() => actionToggleFilterByDay(c.TODAY)}
+						    onClick={() => actionToggleFilterByDay(c.TODAY)}
 						>TODAY</h3>
 					</div>
 					<div>
@@ -128,25 +117,4 @@ class FilterPanel extends React.Component {
 	}
 }
 
-/**
- * Bind actions
- */
-/**
- * Bind actions
- */
-import {connect} from 'react-redux'
-
-import {actionToggleInputPickADate, actionToggleFilterByDay, actionToggleFilterByStatus} from '../actions'
-
-const mapStateToProps  = ({toggleInputPickADate}) => ({isVisibleInputPickADate: toggleInputPickADate})
-
-const mapActionToProps = (dispatch) => {
-	return {
-		actionToggleInputPickADate: ()       => dispatch(actionToggleInputPickADate()),
-		actionToggleFilterByDay:    (day)    => dispatch(actionToggleFilterByDay(day)),
-		actionToggleFilterByStatus: (status) => dispatch(actionToggleFilterByStatus(status)),
-
-	}
-}
-
-export default connect(mapStateToProps, mapActionToProps)(Radium(FilterPanel))
+export default Radium(FilterPanel)

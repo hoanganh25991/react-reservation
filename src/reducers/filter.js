@@ -25,7 +25,7 @@ const createFilterDay = (filter, {day, type, priority}) => {
 const addFilter = (newFilter, currentFilters) => {
 
 	let filters = currentFilters.reduce((carry, filter) => {
-		let sameType      = filter.type == newFilter.type;
+		let sameType      = filter.type === newFilter.type;
 		let lowerPriority = filter.priority <= newFilter.type;
 
 		// If same type but no priority higher than the new one
