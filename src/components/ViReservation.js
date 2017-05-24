@@ -21,11 +21,47 @@ class ViReservation extends React.Component {
         email: "torinnguyen@gmail.com",
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
-        status: "RESERVED",
+        status: 100,
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
         table_name: "A1"
+      },
+      {
+        id: 247,
+        outlet_id: 1,
+        salutation: "Mr.",
+        first_name: "Anh",
+        last_name: "Le Hoang",
+        email: "lehoanganh25991@gmail.com",
+        phone_country_code: "+84",
+        phone: "903865657",
+        status: 100,
+        adult_pax: 12,
+        children_pax: 0,
+        reservation_timestamp: "2017-05-25 10:30:00",
+        customer_remarks: "hello world",
+        is_outdoor: null,
+        send_sms_confirmation: true,
+        send_email_confirmation: null,
+        table_layout_id: null,
+        table_layout_name: null,
+        table_name: null,
+        staff_read_state: null,
+        staff_remarks: null,
+        payment_required: null,
+        payment_authorization_id: "5FX58092A9109151E",
+        payment_amount: "1.35",
+        payment_currency: "USD",
+        payment_status: 100,
+        payment_timestamp: "2017-05-24 13:43:29",
+        created_timestamp: "2017-05-24 13:41:50",
+        modified_timestamp: "2017-05-24 13:43:29",
+        confirm_id: "7G915DK",
+        send_confirmation_by_timestamp: "2017-05-25 08:30:00",
+        deposit: "1.35",
+        time: "10:30",
+        paypal_currency: "USD"
       },
       {
         confirm_id: "JE41ME7",
@@ -40,7 +76,7 @@ class ViReservation extends React.Component {
         email: "tamnguyen@gmail.com",
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
-        status: "reminder sent",
+        status: 200,
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
@@ -59,7 +95,7 @@ class ViReservation extends React.Component {
         email: "tamnguyen@gmail.com",
         customer_remarks: "",
         staff_remarks: "user called in to cancel",
-        status: "user cancelled",
+        status: -100,
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: "",
@@ -78,7 +114,7 @@ class ViReservation extends React.Component {
         email: "tamnguyen@gmail.com",
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
-        status: "no show",
+        status: -300,
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: "",
@@ -97,13 +133,17 @@ class ViReservation extends React.Component {
         email: "tamnguyen@gmail.com",
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
-        status: "confirmed",
+        status: 300,
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: "",
         table_name: ""
       }
     ];
+    let { reservation, order } = reservations;
+    console.log("reservation, order", reservation, order);
+
+    let oddEvenClass = order % 2 ? "odd-row" : "even-row";
 
     return (
       <div className="page-reservation">
@@ -142,9 +182,30 @@ class ViReservation extends React.Component {
             <a>Filtered</a>
           </div>
         </div>
-        {reservations.map((reservation, index) => (
-          <div key={index}>reservation</div>
-        ))}
+        <div className="reservation-status row back40">
+          <div className="col-xs-4">Showing <b>12/23</b> reservations</div>
+          <div className="col-xs-3">Customer</div>
+          <div className="col-xs-3">Remarks/Staff Note</div>
+          <div className="col-xs-2">Status</div>
+        </div>
+        <div className="table-list">
+          {reservations.map((reservation, index) => (
+            <div key={index}>reservation</div>
+          ))}
+
+        </div>
+        <div className="footer" />
+        <div />
+        /* assume we have Reservation Component already */
+        /* reservations is our data fetch from server */
+        /* bring data of each reservation into Reservation Component */
+        {reservations.map(
+          (
+            reservation,
+            index
+          ) => /* we need key in any list loop, for react to track on */
+          <Reservation reservation={reservation} order={index} key={index} />
+        )}
       </div>
     );
   }
