@@ -8,12 +8,6 @@ import * as c from "./const-name"
  | These hooks really useful for later use to history ajax_call or show dialog
  |
  */
-
-// Support post type
-const checkSupportType = type => {
-  return
-}
-
 // Wrap whatwg_fetch
 // Bcs we always use 'POST', 'credentials' and 'auto format body' before send
 const hoiFetch = ajax_options => {
@@ -66,6 +60,8 @@ const actionReforeReq = ajax_options => ({
 const actionReceiveRes = reponse => ({ type: c.RECEIVE_RES, reponse })
 // When calling a thunk, i want explicit tell out that
 const actionThunkFetchData = () => ({ type: c.THUNK_FETCH_DATA })
+// Notify out if fetch fail
+const actionFetchFail = () => ({ type: c.FETCH_FAIL })
 // Fetch data
 export const fetchData = ajax_options => {
   return dispatch => {
@@ -79,7 +75,7 @@ export const fetchData = ajax_options => {
         return Promise.resolve(res.json())
       })
       .catch(res => {
-        dispatch({ type: c.FETCH_FAIL })
+        dispatch(actionFetchFail())
         return Promise.reject(res)
       })
   }

@@ -7,7 +7,9 @@ export const POST_FORM = "POST_FORM"
 export const POST_JSON = "POST_JSON"
 export const RECEIVE_RES = "RECEIVE_RES"
 export const THUNK_FETCH_DATA = "THUNK_FETCH_DATA"
-
+export const THUNK_SEND_LOGIN_REQ = "THUNK_SEND_LOGIN_REQ"
+export const THUNK_SEND_LOGOUT_REQ = "THUNK_SEND_LOGOUT_REQ"
+export const THUNK_FETCH_RESERVATIONS = "THUNK_FETCH_RESERVATIONS"
 // Decide end_point to fetch data
 const END_POINT_FALLBACK = "https://alfred.hoipos.com/reservation/dev/api/admin"
 // Decide endpoint base on .env file
