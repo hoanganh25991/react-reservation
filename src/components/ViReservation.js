@@ -6,7 +6,7 @@ const moment = require("moment");
 class ViReservation extends React.Component {
   render() {
     let now = moment();
-    let reservation = [
+    let reservations = [
       {
         outlet_name: "HoiPOS Cafe (West)",
         confirm_id: "GHYTGU6",
@@ -121,7 +121,7 @@ class ViReservation extends React.Component {
             </svg>
           </div>
           <div className="col-xs name back10">
-            <h3>{reservation[0].outlet_name}</h3>
+            <h3>{reservations[0].outlet_name}</h3>
           </div>
           <div className="col-xs t-right back10">
             <p>{now.format("dddd")}</p>
@@ -142,6 +142,9 @@ class ViReservation extends React.Component {
             <a>Filtered</a>
           </div>
         </div>
+        {reservations.map((reservation, index) => (
+          <div key={index}>reservation</div>
+        ))}
       </div>
     );
   }

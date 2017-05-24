@@ -1,3 +1,4 @@
+import * as c from "./const-name";
 /*
  |--------------------------------------------------------------------------
  | Fetch data
@@ -7,9 +8,6 @@
  | These hooks really useful for later use to history ajax_call or show dialog
  |
  */
-// Hook before send request
-import * as c from "./const-name";
-
 const actionReforeReq = ajax_options => {
   return {
     type: c.BEFORE_SEND_REQ,
