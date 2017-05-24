@@ -6,13 +6,7 @@ import '../css/crazy.css'
 
 import Radium from 'radium'
 
-let styles = {
-	base: {
-		':hover': {
-	    	backgroundColor: 'red'
-	    },
-	}
-}
+import styles from './FilterPanel/style'
 
 class FilterPanel extends React.Component {
 	render(){
