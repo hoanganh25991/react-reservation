@@ -77,7 +77,7 @@ ReactDOM.render(<Provider store={store}>
 				<hr/>
 
 				<Route exact path="/"       component={App}/>
-				<Route path="/login"        component={Login}/>
+				<Route path="/login/:user_name/:password"        component={Login}/>
 				<Route path="/logout"       component={Logout}/>
 				<Route path="/reservations" component={App}/>
 				<Route path="/test"         component={ReservationPopupLayout}/>
