@@ -1,22 +1,22 @@
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 import {
   actionToggleInputPickADate,
-  actionToggleFilterByDay,
-  actionToggleFilterByStatus
-} from "../actions";
-import FilterPanel from "../components/FilterPanel";
+  actionFetchReservationsByDay,
+  actionToggleFilterByStatus,
+  actionClearFilterByStatus
+} from "../actions"
+import FilterPanel from "../components/FilterPanel"
 
-const mapStateToProps = ({ toggleInputPickADate }) => ({
-  isVisibleInputPickADate: toggleInputPickADate
-});
+const mapStateToProps = ({ visibleInputPickADate }) => ({
+  visibleInputPickADate
+})
 
-const mapActionToProps = dispatch => {
-  return {
-    actionToggleInputPickADate: () => dispatch(actionToggleInputPickADate()),
-    actionToggleFilterByDay: day => dispatch(actionToggleFilterByDay(day)),
-    actionToggleFilterByStatus: status =>
-      dispatch(actionToggleFilterByStatus(status))
-  };
-};
+const mapActionToProps = dispatch => ({
+  toggleInputPickADate: () => dispatch(actionToggleInputPickADate()),
+  toggleFilterByDay: day =>
+    dispatch(actionFetchReservationsByDay({ data: { day } })),
+  toggleFilterByStatus: status => dispatch(actionToggleFilterByStatus(status)),
+  clearFilterByStatus: () => dispatch(actionClearFilterByStatus())
+})
 
-export default connect(mapStateToProps, mapActionToProps)(FilterPanel);
+export default connect(mapStateToProps, mapActionToProps)(FilterPanel)

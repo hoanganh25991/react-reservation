@@ -1,18 +1,15 @@
-import React from "react";
-
-import Reservation from "./Reservation";
+import React from "react"
+import Reservation from "./Reservation"
 
 class ReservationList extends React.Component {
   componentDidMount() {
-    let { fetchReservations } = this.props;
-
-    let url = "reservations";
-
-    fetchReservations(url);
+    let { fetchReservationsOnLoad } = this.props
+    // Ok load reservations
+    fetchReservationsOnLoad()
   }
 
   render() {
-    let { reservations } = this.props;
+    let { reservations } = this.props
 
     return (
       <div>
@@ -25,30 +22,8 @@ class ReservationList extends React.Component {
           />
         ))}
       </div>
-    );
+    )
   }
 }
 
-/**
- * Bind actions
- */
-import { connect } from "react-redux";
-
-import { actionFetchReservations, actionUpdateReservations } from "../actions";
-
-const mapStateToProps = ({ reservations, filters }) => ({
-  reservations: filters.reduce(
-    (carry, filter) => carry.filter(filter),
-    reservations
-  )
-});
-
-const mapActionToProps = dispatch => {
-  return {
-    fetchReservations: url => dispatch(actionFetchReservations(url)),
-    updateReservations: reservations =>
-      dispatch(actionUpdateReservations(reservations))
-  };
-};
-
-export default connect(mapStateToProps, mapActionToProps)(ReservationList);
+export default ReservationList

@@ -7,15 +7,16 @@ export const POST_FORM = "POST_FORM"
 export const POST_JSON = "POST_JSON"
 export const RECEIVE_RES = "RECEIVE_RES"
 export const THUNK_FETCH_DATA = "THUNK_FETCH_DATA"
-
+export const THUNK_SEND_LOGIN_REQ = "THUNK_SEND_LOGIN_REQ"
+export const THUNK_SEND_LOGOUT_REQ = "THUNK_SEND_LOGOUT_REQ"
+export const THUNK_FETCH_RESERVATIONS = "THUNK_FETCH_RESERVATIONS"
+export const THUNK_FETCH_RESERVATIONS_BY_DAY = "THUNK_FETCH_RESERVATIONS_BY_DAY"
 // Decide end_point to fetch data
 const END_POINT_FALLBACK = "https://alfred.hoipos.com/reservation/dev/api/admin"
 // Decide endpoint base on .env file
 import { END_POINT as end_point } from "./.env"
 export const END_POINT = end_point ? end_point : END_POINT_FALLBACK
-
 export const FETCH_FAIL = "FETCH_FAIL"
-
 /**
  * Handle reservations
  * @type {string}
@@ -23,9 +24,7 @@ export const FETCH_FAIL = "FETCH_FAIL"
 export const UPDATE_RESERVATION = "UPDATE_RESERVATION"
 export const UPDATE_RESERVATIONS = "UPDATE_RESERVATIONS"
 export const FETCH_RESERVATIONS_FAIL = "FETCH_RESERVATIONS_FAIL"
-
 export const ASSIGN_DATE_ON_RESERVATIONS = "ASSIGN_DATE_ON_RESERVATIONS"
-
 /**
  * Handle User
  */
@@ -39,7 +38,7 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS"
 export const LOGOUT_FAIL = "LOGOUT_FAIL"
 /////
 
-export const TOGGLE_FILTER_DAY = "TOGGLE_FILTER_DAY"
+export const FETCH_RESERVATIONS_BY_DAY = "FETCH_RESERVATIONS_BY_DAY"
 export const TOGGLE_FILTER_STATUS = "TOGGLE_FILTER_STATUS"
 
 export const FILTER_DAY = "FILTER_DAY"
@@ -54,10 +53,29 @@ export const NEXT_30_DAYS = "NEXT_30_DAYS"
 export const TOGGLE_INPUT_PICK_A_DATE = "TOGGLE_INPUT_PICK_A_DATE"
 
 // For filter status
-export const ARRIVED = "ARRIVED"
-export const CONFIRMED = "CONFIRMED"
-export const REMINDER_SENT = "REMINDER_SENT"
-export const RESERVED = "RESERVED"
-export const USER_CANCELLED = "USER_CANCELLED"
-export const STAFF_CANCELLED = "STAFF_CANCELLED"
-export const NO_SHOW = "NO_SHOW"
+export const ARRIVED = 400
+export const CONFIRMED = 300
+export const REMINDER_SENT = 200
+export const RESERVED = 100
+export const USER_CANCELLED = -100
+export const STAFF_CANCELLED = -200
+export const NO_SHOW = -300
+
+// Fetch reservation
+export const END_POINT_RESERVATIONS = "reservations"
+export const END_POINT_AUTH = "auth"
+export const END_POINT__LOGOUT = "logout"
+
+export const THUNK_FETCH_RESERVATIONS_ON_LOAD =
+  "THUNK_FETCH_RESERVATIONS_ON_LOAD"
+
+export const AJAX_LOGIN = "AJAX_LOGIN"
+export const AJAX_LOGOUT = "AJAX_LOGOUT"
+
+export const AJAX_LOGIN_SUCCESS = "AJAX_LOGIN_SUCCESS"
+export const AJAX_LOGIN_FAIL = "AJAX_LOGIN_FAIL"
+
+export const AJAX_FETCH_RESERVATIONS_BY_DAY = "AJAX_FETCH_RESERVATIONS_BY_DAY"
+export const AJAX_FETCH_RESERVATIONS_BY_DAY_SUCCESS =
+  "AJAX_FETCH_RESERVATIONS_BY_DAY_SUCCESS"
+export const CLEAR_FILTER_BY_STATUS = "CLEAR_FILTER_BY_STATUS"

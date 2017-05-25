@@ -1,18 +1,14 @@
-import * as c from "../actions/const-name";
-import reservations from "./reservations";
-import user from "./user";
-import filter from "./filter";
-
-// const adminPage = combineReducers({
-// 	reservations,
-// })
+import * as c from "../actions/const-name"
+import reservations from "./reservations"
+import user from "./user"
+import filter from "./filter"
 
 const initState = {
   reservations: [],
-  filters: [],
+  filterByStatus: [],
   user: {},
   toggleInputPickADate: false
-};
+}
 
 const adminPage = (state = initState, action) => {
   switch (action.type) {
@@ -21,29 +17,30 @@ const adminPage = (state = initState, action) => {
     case c.LOGIN_FAIL:
     case c.LOGOUT_SUCCESS:
     case c.LOGOUT_FAIL: {
-      return user(state, action);
+      return user(state, action)
     }
-    case c.UPDATE_RESERVATIONS:
     case c.UPDATE_RESERVATION:
+    case c.UPDATE_RESERVATIONS:
     case c.FETCH_RESERVATIONS_FAIL:
     case c.ASSIGN_DATE_ON_RESERVATIONS: {
-      return reservations(state, action);
+      return reservations(state, action)
     }
+    case c.FETCH_RESERVATIONS_BY_DAY:
     case c.TOGGLE_FILTER_STATUS:
-    case c.TOGGLE_FILTER_DAY: {
-      return filter(state, action);
+    case c.CLEAR_FILTER_BY_STATUS: {
+      return filter(state, action)
     }
     case c.TOGGLE_INPUT_PICK_A_DATE: {
-      let { toggleInputPickADate: currentPickADay } = state;
+      let { visibleInputPickADate: currVisibleInput } = state
       // toggle it
-      let toggleInputPickADate = !currentPickADay;
+      let visibleInputPickADate = !currVisibleInput
       // save it
-      return Object.assign({}, state, { toggleInputPickADate });
+      return Object.assign({}, state, { visibleInputPickADate })
     }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export default adminPage;
+export default adminPage
 ///////
