@@ -66,12 +66,12 @@ class FilterPanel extends React.Component {
             </h3>
           </div>
           <div>
-            /* <h3
+            {/* <h3
               className="text-whit pad-large default"
               onClick={() => console.log("xclear")}
             >
               XCLEAR
-            </h3> */
+            </h3> */}
           </div>
           <div className="flex1" />
           <div>
