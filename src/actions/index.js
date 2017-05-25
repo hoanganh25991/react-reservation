@@ -137,9 +137,10 @@ export const actionFetchReservations = ({ data }) => {
     })
 
     dispatch(fetchData(ajax_options))
-      .then(reservations => {
+      .then(res => {
         // dirty check
-        if (reservations) {
+        if (res.statusMsg === c.AJAX_FETCH_RESERVATIONS_BY_DAY_SUCCESS) {
+          let { reservations } = res.data
           //let reservations = reservations
           dispatch(actionUpdateReservations(reservations))
           // Right after have reservations
@@ -174,6 +175,13 @@ const actionThunkFetchReservationsByDay = () => ({
 export const actionFetchReservationsByDay = ({ data }) => {
   return dispatch => {
     dispatch(actionThunkFetchReservationsByDay())
+
+    // Update type of request
+    Object.assign(data, {
+      type: c.AJAX_FETCH_RESERVATIONS_BY_DAY,
+      outlet_id: 1
+    })
+
     dispatch(actionFetchReservations({ data }))
   }
 }

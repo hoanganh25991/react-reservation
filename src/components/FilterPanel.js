@@ -1,26 +1,25 @@
-import React from "react";
-import Radium from "radium";
-import styles from "./style";
-import * as c from "../../actions/const-name";
+import React from "react"
+import Radium from "radium"
+import * as c from "../actions/const-name"
 
 class FilterPanel extends React.Component {
   render() {
     // Get state
-    let { isVisibleInputPickADate } = this.props;
+    let { isVisibleInputPickADate } = this.props
     // Get actions
     let {
-      actionToggleInputPickADate,
-      actionToggleFilterByDay,
-      actionToggleFilterByStatus
-    } = this.props;
+      toggleInputPickADate,
+      toggleFilterByDay,
+      toggleFilterByStatus
+    } = this.props
 
     return (
-      <div className="crazy" style={[styles.base]}>
+      <div>
         <div className="flex-row bg-dark-blue pad30">
           <div>
             <h3
               className="text-whit pad-large filter-selected"
-              onClick={() => actionToggleFilterByDay(c.TODAY)}
+              onClick={() => toggleFilterByDay(c.TODAY)}
             >
               TODAY
             </h3>
@@ -28,7 +27,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByDay(c.TOMORROW)}
+              onClick={() => toggleFilterByDay(c.TOMORROW)}
             >
               TOMORROW
             </h3>
@@ -36,7 +35,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByDay(c.NEXT_3_DAYS)}
+              onClick={() => toggleFilterByDay(c.NEXT_3_DAYS)}
             >
               NEXT 3 DAYS
             </h3>
@@ -44,7 +43,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByDay(c.NEXT_7_DAYS)}
+              onClick={() => toggleFilterByDay(c.NEXT_7_DAYS)}
             >
               NEXT 7 DAYS
             </h3>
@@ -52,7 +51,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByDay(c.NEXT_30_DAYS)}
+              onClick={() => toggleFilterByDay(c.NEXT_30_DAYS)}
             >
               NEXT 30 DAYS
             </h3>
@@ -60,7 +59,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleInputPickADate()}
+              onClick={() => toggleInputPickADate()}
             >
               PICK A DATE
             </h3>
@@ -85,7 +84,7 @@ class FilterPanel extends React.Component {
                 <input
                   type="date"
                   onChange={e => {
-                    actionToggleFilterByDay(e.target.value);
+                    toggleFilterByDay(e.target.value)
                   }}
                 />
               </div>
@@ -95,7 +94,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large filter-selected"
-              onClick={() => actionToggleFilterByStatus(c.ARRIVED)}
+              onClick={() => toggleFilterByStatus(c.ARRIVED)}
             >
               ARRIVED
             </h3>
@@ -103,7 +102,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByStatus(c.CONFIRMED)}
+              onClick={() => toggleFilterByStatus(c.CONFIRMED)}
             >
               CONFIRMED
             </h3>
@@ -111,7 +110,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByStatus(c.REMINDER_SENT)}
+              onClick={() => toggleFilterByStatus(c.REMINDER_SENT)}
             >
               REMINDER SENT
             </h3>
@@ -119,7 +118,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByStatus(c.RESERVED)}
+              onClick={() => toggleFilterByStatus(c.RESERVED)}
             >
               RESERVED
             </h3>
@@ -127,7 +126,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByStatus(c.USER_CANCELLED)}
+              onClick={() => toggleFilterByStatus(c.USER_CANCELLED)}
             >
               USER CANCELLED
             </h3>
@@ -135,7 +134,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByStatus(c.STAFF_CANCELLED)}
+              onClick={() => toggleFilterByStatus(c.STAFF_CANCELLED)}
             >
               STAFF CANCELLED
             </h3>
@@ -143,7 +142,7 @@ class FilterPanel extends React.Component {
           <div>
             <h3
               className="text-whit pad-large"
-              onClick={() => actionToggleFilterByStatus(c.NO_SHOW)}
+              onClick={() => toggleFilterByStatus(c.NO_SHOW)}
             >
               NO SHOW
             </h3>
@@ -162,8 +161,8 @@ class FilterPanel extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Radium(FilterPanel);
+export default FilterPanel
