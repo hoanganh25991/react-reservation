@@ -86,7 +86,6 @@ export const actionFetchReservations = ({ data }) => {
 export const actionFetchReservationsByDay = () => {
   return (dispatch, getState) => {
     dispatch({ type: c.THUNK_FETCH_RESERVATIONS_BY_DAY })
-    dispatch(actionChooseDefaultOutlet())
     // Update type of request
     let { filterByDay: day } = getState()
     let data = { type: c.AJAX_FETCH_RESERVATIONS_BY_DAY, day }
@@ -110,6 +109,7 @@ export const actionFetchReservationsOnLoad = () => {
   return dispatch => {
     // Explicit tell calling a thunk
     dispatch({ type: c.THUNK_FETCH_RESERVATIONS_ON_LOAD })
+    dispatch(actionChooseDefaultOutlet())
     // Fetch by today
     let data = { type: c.AJAX_FETCH_RESERVATIONS_BY_DAY, day: c.TODAY }
     dispatch(actionFetchReservationsByDay({ data }))

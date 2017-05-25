@@ -30,17 +30,11 @@ const adminPage = (state = initState, action) => {
     case c.ASSIGN_DATE_ON_RESERVATIONS: {
       return reservations(state, action)
     }
-    case c.FETCH_RESERVATIONS_BY_DAY:
+    case c.UPDATE_FILTER_BY_DAY:
     case c.TOGGLE_FILTER_STATUS:
-    case c.CLEAR_FILTER_BY_STATUS: {
-      return filter(state, action)
-    }
+    case c.CLEAR_FILTER_BY_STATUS:
     case c.TOGGLE_INPUT_PICK_A_DATE: {
-      let { visibleInputPickADate: currVisibleInput } = state
-      // toggle it
-      let visibleInputPickADate = !currVisibleInput
-      // save it
-      return Object.assign({}, state, { visibleInputPickADate })
+      return filter(state, action)
     }
     case c.RESET_APP: {
       return initState
