@@ -3,6 +3,7 @@ import reservations from "./reservations"
 import user from "./user"
 import filter from "./filter"
 import router from "./router"
+import popup from "./popup"
 
 export const initState = {
   // Store reservations
@@ -10,11 +11,14 @@ export const initState = {
   // Helps to filter reservations
   filterByStatus: [],
   filterByDay: null,
-  toggleInputPickADate: false,
+  visibleInputPickADate: false,
   // Store user info
   user: {},
   outlet_id: null,
-  router: null
+  // Help to store current location
+  router: null,
+  // Popup
+  visiblePopup: false
 }
 
 const adminPage = (state = initState, action) => {
@@ -55,6 +59,9 @@ const adminPage = (state = initState, action) => {
     }
     case c.LOCATION_CHANGE: {
       return router(state, action)
+    }
+    case c.TOGGLE_POPUP: {
+      return popup(state, action)
     }
     default:
       return state
