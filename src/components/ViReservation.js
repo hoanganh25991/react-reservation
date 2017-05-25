@@ -2,7 +2,10 @@ import React from "react"
 // import Time from 'react-time';
 import "../css/color.css"
 import "../css/flexboxgrid.css"
-const moment = require("moment")
+import moment from "moment"
+
+import TableReservation from "./TableReservation"
+
 class ViReservation extends React.Component {
   render() {
     let now = moment()
@@ -25,7 +28,8 @@ class ViReservation extends React.Component {
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
-        table_name: "A1"
+        table_name: "A1",
+        staff_read_state: 1
       },
       {
         id: 247,
@@ -80,7 +84,8 @@ class ViReservation extends React.Component {
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
-        table_name: "A1"
+        table_name: "A1",
+        staff_read_state: 0
       },
       {
         confirm_id: "ASDWEFi",
@@ -99,7 +104,8 @@ class ViReservation extends React.Component {
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: "",
-        table_name: ""
+        table_name: "",
+        staff_read_state: null
       },
       {
         confirm_id: "qwertyu",
@@ -118,7 +124,8 @@ class ViReservation extends React.Component {
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: "",
-        table_name: ""
+        table_name: "",
+        staff_read_state: null
       },
       {
         confirm_id: "qwertyu",
@@ -137,7 +144,8 @@ class ViReservation extends React.Component {
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: "",
-        table_name: ""
+        table_name: "",
+        staff_read_state: null
       }
     ]
     let { reservation, order } = reservations
@@ -189,17 +197,25 @@ class ViReservation extends React.Component {
           <div className="col-xs-2">Status</div>
         </div>
         <div className="table-list">
-          {reservations.map((reservation, index) => (
-            <div key={index}>reservation</div>
-          ))}
+          {/*assume we have Reservation Component already 
+            reservations is our data fetch from server 
+            bring data of each reservation into Reservation Component */}
+          {reservations.map(
+            (
+              reservation,
+              index /* we need key in any list loop, for react to track on */
+            ) => (
+              <TableReservation
+                reservation={reservation}
+                order={index}
+                key={index}
+              />
+            )
+          )}
 
         </div>
         <div className="footer" />
         <div />
-        /* assume we have Reservation Component already */
-        /* reservations is our data fetch from server */
-        /* bring data of each reservation into Reservation Component */
-
       </div>
     )
   }
