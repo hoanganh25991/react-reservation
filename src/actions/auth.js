@@ -1,6 +1,5 @@
 import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
-import { actionChooseDefaultOutlet } from "./index"
 /*
  |--------------------------------------------------------------------------
  | Login request
@@ -35,7 +34,6 @@ export const actionSendLoginReq = () => {
         if (res.statusMsg === c.AJAX_LOGIN_SUCCESS) {
           let { user } = res.data
           dispatch(actionLoginSuccess({ user }))
-          dispatch(actionChooseDefaultOutlet())
           return
         }
         dispatch(actionLoginFail())

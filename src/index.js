@@ -66,7 +66,7 @@ ReactDOM.render(
 
           <hr />
 
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={HoiLogin} />
           <Route path="/login" component={HoiLogin} />
           <Route path="/login/:user_name/:password" component={HoiLogin} />
           <Route path="/logout" component={HoiLogout} />

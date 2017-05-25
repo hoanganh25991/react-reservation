@@ -1,5 +1,7 @@
 import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
+import { actionChooseDefaultOutlet } from "./index"
+
 /*
  |--------------------------------------------------------------------------
  | Fetch reservations
@@ -33,6 +35,13 @@ export const actionFetchReservations = ({ data }) => {
     // outlet_id handle by default on ANY REQ
     // auto push it in
     let { outlet_id } = getState()
+    // last check to save request
+    if (outlet_id === null) {
+      let msg = "No outlet_id found to fetch data"
+      window.alert(msg)
+      throw new Error(msg)
+    }
+
     data = Object.assign(data, { outlet_id })
 
     let ajax_options = Object.assign({
@@ -77,6 +86,7 @@ export const actionFetchReservations = ({ data }) => {
 export const actionFetchReservationsByDay = () => {
   return (dispatch, getState) => {
     dispatch({ type: c.THUNK_FETCH_RESERVATIONS_BY_DAY })
+    dispatch(actionChooseDefaultOutlet())
     // Update type of request
     let { filterByDay: day } = getState()
     let data = { type: c.AJAX_FETCH_RESERVATIONS_BY_DAY, day }

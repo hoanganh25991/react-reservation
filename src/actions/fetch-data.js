@@ -16,8 +16,11 @@ const hoiFetch = ajax_options => {
   let full_url = c.END_POINT + "/" + url
   // Check supported stype
   let supportedType = [c.POST_FORM, c.POST_JSON]
-  if (!supportedType.includes(type))
-    return Promise.reject(`hoiFetch not support fetch type: ${type}`)
+  if (!supportedType.includes(type)) {
+    let msg = `hoiFetch not support fetch type: ${type}`
+    window.alert(msg)
+    throw new Error(msg)
+  }
 
   let body
 
