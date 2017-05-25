@@ -63,8 +63,14 @@ export const NO_SHOW = "NO_SHOW"
 
 // Fetch reservation
 export const END_POINT_RESERVATIONS = "reservations"
-export const END_POINT__LOGIN = "login"
+export const END_POINT_AUTH = "auth"
 export const END_POINT__LOGOUT = "logout"
 
 export const THUNK_FETCH_RESERVATIONS_ON_LOAD =
   "THUNK_FETCH_RESERVATIONS_ON_LOAD"
+
+export const AJAX_LOGIN = "AJAX_LOGIN"
+export const AJAX_LOGOUT = "AJAX_LOGOUT"
+
+export const AJAX_LOGIN_SUCCESS = "AJAX_LOGIN_SUCCESS"
+export const AJAX_LOGIN_FAIL = "AJAX_LOGIN_FAIL"

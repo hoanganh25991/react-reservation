@@ -25,7 +25,7 @@ const actionThunkSendLoginReq = () => ({ type: c.THUNK_SEND_LOGIN_REQ })
 // Hook logging user in
 const actionLoggingIn = () => ({ type: c.LOGGING_IN })
 // Hook log in success
-const actionLoginSuccess = () => ({ type: c.LOGIN_SUCCESS })
+const actionLoginSuccess = ({ user }) => ({ type: c.LOGIN_SUCCESS })
 // Hook log in fail
 const actionLoginFail = () => ({ type: c.LOGIN_FAIL })
 // Define thunk
@@ -36,17 +36,18 @@ export const actionSendLoginReq = () => {
     let { user } = getState()
     // Build ajax options
     let ajax_options = {
-      url: "login",
-      data: user,
-      type: c.POST_FORM
+      url: c.END_POINT_AUTH,
+      data: Object.assign({}, user, { type: c.AJAX_LOGIN }),
+      type: c.POST_JSON
     }
 
     dispatch(actionLoggingIn())
 
     dispatch(fetchData(ajax_options))
       .then(res => {
-        if (res.msg === "ok") {
-          dispatch(actionLoginSuccess())
+        if (res.statusMsg === c.AJAX_LOGIN_SUCCESS) {
+          let { user } = res.data
+          dispatch(actionLoginSuccess({ user }))
           return
         }
         dispatch(actionLoginFail())
@@ -78,16 +79,16 @@ export const actionSendLogoutReq = () => {
     dispatch(actionThunkSendLogoutReq())
     // build ajax option
     let ajax_options = {
-      url: "logout",
-      data: {},
-      type: c.POST_FORM
+      url: c.END_POINT_AUTH,
+      data: { type: c.AJAX_LOGOUT },
+      type: c.POST_JSON
     }
 
     dispatch(actionLoggingOut())
 
     dispatch(fetchData(ajax_options))
       .then(res => {
-        if (res.msg === "ok") {
+        if (res.stausMsg === c.AJAX_LOGOUT_SUCCESS) {
           //login success
           dispatch(actionLogoutSuccess())
           return
