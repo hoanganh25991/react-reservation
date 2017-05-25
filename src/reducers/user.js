@@ -1,6 +1,6 @@
 import * as c from "../actions/const-name"
 
-const user = (state, action) => {
+export default (state, action) => {
   switch (action.type) {
     case c.UPDATE_USER: {
       // Current user state
@@ -40,6 +40,3 @@ const user = (state, action) => {
       return state
   }
 }
-
-//tell me why???
-export default user

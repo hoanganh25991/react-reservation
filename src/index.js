@@ -8,9 +8,6 @@ import { Provider } from "react-redux"
 // Try use hitory from router
 import { routerMiddleware } from "react-router-redux"
 import createHistory from "history/createBrowserHistory"
-
-const history = createHistory()
-const routerMiddlewareInstance = routerMiddleware(history)
 // Thunk for action as function
 import thunkMiddleware from "redux-thunk"
 // Log into DevTool (DevTool of Chrome)
@@ -24,14 +21,7 @@ import adminPage from "./reducers"
 import { createStore, applyMiddleware } from "redux"
 // XYZ to work with DevTool
 import { composeWithDevTools } from "redux-devtools-extension"
-// Store
-const store = createStore(
-  adminPage,
-  composeWithDevTools(
-    applyMiddleware(routerMiddlewareInstance, thunkMiddleware)
-  )
-)
-
+import { ConnectedRouter } from "react-router-redux"
 /**
  * Render app
  */
@@ -42,38 +32,45 @@ import HoiLogout from "./containers/HoiLogout"
 //Funny
 import ClickSound from "./components/ClickSound"
 
-import { ConnectedRouter } from "react-router-redux"
-
 import ViReservation from "./components/ViReservation"
 
 import "./css/index"
 
+const history = createHistory()
+const routerMiddlewareInstance = routerMiddleware(history)
+
 // Add router
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { Route, Link } from "react-router-dom"
+// Store
+const store = createStore(
+  adminPage,
+  composeWithDevTools(
+    applyMiddleware(routerMiddlewareInstance, thunkMiddleware)
+  )
+)
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Router>
-        <div>
-          <ClickSound />
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/logout">Logout</Link></li>
-            <li><Link to="/reservations">Reservations</Link></li>
-            <li><Link to="/viReservation">Vi Page</Link></li>
-          </ul>
+      <div>
+        <ClickSound />
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/logout">Logout</Link></li>
+          <li><Link to="/reservations">Reservations</Link></li>
+          <li><Link to="/viReservation">Vi Page</Link></li>
+        </ul>
 
-          <hr />
+        <hr />
 
-          <Route exact path="/" component={App} />
-          <Route path="/login" component={HoiLogin} />
-          <Route path="/login/:user_name/:password" component={HoiLogin} />
-          <Route path="/logout" component={HoiLogout} />
-          <Route path="/reservations" component={App} />
-          <Route path="/viReservation" component={ViReservation} />
-        </div>
-      </Router>
+        <Route exact path="/" component={HoiLogin} />
+        <Route path="/login" component={HoiLogin} />
+        <Route path="/login/:user_name/:password" component={HoiLogin} />
+        <Route path="/logout" component={HoiLogout} />
+        <Route path="/reservations" component={App} />
+        <Route path="/viReservation" component={ViReservation} />
+      </div>
     </ConnectedRouter>
   </Provider>,
   document.getElementById("root")

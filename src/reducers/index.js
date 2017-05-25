@@ -2,12 +2,19 @@ import * as c from "../actions/const-name"
 import reservations from "./reservations"
 import user from "./user"
 import filter from "./filter"
+import router from "./router"
 
-const initState = {
+export const initState = {
+  // Store reservations
   reservations: [],
+  // Helps to filter reservations
   filterByStatus: [],
+  filterByDay: null,
+  toggleInputPickADate: false,
+  // Store user info
   user: {},
-  toggleInputPickADate: false
+  outlet_id: null,
+  router: null
 }
 
 const adminPage = (state = initState, action) => {
@@ -25,17 +32,29 @@ const adminPage = (state = initState, action) => {
     case c.ASSIGN_DATE_ON_RESERVATIONS: {
       return reservations(state, action)
     }
-    case c.FETCH_RESERVATIONS_BY_DAY:
+    case c.UPDATE_FILTER_BY_DAY:
     case c.TOGGLE_FILTER_STATUS:
-    case c.CLEAR_FILTER_BY_STATUS: {
+    case c.CLEAR_FILTER_BY_STATUS:
+    case c.TOGGLE_INPUT_PICK_A_DATE: {
       return filter(state, action)
     }
-    case c.TOGGLE_INPUT_PICK_A_DATE: {
-      let { visibleInputPickADate: currVisibleInput } = state
-      // toggle it
-      let visibleInputPickADate = !currVisibleInput
-      // save it
-      return Object.assign({}, state, { visibleInputPickADate })
+    case c.RESET_APP: {
+      return initState
+    }
+    case c.CHOOSE_DEFAULT_OUTLET: {
+      let { user: { outlet_ids } } = state
+
+      if (outlet_ids && outlet_ids.length > 0) {
+        // Just get the first one
+        let outlet_id = outlet_ids[0]
+
+        return Object.assign({}, state, { outlet_id })
+      }
+
+      return state
+    }
+    case c.LOCATION_CHANGE: {
+      return router(state, action)
     }
     default:
       return state

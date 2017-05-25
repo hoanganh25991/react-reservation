@@ -4,12 +4,11 @@ import Reservation from "./Reservation"
 class ReservationList extends React.Component {
   componentDidMount() {
     let { fetchReservationsOnLoad } = this.props
-    // Ok load reservations
     fetchReservationsOnLoad()
   }
 
   render() {
-    let { reservations } = this.props
+    let { reservations, user } = this.props
 
     return (
       <div>
