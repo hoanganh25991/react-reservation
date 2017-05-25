@@ -13,7 +13,7 @@ class ViReservation extends React.Component {
       {
         outlet_name: "HoiPOS Cafe (West)",
         confirm_id: "GHYTGU6",
-        reservation_timestamp: "12017-04-13 18:00:00",
+        reservation_timestamp: "2017-04-13 18:00:00",
         adult_pax: 4,
         children_pax: 3,
         salutation: "Mr.",
@@ -103,8 +103,8 @@ class ViReservation extends React.Component {
         status: -100,
         payment_currency: "$",
         payment_amount: "87",
-        table_layout_name: "",
-        table_name: "",
+        table_layout_name: null,
+        table_name: null,
         staff_read_state: null
       },
       {
@@ -123,8 +123,8 @@ class ViReservation extends React.Component {
         status: -300,
         payment_currency: "$",
         payment_amount: "87",
-        table_layout_name: "",
-        table_name: "",
+        table_layout_name: null,
+        table_name: null,
         staff_read_state: null
       },
       {
@@ -143,13 +143,19 @@ class ViReservation extends React.Component {
         status: 300,
         payment_currency: "$",
         payment_amount: "87",
-        table_layout_name: "",
-        table_name: "",
+        table_layout_name: null,
+        table_name: null,
         staff_read_state: null
       }
     ]
+
+    for (let i = 0; i < reservations.length; i++) {
+      let dayTimeString = reservations[i].reservation_timestamp
+      let dayTime = moment(dayTimeString, "YYYY-MM-DD HH:mm")
+      reservations[i].day = dayTime
+    }
+    console.log("reservations", reservations)
     let { reservation, order } = reservations
-    console.log("reservation, order", reservation, order)
 
     let oddEvenClass = order % 2 ? "odd-row" : "even-row"
 
