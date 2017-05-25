@@ -10,11 +10,11 @@ class Logout extends React.Component {
 
   render() {
     // Get state from props
-    let { logoutMsg } = this.props
+    let { user: { status } } = this.props
 
     return (
       <div>
-        <h1>{logoutMsg}</h1>
+        <h1>{status}</h1>
       </div>
     )
   }

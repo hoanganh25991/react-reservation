@@ -50,15 +50,15 @@ class Login extends React.Component {
 
   render() {
     // Get state
-    let { user: { status } } = this.props
+    let { user, user: { status } } = this.props
     // Get action
     let { login, updateUser } = this.props
 
     return (
       <div>
-        {renderIf(status)(<div>{{ status }}</div>)}
+        <h1>{status}</h1>
 
-        {renderIf(!status)(
+        {renderIf(status != c.LOGIN_SUCCESS)(
           <form
             onSubmit={e => {
               e.preventDefault()
@@ -85,26 +85,4 @@ class Login extends React.Component {
   }
 }
 
-/**
- * Bind actions to view
- */
-import { connect } from "react-redux"
-
-import { actionUpdateUser, actionSendLoginReq } from "../actions"
-
-/**
- * Define which is stateToProps
- * Define which is disptachToProps
- * @param user
- */
-
-const mapStateToProps = ({ user }) => ({ user })
-
-const mapActionToProps = dispatch => {
-  return {
-    updateUser: user => dispatch(actionUpdateUser(user)),
-    login: () => dispatch(actionSendLoginReq())
-  }
-}
-
-export default connect(mapStateToProps, mapActionToProps)(Login)
+export default Login
