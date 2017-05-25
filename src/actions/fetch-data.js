@@ -74,10 +74,14 @@ export const fetchData = ajax_options => {
         let resPromise = Promise.resolve(res.json())
         // If parse success
         // Hook to res notification
-        resPromise.then(res => dispatch(actionReceiveRes(res)))
+        resPromise.then(res => {
+          console.log(res)
+          dispatch(actionReceiveRes(res))
+        })
         return resPromise
       })
       .catch(res => {
+        console.log(res)
         dispatch(actionFetchFail())
         return Promise.reject(res)
       })

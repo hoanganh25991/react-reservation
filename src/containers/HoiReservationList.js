@@ -5,14 +5,15 @@ import {
 } from "../actions"
 import ReservationList from "../components/ReservationList"
 
-const mapStateToProps = ({ reservations, filterByStatus }) => {
+const mapStateToProps = ({ user, reservations, filterByStatus }) => {
   let notApplyFilter = filterByStatus.length === 0
   let statusMatch = status => filterByStatus.includes(status)
 
   return {
     reservations: reservations.filter(
       reservation => notApplyFilter || statusMatch(reservation.status)
-    )
+    ),
+    user
   }
 }
 

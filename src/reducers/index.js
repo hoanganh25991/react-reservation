@@ -4,10 +4,15 @@ import user from "./user"
 import filter from "./filter"
 
 export const initState = {
+  // Store reservations
   reservations: [],
+  // Helps to filter reservations
   filterByStatus: [],
+  filterByDay: null,
+  toggleInputPickADate: false,
+  // Store user info
   user: {},
-  toggleInputPickADate: false
+  outlet_id: null
 }
 
 const adminPage = (state = initState, action) => {
@@ -39,6 +44,18 @@ const adminPage = (state = initState, action) => {
     }
     case c.RESET_APP: {
       return initState
+    }
+    case c.CHOOSE_DEFAULT_OUTLET: {
+      let { user: { outlet_ids } } = state
+
+      if (outlet_ids && outlet_ids.length > 0) {
+        // Just get the first one
+        let outlet_id = outlet_ids[0]
+
+        return Object.assign({}, state, { outlet_id })
+      }
+
+      return state
     }
     default:
       return state
