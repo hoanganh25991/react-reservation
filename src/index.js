@@ -49,31 +49,29 @@ import ViReservation from "./components/ViReservation"
 import "./css/index"
 
 // Add router
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import { Route, Link } from "react-router-dom"
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Router>
-        <div>
-          <ClickSound />
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/logout">Logout</Link></li>
-            <li><Link to="/reservations">Reservations</Link></li>
-            <li><Link to="/viReservation">Vi Page</Link></li>
-          </ul>
+      <div>
+        <ClickSound />
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/logout">Logout</Link></li>
+          <li><Link to="/reservations">Reservations</Link></li>
+          <li><Link to="/viReservation">Vi Page</Link></li>
+        </ul>
 
-          <hr />
+        <hr />
 
-          <Route exact path="/" component={HoiLogin} />
-          <Route path="/login" component={HoiLogin} />
-          <Route path="/login/:user_name/:password" component={HoiLogin} />
-          <Route path="/logout" component={HoiLogout} />
-          <Route path="/reservations" component={App} />
-          <Route path="/viReservation" component={ViReservation} />
-        </div>
-      </Router>
+        <Route exact path="/" component={HoiLogin} />
+        <Route path="/login" component={HoiLogin} />
+        <Route path="/login/:user_name/:password" component={HoiLogin} />
+        <Route path="/logout" component={HoiLogout} />
+        <Route path="/reservations" component={App} />
+        <Route path="/viReservation" component={ViReservation} />
+      </div>
     </ConnectedRouter>
   </Provider>,
   document.getElementById("root")

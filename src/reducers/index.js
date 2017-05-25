@@ -2,6 +2,7 @@ import * as c from "../actions/const-name"
 import reservations from "./reservations"
 import user from "./user"
 import filter from "./filter"
+import router from "./router"
 
 export const initState = {
   // Store reservations
@@ -12,7 +13,8 @@ export const initState = {
   toggleInputPickADate: false,
   // Store user info
   user: {},
-  outlet_id: null
+  outlet_id: null,
+  router: null
 }
 
 const adminPage = (state = initState, action) => {
@@ -50,6 +52,9 @@ const adminPage = (state = initState, action) => {
       }
 
       return state
+    }
+    case c.LOCATION_CHANGE: {
+      return router(state, action)
     }
     default:
       return state
