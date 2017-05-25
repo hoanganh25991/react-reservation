@@ -91,11 +91,11 @@ export const actionSendLogoutReq = () => {
     dispatch(fetchData(ajax_options))
       .then(res => {
         if (res.statusMsg === c.AJAX_LOGOUT_SUCCESS) {
-          // Logout success
-          dispatch(actionLogoutSuccess())
           // Staff wants to logout
           // Complete reset state
           dispatch(actionResetApp())
+          // Logout success
+          dispatch(actionLogoutSuccess())
           return
         }
 
