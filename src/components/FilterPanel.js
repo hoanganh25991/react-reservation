@@ -5,7 +5,7 @@ import * as c from "../actions/const-name"
 class FilterPanel extends React.Component {
   render() {
     // Get state
-    let { isVisibleInputPickADate } = this.props
+    let { visibleInputPickADate } = this.props
     // Get actions
     let {
       toggleInputPickADate,
@@ -77,7 +77,7 @@ class FilterPanel extends React.Component {
             <h3 className="text-whit pad-large bg-yell">FILTER BY DAY</h3>
           </div>
         </div>
-        {isVisibleInputPickADate
+        {visibleInputPickADate
           ? <div className="flex-row">
               <div className="flex1" />
               <div>

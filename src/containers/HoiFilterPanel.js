@@ -6,8 +6,8 @@ import {
 } from "../actions"
 import FilterPanel from "../components/FilterPanel"
 
-const mapStateToProps = ({ toggleInputPickADate }) => ({
-  isVisibleInputPickADate: toggleInputPickADate
+const mapStateToProps = ({ visibleInputPickADate }) => ({
+  visibleInputPickADate
 })
 
 const mapActionToProps = dispatch => ({

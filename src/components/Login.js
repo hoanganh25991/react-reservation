@@ -1,6 +1,6 @@
 import React from "react"
 import * as c from "../actions/const-name"
-import { renderIf } from "../utils"
+//import { renderIf } from "../utils"
 
 class Login extends React.Component {
   /**
@@ -58,28 +58,28 @@ class Login extends React.Component {
       <div>
         <h1>{status}</h1>
 
-        {renderIf(status != c.LOGIN_SUCCESS)(
-          <form
-            onSubmit={e => {
-              e.preventDefault()
-              login()
-            }}
-          >
-            <input
-              type="text"
-              placeholder="username"
-              value={user.user_name}
-              onChange={e => updateUser({ user_name: e.target.value })}
-            />
-            <input
-              type="password"
-              placeholder="password"
-              value={user.password}
-              onChange={e => updateUser({ password: e.target.value })}
-            />
-            <button>Login</button>
-          </form>
-        )}
+        {status != c.LOGIN_SUCCESS
+          ? <form
+              onSubmit={e => {
+                e.preventDefault()
+                login()
+              }}
+            >
+              <input
+                type="text"
+                placeholder="username"
+                value={user.user_name}
+                onChange={e => updateUser({ user_name: e.target.value })}
+              />
+              <input
+                type="password"
+                placeholder="password"
+                value={user.password}
+                onChange={e => updateUser({ password: e.target.value })}
+              />
+              <button>Login</button>
+            </form>
+          : null}
       </div>
     )
   }

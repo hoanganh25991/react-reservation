@@ -34,11 +34,11 @@ const adminPage = (state = initState, action) => {
       return filter(state, action)
     }
     case c.TOGGLE_INPUT_PICK_A_DATE: {
-      let { toggleInputPickADate: currentPickADay } = state
+      let { visibleInputPickADate: currVisibleInput } = state
       // toggle it
-      let toggleInputPickADate = !currentPickADay
+      let visibleInputPickADate = !currVisibleInput
       // save it
-      return Object.assign({}, state, { toggleInputPickADate })
+      return Object.assign({}, state, { visibleInputPickADate })
     }
     default:
       return state
