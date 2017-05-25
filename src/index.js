@@ -8,9 +8,6 @@ import { Provider } from "react-redux"
 // Try use hitory from router
 import { routerMiddleware } from "react-router-redux"
 import createHistory from "history/createBrowserHistory"
-
-const history = createHistory()
-const routerMiddlewareInstance = routerMiddleware(history)
 // Thunk for action as function
 import thunkMiddleware from "redux-thunk"
 // Log into DevTool (DevTool of Chrome)
@@ -24,14 +21,7 @@ import adminPage from "./reducers"
 import { createStore, applyMiddleware } from "redux"
 // XYZ to work with DevTool
 import { composeWithDevTools } from "redux-devtools-extension"
-// Store
-const store = createStore(
-  adminPage,
-  composeWithDevTools(
-    applyMiddleware(routerMiddlewareInstance, thunkMiddleware)
-  )
-)
-
+import { ConnectedRouter } from "react-router-redux"
 /**
  * Render app
  */
@@ -42,14 +32,23 @@ import HoiLogout from "./containers/HoiLogout"
 //Funny
 import ClickSound from "./components/ClickSound"
 
-import { ConnectedRouter } from "react-router-redux"
-
 import ViReservation from "./components/ViReservation"
 
 import "./css/index"
 
+const history = createHistory()
+const routerMiddlewareInstance = routerMiddleware(history)
+
 // Add router
 import { Route, Link } from "react-router-dom"
+// Store
+const store = createStore(
+  adminPage,
+  composeWithDevTools(
+    applyMiddleware(routerMiddlewareInstance, thunkMiddleware)
+  )
+)
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
