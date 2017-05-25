@@ -3,13 +3,9 @@ import reservations from "./reservations"
 import user from "./user"
 import filter from "./filter"
 
-// const adminPage = combineReducers({
-// 	reservations,
-// })
-
 const initState = {
   reservations: [],
-  filters: [],
+  filterByStatus: [],
   user: {},
   toggleInputPickADate: false
 }
@@ -23,14 +19,15 @@ const adminPage = (state = initState, action) => {
     case c.LOGOUT_FAIL: {
       return user(state, action)
     }
-    case c.UPDATE_RESERVATIONS:
     case c.UPDATE_RESERVATION:
+    case c.UPDATE_RESERVATIONS:
     case c.FETCH_RESERVATIONS_FAIL:
     case c.ASSIGN_DATE_ON_RESERVATIONS: {
       return reservations(state, action)
     }
+    case c.FETCH_RESERVATIONS_BY_DAY:
     case c.TOGGLE_FILTER_STATUS:
-    case c.FETCH_RESERVATIONS_BY_DAY: {
+    case c.CLEAR_FILTER_BY_STATUS: {
       return filter(state, action)
     }
     case c.TOGGLE_INPUT_PICK_A_DATE: {

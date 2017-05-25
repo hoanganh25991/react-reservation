@@ -53,13 +53,13 @@ export const NEXT_30_DAYS = "NEXT_30_DAYS"
 export const TOGGLE_INPUT_PICK_A_DATE = "TOGGLE_INPUT_PICK_A_DATE"
 
 // For filter status
-export const ARRIVED = "ARRIVED"
-export const CONFIRMED = "CONFIRMED"
-export const REMINDER_SENT = "REMINDER_SENT"
-export const RESERVED = "RESERVED"
-export const USER_CANCELLED = "USER_CANCELLED"
-export const STAFF_CANCELLED = "STAFF_CANCELLED"
-export const NO_SHOW = "NO_SHOW"
+export const ARRIVED = 400
+export const CONFIRMED = 300
+export const REMINDER_SENT = 200
+export const RESERVED = 100
+export const USER_CANCELLED = -100
+export const STAFF_CANCELLED = -200
+export const NO_SHOW = -300
 
 // Fetch reservation
 export const END_POINT_RESERVATIONS = "reservations"
@@ -78,3 +78,4 @@ export const AJAX_LOGIN_FAIL = "AJAX_LOGIN_FAIL"
 export const AJAX_FETCH_RESERVATIONS_BY_DAY = "AJAX_FETCH_RESERVATIONS_BY_DAY"
 export const AJAX_FETCH_RESERVATIONS_BY_DAY_SUCCESS =
   "AJAX_FETCH_RESERVATIONS_BY_DAY_SUCCESS"
+export const CLEAR_FILTER_BY_STATUS = "CLEAR_FILTER_BY_STATUS"

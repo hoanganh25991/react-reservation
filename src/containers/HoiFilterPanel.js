@@ -2,7 +2,8 @@ import { connect } from "react-redux"
 import {
   actionToggleInputPickADate,
   actionFetchReservationsByDay,
-  actionToggleFilterByStatus
+  actionToggleFilterByStatus,
+  actionClearFilterByStatus
 } from "../actions"
 import FilterPanel from "../components/FilterPanel"
 
@@ -14,7 +15,8 @@ const mapActionToProps = dispatch => ({
   toggleInputPickADate: () => dispatch(actionToggleInputPickADate()),
   toggleFilterByDay: day =>
     dispatch(actionFetchReservationsByDay({ data: { day } })),
-  toggleFilterByStatus: status => dispatch(actionToggleFilterByStatus(status))
+  toggleFilterByStatus: status => dispatch(actionToggleFilterByStatus(status)),
+  clearFilterByStatus: () => dispatch(actionClearFilterByStatus())
 })
 
 export default connect(mapStateToProps, mapActionToProps)(FilterPanel)

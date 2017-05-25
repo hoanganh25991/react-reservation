@@ -233,3 +233,7 @@ export const actionToggleFilterByStatus = status => ({
   type: c.TOGGLE_FILTER_STATUS,
   status
 })
+
+export const actionClearFilterByStatus = () => ({
+  type: c.CLEAR_FILTER_BY_STATUS
+})

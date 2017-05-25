@@ -5,12 +5,16 @@ import {
 } from "../actions"
 import ReservationList from "../components/ReservationList"
 
-const mapStateToProps = ({ reservations, filters }) => ({
-  reservations: filters.reduce(
-    (carry, filter) => carry.filter(filter),
-    reservations
-  )
-})
+const mapStateToProps = ({ reservations, filterByStatus }) => {
+  let notApplyFilter = filterByStatus.length === 0
+  let statusMatch = status => filterByStatus.includes(status)
+
+  return {
+    reservations: reservations.filter(
+      reservation => notApplyFilter || statusMatch(reservation.status)
+    )
+  }
+}
 
 const mapActionToProps = dispatch => ({
   fetchReservationsOnLoad: url => dispatch(actionFetchReservationsOnLoad(url)),
