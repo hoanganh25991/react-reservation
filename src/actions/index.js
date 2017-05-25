@@ -25,7 +25,7 @@ const actionThunkSendLoginReq = () => ({ type: c.THUNK_SEND_LOGIN_REQ })
 // Hook logging user in
 const actionLoggingIn = () => ({ type: c.LOGGING_IN })
 // Hook log in success
-const actionLoginSuccess = ({ user }) => ({ type: c.LOGIN_SUCCESS })
+const actionLoginSuccess = ({ user }) => ({ type: c.LOGIN_SUCCESS, user })
 // Hook log in fail
 const actionLoginFail = () => ({ type: c.LOGIN_FAIL })
 // Define thunk
