@@ -71,8 +71,11 @@ export const fetchData = ajax_options => {
 
     return hoiFetch(ajax_options)
       .then(res => {
-        dispatch(actionReceiveRes(res))
-        return Promise.resolve(res.json())
+        let resPromise = Promise.resolve(res.json())
+        // If parse success
+        // Hook to res notification
+        resPromise.then(res => dispatch(actionReceiveRes(res)))
+        return resPromise
       })
       .catch(res => {
         dispatch(actionFetchFail())

@@ -3,7 +3,7 @@ import reservations from "./reservations"
 import user from "./user"
 import filter from "./filter"
 
-const initState = {
+export const initState = {
   reservations: [],
   filterByStatus: [],
   user: {},
@@ -36,6 +36,9 @@ const adminPage = (state = initState, action) => {
       let visibleInputPickADate = !currVisibleInput
       // save it
       return Object.assign({}, state, { visibleInputPickADate })
+    }
+    case c.RESET_APP: {
+      return initState
     }
     default:
       return state

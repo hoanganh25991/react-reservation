@@ -72,6 +72,8 @@ const actionThunkSendLogoutReq = () => ({ type: c.THUNK_SEND_LOGOUT_REQ })
 const actionLoggingOut = () => ({ type: c.LOGGING_OUT })
 // Hook logout success
 const actionLogoutSuccess = () => ({ type: c.LOGOUT_SUCCESS })
+// Right after login success, want to reset app
+const actionResetApp = () => ({ type: c.RESET_APP })
 // Hook logout fail
 const actionLogoutFail = () => ({ type: c.LOGOUT_FAIL })
 export const actionSendLogoutReq = () => {
@@ -88,9 +90,12 @@ export const actionSendLogoutReq = () => {
 
     dispatch(fetchData(ajax_options))
       .then(res => {
-        if (res.stausMsg === c.AJAX_LOGOUT_SUCCESS) {
-          //login success
+        if (res.statusMsg === c.AJAX_LOGOUT_SUCCESS) {
+          // Logout success
           dispatch(actionLogoutSuccess())
+          // Staff wants to logout
+          // Complete reset state
+          dispatch(actionResetApp())
           return
         }
 
