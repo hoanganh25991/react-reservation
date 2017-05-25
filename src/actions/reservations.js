@@ -1,6 +1,7 @@
 import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
 import { actionChooseDefaultOutlet } from "./index"
+import { push } from "react-router-redux"
 
 /*
  |--------------------------------------------------------------------------
@@ -37,9 +38,13 @@ export const actionFetchReservations = ({ data }) => {
     let { outlet_id } = getState()
     // last check to save request
     if (outlet_id === null) {
-      let msg = "No outlet_id found to fetch data"
-      window.alert(msg)
-      throw new Error(msg)
+      // let msg = "No outlet_id found to fetch data"
+      // window.alert(msg)
+      // throw new Error(msg)
+
+      // force staff back to login page
+      window.alert("Please login first")
+      dispatch(push("/login"))
     }
 
     data = Object.assign(data, { outlet_id })
