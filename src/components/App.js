@@ -1,7 +1,7 @@
 import React from "react"
 
 import NavaigatorPanel from "./NavigatorPanel"
-import FilterPanel from "./FilterPanel"
+import HoiFilterPanel from "../containers/HoiFilterPanel"
 import HoiReservationList from "../containers/HoiReservationList"
 
 class App extends React.Component {
@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div>
         <NavaigatorPanel />
-        <FilterPanel />
+        <HoiFilterPanel />
         <HoiReservationList />
       </div>
     )
