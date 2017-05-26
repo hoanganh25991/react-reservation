@@ -43,8 +43,10 @@ export const actionFetchReservations = ({ data }) => {
       // throw new Error(msg)
 
       // force staff back to login page
-      window.alert("Please login first")
-      dispatch(push("/login"))
+      let msg =
+        "We cant find which outlet you can go. Please, try login first or ask administrator to assign you some outlets."
+      let gotoLogin = window.confirm(msg)
+      if (gotoLogin) dispatch(push("/login"))
     }
 
     data = Object.assign(data, { outlet_id })
