@@ -27,7 +27,7 @@ body {
   body .back40 {
     background-color: rgba(0, 0, 0, 0.4); }
   body .white20 {
-    background-color: #ffffff, 0.2; }
+    background-color: rgba(255, 255, 255, 0.2); }
   body .header h3 {
     font-size: 20px;
     padding: 0 10px 5px 0; }
@@ -65,6 +65,7 @@ body {
       cursor: pointer; }
   body .reservation-status {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 100;
     padding: 5px 10px; }
     body .reservation-status b {
@@ -74,3 +75,34 @@ body {
   body .footer {
     width: 100%;
     height: 200px; }
+  body .table-list .even-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  body .table-list .odd-row {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  body .table-list .confirmId {
+    font-size: 35px;
+    text-transform: uppercase; }
+  body .table-list .time {
+    font-size: 20px;
+    font-weight: 100;
+    padding: 9px;
+    margin-right: 25px; }
+  body .table-list .oulet-name {
+    color: rgba(112, 136, 253, 0.9);
+    font-size: 20px;
+    font-weight: 100;
+    padding: 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  body .table-list .customer_remark {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 100;
+    font-style: italic;
+    padding: 5px 0; }
+  body .table-list .staff_remark {
+    font-weight: 100;
+    font-style: italic;
+    padding-bottom: 8px;
+    color: rgba(255, 255, 0, 0.25); }

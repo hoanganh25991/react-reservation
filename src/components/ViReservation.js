@@ -2,7 +2,10 @@ import React from "react"
 // import Time from 'react-time';
 import "../css/color.css"
 import "../css/flexboxgrid.css"
-const moment = require("moment")
+import moment from "moment"
+
+import TableReservation from "./TableReservation"
+
 class ViReservation extends React.Component {
   render() {
     let now = moment()
@@ -10,7 +13,7 @@ class ViReservation extends React.Component {
       {
         outlet_name: "HoiPOS Cafe (West)",
         confirm_id: "GHYTGU6",
-        reservation_timestamp: "12017-04-13 18:00:00",
+        reservation_timestamp: "2017-04-13 18:00:00",
         adult_pax: 4,
         children_pax: 3,
         salutation: "Mr.",
@@ -25,7 +28,8 @@ class ViReservation extends React.Component {
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
-        table_name: "A1"
+        table_name: "A1",
+        staff_read_state: 1
       },
       {
         id: 247,
@@ -80,7 +84,8 @@ class ViReservation extends React.Component {
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
-        table_name: "A1"
+        table_name: "A1",
+        staff_read_state: 0
       },
       {
         confirm_id: "ASDWEFi",
@@ -98,8 +103,9 @@ class ViReservation extends React.Component {
         status: -100,
         payment_currency: "$",
         payment_amount: "87",
-        table_layout_name: "",
-        table_name: ""
+        table_layout_name: null,
+        table_name: null,
+        staff_read_state: null
       },
       {
         confirm_id: "qwertyu",
@@ -117,8 +123,9 @@ class ViReservation extends React.Component {
         status: -300,
         payment_currency: "$",
         payment_amount: "87",
-        table_layout_name: "",
-        table_name: ""
+        table_layout_name: null,
+        table_name: null,
+        staff_read_state: null
       },
       {
         confirm_id: "qwertyu",
@@ -136,12 +143,19 @@ class ViReservation extends React.Component {
         status: 300,
         payment_currency: "$",
         payment_amount: "87",
-        table_layout_name: "",
-        table_name: ""
+        table_layout_name: null,
+        table_name: null,
+        staff_read_state: null
       }
     ]
+
+    for (let i = 0; i < reservations.length; i++) {
+      let dayTimeString = reservations[i].reservation_timestamp
+      let dayTime = moment(dayTimeString, "YYYY-MM-DD HH:mm")
+      reservations[i].day = dayTime
+    }
+    console.log("reservations", reservations)
     let { reservation, order } = reservations
-    console.log("reservation, order", reservation, order)
 
     let oddEvenClass = order % 2 ? "odd-row" : "even-row"
 
@@ -189,17 +203,25 @@ class ViReservation extends React.Component {
           <div className="col-xs-2">Status</div>
         </div>
         <div className="table-list">
-          {reservations.map((reservation, index) => (
-            <div key={index}>reservation</div>
-          ))}
+          {/*assume we have Reservation Component already 
+            reservations is our data fetch from server 
+            bring data of each reservation into Reservation Component */}
+          {reservations.map(
+            (
+              reservation,
+              index /* we need key in any list loop, for react to track on */
+            ) => (
+              <TableReservation
+                reservation={reservation}
+                order={index}
+                key={index}
+              />
+            )
+          )}
 
         </div>
         <div className="footer" />
         <div />
-        /* assume we have Reservation Component already */
-        /* reservations is our data fetch from server */
-        /* bring data of each reservation into Reservation Component */
-
       </div>
     )
   }
