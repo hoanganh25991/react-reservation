@@ -17,3 +17,5 @@ class ClickSound extends React.Component {
 }
 
 export default ClickSound;
+//So simple with web
+//How easy i can type sth in
