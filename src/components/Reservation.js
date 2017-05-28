@@ -1,5 +1,5 @@
 import React from "react"
-import "../css/color.css"
+import styles from "../css/color.css"
 import "../css/flexboxgrid.css"
 import readSvg from "../svg/read.svg"
 import unreadSvg from "../svg/read.svg"
@@ -92,19 +92,8 @@ class Reservation extends React.Component {
           </div>
         </div>
         <div className="col-xs-3">
-          <div className="customer_remark">
-            {(() => {
-              console.log(reservation.customer_remarks.length)
-              if (reservation.customer_remarks.length > 150) {
-                return reservation.customer_remarks.substr(0, 150, -3) + "..."
-              } else {
-                return reservation.customer_remarks
-              }
-            })()}
-          </div>
-          <div className="staff_remark">
-            {reservation.staff_remarks}
-          </div>
+          <div className="customer_remark">{reservation.customer_remarks}</div>
+          <div className="staff_remark">{reservation.staff_remarks}</div>
         </div>
         <div className="col-xs-2 row">
           <div className="col-xs" />

@@ -1,4 +1,5 @@
 import React from "react"
+import clickTack from "../asset/click-tack.mp3"
 
 class ClickSound extends React.Component {
   componentDidMount() {
@@ -12,7 +13,7 @@ class ClickSound extends React.Component {
   }
 
   render() {
-    return <audio id="audio" src="%PUBLIC_URL%/click-tack.mp3" />
+    return <audio id="audio" src={clickTack} />
   }
 }
 

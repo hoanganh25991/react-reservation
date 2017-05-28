@@ -9,7 +9,7 @@ import "../css/flexboxgrid.css"
 class App extends React.Component {
   render() {
     return (
-      <div className="page-reservation">
+      <div>
         <HoiNavaigatorPanel />
         <HoiFilterPanel />
         <HoiReservationList />
