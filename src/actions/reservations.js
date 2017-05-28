@@ -57,23 +57,14 @@ export const actionFetchReservations = ({ data }) => {
       type: c.POST_JSON
     })
 
-    dispatch(fetchData(ajax_options))
-      .then(res => {
-        // dirty check
-        if (res.statusMsg === c.AJAX_FETCH_RESERVATIONS_BY_DAY_SUCCESS) {
-          let { reservations } = res.data
-          //let reservations = reservations
-          dispatch(actionUpdateReservations(reservations))
-          // Right after have reservations
-          // Build moment date obj
-          dispatch(actionAssignDateOnReservations())
-        }
-      })
-      .catch(res => {
-        // Fetch FAIL ONLY no internet connection
-        console.log(res)
-        dispatch(actionFetchReservationsFail())
-      })
+    dispatch(fetchData(ajax_options)).then(res => {
+      return Promise.resolve(res)
+    })
+    // .catch(res => {
+    //   // Fetch FAIL ONLY no internet connection
+    //   console.log(res)
+    //   dispatch(actionFetchReservationsFail())
+    // })
   }
 }
 /*
@@ -96,7 +87,21 @@ export const actionFetchReservationsByDay = () => {
     // Update type of request
     let { filterByDay: day } = getState()
     let data = { type: c.AJAX_FETCH_RESERVATIONS_BY_DAY, day }
-    dispatch(actionFetchReservations({ data }))
+    dispatch(actionFetchReservations({ data })).then(res => {
+      // dirty check
+      if (res.statusMsg === c.AJAX_FETCH_RESERVATIONS_BY_DAY_SUCCESS) {
+        let { reservations } = res.data
+        //let reservations = reservations
+        dispatch(actionUpdateReservations(reservations))
+        // Right after have reservations
+        // Build moment date obj
+        dispatch(actionAssignDateOnReservations())
+      } else {
+        // Fetch FAIL ONLY no internet connection
+        console.log(res)
+        dispatch(actionFetchReservationsFail())
+      }
+    })
   }
 }
 /*

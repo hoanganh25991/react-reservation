@@ -86,7 +86,7 @@ export const fetchData = ajax_options => {
       .catch(res => {
         console.log(res)
         dispatch(actionFetchFail())
-        return Promise.reject(res)
+        //return Promise.reject(res)
       })
   }
 }

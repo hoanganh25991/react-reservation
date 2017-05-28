@@ -29,20 +29,19 @@ export const actionSendLoginReq = () => {
 
     dispatch(actionLoggingIn())
 
-    dispatch(fetchData(ajax_options))
-      .then(res => {
-        if (res.statusMsg === c.AJAX_LOGIN_SUCCESS) {
-          let { user } = res.data
-          dispatch(actionLoginSuccess({ user }))
-          return
-        }
+    dispatch(fetchData(ajax_options)).then(res => {
+      if (res.statusMsg === c.AJAX_LOGIN_SUCCESS) {
+        let { user } = res.data
+        dispatch(actionLoginSuccess({ user }))
+      } else {
         dispatch(actionLoginFail())
-      })
-      .catch(res => {
-        // Fetch FAIL ONLY no internet connection
-        console.log(res)
-        dispatch(actionLoginFail())
-      })
+      }
+    })
+    // .catch(res => {
+    //   // Fetch FAIL ONLY no internet connection
+    //   console.log(res)
+    //   dispatch(actionLoginFail())
+    // })
   }
 }
 /*
@@ -73,23 +72,21 @@ export const actionSendLogoutReq = () => {
 
     dispatch(actionLoggingOut())
 
-    dispatch(fetchData(ajax_options))
-      .then(res => {
-        if (res.statusMsg === c.AJAX_LOGOUT_SUCCESS) {
-          // Staff wants to logout
-          // Complete reset state
-          dispatch(actionResetApp())
-          // Logout success
-          dispatch(actionLogoutSuccess())
-          return
-        }
-
+    dispatch(fetchData(ajax_options)).then(res => {
+      if (res.statusMsg === c.AJAX_LOGOUT_SUCCESS) {
+        // Staff wants to logout
+        // Complete reset state
+        dispatch(actionResetApp())
+        // Logout success
+        dispatch(actionLogoutSuccess())
+      } else {
         dispatch(actionLogoutFail())
-      })
-      .catch(res => {
-        // Fetch FAIL ONLY no internet connection
-        console.log(res)
-        dispatch(actionLogoutFail())
-      })
+      }
+    })
+    // .catch(res => {
+    //   // Fetch FAIL ONLY no internet connection
+    //   console.log(res)
+    //   dispatch(actionLogoutFail())
+    // })
   }
 }
