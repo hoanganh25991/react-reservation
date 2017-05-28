@@ -36,4 +36,7 @@ export const actionUpdateUser = user => ({ type: c.UPDATE_USER, user })
 export const actionChooseDefaultOutlet = () => ({
   type: c.CHOOSE_DEFAULT_OUTLET
 })
-export const actionSwitchOutlet = outlet_id => ({ type: c.SWITCH_OUTLET })
+export const actionSwitchOutlet = outlet_id => ({
+  type: c.SWITCH_OUTLET,
+  outlet_id
+})

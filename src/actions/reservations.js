@@ -2,7 +2,7 @@ import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
 import { actionChooseDefaultOutlet } from "./index"
 import { push } from "react-router-redux"
-import { actionUpdateFilterByDay } from "./filter"
+import { actionToggleFilterByDay } from "./filter"
 
 /*
  |--------------------------------------------------------------------------
@@ -42,10 +42,6 @@ export const actionFetchReservations = ({ data }) => {
     let { outlet_id } = getState()
     // last check to save request
     if (outlet_id === null) {
-      // let msg = "No outlet_id found to fetch data"
-      // window.alert(msg)
-      // throw new Error(msg)
-
       // force staff back to login page
       let msg =
         "We cant find which outlet you can go. Please, try login first or ask administrator to assign you some outlets."
@@ -62,11 +58,6 @@ export const actionFetchReservations = ({ data }) => {
     })
 
     return dispatch(fetchData(ajax_options))
-    // .catch(res => {
-    //   // Fetch FAIL ONLY no internet connection
-    //   console.log(res)
-    //   dispatch(actionFetchReservationsFail())
-    // })
   }
 }
 /*
@@ -83,11 +74,10 @@ export const actionFetchReservations = ({ data }) => {
 //
 //
 // Fetch reservation by day
-export const actionFetchReservationsByDay = () => {
-  return (dispatch, getState) => {
+export const actionFetchReservationsByDay = ({ day }) => {
+  return dispatch => {
     dispatch({ type: c.THUNK_FETCH_RESERVATIONS_BY_DAY })
     // Update type of request
-    let { filterByDay: day } = getState()
     let data = { type: c.AJAX_FETCH_RESERVATIONS_BY_DAY, day }
     dispatch(actionFetchReservations({ data })).then(res => {
       // dirty check
@@ -98,9 +88,11 @@ export const actionFetchReservationsByDay = () => {
         // Right after have reservations
         // Build moment date obj
         dispatch(actionAssignDateOnReservations())
-      } else {
-        dispatch(actionFetchReservationsFail(res))
+        return
       }
+      // Cant check out what res is
+      // Consider as fail case
+      dispatch(actionFetchReservationsFail(res))
     })
   }
 }
@@ -122,8 +114,6 @@ export const actionFetchReservationsOnLoad = () => {
     // Explicit tell calling a thunk
     dispatch({ type: c.THUNK_FETCH_RESERVATIONS_ON_LOAD })
     dispatch(actionChooseDefaultOutlet())
-    // Fetch by today
-    dispatch(actionUpdateFilterByDay(c.TODAY))
-    dispatch(actionFetchReservationsByDay())
+    dispatch(actionToggleFilterByDay(c.TODAY))
   }
 }

@@ -18,10 +18,14 @@ export const actionUpdateFilterByDay = day => ({
 // Toggle filter by day
 // Actually fetch reservations by that day
 export const actionToggleFilterByDay = day => {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch({ type: c.THUNK_TOGGLE_FILTER_BY_DAY })
     dispatch(actionUpdateFilterByDay(day))
-    dispatch(actionFetchReservationsByDay())
+
+    let { filterByDay } = getState()
+    // Fetch reservations by day
+    // Mean give me a day & i fetch it
+    dispatch(actionFetchReservationsByDay({ day: filterByDay }))
   }
 }
 //

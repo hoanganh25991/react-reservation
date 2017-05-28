@@ -23,7 +23,7 @@ export const actionSendLoginReq = () => {
     // Build ajax options
     let ajax_options = {
       url: c.END_POINT_AUTH,
-      data: Object.assign({}, user, { type: c.AJAX_LOGIN }),
+      data: { ...user, type: c.AJAX_LOGIN },
       type: c.POST_JSON
     }
 
@@ -33,15 +33,11 @@ export const actionSendLoginReq = () => {
       if (res.statusMsg === c.AJAX_LOGIN_SUCCESS) {
         let { user } = res.data
         dispatch(actionLoginSuccess({ user }))
-      } else {
-        dispatch(actionLoginFail())
+        return
       }
+      // Consider cant check case as fail
+      dispatch(actionLoginFail())
     })
-    // .catch(res => {
-    //   // Fetch FAIL ONLY no internet connection
-    //   console.log(res)
-    //   dispatch(actionLoginFail())
-    // })
   }
 }
 /*
@@ -79,14 +75,10 @@ export const actionSendLogoutReq = () => {
         dispatch(actionResetApp())
         // Logout success
         dispatch(actionLogoutSuccess())
-      } else {
-        dispatch(actionLogoutFail())
+        return
       }
+      // Consider cant check case as fail
+      dispatch(actionLogoutFail())
     })
-    // .catch(res => {
-    //   // Fetch FAIL ONLY no internet connection
-    //   console.log(res)
-    //   dispatch(actionLogoutFail())
-    // })
   }
 }
