@@ -10,7 +10,7 @@ import { fetchData } from "../actions/fetch-data"
 // Hook logging user in
 const actionLoggingIn = () => ({ type: c.LOGGING_IN })
 // Hook log in success
-const actionLoginSuccess = ({ user }) => ({ type: c.LOGIN_SUCCESS, user })
+const actionLoginSuccess = ({ user, allowed_outlets }) => ({ type: c.LOGIN_SUCCESS, user, allowed_outlets })
 // Hook log in fail
 const actionLoginFail = () => ({ type: c.LOGIN_FAIL })
 // Define thunk
@@ -31,8 +31,8 @@ export const actionSendLoginReq = () => {
 
     dispatch(fetchData(ajax_options)).then(res => {
       if (res.statusMsg === c.AJAX_LOGIN_SUCCESS) {
-        let { user } = res.data
-        dispatch(actionLoginSuccess({ user }))
+        let { user, allowed_outlets } = res.data
+        dispatch(actionLoginSuccess({ user, allowed_outlets }))
         return
       }
       // Consider cant check case as fail

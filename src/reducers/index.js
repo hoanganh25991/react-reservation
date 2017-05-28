@@ -15,6 +15,7 @@ export const initState = {
   // Store user info
   user: {},
   outlet_id: null,
+  allowed_outlets: [],
   // Help to store current location
   router: null,
   // Popup

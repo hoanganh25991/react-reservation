@@ -9,41 +9,28 @@ class Login extends React.Component {
 	 * @returns {XML}
 	 */
   componentDidMount() {
+    // match is url parser
+    // Which help determine where we are
     let { match } = this.props
-
-    //console.log('match here', match)
 
     let { user_name, password } = match.params
 
     if (user_name && password) {
+      // Ok, login him in
       let { updateUser, login } = this.props
-
       // Update user info first
       updateUser({ user_name, password })
-
       // Then log him in
       login()
-
-      const { location } = this.props
-      // if (location.state && location.state.nextPathname) {
-      // 	browserHistory.push(location.state.nextPathname)
-      // } else {
-      // 	browserHistory.push('/')
-      // }
-      console.log(location)
-
-      console.log(this.props)
     }
   }
 
   componentDidUpdate() {
     let { user } = this.props
-
     let { status } = user
-
+    // If user alreday login, redirect to reservation page
     if (status === c.LOGIN_SUCCESS) {
       let { history } = this.props
-
       history.push("/reservations")
     }
   }

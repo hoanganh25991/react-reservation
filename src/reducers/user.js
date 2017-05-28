@@ -14,12 +14,11 @@ export default (state, action) => {
     case c.LOGIN_SUCCESS: {
       let { user: currUser } = state
 
-      let user = Object.assign({}, currUser, action.user, {
-        status: action.type
-      })
+      let user = { ...currUser, ...action.user, status: action.type }
+      let { allowed_outlets } = action
       // Update user info
       // With full data from server
-      return Object.assign({}, state, { user })
+      return Object.assign({}, state, { user, allowed_outlets })
     }
     case c.LOGIN_FAIL:
     case c.LOGGING_OUT:
