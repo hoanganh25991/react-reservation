@@ -31,19 +31,15 @@ import HoiLogin from "./containers/HoiLogin"
 import HoiLogout from "./containers/HoiLogout"
 //Funny
 import ClickSound from "./components/ClickSound"
-
 import ViReservation from "./components/ViReservation"
-
-import "./css/index"
-
-const history = createHistory()
-const routerMiddlewareInstance = routerMiddleware(history)
 
 // Add router
 import { Route, Link } from "react-router-dom"
 
 import registerServiceWorker from "./registerServiceWorker"
 
+const history = createHistory()
+const routerMiddlewareInstance = routerMiddleware(history)
 // Store
 const store = createStore(adminPage, composeWithDevTools(applyMiddleware(routerMiddlewareInstance, thunkMiddleware)))
 

@@ -12,7 +12,7 @@ import { actionToggleFilterByDay } from "./filter"
  |
  */
 // Receive reservations, ask to update
-const actionUpdateReservations = reservations => ({
+export const actionUpdateReservations = reservations => ({
   type: c.UPDATE_RESERVATIONS,
   reservations
 })

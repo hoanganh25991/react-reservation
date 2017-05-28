@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { actionFetchReservationsOnLoad, actionUpdateReservations } from "../actions"
+import { actionFetchReservationsOnLoad, actionUpdateReservations } from "../actions/reservations"
 import ReservationList from "../components/ReservationList"
 
 const mapStateToProps = ({ user, reservations, filterByStatus }) => {

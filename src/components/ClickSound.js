@@ -12,7 +12,7 @@ class ClickSound extends React.Component {
   }
 
   render() {
-    return <audio id="audio" src="/click-tack.mp3" />
+    return <audio id="audio" src="%PUBLIC_URL%/click-tack.mp3" />
   }
 }
 
