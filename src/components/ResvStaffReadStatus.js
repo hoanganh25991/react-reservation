@@ -5,7 +5,7 @@ class ResvStaffReadStatus extends React.Component {
     let { readStatus } = this.props
 
     let readStatusClass = "self-center padHorz"
-    readStatusClass += readStatus ? " circle-read" : " circle-unread"
+    readStatusClass += readStatus ? " circle-readSvg" : " circle-unreadSvg"
 
     return (
       <div className="flex-column">

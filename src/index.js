@@ -41,6 +41,9 @@ const routerMiddlewareInstance = routerMiddleware(history)
 
 // Add router
 import { Route, Link } from "react-router-dom"
+
+import registerServiceWorker from "./registerServiceWorker"
+
 // Store
 const store = createStore(adminPage, composeWithDevTools(applyMiddleware(routerMiddlewareInstance, thunkMiddleware)))
 
@@ -71,5 +74,4 @@ ReactDOM.render(
   document.getElementById("root")
 )
 
-//
-////////////////////
+registerServiceWorker()
