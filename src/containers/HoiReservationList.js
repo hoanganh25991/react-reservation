@@ -1,8 +1,5 @@
 import { connect } from "react-redux"
-import {
-  actionFetchReservationsOnLoad,
-  actionUpdateReservations
-} from "../actions"
+import { actionFetchReservationsOnLoad, actionUpdateReservations } from "../actions"
 import ReservationList from "../components/ReservationList"
 
 const mapStateToProps = ({ user, reservations, filterByStatus }) => {
@@ -10,17 +7,14 @@ const mapStateToProps = ({ user, reservations, filterByStatus }) => {
   let statusMatch = status => filterByStatus.includes(status)
 
   return {
-    reservations: reservations.filter(
-      reservation => notApplyFilter || statusMatch(reservation.status)
-    ),
+    reservations: reservations.filter(reservation => notApplyFilter || statusMatch(reservation.status)),
     user
   }
 }
 
 const mapActionToProps = dispatch => ({
   fetchReservationsOnLoad: url => dispatch(actionFetchReservationsOnLoad(url)),
-  updateReservations: reservations =>
-    dispatch(actionUpdateReservations(reservations))
+  updateReservations: reservations => dispatch(actionUpdateReservations(reservations))
 })
 
 export default connect(mapStateToProps, mapActionToProps)(ReservationList)

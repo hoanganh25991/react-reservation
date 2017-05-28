@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 class FullWidth extends React.Component {
   render() {
@@ -6,8 +6,8 @@ class FullWidth extends React.Component {
       <div style={{ display: "flex", flexDirection: "row", flex: 1 }}>
         {this.props.children}
       </div>
-    );
+    )
   }
 }
 
-export default FullWidth;
+export default FullWidth

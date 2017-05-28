@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
-import "../css/color.css";
+import "../css/color.css"
 
 class HelloWorld extends React.Component {
   render() {
-    let reservation = { confirm_id: "GHYTGU" };
+    let reservation = { confirm_id: "GHYTGU" }
 
     return (
       <div>
@@ -13,8 +13,8 @@ class HelloWorld extends React.Component {
           <p>{reservation.confirm_id}</p>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default HelloWorld;
+export default HelloWorld

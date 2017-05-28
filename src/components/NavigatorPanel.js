@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 class NavigatorPanel extends React.Component {
   render() {
@@ -10,8 +10,8 @@ class NavigatorPanel extends React.Component {
         <h3 className="text-whit pad-large">HoiPOS Cafe (West)</h3>
         <h3 className="text-whit pad-large">&lt;&gt;</h3>
       </div>
-    );
+    )
   }
 }
 
-export default NavigatorPanel;
+export default NavigatorPanel

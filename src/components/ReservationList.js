@@ -14,11 +14,7 @@ class ReservationList extends React.Component {
       <div>
         <div className="flex-row" />
         {reservations.map((reservation, index) => (
-          <Reservation
-            key={reservation.id}
-            order={index + 1}
-            reservation={reservation}
-          />
+          <Reservation key={reservation.id} order={index + 1} reservation={reservation} />
         ))}
       </div>
     )

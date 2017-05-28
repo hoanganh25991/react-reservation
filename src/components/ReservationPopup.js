@@ -1,11 +1,11 @@
-import React from "react";
+import React from "react"
 
-import Layout from "./ReservationPopupLayout";
+import Layout from "./ReservationPopupLayout"
 
 class ReservationPopup extends React.Component {
   render() {
-    return <Layout />;
+    return <Layout />
   }
 }
 
-export default ReservationPopup;
+export default ReservationPopup

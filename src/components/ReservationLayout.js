@@ -43,10 +43,7 @@ class ReservationLayout extends React.Component {
             </div>
           </div>
         </div>
-        <div
-          className="flex-column flex1"
-          style={{ width: "200px", minWidth: "200px" }}
-        >
+        <div className="flex-column flex1" style={{ width: "200px", minWidth: "200px" }}>
           <div className={headerClass}>
             <h3>Customer</h3>
           </div>

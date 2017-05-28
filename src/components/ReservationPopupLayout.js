@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import AlignCenter from "./helpers/AlignCenter";
+import AlignCenter from "./helpers/AlignCenter"
 
-import Remarks from "./ResvRemarks";
+import Remarks from "./ResvRemarks"
 
 class ReservationPopupLayout extends React.Component {
   render() {
@@ -72,10 +72,7 @@ class ReservationPopupLayout extends React.Component {
                         </h3>
                       </div>
                       <div className="flex1 flex-row">
-                        <h3
-                          className="text-blue highlight"
-                          style={{ width: "50px" }}
-                        >
+                        <h3 className="text-blue highlight" style={{ width: "50px" }}>
                           +65
                         </h3>
                         <p />
@@ -209,8 +206,8 @@ class ReservationPopupLayout extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ReservationPopupLayout;
+export default ReservationPopupLayout

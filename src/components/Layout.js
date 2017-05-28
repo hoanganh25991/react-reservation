@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "../css/App.css";
+import React from "react"
+import PropTypes from "prop-types"
+import "../css/App.css"
 
 class Layout extends React.Component {
   render() {
-    const { Top, Left, Right, Bottom } = this.props;
+    const { Top, Left, Right, Bottom } = this.props
 
     return (
       <div className="Vi">
@@ -21,7 +21,7 @@ class Layout extends React.Component {
           <Bottom />
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -30,6 +30,6 @@ Layout.propTypes = {
   Left: PropTypes.func.isRequired,
   Right: PropTypes.func.isRequired,
   Bottom: PropTypes.func.isRequired
-};
+}
 
-export default Layout;
+export default Layout

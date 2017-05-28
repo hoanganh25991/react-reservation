@@ -1,13 +1,13 @@
-import React from "react";
+import React from "react"
 
-import Layout from "./ReservationLayout";
+import Layout from "./ReservationLayout"
 
 class Reservation extends React.Component {
   render() {
-    let { reservation, order } = this.props;
+    let { reservation, order } = this.props
 
-    return <Layout {...{ reservation, order }} />;
+    return <Layout {...{ reservation, order }} />
   }
 }
 
-export default Reservation;
+export default Reservation

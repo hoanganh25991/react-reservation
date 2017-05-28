@@ -33,10 +33,7 @@ const reservations = (state, action) => {
       let { reservations: currentReservations } = state
 
       let reservations = currentReservations.map(reservation => {
-        let date = moment(
-          reservation.reservation_timestamp,
-          "YYYY-MM-DD HH:mm:ss"
-        )
+        let date = moment(reservation.reservation_timestamp, "YYYY-MM-DD HH:mm:ss")
 
         return Object.assign({}, reservation, { date })
       })

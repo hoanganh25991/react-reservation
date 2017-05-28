@@ -7,61 +7,38 @@ class FilterPanel extends React.Component {
     // Get state
     let { visibleInputPickADate } = this.props
     // Get actions
-    let {
-      toggleInputPickADate,
-      toggleFilterByDay,
-      toggleFilterByStatus,
-      clearFilterByStatus
-    } = this.props
+    let { toggleInputPickADate, toggleFilterByDay, toggleFilterByStatus, clearFilterByStatus } = this.props
 
     return (
       <div>
         <div className="flex-row bg-dark-blue pad30">
           <div>
-            <h3
-              className="text-whit pad-large filter-selected"
-              onClick={() => toggleFilterByDay(c.TODAY)}
-            >
+            <h3 className="text-whit pad-large filter-selected" onClick={() => toggleFilterByDay(c.TODAY)}>
               TODAY
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByDay(c.TOMORROW)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByDay(c.TOMORROW)}>
               TOMORROW
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByDay(c.NEXT_3_DAYS)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByDay(c.NEXT_3_DAYS)}>
               NEXT 3 DAYS
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByDay(c.NEXT_7_DAYS)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByDay(c.NEXT_7_DAYS)}>
               NEXT 7 DAYS
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByDay(c.NEXT_30_DAYS)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByDay(c.NEXT_30_DAYS)}>
               NEXT 30 DAYS
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleInputPickADate()}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleInputPickADate()}>
               PICK A DATE
             </h3>
           </div>
@@ -93,66 +70,42 @@ class FilterPanel extends React.Component {
           : null}
         <div className="flex-row bg-dark-blue pad30">
           <div>
-            <h3
-              className="text-whit pad-large filter-selected"
-              onClick={() => toggleFilterByStatus(c.ARRIVED)}
-            >
+            <h3 className="text-whit pad-large filter-selected" onClick={() => toggleFilterByStatus(c.ARRIVED)}>
               ARRIVED
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByStatus(c.CONFIRMED)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByStatus(c.CONFIRMED)}>
               CONFIRMED
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByStatus(c.REMINDER_SENT)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByStatus(c.REMINDER_SENT)}>
               REMINDER SENT
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByStatus(c.RESERVED)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByStatus(c.RESERVED)}>
               RESERVED
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByStatus(c.USER_CANCELLED)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByStatus(c.USER_CANCELLED)}>
               USER CANCELLED
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByStatus(c.STAFF_CANCELLED)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByStatus(c.STAFF_CANCELLED)}>
               STAFF CANCELLED
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large"
-              onClick={() => toggleFilterByStatus(c.NO_SHOW)}
-            >
+            <h3 className="text-whit pad-large" onClick={() => toggleFilterByStatus(c.NO_SHOW)}>
               NO SHOW
             </h3>
           </div>
           <div>
-            <h3
-              className="text-whit pad-large default"
-              onClick={() => clearFilterByStatus()}
-            >
+            <h3 className="text-whit pad-large default" onClick={() => clearFilterByStatus()}>
               XCLEAR
             </h3>
           </div>

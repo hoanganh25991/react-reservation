@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
 class ResvRemark extends React.Component {
   render() {
-    let { remarks } = this.props;
+    let { remarks } = this.props
 
-    let { className } = this.props;
+    let { className } = this.props
 
     return (
       <div className={className}>
@@ -16,8 +16,8 @@ class ResvRemark extends React.Component {
         </h3>
         {remarks}
       </div>
-    );
+    )
   }
 }
 
-export default ResvRemark;
+export default ResvRemark
