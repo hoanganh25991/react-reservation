@@ -8,6 +8,10 @@ import * as c from "./const-name"
  | These hooks really useful for later use to history ajax_call or show dialog
  |
  */
+//
+//
+//
+//
 // Wrap whatwg_fetch
 // Bcs we always use 'POST', 'credentials' and 'auto format body' before send
 const hoiFetch = ajax_options => {
@@ -47,9 +51,7 @@ const hoiFetch = ajax_options => {
   return fetch(full_url, {
     method: "POST",
     body,
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    },
+    headers: { "Access-Control-Allow-Origin": "*" },
     credentials: "include"
   })
 }
@@ -61,31 +63,46 @@ const actionReforeReq = ajax_options => ({
 })
 // Hook when receive response
 const actionReceiveRes = reponse => ({ type: c.RECEIVE_RES, reponse })
-// When calling a thunk, i want explicit tell out that
-const actionThunkFetchData = () => ({ type: c.THUNK_FETCH_DATA })
 // Notify out if fetch fail
-const actionFetchFail = () => ({ type: c.FETCH_FAIL })
+const actionFetchFail = response => ({ type: c.FETCH_FAIL, response })
+// When parse json fail
+const actionResParseJsonFail = response => ({
+  type: c.RESPONSE_PARSE_JSON_FAIL,
+  response
+})
+//
+//
+//
+//
+//
+//
 // Fetch data
 export const fetchData = ajax_options => {
   return dispatch => {
     // Ok tell what this thunk is
-    dispatch(actionThunkFetchData())
+    dispatch({ type: c.THUNK_FETCH_DATA })
     dispatch(actionReforeReq(ajax_options))
 
     return hoiFetch(ajax_options)
       .then(res => {
-        let resPromise = Promise.resolve(res.json())
+        let resPromise = res.json()
         // If parse success
         // Hook to res notification
-        resPromise.then(res => {
-          console.log(res)
-          dispatch(actionReceiveRes(res))
-        })
+        resPromise
+          .then(res => {
+            //console.log(res)
+            dispatch(actionReceiveRes(res))
+          })
+          .catch(res => {
+            //console.log(res)
+            dispatch(actionResParseJsonFail(res))
+          })
+        //
         return resPromise
       })
       .catch(res => {
-        console.log(res)
-        dispatch(actionFetchFail())
+        //console.log('res')
+        dispatch(actionFetchFail(res))
         //return Promise.reject(res)
       })
   }

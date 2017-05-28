@@ -2,6 +2,7 @@ import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
 import { actionChooseDefaultOutlet } from "./index"
 import { push } from "react-router-redux"
+import { actionUpdateFilterByDay } from "./filter"
 
 /*
  |--------------------------------------------------------------------------
@@ -20,7 +21,10 @@ const actionAssignDateOnReservations = () => ({
   type: c.ASSIGN_DATE_ON_RESERVATIONS
 })
 // Hook fetch reservations fail
-const actionFetchReservationsFail = () => ({ type: c.FETCH_RESERVATIONS_FAIL })
+const actionFetchReservationsFail = response => ({
+  type: c.FETCH_RESERVATIONS_FAIL,
+  response
+})
 //
 //
 //
@@ -57,9 +61,7 @@ export const actionFetchReservations = ({ data }) => {
       type: c.POST_JSON
     })
 
-    dispatch(fetchData(ajax_options)).then(res => {
-      return Promise.resolve(res)
-    })
+    return dispatch(fetchData(ajax_options))
     // .catch(res => {
     //   // Fetch FAIL ONLY no internet connection
     //   console.log(res)
@@ -97,9 +99,7 @@ export const actionFetchReservationsByDay = () => {
         // Build moment date obj
         dispatch(actionAssignDateOnReservations())
       } else {
-        // Fetch FAIL ONLY no internet connection
-        console.log(res)
-        dispatch(actionFetchReservationsFail())
+        dispatch(actionFetchReservationsFail(res))
       }
     })
   }
@@ -123,7 +123,7 @@ export const actionFetchReservationsOnLoad = () => {
     dispatch({ type: c.THUNK_FETCH_RESERVATIONS_ON_LOAD })
     dispatch(actionChooseDefaultOutlet())
     // Fetch by today
-    let data = { type: c.AJAX_FETCH_RESERVATIONS_BY_DAY, day: c.TODAY }
-    dispatch(actionFetchReservationsByDay({ data }))
+    dispatch(actionUpdateFilterByDay(c.TODAY))
+    dispatch(actionFetchReservationsByDay())
   }
 }

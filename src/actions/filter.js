@@ -7,7 +7,10 @@ import { actionFetchReservationsByDay } from "./reservations"
  | User support login
  |
  */
-const actionUpdateFilterByDay = day => ({ type: c.UPDATE_FILTER_BY_DAY, day })
+export const actionUpdateFilterByDay = day => ({
+  type: c.UPDATE_FILTER_BY_DAY,
+  day
+})
 //
 //
 //
