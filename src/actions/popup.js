@@ -7,10 +7,10 @@ export const actionInjectPopupData = reservation_id => ({ type: c.INJECT_POPUP_D
 //
 //
 // init popup when clicked
-export const actionInitPopup = id => {
+export const actionInitPopup = reservation_id => {
   return dispatch => {
     dispatch({ type: c.THUNK_INIT_POPUP })
-    dispatch(actionInjectPopupData(id))
+    dispatch(actionInjectPopupData(reservation_id))
     dispatch(actionShowPopup())
   }
 }

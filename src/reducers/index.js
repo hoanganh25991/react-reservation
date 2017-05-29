@@ -66,7 +66,9 @@ const adminPage = (state = initState, action) => {
       return router(state, action)
     }
     case c.TOGGLE_POPUP:
-    case c.INJECT_POPUP_DATA: {
+    case c.INJECT_POPUP_DATA:
+    case c.SHOW_POPUP:
+    case c.HIDE_POPUP: {
       return popup(state, action)
     }
     default:
