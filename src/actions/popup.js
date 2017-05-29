@@ -2,7 +2,7 @@ import * as c from "./const-name"
 export const actionTogglePopup = () => ({ type: c.TOGGLE_POPUP })
 export const actionShowPopup = () => ({ type: c.SHOW_POPUP })
 export const actionHidePopup = () => ({ type: c.HIDE_POPUP })
-export const actionInjectPopupData = id => ({ type: c.INJECT_POPUP_DATA, id })
+export const actionInjectPopupData = reservation_id => ({ type: c.INJECT_POPUP_DATA, reservation_id })
 //
 //
 //
