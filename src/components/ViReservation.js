@@ -24,7 +24,7 @@ class ViReservation extends React.Component {
         email: "torinnguyen@gmail.com",
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
-        status: 100,
+        status: 50,
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
@@ -146,6 +146,46 @@ class ViReservation extends React.Component {
         table_layout_name: null,
         table_name: null,
         staff_read_state: null
+      },
+      {
+        confirm_id: "qwertyu",
+        reservation_timestamp: "2017-04-13 18:00:00",
+        adult_pax: 13,
+        children_pax: 3,
+        salutation: "Mr.",
+        first_name: "A",
+        last_name: "Nguyen",
+        phone_country_code: "+65",
+        phone: "98765432",
+        email: "tamnguyen@gmail.com",
+        customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
+        staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
+        status: 400,
+        payment_currency: "$",
+        payment_amount: "87",
+        table_layout_name: null,
+        table_name: null,
+        staff_read_state: null
+      },
+      {
+        confirm_id: "qwertyu",
+        reservation_timestamp: "2017-04-13 18:00:00",
+        adult_pax: 13,
+        children_pax: 3,
+        salutation: "Mr.",
+        first_name: "A",
+        last_name: "Nguyen",
+        phone_country_code: "+65",
+        phone: "98765432",
+        email: "tamnguyen@gmail.com",
+        customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
+        staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
+        status: -200,
+        payment_currency: "$",
+        payment_amount: "87",
+        table_layout_name: null,
+        table_name: null,
+        staff_read_state: null
       }
     ]
 
@@ -163,13 +203,7 @@ class ViReservation extends React.Component {
       <div className="page-reservation">
         <div className="row header">
           <div className="back40">
-            <svg
-              fill="#ffffff"
-              height="45"
-              viewBox="0 0 24 24"
-              width="45"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg fill="#ffffff" height="45" viewBox="0 0 24 24" width="45" xmlns="http://www.w3.org/2000/svg">
               <path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z" />
               <path d="M0 0h24v24H0z" fill="none" />
             </svg>
@@ -206,18 +240,9 @@ class ViReservation extends React.Component {
           {/*assume we have Reservation Component already 
             reservations is our data fetch from server 
             bring data of each reservation into Reservation Component */}
-          {reservations.map(
-            (
-              reservation,
-              index /* we need key in any list loop, for react to track on */
-            ) => (
-              <TableReservation
-                reservation={reservation}
-                order={index}
-                key={index}
-              />
-            )
-          )}
+          {reservations.map((reservation, index /* we need key in any list loop, for react to track on */) => (
+            <TableReservation reservation={reservation} order={index} key={index} />
+          ))}
 
         </div>
         <div className="footer" />
