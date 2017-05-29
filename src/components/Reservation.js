@@ -12,6 +12,8 @@ class Reservation extends React.Component {
     let rowClass = `row ${oddEvenClass}`
     //reservation.staff_read_state = 1;
 
+    let { initPopup } = this.props
+
     return (
       <div className={rowClass}>
         <div className="col-xs-4 row">
@@ -97,7 +99,7 @@ class Reservation extends React.Component {
         </div>
         <div className="col-xs-2 row">
           <div className="col-xs" />
-          <div className="col-xs-1">
+          <div className="col-xs-1" onClick={e => initPopup()}>
             <svg
               fill="rgba(255, 255, 255, 0.1)"
               height="24"
