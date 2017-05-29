@@ -26,8 +26,8 @@ export default (state, action) => {
     case c.SHOW_POPUP:
     case c.HIDE_POPUP: {
       let { popup: currPopup } = state
-      let status = action.type
-      let popup = { ...currPopup, status }
+      let showHide = action.type
+      let popup = { ...currPopup, showHide }
       return { ...state, popup }
     }
     default: {

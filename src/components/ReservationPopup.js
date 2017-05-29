@@ -8,13 +8,15 @@ import Remarks from "./ResvRemarks"
 import "../css/App.css"
 import "../css/ReservationPopupLayout.css"
 
+import CountDown from "./CountDown"
+
 export default class ReservationPopup extends React.Component {
   render() {
     let { popup } = this.props
     return (
       <div>
         {/* Only show it up when status as SHOW_POP_UP */
-        popup.status === c.SHOW_POPUP
+        popup.showHide === c.SHOW_POPUP
           ? <div className="popup">
               <div className="self-center">
                 {/**
@@ -24,12 +26,12 @@ export default class ReservationPopup extends React.Component {
                 <div className="flex-row header">
                   <div>
                     <AlignCenter className="pop-confirm-id padHorz">
-                      <div>PG3XND2</div>
+                      <div>{popup.confirm_id}</div>
                     </AlignCenter>
                   </div>
                   <div>
                     <AlignCenter className="status text-gree">
-                      <div>CONFIRMED !^</div>
+                      <div>{popup.status}</div>
                     </AlignCenter>
                   </div>
                   <div className="flex1" />
@@ -39,7 +41,9 @@ export default class ReservationPopup extends React.Component {
                     </AlignCenter>
                   </div>
                   <div>
-                    <h1 className="text-whit">05:06:35:59</h1>
+                    <h1 className="text-whit">
+                      <CountDown />
+                    </h1>
                     <h3 className="text-gray">days hours minutes seconds</h3>
                   </div>
                 </div>
@@ -75,20 +79,20 @@ export default class ReservationPopup extends React.Component {
                           <div className="flex-column">
                             <div className="flex1">
                               <h3 className="text-blue highlight">
-                                Torin Nguyen Torin Nguyen orin
-                                Nguyen
+                                {popup.first_name}
+                                {popup.last_name}
                               </h3>
                             </div>
                             <div className="flex1 flex-row">
                               <h3 className="text-blue highlight" style={{ width: "50px" }}>
-                                +65
+                                ({popup.phone_country_code})
                               </h3>
                               <p />
-                              <h3 className="text-blue highlight flex1">903865657</h3>
+                              <h3 className="text-blue highlight flex1">{popup.phone}</h3>
                             </div>
                             <div className="flex1">
                               <h3 className="text-blue highlight flex1">
-                                toringnguyen@gmail.com
+                                {popup.email}
                               </h3>
                             </div>
                           </div>
@@ -112,13 +116,13 @@ export default class ReservationPopup extends React.Component {
                         <div className="flex-column flex1">
                           <div className="flex1">
                             <button className="highlight text-blue">-</button>
-                            <span className="h3 text-whit">23</span>
+                            <span className="h3 text-whit">{popup.adult_pax}</span>
                             <button className="highlight text-blue">+</button>
 
                           </div>
                           <div className="flex1">
                             <button className="highlight text-blue">-</button>
-                            <span className="h3 text-whit">23</span>
+                            <span className="h3 text-whit">{popup.children_pax}</span>
                             <button className="highlight text-blue">+</button>
                           </div>
                         </div>
@@ -131,8 +135,12 @@ export default class ReservationPopup extends React.Component {
                             <h4 className="text-gray">DATE & TIME</h4>
                             <div className="flex-row">
                               <div>
-                                <h3 className="text-whit">31 Apr 2014</h3>
-                                <h3 className="text-whit">20:30</h3>
+                                <h3 className="text-whit">
+                                  {popup.date ? popup.date.format("DD MMM YYYY") : popup.reservation_timestamp}
+                                </h3>
+                                <h3 className="text-whit">
+                                  {popup.date ? popup.date.format("HH:mm") : popup.reservation_timestamp}
+                                </h3>
                               </div>
                               <div className="flex1">
                                 <AlignCenter>
@@ -162,11 +170,11 @@ export default class ReservationPopup extends React.Component {
                      * Customer remarks
                      */}
                       <h4 className="text-gray">CUSTOMER REMARKS</h4>
-                      <Remarks />
+                      <div>{popup.customer_remarks}</div>
                       <br />
                       <br />
                       <h4 className="text-gray">STAFF REMARKS</h4>
-                      <Remarks />
+                      <div>{popup.staff_remarks}</div>
                       <br />
                       <div className="flex-row">
                         <div className="flex-column flex1">
