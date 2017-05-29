@@ -6,9 +6,9 @@ export default (state, action) => {
       // Current user state
       let { user: currUser } = state
       // Update it with what inside action
-      let user = Object.assign({}, currUser, action.user)
+      let user = { ...currUser, ...action.user }
       // Update state
-      return Object.assign({}, state, { user })
+      return { ...state, user }
     }
     case c.LOGGING_IN:
     case c.LOGIN_SUCCESS: {
@@ -18,7 +18,7 @@ export default (state, action) => {
       let { allowed_outlets } = action
       // Update user info
       // With full data from server
-      return Object.assign({}, state, { user, allowed_outlets })
+      return { ...state, user, allowed_outlets }
     }
     case c.LOGIN_FAIL:
     case c.LOGGING_OUT:
@@ -27,13 +27,13 @@ export default (state, action) => {
       // Only status as LOGOUT SUCCESS remain
       let user = { status: action.type }
 
-      return Object.assign({}, state, { user })
+      return { ...state, user }
     }
     case c.LOGOUT_FAIL: {
       let { user: currUser } = state
       // Update user status base on action type
-      let user = Object.assign({}, currUser, { status: action.type })
-      return Object.assign({}, state, { user })
+      let user = { ...currUser, status: action.type }
+      return { ...state, user }
     }
     default:
       return state

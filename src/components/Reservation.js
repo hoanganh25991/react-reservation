@@ -8,7 +8,7 @@ import defaultSvg from "../svg/default.svg"
 class Reservation extends React.Component {
   render() {
     let { reservation, order } = this.props
-    let oddEvenClass = order % 2 ? "even-row" : "odd-row"
+    let oddEvenClass = order % 2 ? "odd-row" : "even-row"
     let rowClass = `row ${oddEvenClass}`
     //reservation.staff_read_state = 1;
 
