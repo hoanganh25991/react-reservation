@@ -27,6 +27,7 @@ class ViReservation extends React.Component {
         status: 50,
         payment_currency: "$",
         payment_amount: "124",
+        payment_status: 100,
         table_layout_name: "level 2",
         table_name: "A1",
         staff_read_state: 1
@@ -81,6 +82,7 @@ class ViReservation extends React.Component {
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
         status: 200,
+        payment_status: 100,
         payment_currency: "$",
         payment_amount: "124",
         table_layout_name: "level 2",
@@ -103,6 +105,7 @@ class ViReservation extends React.Component {
         status: -100,
         payment_currency: "$",
         payment_amount: "87",
+        payment_status: 50,
         table_layout_name: null,
         table_name: null,
         staff_read_state: null
@@ -123,6 +126,7 @@ class ViReservation extends React.Component {
         status: -300,
         payment_currency: "$",
         payment_amount: "87",
+        payment_status: 200,
         table_layout_name: null,
         table_name: null,
         staff_read_state: null
@@ -143,6 +147,7 @@ class ViReservation extends React.Component {
         status: 300,
         payment_currency: "$",
         payment_amount: "87",
+        payment_status: 25,
         table_layout_name: null,
         table_name: null,
         staff_read_state: null
@@ -161,6 +166,7 @@ class ViReservation extends React.Component {
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
         status: 400,
+        payment_status: 100,
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: null,
@@ -181,6 +187,7 @@ class ViReservation extends React.Component {
         customer_remarks: "equest for birthday party cake & song, need wheelchair access/assistant.",
         staff_remarks: "Use different color & new line for staff note like this. This text can be quite long.",
         status: -200,
+        payment_status: 50,
         payment_currency: "$",
         payment_amount: "87",
         table_layout_name: null,

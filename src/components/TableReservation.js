@@ -1,12 +1,16 @@
 import React from "react"
 
 // import Layout from "./ReservationLayout";
-
+import ReservationStatus from "./ReservationStatus"
 class TableReservation extends React.Component {
   render() {
     let { reservation, order } = this.props
     let oddEvenClass = order % 2 ? "even-row" : "odd-row"
     let rowClass = `row ${oddEvenClass}`
+
+    let { status, payment_status, payment_currency, payment_amount } = reservation
+
+    let reservationStatus = { status, payment_status, payment_currency, payment_amount }
 
     return (
       <div className={rowClass}>
@@ -129,57 +133,8 @@ class TableReservation extends React.Component {
         </div>
         <div className="col-xs-2 row">
           <div className="col-xs">
-            {/*<ReservationStatus status={reservation.status} .... />*/}
-            {(() => {
-              if (reservation.status === 50) {
-                return (
-                  <div>
-                    <h3>REQUIRED DEPOSIT</h3>
-                    <p>{reservation.payment_currency}{reservation.payment_amount} authorized</p>
-                  </div>
-                )
-              }
-              if (reservation.status === 100) {
-                return (
-                  <div>
-                    <h3>Reserved</h3>
-                    <p>{reservation.payment_currency}{reservation.payment_amount} authorized</p>
-                  </div>
-                )
-              }
-              if (reservation.status === 200) {
-                return (
-                  <div>
-                    <h3>Reminder sent</h3>
-                    <p>{reservation.payment_currency}{reservation.payment_amount} authorized</p>
-                  </div>
-                )
-              }
-              if (reservation.status === 400) {
-                return (
-                  <div>
-                    <h3>arrived</h3>
-                    <p>{reservation.payment_currency}{reservation.payment_amount} authorized</p>
-                  </div>
-                )
-              }
-              if (reservation.status === -100) {
-                return (
-                  <div>
-                    <h3>user cancelled</h3>
-                    <p>{reservation.payment_currency}{reservation.payment_amount} authorized</p>
-                  </div>
-                )
-              }
-              if (reservation.status === -200) {
-                return (
-                  <div>
-                    <h3>staff cancelled</h3>
-                    <p>{reservation.payment_currency}{reservation.payment_amount} authorized</p>
-                  </div>
-                )
-              }
-            })()}
+            <ReservationStatus {...reservationStatus} />
+
           </div>
           <div className="col-xs-1">
             <svg
