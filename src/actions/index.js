@@ -17,6 +17,7 @@ import { fetchData } from "../actions/fetch-data"
 export * from "./auth"
 export * from "./reservations"
 export * from "./filter"
+export * from "./popup"
 /*
  |--------------------------------------------------------------------------
  | User

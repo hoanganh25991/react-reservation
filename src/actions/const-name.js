@@ -81,6 +81,12 @@ export const INJECT_POPUP_DATA = "INJECT_POPUP_DATA"
 export const THUNK_INIT_POPUP = "THUNK_INIT_POPUP"
 
 /**
+ * Popup edit customer info
+ */
+export const EDIT_CUSTOMER_INFO = "EDIT_CUSTOMER_INFO"
+export const UPDATE_PAX = "UPDATE_PAX"
+
+/**
  * Ajax
  */
 // Ajax type

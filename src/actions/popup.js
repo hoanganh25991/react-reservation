@@ -14,3 +14,9 @@ export const actionInitPopup = reservation_id => {
     dispatch(actionShowPopup())
   }
 }
+
+export const actionEditCustomerInfo = ({ customer_info }) => ({ type: c.EDIT_CUSTOMER_INFO, customer_info })
+
+export const actionUpdatePax = (delta, which_pax) => ({ type: c.UPDATE_PAX, delta, which_pax })
+
+// export const toggle
