@@ -22,7 +22,8 @@ export const initState = {
   // Help to store current location
   router: null,
   // Popup
-  visiblePopup: false
+  visiblePopup: false,
+  popup: {}
 }
 
 const adminPage = (state = initState, action) => {
@@ -64,7 +65,10 @@ const adminPage = (state = initState, action) => {
     case c.LOCATION_CHANGE: {
       return router(state, action)
     }
-    case c.TOGGLE_POPUP: {
+    case c.TOGGLE_POPUP:
+    case c.INJECT_POPUP_DATA:
+    case c.SHOW_POPUP:
+    case c.HIDE_POPUP: {
       return popup(state, action)
     }
     default:

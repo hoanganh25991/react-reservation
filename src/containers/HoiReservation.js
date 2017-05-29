@@ -5,7 +5,7 @@ import Reservation from "../components/Reservation"
 // const mapStateToProps = ({ user }) => ({ user })
 
 const mapActionToProps = dispatch => ({
-  initPopup: () => dispatch(actionInitPopup())
+  initPopup: reservation_id => dispatch(actionInitPopup(reservation_id))
 })
 
 export default connect(null, mapActionToProps)(Reservation)

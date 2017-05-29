@@ -99,7 +99,7 @@ class Reservation extends React.Component {
         </div>
         <div className="col-xs-2 row">
           <div className="col-xs" />
-          <div className="col-xs-1" onClick={e => initPopup()}>
+          <div className="col-xs-1" onClick={e => initPopup(reservation.id)}>
             <svg
               fill="rgba(255, 255, 255, 0.1)"
               height="24"
