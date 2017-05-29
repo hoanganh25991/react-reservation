@@ -17,6 +17,9 @@ class ReservationStatus extends React.Component {
   //   }
   //   return statusTitle;
   // }
+  helloWord = () => {
+    console.log("hello world")
+  }
 
   render() {
     let { status, payment_status, payment_currency, payment_amount } = this.props
@@ -110,6 +113,7 @@ class ReservationStatus extends React.Component {
 
     return (
       <div>
+        <div>{this.helloWord()}</div>
         <h3 className={whiteText || redText || greenText}>{getStatusTitle(status)}</h3>
         <p className={whiteTextPayment || redTextPayment || blueTextPayment}>{getPaymentStatusTitle(payment_status)}</p>
       </div>
