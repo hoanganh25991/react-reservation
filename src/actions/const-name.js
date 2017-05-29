@@ -73,6 +73,14 @@ export const THUNK_TOGGLE_FILTER_BY_DAY = "THUNK_TOGGLE_FILTER_BY_DAY"
 export const UPDATE_FILTER_BY_DAY = "UPDATE_FILTER_BY_DAY"
 
 /**
+ * Popup
+ */
+export const SHOW_POPUP = "SHOW_POPUP"
+export const HIDE_POPUP = "HIDE_POPUP"
+export const INJECT_POPUP_DATA = "INJECT_POPUP_DATA"
+export const THUNK_INIT_POPUP = "THUNK_INIT_POPUP"
+
+/**
  * Ajax
  */
 // Ajax type

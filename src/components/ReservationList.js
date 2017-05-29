@@ -1,5 +1,5 @@
 import React from "react"
-import Reservation from "./Reservation"
+import HoiReservation from "../containers/HoiReservation"
 import "../css/color.css"
 import "../css/flexboxgrid.css"
 
@@ -15,7 +15,7 @@ class ReservationList extends React.Component {
     return (
       <div className="table-list">
         {reservations.map((reservation, index) => (
-          <Reservation key={reservation.id} order={index + 1} reservation={reservation} />
+          <HoiReservation key={reservation.id} order={index + 1} reservation={reservation} />
         ))}
       </div>
     )
