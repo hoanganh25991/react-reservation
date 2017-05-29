@@ -13,7 +13,10 @@ export const initState = {
   filterByDay: null,
   visibleInputPickADate: false,
   // Store user info
-  user: {},
+  user: {
+    user_name: "",
+    password: ""
+  },
   outlet_id: null,
   allowed_outlets: [],
   // Help to store current location
