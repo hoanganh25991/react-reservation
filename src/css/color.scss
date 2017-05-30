@@ -159,3 +159,65 @@ body {
     }
 }
 
+.popup {
+    .self-center {
+        border: 1px solid rgba($white, 0.4);
+        background-color: rgba($bgBlack, 0.8);
+        .confirmId {
+            font-size: 50px;
+            padding: 7px 10px 0px  10px;
+        }
+        .payment-status {
+            font-size: 40px;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #00ff0c;
+            .caret {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                margin-left: 2px;
+                vertical-align: middle;
+                border-top: 10px dashed;
+                border-top: 10px solid\9;
+                border-right: 10px solid transparent;
+                border-left: 10px solid transparent;
+            }
+        }
+        .hours {
+            svg {
+                width: 50px;
+                height: 50px;
+                margin-top: 10px;
+            }
+            .t-hours {
+                padding: 5px 10px;
+                font-size: 18px;
+                p {
+                    word-spacing: 26px;
+                    font-size: 15px;
+                    padding-left: 5px;
+                    color: rgba($white, 0.4)
+                }
+            }
+        }
+        .content {
+
+            .remarks {
+                textarea {
+                    background-image: -webkit-linear-gradient(left, white 10px, transparent 10px), -webkit-linear-gradient(right, white 10px, transparent 10px), -webkit-linear-gradient(top, white 30px, rgb(204, 204, 204) 30px, rgb(204, 204, 204) 31px, white 31px);
+                    background-size: 100% 100%, 100% 100%, 100% 33px;
+                    border: none;
+                    border-radius: 8px;
+                    line-height: 31px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    padding: 8px;
+                    margin: 0px;
+                    width: 322px;
+                    height: 133px;
+                    resize: none;
+                }
+            }
+        }
+    }
+}

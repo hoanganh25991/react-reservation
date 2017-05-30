@@ -7,7 +7,8 @@ import Remarks from "./ResvRemarks"
 
 import "../css/App.css"
 import "../css/ReservationPopupLayout.css"
-
+import "../css/flexboxgrid.css"
+import "../css/color.css"
 import CountDown from "./CountDown"
 
 export default class ReservationPopup extends React.Component {
@@ -23,28 +24,24 @@ export default class ReservationPopup extends React.Component {
                * Header
                * [Confirm Id][Status]     [Hours before]
                */}
-                <div className="flex-row header">
-                  <div>
-                    <AlignCenter className="pop-confirm-id padHorz">
-                      <div>{popup.confirm_id}</div>
-                    </AlignCenter>
+
+                <div className="row">
+                  <div className="confirmId t-center back40">{popup.confirm_id}</div>
+                  <div className="payment-status">
+                    {popup.status} <span className="caret" />
                   </div>
-                  <div>
-                    <AlignCenter className="status text-gree">
-                      <div>{popup.status}</div>
-                    </AlignCenter>
-                  </div>
-                  <div className="flex1" />
-                  <div>
-                    <AlignCenter className="text-whit">
-                      O
-                    </AlignCenter>
-                  </div>
-                  <div>
-                    <h1 className="text-whit">
-                      <CountDown />
-                    </h1>
-                    <h3 className="text-gray">days hours minutes seconds</h3>
+                  <div className="col-xs row hours back40">
+                    <div className="col-xs t-right">
+                      <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                      </svg>
+                    </div>
+                    <div className="t-hours">
+                      <h1 className=""><CountDown /></h1>
+                      <p>days hours mins secs</p>
+                    </div>
                   </div>
                 </div>
                 {/**
@@ -53,171 +50,17 @@ export default class ReservationPopup extends React.Component {
                * [Pax]        [Remarks]
                * [Date]       [Payment void|charge]
                */}
-                <div className="flex-column body" style={{ padding: "30px 50px" }}>
-                  <div className="flex-row">
-                    {/**
-                   * For right side
-                   */}
-                    <div className="flex-column flex1">
-                      <h4 className="text-gray">CUSTOMER</h4>
-                      {/**
-                     * Customer info
-                     */}
-                      <div className="flex-row">
-                        {/**
-                       * For customer label: Name, Phone, Email
-                       */}
-                        <div className="flex-column" style={{ width: "150px" }}>
-                          <h4 className="text-whit flex1">NAME</h4>
-                          <h4 className="text-whit flex1">PHONE</h4>
-                          <h4 className="text-whit flex1">EMAIL</h4>
-                        </div>
-                        {/**
-                       * For customer value: Torin Nguyen, +65 903865657, torinnguyen@gmail.com
-                       */}
-                        <div className="flex1">
-                          <div className="flex-column">
-                            <div className="flex1">
-                              <h3 className="text-blue highlight">
-                                {popup.first_name}
-                                {popup.last_name}
-                              </h3>
-                            </div>
-                            <div className="flex1 flex-row">
-                              <h3 className="text-blue highlight" style={{ width: "50px" }}>
-                                ({popup.phone_country_code})
-                              </h3>
-                              <p />
-                              <h3 className="text-blue highlight flex1">{popup.phone}</h3>
-                            </div>
-                            <div className="flex1">
-                              <h3 className="text-blue highlight flex1">
-                                {popup.email}
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br />
-                      <br />
-                      {/**
-                     * Pax Info
-                     */}
-                      <h4 className="text-gray">PAX</h4>
-                      <div className="flex-row">
-                        <div className="flex-column" style={{ width: "150px" }}>
-                          <div className="flex1">
-                            <h4 className="text-whit">Adult</h4>
-                          </div>
-                          <div className="flex1">
-                            <h4 className="text-whit">Children</h4>
-                          </div>
-                        </div>
-                        <div className="flex-column flex1">
-                          <div className="flex1">
-                            <button className="highlight text-blue">-</button>
-                            <span className="h3 text-whit">{popup.adult_pax}</span>
-                            <button className="highlight text-blue">+</button>
-
-                          </div>
-                          <div className="flex1">
-                            <button className="highlight text-blue">-</button>
-                            <span className="h3 text-whit">{popup.children_pax}</span>
-                            <button className="highlight text-blue">+</button>
-                          </div>
-                        </div>
-                      </div>
-                      <br />
-                      <br />
-                      <div className="flex-row">
-                        <div className="flex1">
-                          <div className="flex-column">
-                            <h4 className="text-gray">DATE & TIME</h4>
-                            <div className="flex-row">
-                              <div>
-                                <h3 className="text-whit">
-                                  {popup.date ? popup.date.format("DD MMM YYYY") : popup.reservation_timestamp}
-                                </h3>
-                                <h3 className="text-whit">
-                                  {popup.date ? popup.date.format("HH:mm") : popup.reservation_timestamp}
-                                </h3>
-                              </div>
-                              <div className="flex1">
-                                <AlignCenter>
-                                  <div className="calendar highlight" />
-                                </AlignCenter>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="flex1">
-                          <div className="flex-column">
-                            <h4 className="text-gray">REMINDER SMS</h4>
-                            <div className="flex-row">
-                              <div className="checkbox highlight" />
-                              <p />
-                              <h4 className="text-whit">Enabled</h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                <div className="row content">
+                  <div className="col-xs-7" />
+                  <div className="col-xs-5 remarks">
+                    <div className="customer-remark">
+                      <h3>customer remarks</h3>
+                      <textarea name="customer_remarks" id="customer_remarks" cols="30" rows="10" />
                     </div>
-                    {/**
-                   * For left side
-                   */}
-                    <div className="flex-column flex1">
-                      {/**
-                     * Customer remarks
-                     */}
-                      <h4 className="text-gray">CUSTOMER REMARKS</h4>
-                      <div>{popup.customer_remarks}</div>
-                      <br />
-                      <br />
-                      <h4 className="text-gray">STAFF REMARKS</h4>
-                      <div>{popup.staff_remarks}</div>
-                      <br />
-                      <div className="flex-row">
-                        <div className="flex-column flex1">
-                          <h3 className="text-gray">PAYMENT AUTHORIZATION</h3>
-                          <h3 className="text-blue">$128 Authorized</h3>
-                          <h3 className="text-blue">76HYUJ89KJU</h3>
-                        </div>
-                        <div className="flex-column">
-                          <div className="flex-row btn-large danger">
-                            <AlignCenter>
-                              <h3 className="text-whit padHorz">VOID</h3>
-                            </AlignCenter>
-                          </div>
-                          <div className="flex-row btn-large primary">
-                            <AlignCenter>
-                              <h3 className="text-whit padHorz">CHARGE</h3>
-                            </AlignCenter>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="staff-remark">
+                      <h3>staff remarks</h3>
+                      <textarea name="customer_remarks" id="customer_remarks" cols="30" rows="10" />
                     </div>
-                  </div>
-                  {/**
-                 * Fotter
-                 * [SEND REMINDER] [CANCEL][UPDATE]
-                 */}
-                </div>
-                <div className="flex-row footer">
-                  <div className="btn-large default">
-                    <AlignCenter>
-                      <h3 className="text-whit">SEND REMINDER</h3>
-                    </AlignCenter>
-                  </div>
-                  <div className="flex1" />
-                  <div className="btn-large primary">
-                    <AlignCenter>
-                      <h3 className="text-whit padHorz">UPDATE</h3>
-                    </AlignCenter>
-                  </div>
-                  <div className="btn-large danger">
-                    <AlignCenter>
-                      <h3 className="text-whit padHorz">CANCEL</h3>
-                    </AlignCenter>
                   </div>
                 </div>
               </div>

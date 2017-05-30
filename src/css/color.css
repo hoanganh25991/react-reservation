@@ -107,3 +107,49 @@ body {
     font-style: italic;
     padding-bottom: 8px;
     color: rgba(255, 255, 0, 0.25); }
+
+.popup .self-center {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(38, 43, 50, 0.8); }
+  .popup .self-center .confirmId {
+    font-size: 50px;
+    padding: 7px 10px 0px  10px; }
+  .popup .self-center .payment-status {
+    font-size: 40px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #00ff0c; }
+    .popup .self-center .payment-status .caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 2px;
+      vertical-align: middle;
+      border-top: 10px dashed;
+      border-top: 10px solid\9;
+      border-right: 10px solid transparent;
+      border-left: 10px solid transparent; }
+  .popup .self-center .hours svg {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px; }
+  .popup .self-center .hours .t-hours {
+    padding: 5px 10px;
+    font-size: 18px; }
+    .popup .self-center .hours .t-hours p {
+      word-spacing: 26px;
+      font-size: 15px;
+      padding-left: 5px;
+      color: rgba(255, 255, 255, 0.4); }
+  .popup .self-center .content .remarks textarea {
+    background-image: -webkit-linear-gradient(left, white 10px, transparent 10px), -webkit-linear-gradient(right, white 10px, transparent 10px), -webkit-linear-gradient(top, white 30px, #cccccc 30px, #cccccc 31px, white 31px);
+    background-size: 100% 100%, 100% 100%, 100% 33px;
+    border: none;
+    border-radius: 8px;
+    line-height: 31px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+    margin: 0px;
+    width: 322px;
+    height: 133px;
+    resize: none; }
