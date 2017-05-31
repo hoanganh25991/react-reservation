@@ -141,15 +141,148 @@ body {
       font-size: 15px;
       padding-left: 5px;
       color: rgba(255, 255, 255, 0.4); }
-  .popup .self-center .content .remarks textarea {
-    background-image: -webkit-linear-gradient(left, white 10px, transparent 10px), -webkit-linear-gradient(right, white 10px, transparent 10px), -webkit-linear-gradient(top, white 30px, #cccccc 30px, #cccccc 31px, white 31px);
-    background-size: 100% 100%, 100% 100%, 100% 33px;
-    border: none;
-    border-radius: 8px;
-    line-height: 31px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 8px;
-    margin: 0px;
-    width: 322px;
-    height: 133px;
-    resize: none; }
+  .popup .self-center .content {
+    padding: 40px; }
+    .popup .self-center .content input:focus, .popup .self-center .content textarea:focus {
+      outline: none; }
+    .popup .self-center .content h3 {
+      font-size: 15px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 400; }
+    .popup .self-center .content .info .customer-info .customer-text {
+      font-size: 20px;
+      width: 85px;
+      padding-top: 15px; }
+    .popup .self-center .content .info .customer-info .phone-country {
+      width: 80px; }
+      .popup .self-center .content .info .customer-info .phone-country input {
+        width: calc(100% - 40px); }
+    .popup .self-center .content .info .customer-info input {
+      width: calc(100% - 80px);
+      font-size: 20px;
+      padding: 8px 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: rgba(112, 136, 253, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 5px;
+      font-weight: 100; }
+    .popup .self-center .content .pax-info {
+      padding-top: 30px; }
+      .popup .self-center .content .pax-info .pax-text {
+        font-size: 20px;
+        width: 110px;
+        padding-top: 15px; }
+      .popup .self-center .content .pax-info .calc-pax {
+        margin-top: 5px; }
+        .popup .self-center .content .pax-info .calc-pax .calc {
+          display: inline-block;
+          background-color: rgba(0, 0, 0, 0.3);
+          padding: 6px 8px 3px 8px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          cursor: pointer; }
+        .popup .self-center .content .pax-info .calc-pax .calcSuccess {
+          display: inline-block;
+          font-size: 25px;
+          font-weight: 100;
+          position: relative;
+          top: -3px;
+          width: 45px;
+          text-align: center; }
+    .popup .self-center .content .date-reminder-info {
+      padding-top: 40px; }
+      .popup .self-center .content .date-reminder-info .date-info .time-info {
+        font-size: 20px;
+        width: 140px;
+        line-height: 1.75; }
+        .popup .self-center .content .date-reminder-info .date-info .time-info p {
+          font-weight: 400; }
+      .popup .self-center .content .date-reminder-info .date-info .date-svg span {
+        display: inline-block;
+        width: 55px;
+        height: 55px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative; }
+        .popup .self-center .content .date-reminder-info .date-info .date-svg span svg#Layer_1 {
+          fill: rgba(112, 136, 253, 0.9);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+      .popup .self-center .content .date-reminder-info .reminder-info .checkbox, .popup .self-center .content .date-reminder-info .reminder-info .radio {
+        position: relative;
+        display: block;
+        margin: 15px 10px 10px 0; }
+      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+        opacity: 0; }
+      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:checked {
+        position: absolute;
+        left: -9999px;
+        opacity: 0; }
+        .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:checked + label:before {
+          top: -6px;
+          left: -2px;
+          width: 7px;
+          height: 20px;
+          border-top: 2px solid transparent;
+          border-left: 2px solid transparent;
+          border-right: 3px solid rgba(112, 136, 253, 0.9);
+          border-bottom: 3px solid rgba(112, 136, 253, 0.9);
+          -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+          -webkit-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+          z-index: 1;
+          background-color: transparent; }
+      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"] + label {
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        display: inline-block;
+        height: 25px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -ms-user-select: none;
+        font-size: 20px;
+        font-weight: lighter;
+        font-stretch: normal;
+        line-height: 1.17;
+        letter-spacing: normal;
+        font-weight: 400; }
+      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"] + label:before, .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:not(.filled-in) + label:after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 0;
+        z-index: 0;
+        margin-top: 2px;
+        transition: .2s;
+        width: 25px;
+        height: 25px;
+        border: solid 1px rgba(255, 255, 255, 0.1);
+        background-color: rgba(0, 0, 0, 0.3); }
+    .popup .self-center .content .remarks textarea {
+      background-image: -webkit-linear-gradient(left, transparent 12px, transparent 12px), -webkit-linear-gradient(right, transparent 12px, transparent 12px), -webkit-linear-gradient(top, transparent 31px, #cccccc 30px, #cccccc 31px, transparent 32px);
+      background-size: 100% 100%, 100% 100%, 100% 33px;
+      border: none;
+      border-radius: 8px;
+      line-height: 31px;
+      padding: 8px;
+      margin: 0px;
+      width: calc(100% - 16px);
+      height: 100px;
+      resize: none;
+      background-color: transparent;
+      font-size: 18px;
+      font-weight: 100;
+      font-style: italic; }
+    .popup .self-center .content .remarks .customer-remark textarea {
+      color: rgba(255, 255, 255, 0.4); }
+    .popup .self-center .content .remarks .staff-remark textarea {
+      color: rgba(255, 255, 0, 0.25); }
