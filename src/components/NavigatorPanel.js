@@ -1,5 +1,6 @@
 import React from "react"
 import moment from "moment"
+import ClockTick from "./ClockTick"
 
 class NavigatorPanel extends React.Component {
   render() {
@@ -21,7 +22,7 @@ class NavigatorPanel extends React.Component {
           <h3>{now.format("D MMMM YYYY")}</h3>
         </div>
         <div className="back10">
-          <h1>{now.format("HH:mm")}</h1>
+          <h1><ClockTick /></h1>
         </div>
       </div>
     )

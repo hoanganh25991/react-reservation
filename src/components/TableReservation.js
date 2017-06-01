@@ -15,7 +15,7 @@ class TableReservation extends React.Component {
     return (
       <div className={rowClass}>
         <div className="col-xs-4 row">
-          <div className="col-xs-1">
+          <div className="col-xs-1 dot-svg">
             {(() => {
               if (reservation.staff_read_state === 1) {
                 return (
@@ -136,7 +136,7 @@ class TableReservation extends React.Component {
             <ReservationStatus {...reservationStatus} />
 
           </div>
-          <div className="col-xs-1">
+          <div className="col-xs-2 next-svg">
             <svg
               fill="rgba(255, 255, 255, 0.1)"
               height="24"

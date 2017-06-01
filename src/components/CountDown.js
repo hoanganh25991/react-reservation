@@ -2,6 +2,8 @@ import React from "react"
 
 export default class CountDown extends React.Component {
   render() {
-    return <div>05 : 06 : 35 : 59</div>
+    let { startTime } = this.props
+
+    return <div style={{ textAlign: "right" }}>{startTime.format("d : HH : mm : ss")}</div>
   }
 }

@@ -17,7 +17,7 @@ class Reservation extends React.Component {
     return (
       <div className={rowClass}>
         <div className="col-xs-4 row">
-          <div className="col-xs-1">
+          <div className="col-xs-1 dot-svg">
             {reservation.staff_read_state === 1
               ? <img src={readSvg} />
               : reservation.staff_read_state === 0
@@ -99,7 +99,7 @@ class Reservation extends React.Component {
         </div>
         <div className="col-xs-2 row">
           <div className="col-xs" />
-          <div className="col-xs-1" onClick={e => initPopup(reservation.id)}>
+          <div className="col-xs-2 next-svg" onClick={e => initPopup(reservation.id)}>
             <svg
               fill="rgba(255, 255, 255, 0.1)"
               height="24"

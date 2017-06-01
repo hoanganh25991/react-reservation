@@ -81,6 +81,13 @@ body {
   body .table-list .odd-row {
     background-color: transparent;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  body .table-list .dot-svg {
+    position: relative; }
+    body .table-list .dot-svg img, body .table-list .dot-svg svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
   body .table-list .confirmId {
     font-size: 35px;
     text-transform: uppercase; }
@@ -107,18 +114,71 @@ body {
     font-style: italic;
     padding-bottom: 8px;
     color: rgba(255, 255, 0, 0.25); }
+  body .table-list .pax span {
+    display: inline-block;
+    position: relative;
+    top: 10px; }
+    body .table-list .pax span svg {
+      width: 40px;
+      height: 40px; }
+  body .table-list .room span {
+    display: inline-block;
+    position: relative;
+    top: 10px; }
+    body .table-list .room span svg {
+      width: 40px;
+      height: 40px; }
+  body .table-list .phone-mail span {
+    display: inline-block;
+    position: relative;
+    top: 5px; }
+  body .table-list .phone-mail p {
+    color: rgba(255, 255, 255, 0.4);
+    font-style: italic; }
+    body .table-list .phone-mail p:nth-child(2) {
+      line-height: 1.9; }
+  body .table-list .status-info {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+    body .table-list .status-info h3 {
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1.75; }
+  body .table-list .next-svg {
+    position: relative;
+    cursor: pointer; }
+    body .table-list .next-svg svg {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%); }
 
 .popup .self-center {
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   background-color: rgba(38, 43, 50, 0.8); }
   .popup .self-center .confirmId {
     font-size: 50px;
-    padding: 7px 10px 0px  10px; }
+    padding: 7px 10px 0px  10px;
+    text-transform: uppercase; }
+  .popup .self-center .SelectBox {
+    position: relative;
+    height: 67.5px;
+    cursor: pointer; }
+    .popup .self-center .SelectBox .dropdown-menu li {
+      display: block;
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      font-size: 20px; }
+      .popup .self-center .SelectBox .dropdown-menu li:hover {
+        background: rgba(0, 255, 255, 0.25); }
   .popup .self-center .payment-status {
     font-size: 40px;
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.2);
-    color: #00ff0c; }
+    text-transform: uppercase; }
     .popup .self-center .payment-status .caret {
       display: inline-block;
       width: 0;
@@ -286,3 +346,67 @@ body {
       color: rgba(255, 255, 255, 0.4); }
     .popup .self-center .content .remarks .staff-remark textarea {
       color: rgba(255, 255, 0, 0.25); }
+    .popup .self-center .content .remarks .deposit {
+      padding-top: 60px; }
+      .popup .self-center .content .remarks .deposit p {
+        font-size: 25px; }
+        .popup .self-center .content .remarks .deposit p:nth-child(2) {
+          line-height: 1.75; }
+        .popup .self-center .content .remarks .deposit p:nth-child(3) {
+          text-transform: uppercase; }
+      .popup .self-center .content .remarks .deposit .button-deposit {
+        width: 150px;
+        text-align: center; }
+        .popup .self-center .content .remarks .deposit .button-deposit .btn-void a {
+          font-size: 20px;
+          text-transform: uppercase;
+          padding: 10px;
+          display: block;
+          background-color: rgba(255, 0, 0, 0.25);
+          border: 1px solid #ff0000;
+          margin-bottom: 3px;
+          cursor: pointer; }
+        .popup .self-center .content .remarks .deposit .button-deposit .btn-charge a {
+          font-size: 20px;
+          text-transform: uppercase;
+          padding: 10px;
+          display: block;
+          background-color: rgba(0, 255, 255, 0.25);
+          border: 1px solid #00ffff;
+          margin-bottom: 3px;
+          cursor: pointer; }
+  .popup .self-center .btn-bottom {
+    padding-top: 40px; }
+    .popup .self-center .btn-bottom .btn-send {
+      text-align: center;
+      font-size: 30px;
+      text-transform: uppercase;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer; }
+    .popup .self-center .btn-bottom .btn-empty {
+      background-color: rgba(0, 0, 0, 0.5); }
+    .popup .self-center .btn-bottom .btn-cancel {
+      text-align: center;
+      font-size: 30px;
+      text-transform: uppercase;
+      padding: 15px;
+      background: rgba(255, 0, 0, 0.25); }
+    .popup .self-center .btn-bottom .btn-update {
+      text-align: center;
+      font-size: 30px;
+      text-transform: uppercase;
+      padding: 15px;
+      background-color: rgba(0, 255, 255, 0.25); }
+
+.whiteText {
+  color: #ffffff; }
+
+.redText {
+  color: #ff0000; }
+
+.greenText {
+  color: #00ff0c; }
+
+.blueText {
+  color: rgba(112, 136, 253, 0.9); }

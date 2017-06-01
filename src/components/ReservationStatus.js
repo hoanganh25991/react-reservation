@@ -3,20 +3,6 @@ import React from "react"
 // import Layout from "./ReservationLayout";
 
 class ReservationStatus extends React.Component {
-  //  getStatusTitl = (status) => {
-  //   let statusTitle;
-  //   switch(status){
-  //     case 50:{
-  //       statusTitle = 'name';
-  //       break;
-  //     }
-  //     default:{
-  //       statusTitle = null;
-  //       break;
-  //     }
-  //   }
-  //   return statusTitle;
-  // }
   helloWord = () => {
     console.log("hello world")
   }
@@ -112,8 +98,8 @@ class ReservationStatus extends React.Component {
     let blueTextPayment = payment_status === 100 ? "blueText" : ""
 
     return (
-      <div>
-        <div>{this.helloWord()}</div>
+      <div className="status-info">
+        {/*<div>{this.helloWord()}</div>*/}
         <h3 className={whiteText || redText || greenText}>{getStatusTitle(status)}</h3>
         <p className={whiteTextPayment || redTextPayment || blueTextPayment}>{getPaymentStatusTitle(payment_status)}</p>
       </div>

@@ -119,6 +119,15 @@ body {
             background-color: transparent;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .dot-svg {
+            position: relative;
+            img,svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
         .confirmId {
             font-size: 35px;
             text-transform: uppercase;
@@ -156,22 +165,97 @@ body {
             // overflow: hidden;
             // text-overflow: ellipsis;
         }
+        .pax {
+            span{
+                display: inline-block;
+                position: relative;
+                top: 10px;
+                svg {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+        .room {
+            span {
+                display: inline-block;
+                position: relative;
+                top: 10px;
+                svg {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+        .phone-mail {
+            span {
+                display: inline-block;
+                position: relative;
+                top: 5px;
+            }
+            p{
+                color: rgba(255, 255, 255, 0.4);
+                font-style: italic;
+                &:nth-child(2) {
+                    line-height: 1.9;
+                }
+            }
+        }
+        .status-info {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            h3 {
+                text-transform: uppercase;
+                font-weight: 400;
+                line-height: 1.75;
+            }
+        }
+        .next-svg {
+            position: relative;
+            cursor: pointer;
+            svg {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
     }
 }
 
 .popup {
     .self-center {
-        border: 1px solid rgba($white, 0.4);
+        border: 1px solid rgba($white, 0.7);
         background-color: rgba($bgBlack, 0.8);
         .confirmId {
             font-size: 50px;
             padding: 7px 10px 0px  10px;
+            text-transform: uppercase;
+        }
+        .SelectBox {
+            position: relative;
+            height: 67.5px;
+            cursor: pointer;
+            .dropdown-menu {
+                li {
+                    display: block;
+                    padding: 5px;
+                    background: rgba(255, 255, 255, 0.4);
+                    cursor: pointer;
+                    font-size: 20px;
+                    &:hover {
+                        background: rgba(0, 255, 255, 0.25);
+                    }
+                }
+            }
         }
         .payment-status {
             font-size: 40px;
             padding: 10px 20px;
             background-color: rgba(255, 255, 255, 0.2);
-            color: #00ff0c;
+            text-transform: uppercase;
             .caret {
                 display: inline-block;
                 width: 0;
@@ -393,7 +477,87 @@ body {
                         color: rgba($yelow, 0.25);
                     }
                 }
+                .deposit {
+                    padding-top: 60px;
+                    p {
+                        font-size: 25px;
+                        &:nth-child(2) {
+                            line-height: 1.75;
+                        }
+                        &:nth-child(3) {
+                            text-transform: uppercase;
+                        }
+                    }
+                   .button-deposit {
+                        width: 150px;
+                        text-align: center;
+                       .btn-void {
+                            a {
+                                font-size: 20px;
+                                text-transform: uppercase;
+                                padding: 10px;
+                                display: block;
+                                background-color: rgba($red, 0.25);
+                                border: 1px solid $red;
+                                margin-bottom: 3px;
+                                cursor: pointer;
+                            }
+                       }
+                       .btn-charge {
+                            a {
+                                font-size: 20px;
+                                text-transform: uppercase;
+                                padding: 10px;
+                                display: block;
+                                background-color: rgba($greenL, 0.25);
+                                border: 1px solid $greenL;
+                                margin-bottom: 3px;
+                                cursor: pointer;
+                            }
+                       }
+                   }
+                }
+            }
+        }
+        .btn-bottom {
+            padding-top: 40px;
+            .btn-send {
+                text-align: center;
+                font-size: 30px;
+                text-transform: uppercase;
+                padding: 15px;
+                background: rgba($white, 0.40);
+                cursor: pointer;
+            }
+            .btn-empty {
+                background-color: rgba($black, 0.5);
+            }
+            .btn-cancel {
+                text-align: center;
+                font-size: 30px;
+                text-transform: uppercase;
+                padding: 15px;
+                background: rgba($red, 0.25);
+            }
+            .btn-update {
+                text-align: center;
+                font-size: 30px;
+                text-transform: uppercase;
+                padding: 15px;
+                background-color: rgba($greenL, 0.25);
             }
         }
     }
+}
+.whiteText {
+    color: $white;
+}
+.redText {
+    color: $red;
+}
+.greenText {
+    color: $tGreen;
+}
+.blueText {
+    color: rgba($tBlue, 0.9);
 }

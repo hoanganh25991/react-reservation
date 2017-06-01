@@ -107,3 +107,8 @@ export const SWITCH_OUTLET = "SWITCH_OUTLET"
 export const CHOOSE_DEFAULT_OUTLET = "CHOOSE_DEFAULT_OUTLET"
 export const LOCATION_CHANGE = "@@router/LOCATION_CHANGE"
 export const TOGGLE_POPUP = "TOGGLE_POPUP"
+
+/**
+ * Reservation status
+ */
+// export const RESERVED = 100;

@@ -12,10 +12,115 @@ import "../css/color.css"
 import CountDown from "./CountDown"
 
 export default class ReservationPopup extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showSelectBox: null
+    }
+  }
+
+  toggleSelectBox = () => {
+    let { showSelectBox: curr } = this.state
+    let showSelectBox = !curr
+    this.setState({ showSelectBox })
+  }
+
   render() {
     let { popup } = this.props
+    let { updatePopupStatus } = this.props
+    updatePopupStatus = () => console.log("Update popup status")
     popup.customer_remarks = "request for birthday party cake & song, need wheelchair access/assistant."
     popup.staff_remarks = "Use different color & new line for staff note like this. This text can be quite long long"
+    popup.payment_currency = "$"
+    popup.payment_amount = "123"
+    popup.payment_status = 100
+    popup.payment_authorization_id = "r25uht567hf57c"
+    let getStatusTitle = function(status) {
+      let statusTitle
+      switch (popup.status) {
+        case 50: {
+          statusTitle = "REQUIRED DEPOSIT"
+          break
+        }
+        case 100: {
+          statusTitle = "Reserved"
+          break
+        }
+        case 200: {
+          statusTitle = "Reminder sent"
+          break
+        }
+        case 300: {
+          statusTitle = "CONFIRMED"
+          break
+        }
+        case 400: {
+          statusTitle = "arrived"
+          break
+        }
+        case -100: {
+          statusTitle = "user cancelled"
+          break
+        }
+        case -200: {
+          statusTitle = "staff cancelled"
+          break
+        }
+        case -300: {
+          statusTitle = "no show"
+          break
+        }
+        default: {
+          statusTitle = null
+          break
+        }
+      }
+      return statusTitle
+    }
+
+    let getPaymentStatusTitle = function(payment_status) {
+      let paymentStatusTitle
+      switch (popup.payment_status) {
+        case 25: {
+          paymentStatusTitle = null
+          break
+        }
+        case 50: {
+          paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Voided`
+          break
+        }
+        case 100: {
+          paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Authorized`
+          break
+        }
+        case 200: {
+          paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Charged`
+          break
+        }
+        default: {
+          paymentStatusTitle = null
+          break
+        }
+      }
+      return paymentStatusTitle
+    }
+
+    let whiteText = popup.status === 50 ||
+      popup.status === 100 ||
+      popup.status === 200 ||
+      popup.status === 300 ||
+      popup.status === 400
+      ? "whiteText"
+      : ""
+    let redText = popup.status === -100 || popup.status === -200 || popup.status === -300 ? "redText" : ""
+    let greenText = popup.status === 300 ? "greenText" : ""
+
+    let whiteTextPayment = popup.payment_status === 50 ? "whiteText" : ""
+    let redTextPayment = popup.payment_status === 200 ? "redText" : ""
+    let blueTextPayment = popup.payment_status === 100 ? "blueText" : ""
+
+    let color = whiteText || redText || greenText
+
     return (
       <div>
         {/* Only show it up when status as SHOW_POP_UP */
@@ -26,12 +131,28 @@ export default class ReservationPopup extends React.Component {
                * Header
                * [Confirm Id][Status]     [Hours before]
                */}
-
                 <div className="row">
                   <div className="confirmId t-center back40">{popup.confirm_id}</div>
-                  <div className="payment-status">
-                    {popup.status} <span className="caret" />
+                  <div className="SelectBox">
+                    <div onClick={e => this.toggleSelectBox()} className={`${color} payment-status`}>
+                      {getStatusTitle(popup.status)} <span className="caret" />
+                    </div>
+                    {/*<div >Hello</div>*/}
+                    {this.state.showSelectBox
+                      ? <div>
+                          <ul className="dropdown-menu">
+                            <li onClick={() => updatePopupStatus(c.RESERVED)}>RESERVED</li>
+                            <li onClick={() => updatePopupStatus(c.REMINDER_SENT)}>REMINDER SENT</li>
+                            <li onClick={() => updatePopupStatus(c.CONFIRMED)}>CONFIRMED</li>
+                            <li onClick={() => updatePopupStatus(c.ARRIVED)}>ARRIVED</li>
+                            <li onClick={() => updatePopupStatus(c.USER_CANCELLED)}>USER CANCELLED</li>
+                            <li onClick={() => updatePopupStatus(c.STAFF_CANCELLED)}>STAFF CANCELLED</li>
+                            <li onClick={() => updatePopupStatus(c.NO_SHOW)}>NO SHOW</li>
+                          </ul>
+                        </div>
+                      : null}
                   </div>
+
                   <div className="col-xs row hours back40">
                     <div className="col-xs t-right">
                       <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +162,7 @@ export default class ReservationPopup extends React.Component {
                       </svg>
                     </div>
                     <div className="t-hours">
-                      <h1 className=""><CountDown /></h1>
+                      <h1 className=""><CountDown startTime={popup.date} /></h1>
                       <p>days hours mins secs</p>
                     </div>
                   </div>
@@ -207,7 +328,35 @@ export default class ReservationPopup extends React.Component {
                         rows="10"
                       />
                     </div>
-                    <div className="deposit" />
+                    <div className="deposit row">
+                      <div className="col-xs">
+                        <h3>Deposit</h3>
+                        <p className={whiteTextPayment || redTextPayment || blueTextPayment}>
+                          {getPaymentStatusTitle(popup.payment_status)}
+                        </p>
+                        <p className={whiteTextPayment || redTextPayment || blueTextPayment}>
+                          {popup.payment_authorization_id}
+                        </p>
+                      </div>
+                      <div className="button-deposit">
+                        <div className="btn-void">
+                          <a>void</a>
+                        </div>
+                        <div className="btn-charge">
+                          <a>charge</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="btn-bottom row">
+                  <div className="col-xs-7 row">
+                    <div className="col-xs-7 btn-send">send reminder</div>
+                    <div className="col-xs-5 btn-empty" />
+                  </div>
+                  <div className="col-xs-5 row">
+                    <div className="col-xs btn-cancel">cancel</div>
+                    <div className="col-xs btn-update">update</div>
                   </div>
                 </div>
               </div>

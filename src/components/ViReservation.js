@@ -5,7 +5,7 @@ import "../css/flexboxgrid.css"
 import moment from "moment"
 
 import TableReservation from "./TableReservation"
-
+import ClockTick from "./ClockTick"
 class ViReservation extends React.Component {
   render() {
     let now = moment()
@@ -223,7 +223,8 @@ class ViReservation extends React.Component {
             <h3>{now.format("D MMMM YYYY")}</h3>
           </div>
           <div className="back10">
-            <h1>{now.format("HH:mm")}</h1>
+            <h1><ClockTick /></h1>
+
           </div>
         </div>
         <div className="time-bar row back40">
