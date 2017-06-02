@@ -25,6 +25,29 @@ export default class ReservationPopup extends React.Component {
     this.setState({ showSelectBox })
   }
 
+  getColorByStatus = status => {
+    let color
+    switch (true) {
+      case status === 50 || status === 100 || status === 200 || status === 300 || status === 400: {
+        color = "whiteText"
+        break
+      }
+      case status === -100 || status === -200 || status === -300: {
+        color = "redText"
+        break
+      }
+      case status === 300: {
+        color: ("greenText")
+        break
+      }
+      default: {
+        color = null
+        break
+      }
+    }
+    return color
+  }
+
   render() {
     let { popup } = this.props
     let { updatePopupStatus } = this.props
@@ -105,21 +128,11 @@ export default class ReservationPopup extends React.Component {
       return paymentStatusTitle
     }
 
-    let whiteText = popup.status === 50 ||
-      popup.status === 100 ||
-      popup.status === 200 ||
-      popup.status === 300 ||
-      popup.status === 400
-      ? "whiteText"
-      : ""
-    let redText = popup.status === -100 || popup.status === -200 || popup.status === -300 ? "redText" : ""
-    let greenText = popup.status === 300 ? "greenText" : ""
-
     let whiteTextPayment = popup.payment_status === 50 ? "whiteText" : ""
     let redTextPayment = popup.payment_status === 200 ? "redText" : ""
     let blueTextPayment = popup.payment_status === 100 ? "blueText" : ""
 
-    let color = whiteText || redText || greenText
+    let color = this.getColorByStatus(popup.status)
 
     return (
       <div>
