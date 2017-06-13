@@ -4,9 +4,8 @@ import moment from "moment"
 export default class CountDown extends React.Component {
   constructor(props) {
     super(props)
-    // let startTime = props
-    this.state = { count: 0 }
-    this.time = { date: moment() }
+    // countdown store how many seconds left
+    this.state = { countdown: null }
   }
   componentDidMount() {
     this.timerID = setInterval(() => this.tick(), 1000)
@@ -15,33 +14,21 @@ export default class CountDown extends React.Component {
     clearInterval(this.timerID)
   }
   tick() {
-    let count = this.state.count
-    count++
-
     let { startTime } = this.props
-    var eventTime = startTime.format("x")
-    // console.log('eventTime',eventTime);
-    var currentTime = this.time.date.format("x")
-    // console.log('currentTime',currentTime);
-    var diffTime = eventTime - currentTime
-    // console.log('diffTime',diffTime);
-    var duration = moment.duration(diffTime * 1000, "milliseconds")
-    // console.log('duration',duration);
-    var interval = 1000
-
-    // (function timerLoop() {
-
-    //    duration = moment.duration(duration - interval, 'milliseconds');
-    //     // console.log(duration);
-    //     count = duration.days() + ':' + duration.hours() + ":" + duration.minutes() + ":" + duration.seconds();
-    //    console.log(count)
-
-    //   requestAnimationFrame(timerLoop);
-    // })();
-
-    this.setState({ count })
+    let now = moment()
+    // How many seconds left
+    // + sign to convert str > number
+    let countdown = +startTime.format("X") - +now.format("X")
+    // Update state
+    this.setState({ countdown })
   }
   render() {
-    return <div style={{ textAlign: "right" }}>{this.state.count} </div>
+    // Get out countdown
+    let { countdown } = this.state
+    // Build an moment duration obj
+    let duration = moment.duration(countdown, "seconds")
+    let countdownTimeStr = `${duration.days()}:${duration.hours()}:${duration.minutes()}:${duration.seconds()}`
+    // Display it
+    return <div style={{ textAlign: "right" }}>{countdownTimeStr}</div>
   }
 }
