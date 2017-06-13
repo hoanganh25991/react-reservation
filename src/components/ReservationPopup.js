@@ -37,7 +37,7 @@ export default class ReservationPopup extends React.Component {
         break
       }
       case status === 300: {
-        color: ("greenText")
+        color = "greenText"
         break
       }
       default: {
