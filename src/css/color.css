@@ -157,7 +157,8 @@ body {
 
 .popup .self-center {
   border: 1px solid rgba(255, 255, 255, 0.7);
-  background-color: rgba(38, 43, 50, 0.8); }
+  background-color: rgba(38, 43, 50, 0.8);
+  position: relative; }
   .popup .self-center .confirmId {
     font-size: 50px;
     padding: 7px 10px 0px  10px;
@@ -197,7 +198,7 @@ body {
     padding: 5px 10px;
     font-size: 18px; }
     .popup .self-center .hours .t-hours p {
-      word-spacing: 26px;
+      word-spacing: 10px;
       font-size: 15px;
       padding-left: 5px;
       color: rgba(255, 255, 255, 0.4); }
@@ -410,3 +411,33 @@ body {
 
 .blueText {
   color: rgba(112, 136, 253, 0.9); }
+
+.close {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  top: -40px;
+  right: -40px;
+  background: rgba(26, 93, 98, 0.9);
+  border-radius: 5px;
+  cursor: pointer; }
+  .close:hover::before, .close:hover::after {
+    background: #00ffff; }
+  .close::before, .close::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #ffffff; }
+  .close::before {
+    transform: rotate(45deg); }
+  .close::after {
+    transform: rotate(-45deg); }
+  .close.thick::before, .close.thick::after {
+    height: 4px;
+    margin-top: -2px; }

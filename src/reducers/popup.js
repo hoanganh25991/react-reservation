@@ -9,6 +9,7 @@ const deepCloneReservation = reservation => {
 }
 
 export default (state, action) => {
+  console.log("action", action)
   switch (action.type) {
     case c.INJECT_POPUP_DATA: {
       let { reservation_id } = action
@@ -23,11 +24,20 @@ export default (state, action) => {
       // Fail case, no reservation found
       return state
     }
-    case c.SHOW_POPUP:
+    case c.SHOW_POPUP: {
+      let { popup: currPopup } = state
+      let showHide = action.type
+      let popup = { ...currPopup, showHide }
+      return { ...state, popup }
+    }
     case c.HIDE_POPUP: {
       let { popup: currPopup } = state
       let showHide = action.type
       let popup = { ...currPopup, showHide }
+      console.log("{ popup: currPopup }", { popup: currPopup })
+      console.log("state", state)
+      console.log("showHide", showHide)
+      console.log("popup", popup)
       return { ...state, popup }
     }
     default: {

@@ -23,6 +23,8 @@ export default class ReservationPopup extends React.Component {
     let { showSelectBox: curr } = this.state
     let showSelectBox = !curr
     this.setState({ showSelectBox })
+    console.log("{ showSelectBox: curr }", { showSelectBox: curr })
+    console.log("showSelectBox", showSelectBox)
   }
 
   getColorByStatus = status => {
@@ -46,6 +48,14 @@ export default class ReservationPopup extends React.Component {
       }
     }
     return color
+  }
+
+  onClick = () => {
+    // e.preventDefault();
+    // console.log(this.popup);
+    // this.popup.showHide(c.HIDE_POPUP);
+    let { actionTogglePopup } = this.props
+    actionTogglePopup()
   }
 
   render() {
@@ -144,8 +154,10 @@ export default class ReservationPopup extends React.Component {
                * Header
                * [Confirm Id][Status]     [Hours before]
                */}
+                <span onClick={this.onClick} className="close thick" />
                 <div className="row">
                   <div className="confirmId t-center back40">{popup.confirm_id}</div>
+                  {/*<a onClick={this.onClick} href='#'>Post a reply to this comment</a>*/}
                   <div className="SelectBox">
                     <div onClick={e => this.toggleSelectBox()} className={`${color} payment-status`}>
                       {getStatusTitle(popup.status)} <span className="caret" />
