@@ -28,7 +28,7 @@ export default class ReservationPopup extends React.Component {
   getColorByStatus = status => {
     let color
     switch (true) {
-      case status === 50 || status === 100 || status === 200 || status === 300 || status === 400: {
+      case status === 50 || status === 100 || status === 200 || status === 400: {
         color = "whiteText"
         break
       }
@@ -53,88 +53,88 @@ export default class ReservationPopup extends React.Component {
     actionTogglePopup()
   }
 
+  getStatusTitle = status => {
+    let statusTitle
+    switch (status) {
+      case 50: {
+        statusTitle = "REQUIRED DEPOSIT"
+        break
+      }
+      case 100: {
+        statusTitle = "Reserved"
+        break
+      }
+      case 200: {
+        statusTitle = "Reminder sent"
+        break
+      }
+      case 300: {
+        statusTitle = "CONFIRMED"
+        break
+      }
+      case 400: {
+        statusTitle = "arrived"
+        break
+      }
+      case -100: {
+        statusTitle = "user cancelled"
+        break
+      }
+      case -200: {
+        statusTitle = "staff cancelled"
+        break
+      }
+      case -300: {
+        statusTitle = "no show"
+        break
+      }
+      default: {
+        statusTitle = null
+        break
+      }
+    }
+    return statusTitle
+  }
+  getPaymentStatusTitle = payment_status => {
+    let paymentStatusTitle
+    let { popup } = this.props
+    switch (payment_status) {
+      case 25: {
+        paymentStatusTitle = null
+        break
+      }
+      case 50: {
+        paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Voided`
+        break
+      }
+      case 100: {
+        paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Authorized`
+        break
+      }
+      case 200: {
+        paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Charged`
+        break
+      }
+      default: {
+        paymentStatusTitle = null
+        break
+      }
+    }
+    return paymentStatusTitle
+  }
+
   render() {
     let { popup } = this.props
     let { updatePopupStatus } = this.props
     let { actionUpdatePopupStatus } = this.props
-
-    updatePopupStatus = a => console.log(a)
-
+    let { actionAddAdult } = this.props
+    let { outlet } = this.props
     popup.customer_remarks = "request for birthday party cake & song, need wheelchair access/assistant."
     popup.staff_remarks = "Use different color & new line for staff note like this. This text can be quite long long"
     popup.payment_currency = "$"
     popup.payment_amount = "123"
     popup.payment_status = 100
     popup.payment_authorization_id = "r25uht567hf57c"
-    let getStatusTitle = function(status) {
-      let statusTitle
-      switch (popup.status) {
-        case 50: {
-          statusTitle = "REQUIRED DEPOSIT"
-          break
-        }
-        case 100: {
-          statusTitle = "Reserved"
-          break
-        }
-        case 200: {
-          statusTitle = "Reminder sent"
-          break
-        }
-        case 300: {
-          statusTitle = "CONFIRMED"
-          break
-        }
-        case 400: {
-          statusTitle = "arrived"
-          break
-        }
-        case -100: {
-          statusTitle = "user cancelled"
-          break
-        }
-        case -200: {
-          statusTitle = "staff cancelled"
-          break
-        }
-        case -300: {
-          statusTitle = "no show"
-          break
-        }
-        default: {
-          statusTitle = null
-          break
-        }
-      }
-      return statusTitle
-    }
-
-    let getPaymentStatusTitle = function(payment_status) {
-      let paymentStatusTitle
-      switch (popup.payment_status) {
-        case 25: {
-          paymentStatusTitle = null
-          break
-        }
-        case 50: {
-          paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Voided`
-          break
-        }
-        case 100: {
-          paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Authorized`
-          break
-        }
-        case 200: {
-          paymentStatusTitle = `${popup.payment_currency}${popup.payment_amount} Charged`
-          break
-        }
-        default: {
-          paymentStatusTitle = null
-          break
-        }
-      }
-      return paymentStatusTitle
-    }
 
     let whiteTextPayment = popup.payment_status === 50 ? "whiteText" : ""
     let redTextPayment = popup.payment_status === 200 ? "redText" : ""
@@ -157,18 +157,35 @@ export default class ReservationPopup extends React.Component {
                   <div className="confirmId t-center back40">{popup.confirm_id}</div>
                   <div className="SelectBox">
                     <div onClick={e => this.toggleSelectBox()} className={`${color} payment-status`}>
-                      {getStatusTitle(popup.status)} <span className="caret" />
+                      {this.getStatusTitle(popup.status)} <span className="caret" />
                     </div>
                     {this.state.showSelectBox
                       ? <div>
                           <ul className="dropdown-menu">
-                            <li onClick={() => actionUpdatePopupStatus(c.RESERVED)}>RESERVED</li>
-                            <li onClick={() => actionUpdatePopupStatus(c.REMINDER_SENT)}>REMINDER SENT</li>
-                            <li onClick={() => actionUpdatePopupStatus(c.CONFIRMED)}>CONFIRMED</li>
-                            <li onClick={() => actionUpdatePopupStatus(c.ARRIVED)}>ARRIVED</li>
-                            <li onClick={() => actionUpdatePopupStatus(c.USER_CANCELLED)}>USER CANCELLED</li>
-                            <li onClick={() => actionUpdatePopupStatus(c.STAFF_CANCELLED)}>STAFF CANCELLED</li>
-                            <li onClick={() => actionUpdatePopupStatus(c.NO_SHOW)}>NO SHOW</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.REQUIRED_DEPOSIT)} className="whiteText">
+                              <a onClick={e => this.toggleSelectBox()}>REQUIRED DEPOSIT</a>
+                            </li>
+                            <li onClick={() => actionUpdatePopupStatus(c.RESERVED)} className="whiteText">
+                              <a onClick={e => this.toggleSelectBox()}>RESERVED</a>
+                            </li>
+                            <li onClick={() => actionUpdatePopupStatus(c.REMINDER_SENT)} className="whiteText">
+                              <a onClick={e => this.toggleSelectBox()}>REMINDER SENT</a>
+                            </li>
+                            <li onClick={() => actionUpdatePopupStatus(c.CONFIRMED)} className="greenText">
+                              <a onClick={e => this.toggleSelectBox()}>CONFIRMED</a>
+                            </li>
+                            <li onClick={() => actionUpdatePopupStatus(c.ARRIVED)} className="whiteText">
+                              <a onClick={e => this.toggleSelectBox()}>ARRIVED</a>
+                            </li>
+                            <li onClick={() => actionUpdatePopupStatus(c.USER_CANCELLED)} className="redText">
+                              <a onClick={e => this.toggleSelectBox()}>USER CANCELLED</a>
+                            </li>
+                            <li onClick={() => actionUpdatePopupStatus(c.STAFF_CANCELLED)} className="redText">
+                              <a onClick={e => this.toggleSelectBox()}>STAFF CANCELLED</a>
+                            </li>
+                            <li onClick={() => actionUpdatePopupStatus(c.NO_SHOW)} className="redText">
+                              <a onClick={e => this.toggleSelectBox()}>NO SHOW</a>
+                            </li>
                           </ul>
                         </div>
                       : null}
@@ -240,7 +257,7 @@ export default class ReservationPopup extends React.Component {
                             </svg>
                           </span>
                           <span className="calcSuccess">{popup.adult_pax}</span>
-                          <span className="calc">
+                          <span className="calc" onClick={() => actionAddAdult(1)}>
                             <svg
                               fill="rgba(112, 136, 253, 0.9)"
                               height="24"
@@ -353,7 +370,7 @@ export default class ReservationPopup extends React.Component {
                       <div className="col-xs">
                         <h3>Deposit</h3>
                         <p className={whiteTextPayment || redTextPayment || blueTextPayment}>
-                          {getPaymentStatusTitle(popup.payment_status)}
+                          {this.getPaymentStatusTitle(popup.payment_status)}
                         </p>
                         <p className={whiteTextPayment || redTextPayment || blueTextPayment}>
                           {popup.payment_authorization_id}

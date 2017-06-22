@@ -9,7 +9,7 @@ const deepCloneReservation = reservation => {
 }
 
 export default (state, action) => {
-  console.log("action", action)
+  // console.log("action", action)
   switch (action.type) {
     case c.INJECT_POPUP_DATA: {
       let { reservation_id } = action
@@ -38,8 +38,27 @@ export default (state, action) => {
     }
     case c.UPDATE_STATUS: {
       let { popup: currPopup } = state
-      let titleStatus = action.status
-      let popup = { ...currPopup, titleStatus }
+      let status = action.status
+      let popup = { ...currPopup, status }
+      return { ...state, popup }
+    }
+    case c.ADD_ADULT: {
+      let { popup: currPopup } = state
+      console.log("let {popup} = state", { currPopup })
+      let outlet_id = currPopup.outlet_id
+
+      let { allowed_outlets } = state
+      console.log("let {allowed_outlets} = state", allowed_outlets)
+      let outlet = allowed_outlets.filter(allowed_outlet => allowed_outlet.id === outlet_id)[0]
+
+      // let {outlet} = state
+      console.log("let {outlet} = state", outlet)
+      let addUp = action.addUp
+      let adult_pax = currPopup.adult_pax
+      if (adult_pax < outlet.overall_max_pax) {
+        adult_pax = currPopup.adult_pax + addUp
+      }
+      let popup = { ...currPopup, adult_pax }
       return { ...state, popup }
     }
     default: {

@@ -22,3 +22,7 @@ export const actionUpdatePax = (delta, which_pax) => ({ type: c.UPDATE_PAX, delt
 // export const toggle
 
 export const actionUpdatePopupStatus = status => ({ type: c.UPDATE_STATUS, status })
+
+// add and remove adult
+
+export const actionAddAdult = addUp => ({ type: c.ADD_ADULT, addUp })

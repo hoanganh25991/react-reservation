@@ -157,7 +157,7 @@ body {
 
 .popup .self-center {
   border: 1px solid rgba(255, 255, 255, 0.7);
-  background-color: rgba(38, 43, 50, 0.8);
+  background-color: #262b32;
   position: relative; }
   .popup .self-center .confirmId {
     font-size: 50px;
@@ -167,19 +167,27 @@ body {
     position: relative;
     height: 67.5px;
     cursor: pointer; }
-    .popup .self-center .SelectBox .dropdown-menu li {
-      display: block;
-      padding: 5px;
-      background: rgba(255, 255, 255, 0.4);
-      cursor: pointer;
-      font-size: 20px; }
-      .popup .self-center .SelectBox .dropdown-menu li:hover {
-        background: rgba(0, 255, 255, 0.25); }
+    .popup .self-center .SelectBox .dropdown-menu {
+      background-color: #262b32;
+      position: relative;
+      z-index: 1; }
+      .popup .self-center .SelectBox .dropdown-menu li {
+        display: block;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        font-size: 30px; }
+        .popup .self-center .SelectBox .dropdown-menu li:hover {
+          background: rgba(0, 255, 255, 0.25); }
+        .popup .self-center .SelectBox .dropdown-menu li a {
+          display: block;
+          padding: 5px 5px; }
   .popup .self-center .payment-status {
     font-size: 40px;
     padding: 10px 20px;
     background-color: rgba(255, 255, 255, 0.2);
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    min-width: 231.78px; }
     .popup .self-center .payment-status .caret {
       display: inline-block;
       width: 0;

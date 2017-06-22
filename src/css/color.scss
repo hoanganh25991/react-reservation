@@ -228,7 +228,7 @@ body {
 .popup {
     .self-center {
         border: 1px solid rgba($white, 0.7);
-        background-color: rgba($bgBlack, 0.8);
+        background-color: rgba($bgBlack, 1);
         position: relative;
         .confirmId {
             font-size: 50px;
@@ -240,14 +240,21 @@ body {
             height: 67.5px;
             cursor: pointer;
             .dropdown-menu {
+                background-color: rgb(38, 43, 50);
+                position: relative;
+                z-index: 1;
                 li {
                     display: block;
                     padding: 5px;
                     background: rgba(255, 255, 255, 0.4);
                     cursor: pointer;
-                    font-size: 20px;
+                    font-size: 30px;
                     &:hover {
                         background: rgba(0, 255, 255, 0.25);
+                    }
+                    a {
+                        display: block;
+                        padding: 5px 5px;
                     }
                 }
             }
@@ -257,6 +264,7 @@ body {
             padding: 10px 20px;
             background-color: rgba(255, 255, 255, 0.2);
             text-transform: uppercase;
+            min-width: 231.78px;
             .caret {
                 display: inline-block;
                 width: 0;

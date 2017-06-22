@@ -23,11 +23,19 @@ export default class CountDown extends React.Component {
     this.setState({ countdown })
   }
   render() {
+    function pad(val, len) {
+      val = String(val)
+      len = len || 2
+      while (val.length < len)
+        val = "0" + val
+      return val
+    }
     // Get out countdown
     let { countdown } = this.state
     // Build an moment duration obj
     let duration = moment.duration(countdown, "seconds")
-    let countdownTimeStr = `${duration.days()}:${duration.hours()}:${duration.minutes()}:${duration.seconds()}`
+    // moment(duration._data).format('DD:HH:mm:ss')
+    let countdownTimeStr = `${pad(duration.days())}:${pad(duration.hours())}:${pad(duration.minutes())}:${pad(duration.seconds())}`
     // Display it
     return <div style={{ textAlign: "right" }}>{countdownTimeStr}</div>
   }
