@@ -23,8 +23,6 @@ export default class ReservationPopup extends React.Component {
     let { showSelectBox: curr } = this.state
     let showSelectBox = !curr
     this.setState({ showSelectBox })
-    console.log("{ showSelectBox: curr }", { showSelectBox: curr })
-    console.log("showSelectBox", showSelectBox)
   }
 
   getColorByStatus = status => {
@@ -51,9 +49,6 @@ export default class ReservationPopup extends React.Component {
   }
 
   onClick = () => {
-    // e.preventDefault();
-    // console.log(this.popup);
-    // this.popup.showHide(c.HIDE_POPUP);
     let { actionTogglePopup } = this.props
     actionTogglePopup()
   }
@@ -61,7 +56,10 @@ export default class ReservationPopup extends React.Component {
   render() {
     let { popup } = this.props
     let { updatePopupStatus } = this.props
-    updatePopupStatus = () => console.log("Update popup status")
+    let { actionUpdatePopupStatus } = this.props
+
+    updatePopupStatus = a => console.log(a)
+
     popup.customer_remarks = "request for birthday party cake & song, need wheelchair access/assistant."
     popup.staff_remarks = "Use different color & new line for staff note like this. This text can be quite long long"
     popup.payment_currency = "$"
@@ -157,22 +155,20 @@ export default class ReservationPopup extends React.Component {
                 <span onClick={this.onClick} className="close thick" />
                 <div className="row">
                   <div className="confirmId t-center back40">{popup.confirm_id}</div>
-                  {/*<a onClick={this.onClick} href='#'>Post a reply to this comment</a>*/}
                   <div className="SelectBox">
                     <div onClick={e => this.toggleSelectBox()} className={`${color} payment-status`}>
                       {getStatusTitle(popup.status)} <span className="caret" />
                     </div>
-                    {/*<div >Hello</div>*/}
                     {this.state.showSelectBox
                       ? <div>
                           <ul className="dropdown-menu">
-                            <li onClick={() => updatePopupStatus(c.RESERVED)}>RESERVED</li>
-                            <li onClick={() => updatePopupStatus(c.REMINDER_SENT)}>REMINDER SENT</li>
-                            <li onClick={() => updatePopupStatus(c.CONFIRMED)}>CONFIRMED</li>
-                            <li onClick={() => updatePopupStatus(c.ARRIVED)}>ARRIVED</li>
-                            <li onClick={() => updatePopupStatus(c.USER_CANCELLED)}>USER CANCELLED</li>
-                            <li onClick={() => updatePopupStatus(c.STAFF_CANCELLED)}>STAFF CANCELLED</li>
-                            <li onClick={() => updatePopupStatus(c.NO_SHOW)}>NO SHOW</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.RESERVED)}>RESERVED</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.REMINDER_SENT)}>REMINDER SENT</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.CONFIRMED)}>CONFIRMED</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.ARRIVED)}>ARRIVED</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.USER_CANCELLED)}>USER CANCELLED</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.STAFF_CANCELLED)}>STAFF CANCELLED</li>
+                            <li onClick={() => actionUpdatePopupStatus(c.NO_SHOW)}>NO SHOW</li>
                           </ul>
                         </div>
                       : null}

@@ -34,10 +34,12 @@ export default (state, action) => {
       let { popup: currPopup } = state
       let showHide = action.type
       let popup = { ...currPopup, showHide }
-      console.log("{ popup: currPopup }", { popup: currPopup })
-      console.log("state", state)
-      console.log("showHide", showHide)
-      console.log("popup", popup)
+      return { ...state, popup }
+    }
+    case c.UPDATE_STATUS: {
+      let { popup: currPopup } = state
+      let titleStatus = action.status
+      let popup = { ...currPopup, titleStatus }
       return { ...state, popup }
     }
     default: {

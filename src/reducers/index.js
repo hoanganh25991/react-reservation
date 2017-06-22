@@ -71,6 +71,9 @@ const adminPage = (state = initState, action) => {
     case c.HIDE_POPUP: {
       return popup(state, action)
     }
+    case c.UPDATE_STATUS: {
+      return popup(state, action)
+    }
     default:
       return state
   }

@@ -79,6 +79,7 @@ export const SHOW_POPUP = "SHOW_POPUP"
 export const HIDE_POPUP = "HIDE_POPUP"
 export const INJECT_POPUP_DATA = "INJECT_POPUP_DATA"
 export const THUNK_INIT_POPUP = "THUNK_INIT_POPUP"
+export const UPDATE_STATUS = "UPDATE_STATUS"
 
 /**
  * Popup edit customer info

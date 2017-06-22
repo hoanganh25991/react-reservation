@@ -20,3 +20,5 @@ export const actionEditCustomerInfo = ({ customer_info }) => ({ type: c.EDIT_CUS
 export const actionUpdatePax = (delta, which_pax) => ({ type: c.UPDATE_PAX, delta, which_pax })
 
 // export const toggle
+
+export const actionUpdatePopupStatus = status => ({ type: c.UPDATE_STATUS, status })
