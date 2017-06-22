@@ -53,7 +53,7 @@ export default (state, action) => {
 
       // let {outlet} = state
       console.log("let {outlet} = state", outlet)
-      let addUp = action.addUp
+      let { addUp } = action
       let adult_pax = currPopup.adult_pax
       if (adult_pax < outlet.overall_max_pax) {
         adult_pax = currPopup.adult_pax + addUp
