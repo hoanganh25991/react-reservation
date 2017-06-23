@@ -127,7 +127,7 @@ export default class ReservationPopup extends React.Component {
     let { popup } = this.props
     let { updatePopupStatus } = this.props
     let { actionUpdatePopupStatus } = this.props
-    let { actionAddAdult } = this.props
+    let { actionAddUp } = this.props
     let { outlet } = this.props
     popup.customer_remarks = "request for birthday party cake & song, need wheelchair access/assistant."
     popup.staff_remarks = "Use different color & new line for staff note like this. This text can be quite long long"
@@ -257,7 +257,7 @@ export default class ReservationPopup extends React.Component {
                             </svg>
                           </span>
                           <span className="calcSuccess">{popup.adult_pax}</span>
-                          <span className="calc" onClick={() => actionAddAdult(1)}>
+                          <span className="calc" onClick={() => actionAddUp(1)}>
                             <svg
                               fill="rgba(112, 136, 253, 0.9)"
                               height="24"

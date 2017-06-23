@@ -81,10 +81,10 @@ export const HIDE_POPUP = "HIDE_POPUP"
 export const INJECT_POPUP_DATA = "INJECT_POPUP_DATA"
 export const THUNK_INIT_POPUP = "THUNK_INIT_POPUP"
 export const UPDATE_STATUS = "UPDATE_STATUS"
-export const ADD_ADULT = "ADD_ADULT"
-export const REMOVE_ADULT = "REMOVE_ADULT"
-export const ADD_CHILD = "ADD_CHILD"
-export const REMOVE_CHILD = "REMOVE_CHILD"
+export const ADD_UP = "ADD_UP"
+// export const REMOVE_ADULT = "REMOVE_ADULT"
+// export const ADD_CHILD = "ADD_CHILD"
+// export const REMOVE_CHILD = "REMOVE_CHILD"
 /**
  * Popup edit customer info
  */

@@ -25,4 +25,4 @@ export const actionUpdatePopupStatus = status => ({ type: c.UPDATE_STATUS, statu
 
 // add and remove adult
 
-export const actionAddAdult = addUp => ({ type: c.ADD_ADULT, addUp })
+export const actionAddUp = addUp => ({ type: c.ADD_UP, addUp })

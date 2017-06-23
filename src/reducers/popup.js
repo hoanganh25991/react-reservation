@@ -42,7 +42,7 @@ export default (state, action) => {
       let popup = { ...currPopup, status }
       return { ...state, popup }
     }
-    case c.ADD_ADULT: {
+    case c.ADD_UP: {
       let { popup: currPopup } = state
       console.log("let {popup} = state", { currPopup })
       let outlet_id = currPopup.outlet_id
