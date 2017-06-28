@@ -70,7 +70,9 @@ const adminPage = (state = initState, action) => {
     case c.SHOW_POPUP:
     case c.HIDE_POPUP:
     case c.UPDATE_STATUS:
-    case c.ADD_UP: {
+    case c.ADD_UP:
+    case c.UPDATE_RESERVATION_POPUP:
+    case c.HANDLE_INPUT_CHANGE: {
       return popup(state, action)
     }
 

@@ -44,22 +44,96 @@ export default (state, action) => {
     }
     case c.ADD_UP: {
       let { popup: currPopup } = state
-      console.log("let {popup} = state", { currPopup })
       let outlet_id = currPopup.outlet_id
-
       let { allowed_outlets } = state
-      console.log("let {allowed_outlets} = state", allowed_outlets)
       let outlet = allowed_outlets.filter(allowed_outlet => allowed_outlet.id === outlet_id)[0]
-
-      // let {outlet} = state
-      console.log("let {outlet} = state", outlet)
       let { addUp } = action
-      let adult_pax = currPopup.adult_pax
-      if (adult_pax < outlet.overall_max_pax) {
-        adult_pax = currPopup.adult_pax + addUp
+      let { pax } = action
+      let { adult_pax } = currPopup
+      let { children_pax } = currPopup
+      let tolatlPax = adult_pax + children_pax
+      if (tolatlPax < outlet.overall_max_pax && addUp === 1) {
+        if (pax === "adult") {
+          adult_pax = adult_pax + addUp
+        } else {
+          children_pax = children_pax + addUp
+        }
       }
-      let popup = { ...currPopup, adult_pax }
+      if (tolatlPax > 0 && addUp === -1) {
+        if (pax === "adult" && adult_pax > 0) {
+          adult_pax = adult_pax + addUp
+        }
+        if (pax === "child" && children_pax > 0) {
+          children_pax = children_pax + addUp
+        }
+      }
+      let popup = { ...currPopup, adult_pax, children_pax }
       return { ...state, popup }
+    }
+    case c.UPDATE_RESERVATION_POPUP: {
+      let { reservations: currReservations } = state
+      let { popup } = state
+
+      let reservations = currReservations.map(reservation => {
+        if (reservation.id !== popup.id) {
+          return reservation
+        }
+        let newR = { ...popup }
+        return newR
+      })
+
+      return { ...state, reservations }
+    }
+    case c.HANDLE_INPUT_CHANGE: {
+      let { popup: currPopup } = state
+      let { popup } = state
+      // let value = action.value
+      switch (action.name) {
+        case c.FIRST_NAME: {
+          let { first_name } = currPopup
+          first_name = action.value
+          popup = { ...currPopup, first_name }
+          return { ...state, popup }
+        }
+        case c.LAST_NAME: {
+          let { last_name } = currPopup
+          last_name = action.value
+          popup = { ...currPopup, last_name }
+          return { ...state, popup }
+        }
+        case c.PHONE_COUNTRY_CODE: {
+          let { phone_country_code } = currPopup
+          phone_country_code = action.value
+          popup = { ...currPopup, phone_country_code }
+          return { ...state, popup }
+        }
+        case c.PHONE: {
+          let { phone } = currPopup
+          phone = action.value
+          popup = { ...currPopup, phone }
+          return { ...state, popup }
+        }
+        case c.EMAIL: {
+          let { email } = currPopup
+          email = action.value
+          popup = { ...currPopup, email }
+          return { ...state, popup }
+        }
+        case c.CUSTOMER_REMARKS: {
+          let { customer_remarks } = currPopup
+          customer_remarks = action.value
+          popup = { ...currPopup, customer_remarks }
+          return { ...state, popup }
+        }
+        case c.STAFF_REMARKS: {
+          let { staff_remarks } = currPopup
+          staff_remarks = action.value
+          popup = { ...currPopup, staff_remarks }
+          return { ...state, popup }
+        }
+        default:
+          return { ...state, popup }
+      }
     }
     default: {
       return state

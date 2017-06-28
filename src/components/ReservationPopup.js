@@ -14,6 +14,7 @@ import CountDown from "./CountDown"
 export default class ReservationPopup extends React.Component {
   constructor(props) {
     super(props)
+    let { popup } = this.props
     this.state = {
       showSelectBox: null
     }
@@ -123,14 +124,23 @@ export default class ReservationPopup extends React.Component {
     return paymentStatusTitle
   }
 
+  handleInputChange = event => {
+    const target = event.target
+    const value = target.type === "checkbox" ? target.checked : target.value
+    const name = target.name
+    let { actionUpdateName } = this.props
+    actionUpdateName(name, value)
+  }
+
   render() {
     let { popup } = this.props
     let { updatePopupStatus } = this.props
     let { actionUpdatePopupStatus } = this.props
     let { actionAddUp } = this.props
     let { outlet } = this.props
-    popup.customer_remarks = "request for birthday party cake & song, need wheelchair access/assistant."
-    popup.staff_remarks = "Use different color & new line for staff note like this. This text can be quite long long"
+    let { actionUpdateReservation } = this.props
+    // popup.customer_remarks = "request for birthday party cake & song, need wheelchair access/assistant."
+    // popup.staff_remarks = "Use different color & new line for staff note like this. This text can be quite long long"
     popup.payment_currency = "$"
     popup.payment_amount = "123"
     popup.payment_status = 100
@@ -218,24 +228,42 @@ export default class ReservationPopup extends React.Component {
                       <div className="row">
                         <div className="customer-text">Name</div>
                         <div className="col-xs">
-                          <input type="text" value={`${popup.first_name} ${popup.last_name}`} />
+                          <input
+                            type="text"
+                            name="first_name"
+                            value={`${popup.first_name}`}
+                            onChange={this.handleInputChange}
+                          />
+                        </div>
+                        <div className="col-xs">
+                          <input
+                            type="text"
+                            name="last_name"
+                            value={`${popup.last_name}`}
+                            onChange={this.handleInputChange}
+                          />
                         </div>
                       </div>
                       <div className="row">
                         <div className="customer-text">Phone</div>
                         <div className="col-xs row">
                           <div className="phone-country">
-                            <input type="text" value={`+${popup.phone_country_code}`} />
+                            <input
+                              type="text"
+                              name="phone_country_code"
+                              value={`+${popup.phone_country_code}`}
+                              onChange={this.handleInputChange}
+                            />
                           </div>
                           <div className="col-xs">
-                            <input type="text" value={popup.phone} />
+                            <input type="text" name="phone" value={popup.phone} onChange={this.handleInputChange} />
                           </div>
                         </div>
                       </div>
                       <div className="row">
                         <div className="customer-text">Email</div>
                         <div className="col-xs">
-                          <input type="text" value={popup.email} />
+                          <input type="text" name="email" value={popup.email} onChange={this.handleInputChange} />
                         </div>
                       </div>
                     </div>
@@ -244,7 +272,7 @@ export default class ReservationPopup extends React.Component {
                       <div className="row">
                         <div className="pax-text">Adult</div>
                         <div className="col-xs calc-pax">
-                          <span className="calc">
+                          <span className="calc" onClick={() => actionAddUp(-1, "adult")}>
                             <svg
                               fill="rgba(112, 136, 253, 0.9)"
                               height="24"
@@ -257,7 +285,7 @@ export default class ReservationPopup extends React.Component {
                             </svg>
                           </span>
                           <span className="calcSuccess">{popup.adult_pax}</span>
-                          <span className="calc" onClick={() => actionAddUp(1)}>
+                          <span className="calc" onClick={() => actionAddUp(1, "adult")}>
                             <svg
                               fill="rgba(112, 136, 253, 0.9)"
                               height="24"
@@ -274,7 +302,7 @@ export default class ReservationPopup extends React.Component {
                       <div className="row">
                         <div className="pax-text">Children</div>
                         <div className="col-xs calc-pax">
-                          <span className="calc">
+                          <span className="calc" onClick={() => actionAddUp(-1, "child")}>
                             <svg
                               fill="rgba(112, 136, 253, 0.9)"
                               height="24"
@@ -287,7 +315,7 @@ export default class ReservationPopup extends React.Component {
                             </svg>
                           </span>
                           <span className="calcSuccess">{popup.children_pax}</span>
-                          <span className="calc">
+                          <span className="calc" onClick={() => actionAddUp(1, "child")}>
                             <svg
                               fill="rgba(112, 136, 253, 0.9)"
                               height="24"
@@ -351,19 +379,21 @@ export default class ReservationPopup extends React.Component {
                       <textarea
                         name="customer_remarks"
                         id="customer_remarks"
-                        value={popup.customer_remarks}
+                        value={popup.customer_remarks || ""}
                         cols="30"
                         rows="10"
+                        onChange={this.handleInputChange}
                       />
                     </div>
                     <div className="staff-remark">
                       <h3>staff remarks</h3>
                       <textarea
-                        name="customer_remarks"
-                        id="customer_remarks"
-                        value={popup.staff_remarks}
+                        name="staff_remarks"
+                        id="staff_remarks"
+                        value={popup.staff_remarks || ""}
                         cols="30"
                         rows="10"
+                        onChange={this.handleInputChange}
                       />
                     </div>
                     <div className="deposit row">
@@ -394,7 +424,7 @@ export default class ReservationPopup extends React.Component {
                   </div>
                   <div className="col-xs-5 row">
                     <div className="col-xs btn-cancel">cancel</div>
-                    <div className="col-xs btn-update">update</div>
+                    <div className="col-xs btn-update" onClick={() => actionUpdateReservation()}>update</div>
                   </div>
                 </div>
               </div>

@@ -547,6 +547,7 @@ body {
                 text-transform: uppercase;
                 padding: 15px;
                 background: rgba($red, 0.25);
+                cursor: pointer;
             }
             .btn-update {
                 text-align: center;
@@ -554,6 +555,7 @@ body {
                 text-transform: uppercase;
                 padding: 15px;
                 background-color: rgba($greenL, 0.25);
+                cursor: pointer;
             }
         }
     }

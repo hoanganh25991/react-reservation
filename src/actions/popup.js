@@ -25,4 +25,12 @@ export const actionUpdatePopupStatus = status => ({ type: c.UPDATE_STATUS, statu
 
 // add and remove adult
 
-export const actionAddUp = addUp => ({ type: c.ADD_UP, addUp })
+export const actionAddUp = (addUp, pax) => ({ type: c.ADD_UP, addUp, pax })
+
+// update popup
+
+export const actionUpdateReservation = () => ({ type: c.UPDATE_RESERVATION_POPUP })
+
+// handle input and textarea change
+
+export const actionUpdateName = (name, value) => ({ type: c.HANDLE_INPUT_CHANGE, name, value })
