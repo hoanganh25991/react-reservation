@@ -5,7 +5,9 @@ import {
   actionUpdatePopupStatus,
   actionAddUp,
   actionUpdateReservation,
-  actionUpdateName
+  actionUpdateName,
+  actionUpdatePaymentStatus,
+  actionSendReminder
 } from "../actions"
 import ReservationPopup from "../components/ReservationPopup"
 
@@ -24,7 +26,9 @@ const mapActionToProps = dispatch => ({
   actionUpdatePopupStatus: status => dispatch(actionUpdatePopupStatus(status)),
   actionAddUp: (addUp, pax) => dispatch(actionAddUp(addUp, pax)),
   actionUpdateReservation: () => dispatch(actionUpdateReservation()),
-  actionUpdateName: (name, value) => dispatch(actionUpdateName(name, value))
+  actionUpdateName: (name, value) => dispatch(actionUpdateName(name, value)),
+  actionUpdatePaymentStatus: payment_status => dispatch(actionUpdatePaymentStatus(payment_status)),
+  actionSendReminder: () => dispatch(actionSendReminder())
 })
 
 export default connect(mapStateToProps, mapActionToProps)(ReservationPopup)

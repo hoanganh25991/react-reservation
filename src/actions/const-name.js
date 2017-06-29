@@ -72,7 +72,7 @@ export const NO_SHOW = -300
 export const CLEAR_FILTER_BY_STATUS = "CLEAR_FILTER_BY_STATUS"
 export const THUNK_TOGGLE_FILTER_BY_DAY = "THUNK_TOGGLE_FILTER_BY_DAY"
 export const UPDATE_FILTER_BY_DAY = "UPDATE_FILTER_BY_DAY"
-
+export const UPDATE_PAYMENT_STATUS = "UPDATE_PAYMENT_STATUS"
 /**
  * Popup
  */
@@ -91,8 +91,10 @@ export const PHONE = "phone"
 export const EMAIL = "email"
 export const CUSTOMER_REMARKS = "customer_remarks"
 export const STAFF_REMARKS = "staff_remarks"
-// export const ADD_CHILD = "ADD_CHILD"
-// export const REMOVE_CHILD = "REMOVE_CHILD"
+export const SEND_SMS_CONFIRMATION = "send_sms_confirmation"
+export const THUNK_UPDATE_RESERVATION = "THUNK_UPDATE_RESERVATION"
+export const SEND_REMINDER = "SEND_REMINDER"
+export const THUNK_SEND_REMINDER = "THUNK_SEND_REMINDER"
 /**
  * Popup edit customer info
  */
@@ -107,6 +109,7 @@ export const AJAX_LOGIN = "AJAX_LOGIN"
 export const AJAX_LOGOUT = "AJAX_LOGOUT"
 export const AJAX_FETCH_RESERVATIONS_BY_DAY = "AJAX_FETCH_RESERVATIONS_BY_DAY"
 export const AJAX_UPDATE_RESERVATIONS = "AJAX_UPDATE_RESERVATIONS"
+export const AJAX_SEND_REMINDER_SMS_ON_RESERVATION = "AJAX_SEND_REMINDER_SMS_ON_RESERVATION"
 // Ajax reponse statusMsg
 export const AJAX_LOGIN_SUCCESS = "AJAX_LOGIN_SUCCESS"
 export const AJAX_LOGIN_FAIL = "AJAX_LOGIN_FAIL"

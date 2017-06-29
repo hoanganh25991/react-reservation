@@ -139,18 +139,13 @@ export default class ReservationPopup extends React.Component {
     let { actionAddUp } = this.props
     let { outlet } = this.props
     let { actionUpdateReservation } = this.props
-    // popup.customer_remarks = "request for birthday party cake & song, need wheelchair access/assistant."
-    // popup.staff_remarks = "Use different color & new line for staff note like this. This text can be quite long long"
-    popup.payment_currency = "$"
-    popup.payment_amount = "123"
-    popup.payment_status = 100
-    popup.payment_authorization_id = "r25uht567hf57c"
-
+    let { actionUpdatePaymentStatus } = this.props
     let whiteTextPayment = popup.payment_status === 50 ? "whiteText" : ""
     let redTextPayment = popup.payment_status === 200 ? "redText" : ""
     let blueTextPayment = popup.payment_status === 100 ? "blueText" : ""
 
     let color = this.getColorByStatus(popup.status)
+    // const value = target.type === "checkbox" ? target.checked :''
 
     return (
       <div>
@@ -251,7 +246,7 @@ export default class ReservationPopup extends React.Component {
                             <input
                               type="text"
                               name="phone_country_code"
-                              value={`+${popup.phone_country_code}`}
+                              value={`${popup.phone_country_code}`}
                               onChange={this.handleInputChange}
                             />
                           </div>
@@ -367,7 +362,13 @@ export default class ReservationPopup extends React.Component {
                       <div className="col-xs reminder-info">
                         <h3>Remeinder SMS</h3>
                         <div className="checkbox">
-                          <input type="checkbox" id="test6" name="confirm" required />
+                          <input
+                            type="checkbox"
+                            id="test6"
+                            name="send_sms_confirmation"
+                            checked={popup.send_sms_confirmation}
+                            onChange={this.handleInputChange}
+                          />
                           <label htmlFor="test6">Enabled</label>
                         </div>
                       </div>
@@ -408,10 +409,10 @@ export default class ReservationPopup extends React.Component {
                       </div>
                       <div className="button-deposit">
                         <div className="btn-void">
-                          <a>void</a>
+                          <a onClick={() => actionUpdatePaymentStatus(50)}>void</a>
                         </div>
                         <div className="btn-charge">
-                          <a>charge</a>
+                          <a onClick={() => actionUpdatePaymentStatus(200)}>charge</a>
                         </div>
                       </div>
                     </div>
@@ -423,7 +424,7 @@ export default class ReservationPopup extends React.Component {
                     <div className="col-xs-5 btn-empty" />
                   </div>
                   <div className="col-xs-5 row">
-                    <div className="col-xs btn-cancel">cancel</div>
+                    <div className="col-xs btn-cancel" onClick={this.onClick}>cancel</div>
                     <div className="col-xs btn-update" onClick={() => actionUpdateReservation()}>update</div>
                   </div>
                 </div>

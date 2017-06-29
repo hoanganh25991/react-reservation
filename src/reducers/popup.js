@@ -131,9 +131,21 @@ export default (state, action) => {
           popup = { ...currPopup, staff_remarks }
           return { ...state, popup }
         }
+        case c.SEND_SMS_CONFIRMATION: {
+          let { send_sms_confirmation } = currPopup
+          send_sms_confirmation = action.value
+          popup = { ...currPopup, send_sms_confirmation }
+          return { ...state, popup }
+        }
         default:
           return { ...state, popup }
       }
+    }
+    case c.UPDATE_PAYMENT_STATUS: {
+      let { popup: currPopup } = state
+      let { payment_status } = action
+      let popup = { ...currPopup, payment_status }
+      return { ...state, popup }
     }
     default: {
       return state

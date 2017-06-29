@@ -72,7 +72,8 @@ const adminPage = (state = initState, action) => {
     case c.UPDATE_STATUS:
     case c.ADD_UP:
     case c.UPDATE_RESERVATION_POPUP:
-    case c.HANDLE_INPUT_CHANGE: {
+    case c.HANDLE_INPUT_CHANGE:
+    case c.UPDATE_PAYMENT_STATUS: {
       return popup(state, action)
     }
 
