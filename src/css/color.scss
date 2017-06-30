@@ -79,13 +79,10 @@ body {
         .filter-text {
             margin: 0 5px;
             padding: 0 10px;
+            @media screen and (max-width: 1060px) {
+               font-size: 18px;
+            }
         }
-        // .col-xs.t-center:nth-child(1) {
-        //     max-width: 100px;
-        // }
-        // .col-xs.t-center:nth-child(2) {
-        //     max-width: 130px;
-        // }
         .col-xs.t-right {
             a {
                 padding: 5px 20px;
@@ -153,18 +150,14 @@ body {
             font-weight: 100;
             font-style: italic;
             padding: 5px 0;
-            // white-space: nowrap;
-            // overflow: hidden;
-            // text-overflow: ellipsis;
+            
         }
         .staff_remark {
             font-weight: 100;
             font-style: italic;
             padding-bottom: 8px;
             color: rgba($yelow, 0.25);
-            // white-space: nowrap;
-            // overflow: hidden;
-            // text-overflow: ellipsis;
+            
         }
         .pax {
             span{
