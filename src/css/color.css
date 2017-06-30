@@ -51,12 +51,12 @@ body {
     padding: 20px 0;
     text-transform: uppercase;
     border-top: 2px solid rgba(255, 255, 255, 0.1); }
+    @media screen and (max-width: 1060px) {
+      body .time-bar {
+        font-size: 13px; } }
     body .time-bar .filter-text {
       margin: 0 5px;
       padding: 0 10px; }
-      @media screen and (max-width: 1060px) {
-        body .time-bar .filter-text {
-          font-size: 18px; } }
     body .time-bar .col-xs.t-right a {
       padding: 5px 20px;
       background: rgba(255, 255, 0, 0.25);

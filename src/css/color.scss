@@ -76,12 +76,13 @@ body {
         padding: 20px 0;
         text-transform: uppercase;
         border-top: 2px solid rgba($white, 0.1);
+        @media screen and (max-width: 1060px) {
+               font-size: 13px;
+            }
         .filter-text {
             margin: 0 5px;
             padding: 0 10px;
-            @media screen and (max-width: 1060px) {
-               font-size: 18px;
-            }
+            
         }
         .col-xs.t-right {
             a {
