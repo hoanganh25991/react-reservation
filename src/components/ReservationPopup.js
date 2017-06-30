@@ -140,6 +140,7 @@ export default class ReservationPopup extends React.Component {
     let { outlet } = this.props
     let { actionUpdateReservation } = this.props
     let { actionUpdatePaymentStatus } = this.props
+    let { actionSendReminder } = this.props
     let whiteTextPayment = popup.payment_status === 50 ? "whiteText" : ""
     let redTextPayment = popup.payment_status === 200 ? "redText" : ""
     let blueTextPayment = popup.payment_status === 100 ? "blueText" : ""
@@ -222,7 +223,15 @@ export default class ReservationPopup extends React.Component {
                       <h3>Customer</h3>
                       <div className="row">
                         <div className="customer-text">Name</div>
-                        <div className="col-xs">
+                        <div className="select-style">
+                          <select name="salutation" value={popup.salutation} onChange={this.handleInputChange}>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Mdm.">Mdm.</option>
+                          </select>
+                        </div>
+                        <div className="firstName">
                           <input
                             type="text"
                             name="first_name"
@@ -246,7 +255,7 @@ export default class ReservationPopup extends React.Component {
                             <input
                               type="text"
                               name="phone_country_code"
-                              value={`${popup.phone_country_code}`}
+                              value={`+${popup.phone_country_code}`}
                               onChange={this.handleInputChange}
                             />
                           </div>
@@ -420,7 +429,9 @@ export default class ReservationPopup extends React.Component {
                 </div>
                 <div className="btn-bottom row">
                   <div className="col-xs-7 row">
-                    <div className="col-xs-7 btn-send">send reminder</div>
+                    <div className="col-xs-7 btn-send" onClick={() => actionSendReminder(popup.confirm_id)}>
+                      send reminder
+                    </div>
                     <div className="col-xs-5 btn-empty" />
                   </div>
                   <div className="col-xs-5 row">

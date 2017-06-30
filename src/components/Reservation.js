@@ -4,7 +4,7 @@ import "../css/flexboxgrid.css"
 import readSvg from "../svg/read.svg"
 import unreadSvg from "../svg/read.svg"
 import defaultSvg from "../svg/default.svg"
-
+import ReservationStatus from "./ReservationStatus"
 class Reservation extends React.Component {
   render() {
     let { reservation, order } = this.props
@@ -13,7 +13,8 @@ class Reservation extends React.Component {
     //reservation.staff_read_state = 1;
 
     let { initPopup } = this.props
-
+    let { status, payment_status, payment_currency, payment_amount } = reservation
+    let reservationStatus = { status, payment_status, payment_currency, payment_amount }
     return (
       <div className={rowClass}>
         <div className="col-xs-4 row">
@@ -93,7 +94,10 @@ class Reservation extends React.Component {
           <div className="staff_remark">{reservation.staff_remarks}</div>
         </div>
         <div className="col-xs-2 row">
-          <div className="col-xs" />
+          <div className="col-xs">
+            <ReservationStatus {...reservationStatus} />
+
+          </div>
           <div className="col-xs-2 next-svg" onClick={e => initPopup(reservation.id)}>
             <svg
               fill="rgba(255, 255, 255, 0.1)"

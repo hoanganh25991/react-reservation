@@ -76,15 +76,16 @@ body {
         padding: 20px 0;
         text-transform: uppercase;
         border-top: 2px solid rgba($white, 0.1);
-        .col-xs.t-center {
-            max-width: 150px;
+        .filter-text {
+            margin: 0 5px;
+            padding: 0 10px;
         }
-        .col-xs.t-center:nth-child(1) {
-            max-width: 100px;
-        }
-        .col-xs.t-center:nth-child(2) {
-            max-width: 130px;
-        }
+        // .col-xs.t-center:nth-child(1) {
+        //     max-width: 100px;
+        // }
+        // .col-xs.t-center:nth-child(2) {
+        //     max-width: 130px;
+        // }
         .col-xs.t-right {
             a {
                 padding: 5px 20px;
@@ -329,6 +330,57 @@ body {
                         border: 1px solid rgba(255, 255, 255, 0.1);
                         margin-top: 5px;
                         font-weight: 100;
+                    }
+                    .firstName {
+                        width: 200px;
+                        input {
+                            width: calc(100% - 40px);
+                        }
+                    }
+                    select:focus {
+                        outline-offset: 0;
+                        outline:none;
+                    }
+                    .select-style {
+                        padding: 0;
+                        position: relative;
+                        margin-right: 15px;
+                    }
+
+                    .select-style:after {
+                        top: 50%;
+                        right: 5px;
+                        border: solid transparent;
+                        content: " ";
+                        height: 0;
+                        width: 0;
+                        position: absolute;
+                        pointer-events: none;
+                        border-color: rgba(0, 0, 0, 0);
+                        border-top-color: #9e9e9e;
+                        border-width: 5px;
+                        margin-top: -2px;
+                        z-index: 100;
+                    }
+
+                    .select-style select {
+                        width: 85px;
+                        box-shadow: none;
+                        background-image: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        font-size: 20px;
+                        padding: 8px 10px;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        color: rgba(112, 136, 253, 0.9);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        margin-top: 5px;
+                        font-weight: 100;
+                    }
+
+                    .select-style select:focus {
+                        outline: none;
                     }
                 }
             }

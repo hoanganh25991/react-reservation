@@ -18,42 +18,42 @@ class FilterPanel extends React.Component {
       <div>
         <div className="time-bar row back40">
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByDay(c.TODAY)}
             style={filteredDay(c.TODAY) ? selected : {}}
           >
             Today
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByDay(c.TOMORROW)}
             style={filteredDay(c.TOMORROW) ? selected : {}}
           >
             Tomorrow
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByDay(c.NEXT_3_DAYS)}
             style={filteredDay(c.NEXT_3_DAYS) ? selected : {}}
           >
             Next 3 days
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByDay(c.NEXT_7_DAYS)}
             style={filteredDay(c.NEXT_7_DAYS) ? selected : {}}
           >
             Next 7 days
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByDay(c.NEXT_30_DAYS)}
             style={filteredDay(c.NEXT_30_DAYS) ? selected : {}}
           >
             Next 30 days
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleInputPickADate()}
             style={visibleInputPickADate ? selected : {}}
           >
@@ -76,55 +76,55 @@ class FilterPanel extends React.Component {
           : null}
         <div className="time-bar row back40">
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByStatus(c.ARRIVED)}
             style={filteredStatus(c.ARRIVED) ? selected : {}}
           >
             Arrived
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByStatus(c.CONFIRMED)}
             style={filteredStatus(c.CONFIRMED) ? selected : {}}
           >
             Confirmed
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByStatus(c.REMINDER_SENT)}
             style={filteredStatus(c.REMINDER_SENT) ? selected : {}}
           >
             Reminder Sent
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByStatus(c.RESERVED)}
             style={filteredStatus(c.RESERVED) ? selected : {}}
           >
             Reserved
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByStatus(c.USER_CANCELLED)}
             style={filteredStatus(c.USER_CANCELLED) ? selected : {}}
           >
             User cancelled
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByStatus(c.STAFF_CANCELLED)}
             style={filteredStatus(c.STAFF_CANCELLED) ? selected : {}}
           >
             Staff cancelled
           </div>
           <div
-            className="col-xs t-center"
+            className="filter-text t-center"
             onClick={() => toggleFilterByStatus(c.NO_SHOW)}
             style={filteredStatus(c.NO_SHOW) ? selected : {}}
           >
             No Show
           </div>
-          <div className="col-xs t-center" onClick={() => clearFilterByStatus()}>xClear</div>
+          <div className="filter-text t-center" onClick={() => clearFilterByStatus()}>xClear</div>
           <div className="col-xs t-right">
             <a>Filtered</a>
           </div>

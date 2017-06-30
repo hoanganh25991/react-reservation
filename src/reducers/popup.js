@@ -89,6 +89,12 @@ export default (state, action) => {
       let { popup } = state
       // let value = action.value
       switch (action.name) {
+        case c.SALUTATION: {
+          let { salutation } = currPopup
+          salutation = action.value
+          popup = { ...currPopup, salutation }
+          return { ...state, popup }
+        }
         case c.FIRST_NAME: {
           let { first_name } = currPopup
           first_name = action.value
@@ -104,7 +110,15 @@ export default (state, action) => {
         case c.PHONE_COUNTRY_CODE: {
           let { phone_country_code } = currPopup
           phone_country_code = action.value
-          popup = { ...currPopup, phone_country_code }
+
+          if (phone_country_code.startsWith("+") === true) {
+            phone_country_code = phone_country_code.substr(1)
+
+            popup = { ...currPopup, phone_country_code }
+          } else {
+            popup = { ...currPopup, phone_country_code }
+          }
+
           return { ...state, popup }
         }
         case c.PHONE: {
@@ -146,6 +160,19 @@ export default (state, action) => {
       let { payment_status } = action
       let popup = { ...currPopup, payment_status }
       return { ...state, popup }
+    }
+    case c.THUNK_SEND_REMINDER: {
+      let { reservations: currReservations } = state
+      let { popup } = state
+      let reservations = currReservations.map(reservation => {
+        if (reservation.id !== popup.id) {
+          return reservation
+        }
+        let newR = { ...popup }
+        return newR
+      })
+
+      return { ...state, reservations }
     }
     default: {
       return state

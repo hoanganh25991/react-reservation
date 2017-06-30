@@ -28,7 +28,7 @@ const mapActionToProps = dispatch => ({
   actionUpdateReservation: () => dispatch(actionUpdateReservation()),
   actionUpdateName: (name, value) => dispatch(actionUpdateName(name, value)),
   actionUpdatePaymentStatus: payment_status => dispatch(actionUpdatePaymentStatus(payment_status)),
-  actionSendReminder: () => dispatch(actionSendReminder())
+  actionSendReminder: confirm_id => dispatch(actionSendReminder(confirm_id))
 })
 
 export default connect(mapStateToProps, mapActionToProps)(ReservationPopup)

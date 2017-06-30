@@ -1,5 +1,6 @@
 import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
+import { getOutlet } from "../selectors"
 // import { actionUpdateReservations } from "../actions"
 export const actionTogglePopup = () => ({ type: c.TOGGLE_POPUP })
 export const actionShowPopup = () => ({ type: c.SHOW_POPUP })
@@ -45,13 +46,10 @@ export const actionUpdateReservation = () => {
     dispatch({ type: c.UPDATE_RESERVATION_POPUP })
 
     let { outlet_id, allowed_outlets, reservations } = getState()
-
-    let outlet = allowed_outlets.filter(allowed_outlet => allowed_outlet.id === outlet_id)[0]
-    let brand_id = outlet.brand_id
     // Build ajax options
     let ajax_options = {
       url: c.END_POINT_RESERVATIONS,
-      data: { brand_id, outlet_id, reservations, type: c.AJAX_UPDATE_RESERVATIONS },
+      data: { outlet_id, reservations, type: c.AJAX_UPDATE_RESERVATIONS },
       type: c.POST_JSON
     }
     dispatch(fetchData(ajax_options)).then(res => {
@@ -69,13 +67,19 @@ export const actionUpdatePaymentStatus = payment_status => {
   }
 }
 
-export const actionSendReminder = () => {
+export const actionSendReminder = confirm_id => {
   return (dispatch, getState) => {
     dispatch({ type: c.THUNK_SEND_REMINDER })
-    let { outlet_id, allowed_outlets, reservations } = getState()
-
-    let outlet = allowed_outlets.filter(allowed_outlet => allowed_outlet.id === outlet_id)[0]
-    let confirm_id = outlet.confirm_id
-    console.log("confirm_id", confirm_id)
+    let state = getState()
+    let { outlet_id, reservations } = state
+    let ajax_options = {
+      url: c.END_POINT_RESERVATIONS,
+      data: { outlet_id, confirm_id, type: c.AJAX_SEND_REMINDER_SMS_ON_RESERVATION },
+      type: c.POST_JSON
+    }
+    dispatch(fetchData(ajax_options)).then(res => {
+      // console.log('res', res)
+      dispatch({ type: c.SEND_REMINDER })
+    })
   }
 }
