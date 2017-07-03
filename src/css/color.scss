@@ -76,6 +76,9 @@ body {
         padding: 20px 0;
         text-transform: uppercase;
         border-top: 2px solid rgba($white, 0.1);
+        @media screen and (max-width: 1325px) {
+               font-size: 15px;
+            }
         @media screen and (max-width: 1060px) {
                font-size: 13px;
             }
