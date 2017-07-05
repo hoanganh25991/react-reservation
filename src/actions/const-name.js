@@ -130,3 +130,10 @@ export const TOGGLE_POPUP = "TOGGLE_POPUP"
  * Reservation status
  */
 // export const RESERVED = 100;
+
+/**
+ * Header Action
+ */
+export const HIDE_FILTER = "HIDE_FILTER"
+export const SHOW_FILTER = "SHOW_FILTER"
+// export const THUNK_INIT_FILTER = "THUNK_INIT_FILTER"

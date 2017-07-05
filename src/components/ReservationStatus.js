@@ -4,19 +4,11 @@ import React from "react"
 
 class ReservationStatus extends React.Component {
   helloWord = () => {
-    console.log("hello world")
+    // console.log("hello world")
   }
 
   render() {
     let { status, payment_status, payment_currency, payment_amount } = this.props
-    console.log(
-      "status, paymentStatus, paymentCurrency, paymentAmount",
-      status,
-      payment_status,
-      payment_currency,
-      payment_amount
-    )
-
     let getStatusTitle = function(status) {
       let statusTitle
       switch (status) {

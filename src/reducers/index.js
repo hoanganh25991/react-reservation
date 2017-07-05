@@ -44,7 +44,9 @@ const adminPage = (state = initState, action) => {
     case c.UPDATE_FILTER_BY_DAY:
     case c.TOGGLE_FILTER_STATUS:
     case c.CLEAR_FILTER_BY_STATUS:
-    case c.TOGGLE_INPUT_PICK_A_DATE: {
+    case c.TOGGLE_INPUT_PICK_A_DATE:
+    case c.SHOW_FILTER:
+    case c.HIDE_FILTER: {
       return filter(state, action)
     }
     case c.RESET_APP: {

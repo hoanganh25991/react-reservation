@@ -37,6 +37,17 @@ export default (state, action) => {
       // save it
       return Object.assign({}, state, { visibleInputPickADate })
     }
+    case c.SHOW_FILTER: {
+      // let { popup: currPopup } = state
+      let showHideFilter = action.type
+      // let popup = { ...currPopup, showHide }
+      return Object.assign({}, state, { showHideFilter })
+    }
+    case c.HIDE_FILTER: {
+      let { showHideFilter } = action.type
+      // let popup = { ...currPopup, payment_status }
+      return { ...state, showHideFilter }
+    }
     default:
       return state
   }

@@ -54,3 +54,18 @@ export const actionToggleFilterByStatus = status => ({
 export const actionClearFilterByStatus = () => ({
   type: c.CLEAR_FILTER_BY_STATUS
 })
+
+export const actionShowFilter = () => ({ type: c.SHOW_FILTER })
+export const actionHideFilter = () => ({ type: c.HIDE_FILTER })
+// init popup when clicked
+export const actionInitFilter = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let { showHideFilter } = state
+    if (showHideFilter === undefined || showHideFilter === c.HIDE_FILTER) {
+      dispatch(actionShowFilter())
+    } else {
+      dispatch(actionHideFilter())
+    }
+  }
+}
