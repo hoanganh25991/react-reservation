@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
 import { actionInitFilter, actionSearchReservation, actionPrintReservation, actionReloadFilterByDay } from "../actions"
-import HeaderAction from "../components/HeaderAction"
+import CalendarPopup from "../components/CalendarPopup"
 
 const mapActionToProps = dispatch => ({
   initFilter: () => dispatch(actionInitFilter()),
@@ -9,4 +9,4 @@ const mapActionToProps = dispatch => ({
   actionReloadFilterByDay: () => dispatch(actionReloadFilterByDay())
 })
 
-export default connect(null, mapActionToProps)(HeaderAction)
+export default connect(null, mapActionToProps)(CalendarPopup)

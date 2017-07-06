@@ -7,6 +7,7 @@ import HoiReservationList from "../containers/HoiReservationList"
 import HoiReservationPopup from "../containers/HoiReservationPopup"
 import HoiHeaderAction from "../containers/HoiHeaderAction"
 import HoiStatusBar from "../containers/HoiStatusBar"
+import HoiCalendarPopup from "../containers/HoiCalendarPopup"
 
 class App extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <HoiStatusBar />
         <HoiReservationList />
         <HoiReservationPopup />
+        {/*<HoiCalendarPopup />*/}
       </div>
     )
   }

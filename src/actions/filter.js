@@ -1,5 +1,7 @@
 import * as c from "./const-name"
 import { actionFetchReservationsByDay } from "./reservations"
+import { fetchData } from "../actions/fetch-data"
+import Hashids from "hashids"
 /*
  |--------------------------------------------------------------------------
  | Filter
@@ -67,5 +69,58 @@ export const actionInitFilter = () => {
     } else {
       dispatch(actionHideFilter())
     }
+  }
+}
+
+const actionUpdateReservations = reservations => ({
+  type: c.UPDATE_RESERVATIONS,
+  reservations
+})
+
+export const actionSearchReservation = confirm_id => {
+  return (dispatch, getState) => {
+    dispatch({ type: c.THUNK_SEARCH_RESERVATION })
+    let state = getState()
+    let { outlet_id } = state
+    let ajax_options = {
+      url: c.END_POINT_RESERVATIONS,
+      data: { outlet_id, confirm_id, type: c.AJAX_FIND_RESERVATION },
+      type: c.POST_JSON
+    }
+    dispatch(fetchData(ajax_options)).then(res => {
+      dispatch({ type: c.SEND_SEARCH_RESERVATION })
+      let { data: { reservations } } = res
+      dispatch(actionUpdateReservations(reservations))
+    })
+  }
+}
+
+export const actionPrintReservation = () => {
+  return (dispatch, getState) => {
+    let hashids = new Hashids()
+    let state = getState()
+    let { reservations: currReservations } = state
+    let { outlet_id } = state
+    let ids = currReservations.map(reservation => {
+      let newR = reservation.id
+      return newR
+    })
+    let id = hashids.encode(ids)
+    dispatch({ type: c.PRINT_RESERVATION })
+    window.open(
+      `https://alfred.hoipos.com/reservation/dev/admin/${c.END_POINT_RESERVATIONS}/print?outlet_id=${outlet_id}&reservation_ids=${id}`
+    )
+  }
+}
+// Actually fetch reservations by that day
+export const actionReloadFilterByDay = () => {
+  return (dispatch, getState) => {
+    dispatch({ type: c.THUNK_TOGGLE_FILTER_BY_DAY })
+    // dispatch(actionUpdateFilterByDay(day))
+
+    let { filterByDay } = getState()
+    // Fetch reservations by day
+    // Mean give me a day & i fetch it
+    dispatch(actionFetchReservationsByDay({ day: filterByDay }))
   }
 }

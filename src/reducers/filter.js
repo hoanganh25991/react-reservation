@@ -48,6 +48,20 @@ export default (state, action) => {
       // let popup = { ...currPopup, payment_status }
       return { ...state, showHideFilter }
     }
+    case c.THUNK_SEARCH_RESERVATIONP: {
+      let { reservations: currReservations } = state
+      let { popup } = state
+
+      let reservations = currReservations.map(reservation => {
+        // if (reservation.id !== popup.id) {
+        //   return reservation
+        // }
+        let newR = { ...reservations }
+        return newR
+      })
+
+      return { ...state, reservations }
+    }
     default:
       return state
   }
