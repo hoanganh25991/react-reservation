@@ -37,6 +37,10 @@ export default class CountDown extends React.Component {
     // moment(duration._data).format('DD:HH:mm:ss')
     let countdownTimeStr = `${pad(duration.days())}:${pad(duration.hours())}:${pad(duration.minutes())}:${pad(duration.seconds())}`
     // Display it
+
+    if (pad(duration.seconds()) <= 0) {
+      countdownTimeStr = "00:00:00:00"
+    }
     return <div style={{ textAlign: "right" }}>{countdownTimeStr}</div>
   }
 }

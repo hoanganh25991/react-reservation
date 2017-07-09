@@ -37,6 +37,31 @@ export default (state, action) => {
       // save it
       return Object.assign({}, state, { visibleInputPickADate })
     }
+    case c.SHOW_FILTER: {
+      // let { popup: currPopup } = state
+      let showHideFilter = action.type
+      // let popup = { ...currPopup, showHide }
+      return Object.assign({}, state, { showHideFilter })
+    }
+    case c.HIDE_FILTER: {
+      let { showHideFilter } = action.type
+      // let popup = { ...currPopup, payment_status }
+      return { ...state, showHideFilter }
+    }
+    case c.THUNK_SEARCH_RESERVATIONP: {
+      let { reservations: currReservations } = state
+      let { popup } = state
+
+      let reservations = currReservations.map(reservation => {
+        // if (reservation.id !== popup.id) {
+        //   return reservation
+        // }
+        let newR = { ...reservations }
+        return newR
+      })
+
+      return { ...state, reservations }
+    }
     default:
       return state
   }

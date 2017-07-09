@@ -7,14 +7,15 @@ import {
 } from "../actions"
 import FilterPanel from "../components/FilterPanel"
 
-const mapStateToProps = ({ visibleInputPickADate, filterByDay, filterByStatus }) => {
+const mapStateToProps = ({ visibleInputPickADate, filterByDay, filterByStatus, showHideFilter }) => {
   let filteredDay = day => day === filterByDay
   let filteredStatus = status => filterByStatus.includes(status)
 
   return {
     visibleInputPickADate,
     filteredDay,
-    filteredStatus
+    filteredStatus,
+    showHideFilter
   }
 }
 

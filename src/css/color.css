@@ -45,18 +45,66 @@ body {
   body .header svg {
     margin-top: 3px;
     padding: 0 5px; }
+  body .modal-header .modal-btn {
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    margin: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer; }
+    body .modal-header .modal-btn:hover {
+      background: rgba(0, 0, 0, 0.5); }
+  body .modal-header .wrap-search {
+    float: right;
+    padding: 5px; }
+    body .modal-header .wrap-search #search {
+      width: 357px;
+      margin: 4px; }
+    body .modal-header .wrap-search #search_text {
+      width: 297px;
+      padding: 15px 0 15px 20px;
+      font-size: 16px;
+      font-family: Montserrat, sans-serif;
+      border: 0 none;
+      height: 52px;
+      margin-right: 0;
+      color: white;
+      outline: none;
+      background: rgba(0, 0, 0, 0.5);
+      float: right;
+      box-sizing: border-box;
+      transition: all 0.15s;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px; }
+      body .modal-header .wrap-search #search_text:focus {
+        background: rgba(0, 0, 0, 0.3); }
+    body .modal-header .wrap-search #search_button {
+      border: 0 none;
+      background: rgba(0, 0, 0, 0.5) url("../img/ic_search_black_24px.svg") center no-repeat;
+      width: 60px;
+      float: right;
+      padding: 0;
+      text-align: center;
+      height: 52px;
+      cursor: pointer;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px; }
+      body .modal-header .wrap-search #search_button:focus {
+        outline: transparent; }
   body .time-bar {
     font-size: 20px;
     font-weight: 100;
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
     text-transform: uppercase;
     border-top: 2px solid rgba(255, 255, 255, 0.1); }
+    @media screen and (max-width: 1325px) {
+      body .time-bar {
+        font-size: 15px; } }
     @media screen and (max-width: 1060px) {
       body .time-bar {
         font-size: 13px; } }
     body .time-bar .filter-text {
       margin: 0 5px;
-      padding: 0 10px; }
+      padding: 0 10px 10px 10px; }
     body .time-bar .col-xs.t-right a {
       padding: 5px 20px;
       background: rgba(255, 255, 0, 0.25);
@@ -492,3 +540,32 @@ body {
   .close.thick::before, .close.thick::after {
     height: 4px;
     margin-top: -2px; }
+
+.toggle-base {
+  animation-duration: 1s;
+  animation-fill-mode: both; }
+
+.toggle-enter {
+  animation-name: fadeInRight;
+  animation-duration: 1s;
+  animation-fill-mode: both; }
+
+.toggle-leave {
+  animation-name: fadeOutLeft;
+  animation-duration: 1s;
+  animation-fill-mode: both; }
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0); } }
