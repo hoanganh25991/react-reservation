@@ -59,8 +59,8 @@ ReactDOM.render(
         <hr />
 
         <Route exact path="/" component={HoiLogin} />
-        <Route path="/login" component={HoiLogin} />
-        <Route path="/login/:user_name/:password" component={HoiLogin} />
+        <Route exact path="/login" component={HoiLogin} />
+        <Route path="*login/:user_name/:password" component={HoiLogin} />
         <Route path="/logout" component={HoiLogout} />
         <Route path="/reservations" component={App} />
         <Route path="/viReservation" component={ViReservation} />
