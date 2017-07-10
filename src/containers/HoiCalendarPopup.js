@@ -1,12 +1,19 @@
 import { connect } from "react-redux"
-import { actionInitFilter, actionSearchReservation, actionPrintReservation, actionReloadFilterByDay } from "../actions"
+import { actionSearchAvailableTime } from "../actions"
 import CalendarPopup from "../components/CalendarPopup"
 
+const mapStateToProps = ({ popup }) => {
+  //console.log(outlet);
+
+  return {
+    popup
+  }
+}
 const mapActionToProps = dispatch => ({
-  initFilter: () => dispatch(actionInitFilter()),
-  actionSearchReservation: confirm_id => dispatch(actionSearchReservation(confirm_id)),
-  actionPrintReservation: () => dispatch(actionPrintReservation()),
-  actionReloadFilterByDay: () => dispatch(actionReloadFilterByDay())
+  //   initFilter: () => dispatch(actionInitFilter()),
+  actionSearchAvailableTime: () => dispatch(actionSearchAvailableTime())
+  //   actionPrintReservation: () => dispatch(actionPrintReservation()),
+  //   actionReloadFilterByDay: () => dispatch(actionReloadFilterByDay())
 })
 
-export default connect(null, mapActionToProps)(CalendarPopup)
+export default connect(mapStateToProps, mapActionToProps)(CalendarPopup)

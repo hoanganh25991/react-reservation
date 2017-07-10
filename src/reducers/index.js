@@ -4,6 +4,7 @@ import user from "./user"
 import filter from "./filter"
 import router from "./router"
 import popup from "./popup"
+import calendar from "./calendar"
 
 export const initState = {
   // Store reservations
@@ -80,7 +81,9 @@ const adminPage = (state = initState, action) => {
     case c.THUNK_SEND_REMINDER: {
       return popup(state, action)
     }
-
+    case c.INJECT_CALENDAR: {
+      return calendar(state, action)
+    }
     default:
       return state
   }

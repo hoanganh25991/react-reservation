@@ -19,7 +19,7 @@ class App extends React.Component {
         <HoiStatusBar />
         <HoiReservationList />
         <HoiReservationPopup />
-        {/*<HoiCalendarPopup />*/}
+        <HoiCalendarPopup />
       </div>
     )
   }

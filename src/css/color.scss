@@ -759,3 +759,11 @@ body {
     transform: translate3d(-100%, 0, 0);
   }
 }
+
+/* calender */
+
+.calendar-popup {
+    position: fixed;
+    width: 100%;
+    background: cadetblue;
+}
