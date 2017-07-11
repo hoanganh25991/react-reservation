@@ -3,20 +3,30 @@ import * as c from "../actions/const-name"
 import "../css/color.css"
 
 class CalendarPopup extends React.Component {
-  constructor(props) {
-    super(props)
-    let { popup } = this.props
-    this.state = {
-      showHide: ""
-    }
-  }
+  //   constructor(props) {
+  //     super(props)
+  //     let { popup } = this.props
+  //     this.state = {
+  //       showHide: ""
+  //     }
+  //   }
   render() {
     // let reservation = { confirm_id: "GHYTGU" }
-    let { popup } = this.props
+    let { popup, calendarTime } = this.props
+    // console.log('availableDate',availableDate)
+    // let date = []
+    // if(calendarTime !== null) {
+    //     console.log(Object.keys(calendarTime))
+    //     this.date = Object.keys(calendarTime)
+    //     // console.log(Object.keys(date)[0])
+    //     let availableHour = Object.keys(calendarTime).map(key => calendarTime[key])
+    //     console.log(availableHour)
+    // }
+
     return (
       <div>
         {/* Only show it up when status as SHOW_POP_UP */
-        popup.showHide === c.SHOW_POPUP
+        popup.showHideCalendar === c.SHOW_CALENDAR
           ? <div className="calendar-popup">
               <div className="row">
                 <div className="col-xs">
@@ -46,14 +56,16 @@ class CalendarPopup extends React.Component {
               <div className="date-popup">
                 <table>
                   <tbody>
+                    {/*{calendarTime ? "has time" : "no time"}*/}
                     <tr>
-                      <td>28</td>
-                      <td>29</td>
+                      {calendarTime ? <td>{Object.keys(calendarTime)}</td> : null}
+
+                      {/*<td>29</td>
                       <td>30</td>
                       <td>31</td>
                       <td>1</td>
                       <td>2</td>
-                      <td>3</td>
+                      <td>3</td>*/}
                     </tr>
                     <tr>
                       <td>25</td>

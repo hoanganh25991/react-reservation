@@ -7,7 +7,8 @@ import {
   actionUpdateReservation,
   actionUpdateName,
   actionUpdatePaymentStatus,
-  actionSendReminder
+  actionSendReminder,
+  actionShowHideCalendar
 } from "../actions"
 import ReservationPopup from "../components/ReservationPopup"
 
@@ -28,7 +29,8 @@ const mapActionToProps = dispatch => ({
   actionUpdateReservation: () => dispatch(actionUpdateReservation()),
   actionUpdateName: (name, value) => dispatch(actionUpdateName(name, value)),
   actionUpdatePaymentStatus: payment_status => dispatch(actionUpdatePaymentStatus(payment_status)),
-  actionSendReminder: confirm_id => dispatch(actionSendReminder(confirm_id))
+  actionSendReminder: confirm_id => dispatch(actionSendReminder(confirm_id)),
+  actionShowHideCalendar: () => dispatch(actionShowHideCalendar())
 })
 
 export default connect(mapStateToProps, mapActionToProps)(ReservationPopup)

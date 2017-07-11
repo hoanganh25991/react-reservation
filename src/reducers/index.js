@@ -81,6 +81,8 @@ const adminPage = (state = initState, action) => {
     case c.THUNK_SEND_REMINDER: {
       return popup(state, action)
     }
+
+    case c.SHOW_CALENDAR:
     case c.INJECT_CALENDAR: {
       return calendar(state, action)
     }

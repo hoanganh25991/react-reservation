@@ -141,7 +141,7 @@ export default class ReservationPopup extends React.Component {
     let { actionUpdateReservation } = this.props
     let { actionUpdatePaymentStatus } = this.props
     let { actionSendReminder } = this.props
-    let { actionSearchAvailableTime } = this.props
+    let { actionShowHideCalendar } = this.props
     let whiteTextPayment = popup.payment_status === 50 ? "whiteText" : ""
     let redTextPayment = popup.payment_status === 200 ? "redText" : ""
     let blueTextPayment = popup.payment_status === 100 ? "blueText" : ""
@@ -343,7 +343,7 @@ export default class ReservationPopup extends React.Component {
                             <p>{popup.date ? popup.date.format("DD MMM YYYY") : popup.reservation_timestamp}</p>
                             <p>{popup.date ? popup.date.format("HH:mm") : popup.reservation_timestamp}</p>
                           </div>
-                          <div className="col-xs date-svg" onClick={() => actionSearchAvailableTime()}>
+                          <div className="col-xs date-svg" onClick={() => actionShowHideCalendar()}>
                             <span>
                               <svg
                                 version="1.1"

@@ -11,30 +11,28 @@ const deepCloneReservation = reservation => {
 export default (state, action) => {
   // console.log("action", action)
   switch (action.type) {
-    case c.INJECT_CALENDAR: {
-      let { reservation_id } = action
-      let { reservations } = state
-      // Get the first reservation match
-      let selectedReservation = reservations.filter(reservation => reservation.id === reservation_id)[0]
-      if (selectedReservation) {
-        let popup = deepCloneReservation(selectedReservation)
-        return { ...state, popup }
-      }
-      // Should handle something here
-      // Fail case, no reservation found
-      return state
-    }
     case c.SHOW_CALENDAR: {
       let { popup: currPopup } = state
-      let showHideCalender = action.type
-      let popup = { ...currPopup, showHideCalender }
+      let showHideCalendar = action.type
+      let popup = { ...currPopup, showHideCalendar }
       return { ...state, popup }
     }
     case c.HIDE_CALENDAR: {
       let { popup: currPopup } = state
-      let showHideCalender = action.type
-      let popup = { ...currPopup, showHideCalender }
+      let showHideCalendar = action.type
+      let popup = { ...currPopup, showHideCalendar }
       return { ...state, popup }
+    }
+    case c.INJECT_CALENDAR: {
+      let availableDate = action.available_time
+      console.log("date", availableDate)
+      // console.log(Object.keys(availableDate))
+      // // console.log(Object.keys(date)[0])
+      // let availableHour = Object.keys(availableDate).map(key => availableDate[key])
+      // console.log(availableHour)
+
+      // Fail case, no reservation found
+      return { ...state, availableDate }
     }
     default: {
       return state

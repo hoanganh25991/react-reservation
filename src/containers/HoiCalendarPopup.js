@@ -1,12 +1,17 @@
 import { connect } from "react-redux"
 import { actionSearchAvailableTime } from "../actions"
 import CalendarPopup from "../components/CalendarPopup"
+import { getCalendarTime } from "../selectors"
 
-const mapStateToProps = ({ popup }) => {
+const mapStateToProps = state => {
+  // let a = getAva(state);
+  let calendarTime = getCalendarTime(state)
   //console.log(outlet);
-
+  let { popup } = state
+  // console.log('availableDate',availableDate)
   return {
-    popup
+    popup,
+    calendarTime
   }
 }
 const mapActionToProps = dispatch => ({
