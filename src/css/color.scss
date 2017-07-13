@@ -762,8 +762,30 @@ body {
 
 /* calender */
 
+// .calendar-popup {
+//     position: fixed;
+//     width: 100%;
+//     background: cadetblue;
+// }
 .calendar-popup {
     position: fixed;
-    width: 100%;
-    background: cadetblue;
+    width: 85%;
+    background: rgba(18, 21, 21, 0.9);
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid;
+    ul {
+        li {
+            display: inline-block;
+            padding: 10px;
+            border: 2px solid rgba(26, 93, 98, 0.9);
+            margin: 5px;
+            border-radius: 3px;
+            font-size: 20px;
+            min-width: 142px;
+            text-align: center;
+        }
+    }
 }

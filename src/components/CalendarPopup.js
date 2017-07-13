@@ -1,27 +1,37 @@
 import React from "react"
 import * as c from "../actions/const-name"
 import "../css/color.css"
+import ObjectRowCalendar from "./ObjectRowCalendar"
+import InputMoment from "./input-moment"
 
+import moment from "moment"
+import "../css/input-moment.css"
 class CalendarPopup extends React.Component {
-  //   constructor(props) {
-  //     super(props)
-  //     let { popup } = this.props
-  //     this.state = {
-  //       showHide: ""
-  //     }
-  //   }
+  state = {
+    m: moment()
+  }
+
+  handleChange = m => {
+    this.setState({ m })
+  }
+
+  handleSave = () => {
+    console.log("saved", this.state.m.format("llll"))
+  }
   render() {
-    // let reservation = { confirm_id: "GHYTGU" }
     let { popup, calendarTime } = this.props
-    // console.log('availableDate',availableDate)
-    // let date = []
-    // if(calendarTime !== null) {
-    //     console.log(Object.keys(calendarTime))
-    //     this.date = Object.keys(calendarTime)
-    //     // console.log(Object.keys(date)[0])
-    //     let availableHour = Object.keys(calendarTime).map(key => calendarTime[key])
-    //     console.log(availableHour)
-    // }
+    let days = []
+    if (calendarTime !== null) {
+      // console.log(Object.keys(calendarTime))
+      days = Object.keys(calendarTime)
+
+      // // console.log(Object.keys(date)[0])
+      // let availableHour = Object.keys(calendarTime).map(key => calendarTime[key])
+      // console.log(availableHour)
+
+      // let date = Object.keys(calendarTime)
+      // let reservationStatus = { status, payment_status, payment_currency, payment_amount }
+    }
 
     return (
       <div>
@@ -54,70 +64,26 @@ class CalendarPopup extends React.Component {
                 </div>
               </div>
               <div className="date-popup">
-                <table>
-                  <tbody>
-                    {/*{calendarTime ? "has time" : "no time"}*/}
-                    <tr>
-                      {calendarTime ? <td>{Object.keys(calendarTime)}</td> : null}
-
-                      {/*<td>29</td>
-                      <td>30</td>
-                      <td>31</td>
-                      <td>1</td>
-                      <td>2</td>
-                      <td>3</td>*/}
-                    </tr>
-                    <tr>
-                      <td>25</td>
-                      <td>26</td>
-                      <td>27</td>
-                      <td>28</td>
-                      <td>29</td>
-                      <td>30</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>3</td>
-                      <td>4</td>
-                      <td>5</td>
-                      <td>6</td>
-                      <td>7</td>
-                      <td>8</td>
-                    </tr>
-                  </tbody>
-                </table>
+                {/* <ul> */}
+                {/* {day ? 
+                  <ObjectRowCalendar {...{day}} />
+                    : null} */}
+                {/* {days.map((day, index) => (
+                    <ObjectRowCalendar key={day.toString()} i={index + 1} day={day} />
+                  ))}
+                </ul> */}
+                <InputMoment
+                  moment={this.state.m}
+                  onChange={this.handleChange}
+                  onSave={this.handleSave}
+                  prevMonthIcon="ion-ios-arrow-left" // default
+                  nextMonthIcon="ion-ios-arrow-right" // default
+                />
               </div>
               {/*<div className="time-popup">
             <table>
               <tbody>
-                <tr>
-                  <td>28</td>
-                  <td>29</td>
-                  <td>30</td>
-                  <td>31</td>
-                  <td>1</td>
-                  <td>2</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>25</td>
-                  <td>26</td>
-                  <td>27</td>
-                  <td>28</td>
-                  <td>29</td>
-                  <td>30</td>
-                  <td>1</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>3</td>
-                  <td>4</td>
-                  <td>5</td>
-                  <td>6</td>
-                  <td>7</td>
-                  <td>8</td>
-                </tr>
+                
               </tbody>
             </table>
           </div>*/}
