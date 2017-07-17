@@ -26,7 +26,7 @@ export default class InputMoment extends Component {
 
   render() {
     const { tab } = this.state
-    const { moment: m, className, prevMonthIcon, nextMonthIcon, onSave, ...props } = this.props
+    const { moment: m, className, prevMonthIcon, nextMonthIcon, onSave, days, ...props } = this.props
     const cls = cx("m-input-moment", className)
 
     return (
@@ -55,6 +55,7 @@ export default class InputMoment extends Component {
             onChange={this.props.onChange}
             prevMonthIcon={this.props.prevMonthIcon}
             nextMonthIcon={this.props.nextMonthIcon}
+            days={days}
           />
           <Time className={cx("tab", { "is-active": tab === 1 })} moment={m} onChange={this.props.onChange} />
         </div>

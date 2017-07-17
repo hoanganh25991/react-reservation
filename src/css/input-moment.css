@@ -6,19 +6,19 @@
     border-spacing: 0;
     table-layout: fixed; }
   .m-calendar td {
-    padding: 8px 0;
+    padding: 10px;
     text-align: center;
     cursor: pointer;
     color: #dfe0e4;
     border: 1px solid #dfe0e4; }
   .m-calendar thead td {
     color: #1385e5;
-    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 12px; }
+    font-size: 18px; }
   .m-calendar tbody td {
-    color: #666; }
+    color: yellow;
+    font-size: 18px; }
     .m-calendar tbody td:hover {
       background: #1385e5;
       border-color: #1385e5;
@@ -27,7 +27,7 @@
     color: #1385e5;
     font-weight: 700; }
   .m-calendar .next-month, .m-calendar .prev-month {
-    color: #999; }
+    color: #666; }
   .m-calendar .toolbar {
     line-height: 30px;
     color: #1385e5;
@@ -131,7 +131,7 @@
 
 .m-input-moment {
   display: inline-block;
-  width: 330px;
+  width: 400px;
   padding: 12px 15px;
   border-radius: 3px;
   border: 1px solid #dfe0e4; }
@@ -159,11 +159,11 @@
         background-color: #1385e5; }
   .m-input-moment .tab {
     display: none;
-    height: 310px; }
+    height: 330px; }
     .m-input-moment .tab.is-active {
       display: block; }
   .m-input-moment .tabs {
-    margin-bottom: 11px; }
+    margin-bottom: 21px; }
   .m-input-moment .btn-save {
     display: block;
     margin-top: 10px;

@@ -38,7 +38,7 @@ class CalendarPopup extends React.Component {
         {/* Only show it up when status as SHOW_POP_UP */
         popup.showHideCalendar === c.SHOW_CALENDAR
           ? <div className="calendar-popup">
-              <div className="row">
+              {/* <div className="row">
                 <div className="col-xs">
                   <p>
                     <span>
@@ -62,7 +62,7 @@ class CalendarPopup extends React.Component {
                     Time
                   </p>
                 </div>
-              </div>
+              </div> */}
               <div className="date-popup">
                 {/* <ul> */}
                 {/* {day ? 
@@ -78,6 +78,7 @@ class CalendarPopup extends React.Component {
                   onSave={this.handleSave}
                   prevMonthIcon="ion-ios-arrow-left" // default
                   nextMonthIcon="ion-ios-arrow-right" // default
+                  days={days}
                 />
               </div>
               {/*<div className="time-popup">
