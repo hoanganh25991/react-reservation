@@ -26,7 +26,7 @@
   .m-calendar .current-day {
     color: #1385e5;
     font-weight: 700; }
-  .m-calendar .next-month, .m-calendar .prev-month {
+  .m-calendar .next-month, .m-calendar .prev-month, .m-calendar .isBoolean {
     color: #666; }
   .m-calendar .toolbar {
     line-height: 30px;
