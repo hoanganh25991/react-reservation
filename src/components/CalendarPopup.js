@@ -13,20 +13,22 @@ class CalendarPopup extends React.Component {
 
   handleChange = m => {
     this.setState({ m })
+    console.log("m", m)
   }
 
   handleSave = () => {
     console.log("saved", this.state.m.format("llll"))
   }
   render() {
-    let { popup, calendarTime } = this.props
+    let { popup, calendarTime, actionCheckIndexDateArray } = this.props
     let days = []
+    let availableHour = []
     if (calendarTime !== null) {
       // console.log(Object.keys(calendarTime))
       days = Object.keys(calendarTime)
 
       // // console.log(Object.keys(date)[0])
-      // let availableHour = Object.keys(calendarTime).map(key => calendarTime[key])
+      availableHour = Object.keys(calendarTime).map(key => calendarTime[key])
       // console.log(availableHour)
 
       // let date = Object.keys(calendarTime)
@@ -72,6 +74,9 @@ class CalendarPopup extends React.Component {
                     <ObjectRowCalendar key={day.toString()} i={index + 1} day={day} />
                   ))}
                 </ul> */}
+                <div className="input">
+                  <input type="text" value={this.state.m.format("dddd, DD/MM/YYYY")} readOnly />
+                </div>
                 <InputMoment
                   moment={this.state.m}
                   onChange={this.handleChange}
@@ -79,6 +84,8 @@ class CalendarPopup extends React.Component {
                   prevMonthIcon="ion-ios-arrow-left" // default
                   nextMonthIcon="ion-ios-arrow-right" // default
                   days={days}
+                  availableHour={availableHour}
+                  actionCheckIndexDateArray={actionCheckIndexDateArray}
                 />
               </div>
               {/*<div className="time-popup">

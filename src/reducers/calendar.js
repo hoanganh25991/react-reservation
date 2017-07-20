@@ -25,14 +25,20 @@ export default (state, action) => {
     }
     case c.INJECT_CALENDAR: {
       let availableDate = action.available_time
-      console.log("date", availableDate)
+      // console.log("date", availableDate)
       // console.log(Object.keys(availableDate))
       // // console.log(Object.keys(date)[0])
       // let availableHour = Object.keys(availableDate).map(key => availableDate[key])
       // console.log(availableHour)
+      // console.log(availableHour[0])
 
       // Fail case, no reservation found
-      return { ...state, availableDate }
+      let calendarDateIndex = 0
+      return { ...state, calendarDateIndex, availableDate }
+    }
+    case c.CHECK_INDEX_DATE_ARRAY: {
+      let calendarDateIndex = action.index
+      return { ...state, calendarDateIndex }
     }
     default: {
       return state

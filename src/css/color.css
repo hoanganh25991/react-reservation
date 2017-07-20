@@ -580,12 +580,16 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid; }
-  .calendar-popup ul li {
-    display: inline-block;
-    padding: 10px;
-    border: 2px solid rgba(26, 93, 98, 0.9);
-    margin: 5px;
-    border-radius: 3px;
-    font-size: 20px;
-    min-width: 142px;
-    text-align: center; }
+  .calendar-popup ul {
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+    margin-bottom: 10px; }
+    .calendar-popup ul li {
+      display: inline-block;
+      padding: 10px;
+      border: 2px solid #1385e5;
+      margin: 5px;
+      border-radius: 3px;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer; }

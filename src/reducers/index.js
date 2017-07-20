@@ -24,7 +24,8 @@ export const initState = {
   router: null,
   // Popup
   visiblePopup: false,
-  popup: {}
+  popup: {},
+  calendarDateIndex: null
 }
 
 const adminPage = (state = initState, action) => {
@@ -83,7 +84,8 @@ const adminPage = (state = initState, action) => {
     }
 
     case c.SHOW_CALENDAR:
-    case c.INJECT_CALENDAR: {
+    case c.INJECT_CALENDAR:
+    case c.CHECK_INDEX_DATE_ARRAY: {
       return calendar(state, action)
     }
     default:

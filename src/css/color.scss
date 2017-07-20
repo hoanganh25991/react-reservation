@@ -777,15 +777,19 @@ body {
     transform: translate(-50%,-50%);
     border: 1px solid;
     ul {
+        padding-bottom: 10px;
+        border-bottom: 1px solid;
+        margin-bottom: 10px;
         li {
             display: inline-block;
             padding: 10px;
-            border: 2px solid rgba(26, 93, 98, 0.9);
+            border: 2px solid #1385e5;
             margin: 5px;
             border-radius: 3px;
             font-size: 20px;
-            min-width: 142px;
+            // min-width: 142px;
             text-align: center;
+            cursor: pointer;
         }
     }
 }

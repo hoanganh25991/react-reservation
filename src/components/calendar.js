@@ -4,7 +4,7 @@ import cx from "classnames"
 import range from "lodash/range"
 import chunk from "lodash/chunk"
 
-const Day = ({ i, w, d, className, iBoolean, ...props }) => {
+const Day = ({ i, w, d, className, iBoolean, actionCheckIndexDateArray, ...props }) => {
   const prevMonth = w === 0 && i > 7
   const nextMonth = w >= 4 && i <= 14
   const isBoolean = iBoolean === true
@@ -15,7 +15,9 @@ const Day = ({ i, w, d, className, iBoolean, ...props }) => {
     "current-day": !prevMonth && !nextMonth && i === d,
     isBoolean: isBoolean
   })
-
+  // actionCheckIndexDateArray
+  // console.log('actionCheckIndexDateArray',actionCheckIndexDateArray)
+  //  onClick={() => actionCheckIndexDateArray()}
   return <td className={cls} {...props}>{i}</td>
 }
 
@@ -30,6 +32,13 @@ export default class Calendar extends Component {
     if (nextMonth) m.add(1, "month")
 
     this.props.onChange(m)
+    // console.log(this.props.actionCheckIndexDateArray)
+    let indexArrayDay = this.props.days
+      .map((item, index) => ({ item, index }))
+      .filter(obj => obj.item === m.format("YYYY-MM-DD"))[0]
+    // console.log(indexArrayDay)
+    // console.log(indexArrayDay.index)
+    this.props.actionCheckIndexDateArray(indexArrayDay.index)
   }
 
   prevMonth = e => {
@@ -43,7 +52,8 @@ export default class Calendar extends Component {
   }
 
   render() {
-    const { days } = this.props
+    const { days, actionCheckIndexDateArray } = this.props
+    // console.log(actionCheckIndexDateArray)
     const m = this.props.moment
     const d = m.date()
     const d1 = m.clone().subtract(1, "month").endOf("month").date()
@@ -131,6 +141,14 @@ export default class Calendar extends Component {
       }
       return [item, false]
     })
+
+    //  this.indexArrayDay = days.map((item, index) => ({item, index})).filter(obj => obj.item === m.format("YYYY-MM-DD"))[0]
+    // if(this.indexArrayDay === undefined) {
+    //   this.indexArrayDay = days.map((item, index) => ({item, index})).filter(obj => obj.item === m.format("YYYY-MM-DD"))[0]
+    //   // console.log('yes')
+    // }
+
+    //  console.log('this.indexArrayDay',this.indexArrayDay)
     return (
       <div className={cx("m-calendar", this.props.className)}>
         <div className="toolbar">
@@ -154,7 +172,15 @@ export default class Calendar extends Component {
             {chunk(newArrDay, 7).map((row, w) => (
               <tr key={w}>
                 {row.map(([i, iBoolean]) => (
-                  <Day key={i} i={i} iBoolean={iBoolean} d={d} w={w} onClick={() => this.selectDate(i, w)} />
+                  <Day
+                    key={i}
+                    i={i}
+                    iBoolean={iBoolean}
+                    d={d}
+                    w={w}
+                    actionCheckIndexDateArray={actionCheckIndexDateArray}
+                    onClick={() => this.selectDate(i, w)}
+                  />
                 ))}
               </tr>
             ))}

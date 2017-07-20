@@ -2,7 +2,8 @@ import cx from "classnames"
 import moment from "moment"
 import React, { Component } from "react"
 import Calendar from "./calendar"
-import Time from "./time"
+// import Time from "./time"
+import HoiTime from "../containers/HoiTime"
 
 export default class InputMoment extends Component {
   static defaultProps = {
@@ -26,7 +27,17 @@ export default class InputMoment extends Component {
 
   render() {
     const { tab } = this.state
-    const { moment: m, className, prevMonthIcon, nextMonthIcon, onSave, days, ...props } = this.props
+    const {
+      moment: m,
+      className,
+      prevMonthIcon,
+      nextMonthIcon,
+      onSave,
+      days,
+      availableHour,
+      actionCheckIndexDateArray,
+      ...props
+    } = this.props
     const cls = cx("m-input-moment", className)
 
     return (
@@ -56,8 +67,16 @@ export default class InputMoment extends Component {
             prevMonthIcon={this.props.prevMonthIcon}
             nextMonthIcon={this.props.nextMonthIcon}
             days={days}
+            actionCheckIndexDateArray={actionCheckIndexDateArray}
+            //updateChoosenDay={null}
           />
-          <Time className={cx("tab", { "is-active": tab === 1 })} moment={m} onChange={this.props.onChange} />
+          <HoiTime
+            className={cx("tab", { "is-active": tab === 1 })}
+            moment={m}
+            onChange={this.props.onChange}
+            days={days}
+            availableHour={availableHour}
+          />
         </div>
 
         <button type="button" className="im-btn btn-save ion-checkmark" onClick={this.handleSave}>

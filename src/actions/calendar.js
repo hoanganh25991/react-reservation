@@ -4,7 +4,7 @@ import { fetchData } from "../actions/fetch-data"
 import { getAvaibleTime } from "../selectors"
 
 export const actionShowCalendarPopup = () => ({ type: c.SHOW_CALENDAR })
-export const actionHideCalendarPopup = () => ({ type: c.SHOW_CALENDAR })
+export const actionHideCalendarPopup = () => ({ type: c.HIDE_CALENDAR })
 
 export const actionShowHideCalendar = () => {
   return dispatch => {
@@ -41,3 +41,5 @@ export const actionSearchAvailableTime = () => {
     })
   }
 }
+
+export const actionCheckIndexDateArray = index => ({ type: c.CHECK_INDEX_DATE_ARRAY, index })

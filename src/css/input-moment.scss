@@ -36,6 +36,9 @@
   .next-month, .prev-month, .isBoolean {
     color: #666;
   }
+.isBoolean {
+    cursor: no-drop;
+}
   .toolbar {
     line-height: 30px;
     color: #1385e5;
@@ -71,7 +74,7 @@
 
 .m-time {
   color: #fff;
-  padding-top: 50px;
+  padding-top: 20px;
   .showtime {
     text-align: center;
   }
@@ -157,7 +160,7 @@
 
 .m-input-moment {
   display: inline-block;
-  width: 400px;
+  width: 560px;
   padding: 12px 15px;
   border-radius: 3px;
   border: 1px solid #dfe0e4;
@@ -190,7 +193,7 @@
   }
   .tab {
     display: none;
-    height: 330px;
+    min-height: 330px;
     &.is-active {
       display: block;
     }
@@ -209,4 +212,17 @@
     font-size: 16px;
     border-radius: 3px;
   }
+}
+.input {
+    margin-bottom: 10px;
+    input {
+        width: 410px;
+        font-size: 20px;
+        padding: 8px 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: rgba(112, 136, 253, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 5px;
+        font-weight: 100;
+    }
 }
