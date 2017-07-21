@@ -154,10 +154,18 @@ export default class Calendar extends Component {
         <div className="toolbar">
           <button type="button" className="prev-month" onClick={this.prevMonth}>
             <i className={this.props.prevMonthIcon} />
+            <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z" />
+              <path d="M0-.5h24v24H0z" fill="none" />
+            </svg>
           </button>
           <span className="current-date">{m.format("MMMM YYYY")}</span>
           <button type="button" className="next-month" onClick={this.nextMonth}>
             <i className={this.props.nextMonthIcon} />
+            <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z" />
+              <path d="M0-.25h24v24H0z" fill="none" />
+            </svg>
           </button>
         </div>
 

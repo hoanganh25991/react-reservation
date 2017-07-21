@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { actionSearchAvailableTime, actionCheckIndexDateArray } from "../actions"
+import { actionCheckMarkBtnSave } from "../actions"
 import time from "../components/time"
 // import { getCalendarTime } from "../selectors"
 
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 }
 const mapActionToProps = dispatch => ({
   //   actionSearchAvailableTime: () => dispatch(actionSearchAvailableTime()),
-  //   actionCheckIndexDateArray: index => dispatch(actionCheckIndexDateArray(index))
+  actionCheckMarkBtnSave: i => dispatch(actionCheckMarkBtnSave(i))
 })
 
 export default connect(mapStateToProps, mapActionToProps)(time)

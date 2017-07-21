@@ -573,7 +573,7 @@ body {
 /* calender */
 .calendar-popup {
   position: fixed;
-  width: 85%;
+  width: 600px;
   background: rgba(18, 21, 21, 0.9);
   padding: 30px;
   top: 50%;
@@ -581,15 +581,17 @@ body {
   transform: translate(-50%, -50%);
   border: 1px solid; }
   .calendar-popup ul {
-    padding-bottom: 10px;
-    border-bottom: 1px solid;
-    margin-bottom: 10px; }
+    padding-top: 10px;
+    border-top: 1px solid;
+    margin-top: 10px; }
     .calendar-popup ul li {
       display: inline-block;
-      padding: 10px;
       border: 2px solid #1385e5;
       margin: 5px;
       border-radius: 3px;
       font-size: 20px;
       text-align: center;
       cursor: pointer; }
+      .calendar-popup ul li span {
+        display: inline-block;
+        padding: 14.5px; }

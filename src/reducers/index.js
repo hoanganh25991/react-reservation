@@ -25,7 +25,8 @@ export const initState = {
   // Popup
   visiblePopup: false,
   popup: {},
-  calendarDateIndex: null
+  calendarDateIndex: null,
+  checkmark: 0
 }
 
 const adminPage = (state = initState, action) => {
@@ -84,8 +85,11 @@ const adminPage = (state = initState, action) => {
     }
 
     case c.SHOW_CALENDAR:
+    case c.HIDE_CALENDAR:
     case c.INJECT_CALENDAR:
-    case c.CHECK_INDEX_DATE_ARRAY: {
+    case c.CHECK_INDEX_DATE_ARRAY:
+    case c.CHECKMARK_BTN_SAVE:
+    case c.UPDATE_DATE_AND_TIME: {
       return calendar(state, action)
     }
     default:

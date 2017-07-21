@@ -43,3 +43,12 @@ export const actionSearchAvailableTime = () => {
 }
 
 export const actionCheckIndexDateArray = index => ({ type: c.CHECK_INDEX_DATE_ARRAY, index })
+
+export const actionCheckMarkBtnSave = i => ({ type: c.CHECKMARK_BTN_SAVE, i })
+
+export const actionUpdateDateAndTime = date => {
+  return dispatch => {
+    dispatch({ type: c.UPDATE_DATE_AND_TIME, date })
+    dispatch(actionHideCalendarPopup())
+  }
+}

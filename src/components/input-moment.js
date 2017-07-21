@@ -36,6 +36,7 @@ export default class InputMoment extends Component {
       days,
       availableHour,
       actionCheckIndexDateArray,
+      checkmark,
       ...props
     } = this.props
     const cls = cx("m-input-moment", className)
@@ -79,7 +80,11 @@ export default class InputMoment extends Component {
           />
         </div>
 
-        <button type="button" className="im-btn btn-save ion-checkmark" onClick={this.handleSave}>
+        <button
+          type="button"
+          className={cx("im-btn btn-save", { "ion-checkmark": checkmark == 1 })}
+          onClick={this.handleSave}
+        >
           Save
         </button>
       </div>

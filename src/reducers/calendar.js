@@ -31,14 +31,23 @@ export default (state, action) => {
       // let availableHour = Object.keys(availableDate).map(key => availableDate[key])
       // console.log(availableHour)
       // console.log(availableHour[0])
-
-      // Fail case, no reservation found
+      let checkmark = 0
       let calendarDateIndex = 0
-      return { ...state, calendarDateIndex, availableDate }
+      return { ...state, calendarDateIndex, availableDate, checkmark }
     }
     case c.CHECK_INDEX_DATE_ARRAY: {
       let calendarDateIndex = action.index
       return { ...state, calendarDateIndex }
+    }
+    case c.CHECKMARK_BTN_SAVE: {
+      let checkmark = action.i
+      return { ...state, checkmark }
+    }
+    case c.UPDATE_DATE_AND_TIME: {
+      let { popup: currPopup } = state
+      let reservation_timestamp = action.date
+      let popup = { ...currPopup, reservation_timestamp }
+      return { ...state, popup }
     }
     default: {
       return state
