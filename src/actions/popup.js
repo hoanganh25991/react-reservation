@@ -52,6 +52,7 @@ export const actionUpdateReservation = () => {
       data: { outlet_id, reservations, type: c.AJAX_UPDATE_RESERVATIONS },
       type: c.POST_JSON
     }
+    console.log(ajax_options)
     dispatch(fetchData(ajax_options)).then(res => {
       let { data: { reservations } } = res
       dispatch(actionUpdateReservations(reservations))

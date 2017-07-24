@@ -5,6 +5,7 @@ import filter from "./filter"
 import router from "./router"
 import popup from "./popup"
 import calendar from "./calendar"
+import newPopup from "./newPopup"
 
 export const initState = {
   // Store reservations
@@ -92,6 +93,13 @@ const adminPage = (state = initState, action) => {
     case c.UPDATE_DATE_AND_TIME: {
       return calendar(state, action)
     }
+
+    case c.INIT_NEW_POPUP:
+    case c.SHOW_NEW_POPUP:
+    case c.HIDE_NEW_POPUP: {
+      return newPopup(state, action)
+    }
+
     default:
       return state
   }

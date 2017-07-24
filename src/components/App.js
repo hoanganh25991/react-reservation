@@ -8,7 +8,7 @@ import HoiReservationPopup from "../containers/HoiReservationPopup"
 import HoiHeaderAction from "../containers/HoiHeaderAction"
 import HoiStatusBar from "../containers/HoiStatusBar"
 import HoiCalendarPopup from "../containers/HoiCalendarPopup"
-
+import HoiNewReservationPopup from "../containers/HoiNewReservationPopup"
 class App extends React.Component {
   render() {
     return (
@@ -19,7 +19,9 @@ class App extends React.Component {
         <HoiStatusBar />
         <HoiReservationList />
         <HoiReservationPopup />
+        <HoiNewReservationPopup />
         <HoiCalendarPopup />
+
       </div>
     )
   }

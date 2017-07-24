@@ -19,6 +19,7 @@ export * from "./reservations"
 export * from "./filter"
 export * from "./popup"
 export * from "./calendar"
+export * from "./newPopup"
 /*
  |--------------------------------------------------------------------------
  | User

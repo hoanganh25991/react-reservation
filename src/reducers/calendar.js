@@ -25,12 +25,7 @@ export default (state, action) => {
     }
     case c.INJECT_CALENDAR: {
       let availableDate = action.available_time
-      // console.log("date", availableDate)
-      // console.log(Object.keys(availableDate))
-      // // console.log(Object.keys(date)[0])
-      // let availableHour = Object.keys(availableDate).map(key => availableDate[key])
-      // console.log(availableHour)
-      // console.log(availableHour[0])
+
       let checkmark = 0
       let calendarDateIndex = 0
       return { ...state, calendarDateIndex, availableDate, checkmark }
@@ -46,7 +41,8 @@ export default (state, action) => {
     case c.UPDATE_DATE_AND_TIME: {
       let { popup: currPopup } = state
       let reservation_timestamp = action.date
-      let popup = { ...currPopup, reservation_timestamp }
+      let date = moment(reservation_timestamp, "YYYY-MM-DD HH:mm:ss")
+      let popup = { ...currPopup, reservation_timestamp, date }
       return { ...state, popup }
     }
     default: {

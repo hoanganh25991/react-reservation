@@ -266,7 +266,8 @@ body {
       font-size: 15px;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.4);
-      font-weight: 400; }
+      font-weight: 400;
+      width: 100%; }
     .popup .self-center .content .info .customer-info .customer-text {
       font-size: 20px;
       width: 85px;
@@ -368,63 +369,6 @@ body {
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%); }
-      .popup .self-center .content .date-reminder-info .reminder-info .checkbox, .popup .self-center .content .date-reminder-info .reminder-info .radio {
-        position: relative;
-        display: block;
-        margin: 15px 10px 10px 0; }
-      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:not(:checked) {
-        position: absolute;
-        left: -9999px;
-        opacity: 0; }
-      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:checked {
-        position: absolute;
-        left: -9999px;
-        opacity: 0; }
-        .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:checked + label:before {
-          top: -6px;
-          left: -2px;
-          width: 7px;
-          height: 20px;
-          border-top: 2px solid transparent;
-          border-left: 2px solid transparent;
-          border-right: 3px solid rgba(112, 136, 253, 0.9);
-          border-bottom: 3px solid rgba(112, 136, 253, 0.9);
-          -webkit-transform: rotate(40deg);
-          transform: rotate(40deg);
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%;
-          z-index: 1;
-          background-color: transparent; }
-      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"] + label {
-        position: relative;
-        padding-left: 35px;
-        cursor: pointer;
-        display: inline-block;
-        height: 25px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -ms-user-select: none;
-        font-size: 20px;
-        font-weight: lighter;
-        font-stretch: normal;
-        line-height: 1.17;
-        letter-spacing: normal;
-        font-weight: 400; }
-      .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"] + label:before, .popup .self-center .content .date-reminder-info .reminder-info [type="checkbox"]:not(.filled-in) + label:after {
-        content: '';
-        position: absolute;
-        top: -5px;
-        left: 0;
-        z-index: 0;
-        margin-top: 2px;
-        transition: .2s;
-        width: 25px;
-        height: 25px;
-        border: solid 1px rgba(255, 255, 255, 0.1);
-        background-color: rgba(0, 0, 0, 0.3); }
     .popup .self-center .content .remarks textarea {
       background-image: -webkit-linear-gradient(left, transparent 12px, transparent 12px), -webkit-linear-gradient(right, transparent 12px, transparent 12px), -webkit-linear-gradient(top, transparent 31px, #cccccc 30px, #cccccc 31px, transparent 32px);
       background-size: 100% 100%, 100% 100%, 100% 33px;
@@ -473,6 +417,22 @@ body {
           border: 1px solid #00ffff;
           margin-bottom: 3px;
           cursor: pointer; }
+    .popup .self-center .content .remarks .customer-text {
+      font-size: 20px;
+      width: 85px;
+      padding-top: 15px; }
+    .popup .self-center .content .remarks .amount input {
+      width: calc(100% - 80px);
+      font-size: 20px;
+      padding: 8px 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: rgba(112, 136, 253, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 5px;
+      font-weight: 100; }
+    .popup .self-center .content .remarks .amount .disabled {
+      pointer-events: none;
+      background-color: rgba(251, 251, 251, 0.3); }
   .popup .self-center .btn-bottom {
     padding-top: 40px; }
     .popup .self-center .btn-bottom .btn-send {
@@ -595,3 +555,65 @@ body {
       .calendar-popup ul li span {
         display: inline-block;
         padding: 14.5px; }
+
+.reminder-info .checkbox, .reminder-info .radio {
+  position: relative;
+  display: block;
+  margin: 15px 10px 10px 0; }
+
+.reminder-info [type="checkbox"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+  opacity: 0; }
+
+.reminder-info [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+  opacity: 0; }
+  .reminder-info [type="checkbox"]:checked + label:before {
+    top: -6px;
+    left: -2px;
+    width: 7px;
+    height: 20px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 3px solid rgba(112, 136, 253, 0.9);
+    border-bottom: 3px solid rgba(112, 136, 253, 0.9);
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    z-index: 1;
+    background-color: transparent; }
+
+.reminder-info [type="checkbox"] + label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  display: inline-block;
+  height: 25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  font-size: 20px;
+  font-weight: lighter;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  font-weight: 400; }
+
+.reminder-info [type="checkbox"] + label:before, .reminder-info [type="checkbox"]:not(.filled-in) + label:after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  z-index: 0;
+  margin-top: 2px;
+  transition: .2s;
+  width: 25px;
+  height: 25px;
+  border: solid 1px rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.3); }

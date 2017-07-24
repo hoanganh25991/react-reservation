@@ -36,7 +36,7 @@ class HeaderAction extends React.Component {
 
   render() {
     let { initFilter } = this.props
-    let { actionPrintReservation, actionReloadFilterByDay } = this.props
+    let { actionPrintReservation, actionReloadFilterByDay, actionShowHideNewPopup } = this.props
     return (
       <div>
         <div className="modal-header row">
@@ -57,7 +57,7 @@ class HeaderAction extends React.Component {
                 </svg>
               </span>
             </div>
-            <div className="modal-btn">
+            <div className="modal-btn" onClick={e => actionShowHideNewPopup()}>
               <span>
                 <svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
