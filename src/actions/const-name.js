@@ -155,6 +155,7 @@ export const CUSTOMER_REMARKS = "customer_remarks"
 export const STAFF_REMARKS = "staff_remarks"
 export const SEND_SMS_CONFIRMATION = "send_sms_confirmation"
 export const PAYMENT_AMOUNT = "payment_amount"
+export const PAYMENT_REQUIRED = "payment_required"
 
 /**
  * create reservation
@@ -165,3 +166,4 @@ export const CREATE_RESERVATION_POPUP = "CREATE_RESERVATION_POPUP"
 export const SHOW_NEW_POPUP = "SHOW_NEW_POPUP"
 export const HIDE_NEW_POPUP = "HIDE_NEW_POPUP"
 export const INIT_NEW_POPUP = "INIT_NEW_POPUP"
+export const UPDATE_PAYMENT_AMOUNT = "UPDATE_PAYMENT_AMOUNT"

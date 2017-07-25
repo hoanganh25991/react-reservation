@@ -1,23 +1,21 @@
 import { connect } from "react-redux"
 import { actionEditCustomerInfo, actionUpdatePax } from "../actions"
 import {
-  // actionHidePopup,
-  // actionUpdatePopupStatus,
   actionAddUp,
   actionUpdateReservation,
   actionUpdateName,
-  // actionUpdatePaymentStatus,
-  // actionSendReminder,
   actionShowHideCalendar,
-  actionHideNewPopup
+  actionHideNewPopup,
+  actionUpdatePaymentAmount,
+  actionNewReservationPopup
 } from "../actions"
 import NewReservationPopup from "../components/NewReservationPopup"
 
-const mapStateToProps = ({ popup }) => {
-  //console.log(outlet);
-
+const mapStateToProps = state => {
+  let { popup, payment_authorization } = state
   return {
-    popup
+    popup,
+    payment_authorization
   }
 }
 
@@ -32,7 +30,9 @@ const mapActionToProps = dispatch => ({
   // actionUpdatePaymentStatus: payment_status => dispatch(actionUpdatePaymentStatus(payment_status)),
   // actionSendReminder: confirm_id => dispatch(actionSendReminder(confirm_id)),
   actionShowHideCalendar: () => dispatch(actionShowHideCalendar()),
-  actionHideNewPopup: () => dispatch(actionHideNewPopup())
+  actionHideNewPopup: () => dispatch(actionHideNewPopup()),
+  actionUpdatePaymentAmount: () => dispatch(actionUpdatePaymentAmount()),
+  actionNewReservationPopup: sms_message_on_reserved => dispatch(actionNewReservationPopup(sms_message_on_reserved))
 })
 
 export default connect(mapStateToProps, mapActionToProps)(NewReservationPopup)

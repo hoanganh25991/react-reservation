@@ -151,6 +151,18 @@ export default (state, action) => {
           popup = { ...currPopup, send_sms_confirmation }
           return { ...state, popup }
         }
+        case c.PAYMENT_REQUIRED: {
+          let { payment_required } = currPopup
+          payment_required = action.value
+          popup = { ...currPopup, payment_required }
+          return { ...state, popup }
+        }
+        case c.PAYMENT_AMOUNT: {
+          let { payment_amount } = currPopup
+          payment_amount = action.value
+          popup = { ...currPopup, payment_amount }
+          return { ...state, popup }
+        }
         default:
           return { ...state, popup }
       }

@@ -27,7 +27,10 @@ export const initState = {
   visiblePopup: false,
   popup: {},
   calendarDateIndex: null,
-  checkmark: 0
+  checkmark: 0,
+  payment_authorization: {
+    deposit: null
+  }
 }
 
 const adminPage = (state = initState, action) => {
@@ -96,7 +99,9 @@ const adminPage = (state = initState, action) => {
 
     case c.INIT_NEW_POPUP:
     case c.SHOW_NEW_POPUP:
-    case c.HIDE_NEW_POPUP: {
+    case c.HIDE_NEW_POPUP:
+    case c.UPDATE_PAYMENT_AMOUNT:
+    case c.CREATE_RESERVATION_POPUP: {
       return newPopup(state, action)
     }
 

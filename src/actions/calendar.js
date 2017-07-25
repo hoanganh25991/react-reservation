@@ -1,5 +1,5 @@
 import * as c from "./const-name"
-// import { actionFetchReservationsByDay } from "./reservations"
+import { actionUpdatePaymentAmount } from "./newPopup"
 import { fetchData } from "../actions/fetch-data"
 import { getAvaibleTime } from "../selectors"
 
@@ -14,7 +14,11 @@ export const actionShowHideCalendar = () => {
   }
 }
 
-const actionInjectCalendar = ({ available_time }) => ({ type: c.INJECT_CALENDAR, available_time })
+const actionInjectCalendar = ({ available_time, paymentAuthorization }) => ({
+  type: c.INJECT_CALENDAR,
+  available_time,
+  paymentAuthorization
+})
 
 export const actionSearchAvailableTime = () => {
   return (dispatch, getState) => {
@@ -31,7 +35,11 @@ export const actionSearchAvailableTime = () => {
     dispatch(fetchData(ajax_options)).then(res => {
       dispatch({ type: c.FETCH_AVAILABLE_TIME })
       let available_time = res.data.available_time
-      dispatch(actionInjectCalendar({ available_time }))
+      let paymentAuthorization = res.data.payment_authorization
+      dispatch(actionInjectCalendar({ available_time, paymentAuthorization }))
+      if (popup.showHide === c.SHOW_NEW_POPUP) {
+        dispatch(actionUpdatePaymentAmount())
+      }
     })
   }
 }

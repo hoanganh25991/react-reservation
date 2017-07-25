@@ -7,12 +7,13 @@ const mapStateToProps = state => {
   // let a = getAva(state);
   let calendarTime = getCalendarTime(state)
   //console.log(outlet);
-  let { popup, checkmark } = state
+  let { popup, checkmark, payment_authorization } = state
   // console.log('availableDate',availableDate)
   return {
     popup,
     calendarTime,
-    checkmark
+    checkmark,
+    payment_authorization
   }
 }
 const mapActionToProps = dispatch => ({

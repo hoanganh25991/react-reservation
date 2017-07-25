@@ -82,7 +82,7 @@ export default class InputMoment extends Component {
 
         <button
           type="button"
-          className={cx("im-btn btn-save", { "ion-checkmark": checkmark == 1 })}
+          className={cx("im-btn btn-save", { "ion-checkmark": checkmark === 1 })}
           onClick={this.handleSave}
         >
           Save

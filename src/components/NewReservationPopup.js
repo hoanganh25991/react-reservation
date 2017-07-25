@@ -38,17 +38,24 @@ export default class ReservationPopup extends React.Component {
     actionUpdateName(name, value)
   }
 
+  updatePaymentAmout = () => {
+    let { actionShowHideCalendar } = this.props
+    actionShowHideCalendar()
+  }
   render() {
-    let { popup } = this.props
-    let { updatePopupStatus } = this.props
-    let { actionUpdatePopupStatus } = this.props
+    let { popup, payment_authorization } = this.props
+    // let { updatePopupStatus } = this.props
+    // let { actionUpdatePopupStatus } = this.props
     let { actionAddUp } = this.props
     let { outlet } = this.props
-    let { actionUpdateReservation } = this.props
-    let { actionUpdatePaymentStatus } = this.props
-    let { actionSendReminder } = this.props
-    let { actionShowHideCalendar } = this.props
-
+    let { actionNewReservationPopup } = this.props
+    // let { actionUpdatePaymentStatus } = this.props
+    // let { actionSendReminder } = this.props
+    let { actionShowHideCalendar, actionUpdatePaymentAmount } = this.props
+    // popup.payment_amount = payment_authorization.deposit
+    // if(payment_authorization.deposit !== null){
+    //   actionUpdatePaymentAmount()
+    // }
     return (
       <div>
         {/* Only show it up when status as SHOW_POP_UP */
@@ -192,7 +199,7 @@ export default class ReservationPopup extends React.Component {
                             <p>{popup.date ? popup.date.format("DD MMM YYYY") : popup.reservation_timestamp}</p>
                             <p>{popup.date ? popup.date.format("HH:mm") : popup.reservation_timestamp}</p>
                           </div>
-                          <div className="col-xs date-svg" onClick={() => actionShowHideCalendar()}>
+                          <div className="col-xs date-svg" onClick={() => this.updatePaymentAmout()}>
                             <span>
                               <svg
                                 version="1.1"
@@ -288,15 +295,17 @@ export default class ReservationPopup extends React.Component {
                   </div>
                 </div>
                 <div className="btn-bottom row">
-                  <div className="col-xs-7 row">
-                    <div className="col-xs-7 btn-send" onClick={() => actionSendReminder(popup.confirm_id)}>
-                      Save & SMS Customer
-                    </div>
-                    <div className="col-xs-5 btn-empty" />
-                  </div>
                   <div className="col-xs-5 row">
-                    <div className="col-xs btn-cancel" onClick={this.onClick}>cancel</div>
-                    <div className="col-xs btn-update" onClick={() => actionUpdateReservation()}>Save</div>
+                    <div className="col-xs-6 btn-cancel" onClick={this.onClick}>
+                      cancel
+                    </div>
+                    <div className="col-xs-6 btn-empty" />
+                  </div>
+                  <div className="col-xs-7 row">
+                    <div className="col-xs-5 btn-send" onClick={() => actionNewReservationPopup(0)}>Save</div>
+                    <div className="col-xs-7 btn-update" onClick={() => actionNewReservationPopup(1)}>
+                      Save & SMS Customer{" "}
+                    </div>
                   </div>
                 </div>
               </div>

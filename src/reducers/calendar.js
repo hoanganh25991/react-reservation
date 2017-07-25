@@ -25,10 +25,10 @@ export default (state, action) => {
     }
     case c.INJECT_CALENDAR: {
       let availableDate = action.available_time
-
+      let payment_authorization = action.paymentAuthorization
       let checkmark = 0
       let calendarDateIndex = 0
-      return { ...state, calendarDateIndex, availableDate, checkmark }
+      return { ...state, calendarDateIndex, availableDate, checkmark, payment_authorization }
     }
     case c.CHECK_INDEX_DATE_ARRAY: {
       let calendarDateIndex = action.index
@@ -42,8 +42,9 @@ export default (state, action) => {
       let { popup: currPopup } = state
       let reservation_timestamp = action.date
       let date = moment(reservation_timestamp, "YYYY-MM-DD HH:mm:ss")
+      let checkmark = 0
       let popup = { ...currPopup, reservation_timestamp, date }
-      return { ...state, popup }
+      return { ...state, popup, checkmark }
     }
     default: {
       return state

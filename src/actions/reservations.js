@@ -33,6 +33,7 @@ const actionFetchReservationsFail = response => ({
 //
 // Fetch reservations
 export const actionFetchReservations = ({ data }) => {
+  console.log(data)
   return (dispatch, getState) => {
     // Explicit tell call a thunk
     dispatch({ type: c.THUNK_FETCH_RESERVATIONS })
