@@ -10,6 +10,7 @@ import "../css/ReservationPopupLayout.css"
 import "../css/flexboxgrid.css"
 import "../css/color.css"
 import CountDown from "./CountDown"
+import cx from "classnames"
 
 export default class ReservationPopup extends React.Component {
   constructor(props) {
@@ -285,6 +286,7 @@ export default class ReservationPopup extends React.Component {
                       <div className="customer-text">Amount</div>
                       <div className="col-xs amount">
                         <input
+                          className={cx({ disabled: popup.payment_required === 0 || popup.payment_required === false })}
                           type="text"
                           name="payment_amount"
                           value={popup.payment_amount || ""}

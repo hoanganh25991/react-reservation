@@ -1,6 +1,6 @@
 import * as c from "./const-name"
 import { fetchData } from "../actions/fetch-data"
-import { actionFetchReservations } from "../actions/reservations"
+import { actionFetchReservationsByDay } from "../actions/reservations"
 export const actionShowNewPopup = () => ({ type: c.SHOW_NEW_POPUP })
 export const actionHideNewPopup = () => ({ type: c.HIDE_NEW_POPUP })
 
@@ -26,7 +26,7 @@ export const actionNewReservationPopup = sms_message_on_reserved => {
     dispatch({ type: c.THUNK_CREATE_RESERVATION_POPUP })
     dispatch({ type: c.CREATE_RESERVATION_POPUP, sms_message_on_reserved })
 
-    let { popup } = getState()
+    let { popup, filterByDay, outlet_id } = getState()
     let salutation = popup.salutation
     let first_name = popup.first_name
     let last_name = popup.last_name
@@ -41,7 +41,6 @@ export const actionNewReservationPopup = sms_message_on_reserved => {
     let payment_amount = popup.payment_amount
     let customer_remarks = popup.customer_remarks
     let staff_remarks = popup.staff_remarks
-    let outlet_id = popup.outlet_id
     let sms_message_on_reserved = popup.sms_message_on_reserved
     // Build ajax options
     let ajax_options = {
@@ -67,13 +66,10 @@ export const actionNewReservationPopup = sms_message_on_reserved => {
       },
       type: c.POST_JSON
     }
-    console.log(ajax_options)
     dispatch(fetchData(ajax_options)).then(res => {
       let { data: { reservation } } = res
-      console.log(res)
-
       dispatch(actionHideNewPopup())
-      //   dispatch(actionFetchReservations())
+      dispatch(actionFetchReservationsByDay({ day: filterByDay }))
     })
   }
 }

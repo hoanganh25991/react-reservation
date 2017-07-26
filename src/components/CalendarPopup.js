@@ -16,24 +16,16 @@ class CalendarPopup extends React.Component {
   }
 
   handleSave = () => {
-    console.log("saved", this.state.m.format("YYYY-MM-DD HH:mm:ss"))
     let isDate = this.state.m.format("YYYY-MM-DD HH:mm:ss")
     this.props.actionUpdateDateAndTime(isDate)
   }
   render() {
-    let { popup, calendarTime, actionCheckIndexDateArray, checkmark } = this.props
+    let { popup, calendarTime, actionCheckIndexDateArray, checkmark, actionHideCalendarPopup } = this.props
     let days = []
     let availableHour = []
     if (calendarTime !== null) {
-      // console.log(Object.keys(calendarTime))
       days = Object.keys(calendarTime)
-
-      // // console.log(Object.keys(date)[0])
       availableHour = Object.keys(calendarTime).map(key => calendarTime[key])
-      // console.log(availableHour)
-
-      // let date = Object.keys(calendarTime)
-      // let reservationStatus = { status, payment_status, payment_currency, payment_amount }
     }
 
     return (
@@ -41,7 +33,7 @@ class CalendarPopup extends React.Component {
         {/* Only show it up when status as SHOW_POP_UP */
         popup.showHideCalendar === c.SHOW_CALENDAR
           ? <div className="calendar-popup">
-
+              <span onClick={() => actionHideCalendarPopup()} className="close thick" />
               <div className="date-popup">
 
                 <div className="input">

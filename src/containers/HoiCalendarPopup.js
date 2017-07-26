@@ -1,5 +1,10 @@
 import { connect } from "react-redux"
-import { actionSearchAvailableTime, actionCheckIndexDateArray, actionUpdateDateAndTime } from "../actions"
+import {
+  actionSearchAvailableTime,
+  actionCheckIndexDateArray,
+  actionUpdateDateAndTime,
+  actionHideCalendarPopup
+} from "../actions"
 import CalendarPopup from "../components/CalendarPopup"
 import { getCalendarTime } from "../selectors"
 
@@ -21,7 +26,8 @@ const mapActionToProps = dispatch => ({
   actionSearchAvailableTime: () => dispatch(actionSearchAvailableTime()),
   //   actionPrintReservation: () => dispatch(actionPrintReservation()),
   actionCheckIndexDateArray: index => dispatch(actionCheckIndexDateArray(index)),
-  actionUpdateDateAndTime: date => dispatch(actionUpdateDateAndTime(date))
+  actionUpdateDateAndTime: date => dispatch(actionUpdateDateAndTime(date)),
+  actionHideCalendarPopup: () => dispatch(actionHideCalendarPopup())
 })
 
 export default connect(mapStateToProps, mapActionToProps)(CalendarPopup)
