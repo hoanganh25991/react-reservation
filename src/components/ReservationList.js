@@ -12,11 +12,6 @@ class ReservationList extends React.Component {
 
   render() {
     let { reservations, user, filtered_reservations_by_date } = this.props
-    console.log(filtered_reservations_by_date)
-    // console.log(Object.keys(filtered_reservations_by_date))
-
-    // console.log(Object.keys(filtered_reservations_by_date).map(key => filtered_reservations_by_date[key]))
-    // console.log(reservations)
     return (
       <div className="table-list">
         {Object.keys(filtered_reservations_by_date).map((datakey, row) => (
