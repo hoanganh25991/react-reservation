@@ -45,6 +45,15 @@ body {
   body .header svg {
     margin-top: 3px;
     padding: 0 5px; }
+  body .header .log-out {
+    padding: 5px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    margin: 5px 10px 5px 0;
+    border-radius: 5px;
+    cursor: pointer; }
+    body .header .log-out svg {
+      margin-top: 5px;
+      fill: white; }
   body .modal-header .modal-btn {
     padding: 10px 15px;
     border: 1px solid rgba(255, 255, 255, 0.7);

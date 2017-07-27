@@ -11,9 +11,10 @@ import HoiCalendarPopup from "../containers/HoiCalendarPopup"
 import HoiNewReservationPopup from "../containers/HoiNewReservationPopup"
 class App extends React.Component {
   render() {
+    let { history } = this.props
     return (
       <div>
-        <HoiNavaigatorPanel />
+        <HoiNavaigatorPanel history={history} />
         <HoiHeaderAction />
         <HoiFilterPanel />
         <HoiStatusBar />

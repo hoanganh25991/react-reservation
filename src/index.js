@@ -31,7 +31,6 @@ import HoiLogin from "./containers/HoiLogin"
 import HoiLogout from "./containers/HoiLogout"
 //Funny
 import ClickSound from "./components/ClickSound"
-import ViReservation from "./components/ViReservation"
 
 // Add router
 import { Route, Link } from "react-router-dom"
@@ -48,7 +47,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
       <div>
         <ClickSound />
-        <ul>
+        {/* <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/login">Login</Link></li>
           <li><Link to="/logout">Logout</Link></li>
@@ -56,14 +55,13 @@ ReactDOM.render(
           <li><Link to="/viReservation">Vi Page</Link></li>
         </ul>
 
-        <hr />
+        <hr /> */}
 
         <Route exact path="/" component={HoiLogin} />
         <Route exact path="/login" component={HoiLogin} />
         <Route path="*login/:user_name/:password" component={HoiLogin} />
         <Route path="/logout" component={HoiLogout} />
         <Route path="/reservations" component={App} />
-        <Route path="/viReservation" component={ViReservation} />
       </div>
     </ConnectedRouter>
   </Provider>,

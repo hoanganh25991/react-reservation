@@ -43,7 +43,7 @@ class Login extends React.Component {
 
     return (
       <div>
-        <h1>{status}</h1>
+        {/* <h1>{status}</h1> */}
 
         {status != c.LOGIN_SUCCESS
           ? <form
@@ -55,13 +55,13 @@ class Login extends React.Component {
               <input
                 type="text"
                 placeholder="username"
-                value={user.user_name}
+                value={user.user_name || ""}
                 onChange={e => updateUser({ user_name: e.target.value })}
               />
               <input
                 type="password"
                 placeholder="password"
-                value={user.password}
+                value={user.password || ""}
                 onChange={e => updateUser({ password: e.target.value })}
               />
               <button>Login</button>
