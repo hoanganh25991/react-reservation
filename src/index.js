@@ -35,8 +35,6 @@ import ClickSound from "./components/ClickSound"
 // Add router
 import { Route, Link } from "react-router-dom"
 
-import registerServiceWorker from "./registerServiceWorker"
-
 const history = createHistory()
 const routerMiddlewareInstance = routerMiddleware(history)
 // Store
@@ -67,5 +65,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 )
-
-//registerServiceWorker()
