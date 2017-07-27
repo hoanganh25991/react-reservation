@@ -32,39 +32,40 @@ body {
     font-size: 20px;
     padding: 0 10px 5px 0; }
   body .header .name {
-    padding: 15px 0 0 20px; }
+    padding: 25px 0 0 10px; }
   body .header h1 {
     font-size: 35px;
     border-left: 1px solid;
     padding: 0 5px;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-right: 10px; }
   body .header p {
     font-size: 13px;
-    padding: 5px 10px 3px 0; }
+    padding: 15px 10px 3px 0; }
   body .header svg {
     margin-top: 3px;
     padding: 0 5px; }
   body .header .log-out {
     padding: 5px 5px;
     border: 1px solid rgba(255, 255, 255, 0.7);
-    margin: 5px 10px 5px 0;
+    margin: 15px 10px 5px 0;
     border-radius: 5px;
-    cursor: pointer; }
+    cursor: pointer;
+    display: inline-block; }
     body .header .log-out svg {
       margin-top: 5px;
       fill: white; }
   body .modal-header .modal-btn {
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: 1px solid rgba(255, 255, 255, 0.7);
-    margin: 5px 10px;
+    margin: 10px 10px;
     border-radius: 5px;
     cursor: pointer; }
     body .modal-header .modal-btn:hover {
       background: rgba(0, 0, 0, 0.5); }
   body .modal-header .wrap-search {
     float: right;
-    padding: 5px; }
+    padding: 10px; }
     body .modal-header .wrap-search #search {
       width: 357px;
       margin: 4px; }

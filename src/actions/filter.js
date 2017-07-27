@@ -57,6 +57,14 @@ export const actionClearFilterByStatus = () => ({
   type: c.CLEAR_FILTER_BY_STATUS
 })
 
+export const actionChangeDay = day => {
+  return dispatch => {
+    dispatch(actionIsChangeInputDay())
+
+    dispatch(actionToggleFilterByDay(day))
+  }
+}
+const actionIsChangeInputDay = () => ({ type: c.IS_CHANGE_INPUT_DAY })
 export const actionShowFilter = () => ({ type: c.SHOW_FILTER })
 export const actionHideFilter = () => ({ type: c.HIDE_FILTER })
 // init popup when clicked

@@ -54,7 +54,8 @@ const adminPage = (state = initState, action) => {
     case c.TOGGLE_INPUT_PICK_A_DATE:
     case c.SHOW_FILTER:
     case c.HIDE_FILTER:
-    case c.THUNK_SEARCH_RESERVATION: {
+    case c.THUNK_SEARCH_RESERVATION:
+    case c.IS_CHANGE_INPUT_DAY: {
       return filter(state, action)
     }
     case c.RESET_APP: {

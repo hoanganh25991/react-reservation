@@ -3,7 +3,8 @@ import {
   actionToggleInputPickADate,
   actionToggleFilterByDay,
   actionToggleFilterByStatus,
-  actionClearFilterByStatus
+  actionClearFilterByStatus,
+  actionChangeDay
 } from "../actions"
 import FilterPanel from "../components/FilterPanel"
 
@@ -23,7 +24,8 @@ const mapActionToProps = dispatch => ({
   toggleInputPickADate: () => dispatch(actionToggleInputPickADate()),
   toggleFilterByDay: day => dispatch(actionToggleFilterByDay(day)),
   toggleFilterByStatus: status => dispatch(actionToggleFilterByStatus(status)),
-  clearFilterByStatus: () => dispatch(actionClearFilterByStatus())
+  clearFilterByStatus: () => dispatch(actionClearFilterByStatus()),
+  actionChangeDay: day => dispatch(actionChangeDay(day))
 })
 
 export default connect(mapStateToProps, mapActionToProps)(FilterPanel)

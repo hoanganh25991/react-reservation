@@ -1,6 +1,5 @@
 import cx from "classnames"
 import React, { Component } from "react"
-import InputSlider from "react-input-slider"
 import _ from "lodash"
 import chunk from "lodash/chunk"
 import moment from "moment"

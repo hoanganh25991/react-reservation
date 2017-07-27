@@ -15,7 +15,7 @@ class App extends React.Component {
     return (
       <div>
         <HoiNavaigatorPanel history={history} />
-        <HoiHeaderAction />
+        {/* <HoiHeaderAction /> */}
         <HoiFilterPanel />
         <HoiStatusBar />
         <HoiReservationList />

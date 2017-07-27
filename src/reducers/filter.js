@@ -62,6 +62,14 @@ export default (state, action) => {
 
       return { ...state, reservations }
     }
+    case c.IS_CHANGE_INPUT_DAY: {
+      let { visibleInputPickADate: currVisibleInput } = state
+
+      if (currVisibleInput === true) {
+        let visibleInputPickADate = false
+        return { ...state, visibleInputPickADate }
+      }
+    }
     default:
       return state
   }
