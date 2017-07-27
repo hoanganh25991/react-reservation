@@ -53,9 +53,15 @@ export const actionUpdateReservation = () => {
       type: c.POST_JSON
     }
     dispatch(fetchData(ajax_options)).then(res => {
-      let { data: { reservations } } = res
-      dispatch(actionUpdateReservations(reservations))
-      dispatch(actionHidePopup())
+      if (res.statusCode === 200) {
+        let { data: { reservations } } = res
+        dispatch(actionUpdateReservations(reservations))
+        dispatch(actionHidePopup())
+      }
+      if (res.statusCode === 422) {
+        let msg = `${res.statusMsg}`
+        window.alert(msg)
+      }
     })
   }
 }

@@ -67,9 +67,15 @@ export const actionNewReservationPopup = sms_message_on_reserved => {
       type: c.POST_JSON
     }
     dispatch(fetchData(ajax_options)).then(res => {
-      let { data: { reservation } } = res
-      dispatch(actionHideNewPopup())
-      dispatch(actionFetchReservationsByDay({ day: filterByDay }))
+      if (res.statusCode === 200) {
+        let { data: { reservation } } = res
+        dispatch(actionHideNewPopup())
+        dispatch(actionFetchReservationsByDay({ day: filterByDay }))
+      }
+      if (res.statusCode === 422) {
+        let msg = `${res.statusMsg}`
+        window.alert(msg)
+      }
     })
   }
 }
